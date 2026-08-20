@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>F.lli Mazzola — Costruzioni e ristrutturazioni a Chiavari (GE)</title>
+<meta name="description" content="F.lli Mazzola: Costruzioni e ristrutturazioni a Chiavari e provincia di Genova. Dal 1979. Sopralluogo e preventivo gratuiti.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23070910'/><text x='50' y='66' font-size='46' font-family='sans-serif' font-weight='bold' fill='%238FB0FF' text-anchor='middle'>FM</text></svg>">
+<style>
+:root{
+ --bg:#05060a; --bg2:#080a12; --glass:rgba(255,255,255,.045); --stroke:rgba(255,255,255,.1);
+ --a1:#7ea6ff; --a2:#b98cff; --a3:#ff9f6e; --tx:#eef1f8; --mut:#8f96ab;
+ --disp:'Syne',sans-serif; --ui:'Inter',system-ui,sans-serif;
+ --e:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:var(--ui);font-weight:300;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+::selection{background:var(--a2);color:#05060a}
+.wrap{width:min(1240px,92vw);margin:0 auto}
+h1,h2,h3,.disp{font-family:var(--disp);font-weight:700;line-height:1.02;letter-spacing:-.03em}
+h2{font-size:clamp(2.3rem,5.2vw,4.2rem)}
+p{color:#b7bece}
+.grad{background:linear-gradient(100deg,var(--a1),var(--a2) 42%,var(--a3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--a1);font-weight:500}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:linear-gradient(120deg,var(--a1),var(--a3));box-shadow:0 0 14px var(--a1)}
+
+/* ambient mesh */
+.mesh{position:fixed;inset:0;z-index:-2;overflow:hidden;background:var(--bg)}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5}
+.b1{width:52vw;height:52vw;left:-12vw;top:-14vw;background:#2b4bb8;animation:f1 22s ease-in-out infinite alternate}
+.b2{width:44vw;height:44vw;right:-10vw;top:6vw;background:#6b3fb0;animation:f2 26s ease-in-out infinite alternate}
+.b3{width:36vw;height:36vw;left:32vw;top:44vw;background:#b5603a;opacity:.3;animation:f1 30s ease-in-out infinite alternate-reverse}
+@keyframes f1{to{transform:translate3d(9vw,7vw,0) scale(1.15)}}
+@keyframes f2{to{transform:translate3d(-8vw,10vw,0) scale(1.1)}}
+.mesh::after{content:"";position:absolute;inset:0;background:radial-gradient(90% 60% at 50% 0%,transparent,var(--bg) 78%)}
+.noise{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.05;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E")}
+#glow{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:0;
+ background:radial-gradient(circle,rgba(126,166,255,.09),transparent 62%);transform:translate(-50%,-50%);transition:opacity .4s}
+
+/* NAV */
+header{position:fixed;top:18px;left:0;right:0;z-index:120}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 12px 12px 20px;
+ background:rgba(10,12,20,.55);backdrop-filter:blur(22px);border:1px solid var(--stroke);border-radius:100px;transition:.5s var(--e)}
+.bar.stuck{background:rgba(8,10,17,.85);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.lg{display:flex;align-items:center;gap:12px}
+.lg .m{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-family:var(--disp);font-weight:800;font-size:.95rem;
+ background:linear-gradient(140deg,var(--a1),var(--a2));color:#06070c;box-shadow:0 8px 22px rgba(126,166,255,.3)}
+.lg b{font-family:var(--disp);font-size:1.02rem;letter-spacing:-.02em;display:block;line-height:1.15}
+.lg small{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+nav ul{display:flex;gap:30px;list-style:none;font-size:.84rem;color:#c4cad8}
+nav a{position:relative}
+nav a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:1px;background:linear-gradient(90deg,var(--a1),var(--a3));transition:.4s var(--e)}
+nav a:hover::after{width:100%}
+.cta-pill{display:inline-flex;align-items:center;gap:9px;padding:12px 22px;border-radius:100px;font-size:.82rem;font-weight:500;color:#06070c;
+ background:linear-gradient(100deg,var(--a1),var(--a2) 55%,var(--a3));box-shadow:0 10px 30px rgba(126,166,255,.28);transition:.45s var(--e);white-space:nowrap}
+.cta-pill:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(185,140,255,.4)}
+.ghost{display:inline-flex;align-items:center;gap:9px;padding:12px 22px;border-radius:100px;font-size:.82rem;border:1px solid var(--stroke);color:var(--tx);transition:.45s var(--e)}
+.ghost:hover{border-color:var(--a1);background:rgba(126,166,255,.08)}
+.burger{display:none;width:40px;height:40px;border-radius:12px;border:1px solid var(--stroke);background:none;position:relative;cursor:pointer}
+.burger i{position:absolute;left:11px;width:18px;height:1.5px;background:var(--tx);border-radius:2px}
+.burger i:nth-child(1){top:15px}.burger i:nth-child(2){top:22px}
+
+/* HERO */
+.hero{min-height:100svh;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:40px;padding:150px 0 80px;position:relative}
+.hero h1{font-size:clamp(2.5rem,4.8vw,4.3rem);margin:24px 0 22px}
+.hero h1 span{display:block}
+.lead{font-size:1.06rem;max-width:52ch}
+.row{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
+.stats{display:flex;gap:44px;margin-top:64px;flex-wrap:wrap}
+.stats b{font-family:var(--disp);font-size:2.6rem;background:linear-gradient(120deg,var(--a1),var(--a3));-webkit-background-clip:text;background-clip:text;color:transparent;display:block;line-height:1}
+.stats small{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+
+/* 3D SCENE */
+.scene{height:min(560px,62vh);perspective:1200px;position:relative;display:grid;place-items:center}
+.floor{position:absolute;inset:auto 0 4% 0;height:60%;transform:rotateX(74deg);transform-origin:bottom center;
+ background:
+  repeating-linear-gradient(90deg,rgba(126,166,255,.22) 0 1px,transparent 1px 62px),
+  repeating-linear-gradient(0deg,rgba(126,166,255,.22) 0 1px,transparent 1px 62px);
+ -webkit-mask-image:radial-gradient(60% 70% at 50% 100%,#000,transparent 75%);
+ mask-image:radial-gradient(60% 70% at 50% 100%,#000,transparent 75%)}
+.house{position:relative;width:230px;height:170px;transform-style:preserve-3d;animation:spin 30s linear infinite}
+@keyframes spin{from{transform:rotateX(-16deg) rotateY(0)}to{transform:rotateX(-16deg) rotateY(360deg)}}
+.house .f{position:absolute;border:1px solid rgba(160,190,255,.55);background:linear-gradient(160deg,rgba(126,166,255,.11),rgba(185,140,255,.04));
+ box-shadow:inset 0 0 40px rgba(126,166,255,.14)}
+.w1,.w2{width:230px;height:170px;left:0;top:0}
+.w1{transform:translateZ(90px)}.w2{transform:translateZ(-90px) rotateY(180deg)}
+.w3,.w4{width:180px;height:170px;left:25px;top:0}
+.w3{transform:rotateY(90deg) translateZ(115px)}.w4{transform:rotateY(-90deg) translateZ(115px)}
+.r1,.r2{width:230px;height:117px;left:0;top:0;transform-origin:top center;
+ background:linear-gradient(160deg,rgba(255,159,110,.22),rgba(185,140,255,.06));border-color:rgba(255,180,140,.6)}
+.r1{transform:translateY(-74px) rotateX(50.6deg)}
+.r2{transform:translateY(-74px) rotateX(-50.6deg)}
+.gable{width:0;height:0;border-left:90px solid transparent;border-right:90px solid transparent;border-bottom:74px solid rgba(126,166,255,.16);
+ position:absolute;left:25px;top:-74px}
+.g1{transform:rotateY(90deg) translateZ(115px)}.g2{transform:rotateY(-90deg) translateZ(115px)}
+.ring{position:absolute;width:340px;height:340px;border:1px solid rgba(255,255,255,.07);border-radius:50%;animation:rot 24s linear infinite}
+.ring.r-b{width:440px;height:440px;border-style:dashed;animation-duration:40s;animation-direction:reverse;border-color:rgba(255,159,110,.12)}
+@keyframes rot{to{transform:rotate(360deg)}}
+.tagfloat{position:absolute;padding:9px 16px;border-radius:100px;font-size:.72rem;letter-spacing:.06em;
+ background:rgba(12,15,25,.7);backdrop-filter:blur(12px);border:1px solid var(--stroke);color:#d8def0;animation:bob 6s ease-in-out infinite}
+.t1{top:12%;right:2%}.t2{bottom:16%;left:0;animation-delay:-2s}.t3{top:46%;right:-2%;animation-delay:-4s}
+@keyframes bob{50%{transform:translateY(-12px)}}
+
+section{padding:clamp(90px,10vw,150px) 0;position:relative;scroll-margin-top:100px}
+.head{max-width:880px;margin-bottom:60px}
+.head h2{font-size:clamp(2.1rem,4.2vw,3.5rem)}
+.head h2{margin:18px 0}
+.head.mid{text-align:center;margin-inline:auto}
+
+/* CARDS 3D */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.c3{position:relative;padding:34px 30px;border-radius:22px;border:1px solid var(--stroke);background:var(--glass);
+ transform-style:preserve-3d;transition:transform .25s var(--e),border-color .4s;overflow:hidden;will-change:transform}
+.c3::before{content:"";position:absolute;inset:0;opacity:0;transition:.4s;
+ background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%),rgba(126,166,255,.16),transparent 60%)}
+.c3:hover{border-color:rgba(126,166,255,.4)}
+.c3:hover::before{opacity:1}
+.c3 .ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;margin-bottom:22px;
+ background:linear-gradient(140deg,rgba(126,166,255,.22),rgba(255,159,110,.14));border:1px solid var(--stroke);
+ font-family:var(--disp);font-weight:700;font-size:.9rem;color:var(--a1);transform:translateZ(30px)}
+.c3 h3{font-size:1.32rem;margin-bottom:10px;transform:translateZ(22px)}
+.c3 p{font-size:.93rem;transform:translateZ(12px)}
+
+/* GALLERY */
+.gal3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;perspective:1400px}
+.gal3 a{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--stroke);aspect-ratio:4/3;
+ transition:.7s var(--e);transform-style:preserve-3d;background:#0b0d15}
+.gal3 a:nth-child(1),.gal3 a:nth-child(6){aspect-ratio:4/5}
+.gal3 a img{width:100%;height:100%;object-fit:cover;transition:1s var(--e);filter:saturate(.85) brightness(.8)}
+.gal3 a:hover{transform:translateY(-10px) rotateX(6deg) rotateY(-4deg);box-shadow:0 40px 80px rgba(0,0,0,.6);border-color:rgba(126,166,255,.4)}
+.gal3 a:hover img{transform:scale(1.08);filter:none}
+.gal3 span{position:absolute;left:18px;bottom:16px;padding:8px 15px;border-radius:100px;font-size:.72rem;
+ background:rgba(8,10,17,.66);backdrop-filter:blur(10px);border:1px solid var(--stroke)}
+
+/* TIMELINE */
+.tl{display:grid;gap:0;position:relative;padding-left:40px}
+.tl::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:1px;background:linear-gradient(var(--a1),var(--a2),var(--a3))}
+.tl .it{padding:26px 0 32px;position:relative}
+.tl .it::before{content:"";position:absolute;left:-36px;top:34px;width:19px;height:19px;border-radius:50%;
+ background:var(--bg);border:1px solid var(--a1);box-shadow:0 0 0 4px rgba(126,166,255,.1)}
+.tl h3{font-size:1.4rem;margin-bottom:8px}
+.tl .st{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--a3)}
+
+/* REVIEWS */
+.revs3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.rv3{padding:32px 28px;border-radius:22px;border:1px solid var(--stroke);background:var(--glass);transition:.5s var(--e)}
+.rv3:hover{transform:translateY(-6px);border-color:rgba(185,140,255,.4)}
+.st5{color:var(--a3);letter-spacing:.2em;font-size:.85rem}
+.rv3 p{margin:16px 0 22px;color:#dde2ee;font-size:1.02rem}
+.rv3 cite{font-style:normal;font-size:.82rem;font-weight:500}
+.rv3 cite small{display:block;color:var(--mut);font-size:.72rem;font-weight:300;margin-top:3px}
+.score{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:52px;flex-wrap:wrap}
+.score b{font-family:var(--disp);font-size:3rem;background:linear-gradient(120deg,var(--a1),var(--a3));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ZONES */
+.zn{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.zn span{padding:10px 18px;border-radius:100px;border:1px solid var(--stroke);font-size:.82rem;color:#c4cad8;background:var(--glass);transition:.4s}
+.zn span:hover{border-color:var(--a1);color:#fff;transform:translateY(-2px)}
+
+/* CTA */
+.big{border-radius:34px;border:1px solid var(--stroke);background:linear-gradient(150deg,rgba(126,166,255,.14),rgba(255,159,110,.07) 60%,transparent);
+ padding:clamp(50px,7vw,90px) clamp(28px,5vw,70px);text-align:center;position:relative;overflow:hidden}
+.big h2{font-size:clamp(2.2rem,5.4vw,4rem);margin:20px auto 18px;max-width:18ch}
+.big p{max-width:52ch;margin-inline:auto}
+
+footer{padding:80px 0 40px;border-top:1px solid var(--stroke);margin-top:40px}
+.fg{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:44px}
+footer h4{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--a1);margin-bottom:18px;font-weight:500}
+footer li{list-style:none;font-size:.92rem;color:#a5acbe;margin-bottom:9px}
+footer a:hover{color:#fff}
+.fb{margin-top:56px;padding-top:24px;border-top:1px solid var(--stroke);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.76rem;color:#6f7689}
+
+.wa{position:fixed;right:22px;bottom:22px;z-index:200;display:flex;align-items:center;gap:11px;padding:13px 20px 13px 15px;border-radius:100px;
+ background:rgba(10,13,22,.75);backdrop-filter:blur(18px);border:1px solid var(--stroke);box-shadow:0 18px 44px rgba(0,0,0,.55);transition:.5s var(--e)}
+.wa:hover{transform:translateY(-3px);border-color:#25d366;box-shadow:0 22px 54px rgba(37,211,102,.28)}
+.wa b{font-size:.82rem;font-weight:500}
+.wa small{display:block;font-size:.68rem;color:var(--mut)}
+
+.rv{opacity:0;transform:translateY(30px);transition:1s var(--e)}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:1050px){
+ .hero{grid-template-columns:1fr;padding-top:130px}
+ .scene{height:400px;order:-1}
+ .cards,.gal3,.revs3{grid-template-columns:repeat(2,1fr)}
+ .fg{grid-template-columns:1fr 1fr}
+}
+@media(max-width:700px){
+ nav ul{display:none}.burger{display:block}.bar .cta-pill{display:none}
+ .cards,.gal3,.revs3{grid-template-columns:1fr}
+ .stats{gap:26px}.stats b{font-size:2rem}
+ #glow{display:none}
+ .wa small{display:none}
+ nav.open ul{display:flex;position:fixed;inset:0;background:rgba(5,6,10,.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;font-size:1.1rem}
+}
+</style>
+</head>
+<body>
+<div class="mesh"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
+<div class="noise"></div>
+<div id="glow"></div>
+
+<header>
+  <div class="wrap bar" id="bar">
+    <a href="#" class="lg"><span class="m">FM</span><span><b>F.lli Mazzola</b><small>Chiavari · GE</small></span></a>
+    <nav id="nv"><ul>
+      <li><a href="#chi">Chi siamo</a></li><li><a href="#servizi">Servizi</a></li>
+      <li><a href="#lavori">Lavori</a></li><li><a href="#recensioni">Recensioni</a></li><li><a href="#contatti">Contatti</a></li>
+    </ul></nav>
+    <a class="cta-pill" href="https://wa.me/393388637878?text=Buongiorno%2C%20ho%20visto%20il%20sito%20di%20F.lli%20Mazzola%20e%20vorrei%20un%20preventivo." target="_blank" rel="noopener">Preventivo gratuito</a>
+    <button class="burger" id="bg" aria-label="Menu"><i></i><i></i></button>
+  </div>
+</header>
+
+<div class="wrap hero">
+  <div>
+    <span class="eyebrow">Costruzioni e ristrutturazioni · dal 1979</span>
+    <h1><span>Quarantasei anni</span><span class="grad">di cantieri sul Tigullio.</span></h1>
+    <p class="lead">Impresa di costruzioni a Chiavari dal 1979. Ristrutturazioni complete, opere in muratura e finiture per abitazioni e attività del golfo.</p>
+    <div class="row">
+      <a class="cta-pill" href="https://wa.me/393388637878?text=Buongiorno%2C%20ho%20visto%20il%20sito%20di%20F.lli%20Mazzola%20e%20vorrei%20un%20preventivo." target="_blank" rel="noopener">Scrivici su WhatsApp</a>
+      <a class="ghost" href="#lavori">Vedi i lavori</a>
+    </div>
+    <div class="stats">
+      <div><b>46</b><small>anni di attività</small></div>
+      <div><b>700</b><small>cantieri conclusi</small></div>
+      <div><b>2</b><small>generazioni</small></div>
+    </div>
+  </div>
+  <div class="scene">
+    <div class="floor"></div>
+    <div class="ring"></div><div class="ring r-b"></div>
+    <div class="house">
+      <div class="f w1"></div><div class="f w2"></div><div class="f w3"></div><div class="f w4"></div>
+      <div class="f r1"></div><div class="f r2"></div>
+      <div class="gable g1"></div><div class="gable g2"></div>
+    </div>
+    <span class="tagfloat t1">Dal 1979</span>
+    <span class="tagfloat t2">Impresa di famiglia</span>
+    <span class="tagfloat t3">Ponteggio di proprietà</span>
+  </div>
+</div>
+
+<section id="chi">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,80px);align-items:center">
+    <div class="rv">
+      <span class="eyebrow">Chi siamo</span>
+      <h2 style="margin:18px 0 22px">Piccoli per scelta.<br><span class="grad">Precisi per abitudine.</span></h2>
+      <p>I fratelli Mazzola costruiscono a Chiavari dal 1979. In quarantasei anni abbiamo visto cambiare materiali, norme e mode: quello che non è cambiato è come si tratta un cliente.</p><p style="margin-top:16px">Squadra interna, mezzi propri e nessun subappalto sulle opere edili. Se c'è un problema, ci mettiamo la faccia noi.</p>
+      <div class="zn" style="margin-top:32px">
+        <span>Impresa storica del territorio</span><span>Maestranze interne</span><span>Ponteggi e mezzi di proprietà</span><span>Garanzia scritta</span>
+      </div>
+      <p style="margin-top:32px;font-family:var(--disp);font-size:1.3rem;color:#fff">Fratelli Mazzola<br><small style="font-family:var(--ui);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)">Titolari · Chiavari</small></p>
+    </div>
+    <div class="rv" style="border-radius:26px;overflow:hidden;border:1px solid var(--stroke);position:relative">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80" alt="F.lli Mazzola — cantiere a Chiavari" style="aspect-ratio:4/4.4;object-fit:cover;filter:saturate(.9) brightness(.85)" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section id="servizi">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Servizi</span>
+      <h2>Cosa possiamo <span class="grad">fare per voi</span></h2>
+      <p>Un solo referente per tutto il cantiere, materiali dichiarati in preventivo e una data di consegna che rispettiamo.</p>
+    </div>
+    <div class="cards rv"><article class="c3"><span class="ic">01</span><h3>Ristrutturazioni complete</h3><p>Appartamenti e ville chiavi in mano, dalla demolizione al collaudo finale.</p></article><article class="c3"><span class="ic">02</span><h3>Opere in muratura</h3><p>Aperture, solai, consolidamenti e strutture eseguite da maestranze interne.</p></article><article class="c3"><span class="ic">03</span><h3>Facciate e cappotto</h3><p>Intonaci, tinteggiature e isolamento termico con ponteggio di proprietà.</p></article><article class="c3"><span class="ic">04</span><h3>Terrazze e coperture</h3><p>Impermeabilizzazioni e pavimentazioni esterne con garanzia sulle lavorazioni.</p></article><article class="c3"><span class="ic">05</span><h3>Restauro</h3><p>Interventi su edifici storici del centro nel rispetto dei vincoli.</p></article><article class="c3"><span class="ic">06</span><h3>Manutenzioni</h3><p>Interventi rapidi e programmati per privati, condomini e negozi.</p></article></div>
+  </div>
+</section>
+
+<section id="lavori">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Realizzazioni</span>
+      <h2>Lavori recenti a <span class="grad">Chiavari e dintorni</span></h2>
+      <p>Su richiesta mostriamo referenze complete e, quando possibile, cantieri visitabili di persona.</p>
+    </div>
+    <div class="gal3 rv"><a href="#contatti"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&q=80" alt="Palazzina in centro — F.lli Mazzola" loading="lazy"><span>Palazzina in centro</span></a><a href="#contatti"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=80" alt="Facciata storica — F.lli Mazzola" loading="lazy"><span>Facciata storica</span></a><a href="#contatti"><img src="https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?auto=format&fit=crop&w=1000&q=80" alt="Attico rinnovato — F.lli Mazzola" loading="lazy"><span>Attico rinnovato</span></a><a href="#contatti"><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1000&q=80" alt="Terrazza sul golfo — F.lli Mazzola" loading="lazy"><span>Terrazza sul golfo</span></a><a href="#contatti"><img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1000&q=80" alt="Solaio nuovo — F.lli Mazzola" loading="lazy"><span>Solaio nuovo</span></a><a href="#contatti"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80" alt="Bagno moderno — F.lli Mazzola" loading="lazy"><span>Bagno moderno</span></a></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap" style="display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(36px,5vw,80px)">
+    <div class="rv">
+      <span class="eyebrow">Metodo</span>
+      <h2 style="margin-top:18px">Come <span class="grad">lavoriamo</span></h2>
+      <p style="margin-top:18px">Quattro fasi, nessuna sorpresa. È il modo più semplice per farvi dormire tranquilli mentre lavoriamo in casa vostra.</p>
+    </div>
+    <div class="tl rv">
+      <div class="it"><span class="st">Fase 01</span><h3>Sopralluogo gratuito</h3><p>Veniamo sul posto entro pochi giorni, misuriamo e capiamo cosa serve davvero.</p></div>
+      <div class="it"><span class="st">Fase 02</span><h3>Preventivo trasparente</h3><p>Voce per voce, con marche e quantità dei materiali. Il prezzo concordato è quello finale.</p></div>
+      <div class="it"><span class="st">Fase 03</span><h3>Cantiere seguito</h3><p>Squadra fissa, area pulita ogni sera e aggiornamenti fotografici su WhatsApp.</p></div>
+      <div class="it"><span class="st">Fase 04</span><h3>Consegna e garanzia</h3><p>Verifica insieme al cliente, documentazione completa e garanzia sulle lavorazioni.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="recensioni">
+  <div class="wrap">
+    <div class="head mid rv">
+      <span class="eyebrow">Recensioni</span>
+      <h2 style="margin-top:18px">Cosa dicono <span class="grad">i clienti</span></h2>
+    </div>
+    <div class="revs3 rv"><figure class="rv3"><div class="st5">★ ★ ★ ★ ★</div><p>“Impresa storica e si vede: sanno risolvere problemi che altri non sanno nemmeno inquadrare.”</p><cite>Marco B.<small>Chiavari · proprietario</small></cite></figure><figure class="rv3"><div class="st5">★ ★ ★ ★ ★</div><p>“Ristrutturazione completa a Lavagna finita in tempo e senza extra.”</p><cite>Silvia R.<small>Lavagna · cliente privata</small></cite></figure><figure class="rv3"><div class="st5">★ ★ ★ ★ ★</div><p>“Serietà d'altri tempi. Prezzo onesto e lavoro impeccabile.”</p><cite>Andrea T.<small>Cogorno · amministratore</small></cite></figure></div>
+    <div class="score rv"><b>4,9</b><div><div class="st5">★ ★ ★ ★ ★</div><small style="color:var(--mut);font-size:.76rem">Media su 42 recensioni</small></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head rv"><span class="eyebrow">Zone servite</span>
+      <h2 style="margin-top:18px">Operiamo in tutta <span class="grad">il Tigullio</span></h2>
+      <p>Siamo di Chiavari: conosciamo il territorio, i fornitori e gli uffici tecnici. Pratiche più rapide, cantieri senza intoppi.</p>
+    </div>
+    <div class="zn rv"><span>Chiavari</span><span>Lavagna</span><span>Cogorno</span><span>Sestri Levante</span><span>Rapallo</span><span>Zoagli</span><span>Leivi</span><span>Carasco</span><span>Santa Margherita</span><span>San Colombano</span></div>
+  </div>
+</section>
+
+<section id="contatti">
+  <div class="wrap"><div class="big rv">
+    <span class="eyebrow" style="justify-content:center">Parliamone</span>
+    <h2>Raccontateci il <span class="grad">vostro progetto</span></h2>
+    <p>Sopralluogo e preventivo gratuiti a Chiavari e dintorni. Rispondiamo su WhatsApp entro poche ore, anche solo per un consiglio.</p>
+    <div class="row" style="justify-content:center">
+      <a class="cta-pill" href="https://wa.me/393388637878?text=Buongiorno%2C%20ho%20visto%20il%20sito%20di%20F.lli%20Mazzola%20e%20vorrei%20un%20preventivo." target="_blank" rel="noopener">Scrivici su WhatsApp</a>
+      <a class="ghost" href="tel:+393388637878">338 8637878</a>
+    </div>
+  </div></div>
+</section>
+
+<footer><div class="wrap">
+  <div class="fg">
+    <div>
+      <a href="#" class="lg" style="margin-bottom:18px"><span class="m">FM</span><span><b>F.lli Mazzola</b><small>Chiavari · GE</small></span></a>
+      <p style="font-size:.92rem;max-width:40ch">F.lli Mazzola Costruzioni S.n.c. — Costruzioni e ristrutturazioni a Chiavari e provincia di Genova.</p>
+    </div>
+    <div><h4>Contatti</h4><ul>
+      <li><a href="tel:+393388637878">338 8637878</a></li>
+      <li><a href="https://wa.me/393388637878?text=Buongiorno%2C%20ho%20visto%20il%20sito%20di%20F.lli%20Mazzola%20e%20vorrei%20un%20preventivo." target="_blank" rel="noopener">WhatsApp diretto</a></li>
+      <li>Chiavari (GE) — Liguria</li><li>Lun–Sab · 7:30 – 19:00</li></ul></div>
+    <div><h4>Servizi</h4><ul><li><a href="#servizi">Ristrutturazioni complete</a></li><li><a href="#servizi">Opere in muratura</a></li><li><a href="#servizi">Facciate e cappotto</a></li><li><a href="#servizi">Terrazze e coperture</a></li><li><a href="#servizi">Restauro</a></li></ul></div>
+  </div>
+  <div class="fb"><span>© <span id="yy"></span> F.lli Mazzola Costruzioni S.n.c. · P.IVA 00000000000</span>
+  <span>Anteprima dimostrativa — testi e immagini di esempio</span></div>
+</div></footer>
+
+<a class="wa" href="https://wa.me/393388637878?text=Buongiorno%2C%20ho%20visto%20il%20sito%20di%20F.lli%20Mazzola%20e%20vorrei%20un%20preventivo." target="_blank" rel="noopener">
+ <svg width="23" height="23" viewBox="0 0 24 24"><path fill="#25d366" d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.86 1.21 3.06c.15.2 2.09 3.2 5.07 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35M12.04 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.44 9.44 0 0 1-1.44-5.03c0-5.21 4.24-9.45 9.45-9.45 2.52 0 4.9.99 6.68 2.77a9.4 9.4 0 0 1 2.77 6.69c0 5.21-4.24 9.44-9.47 9.44m8.05-17.5A11.32 11.32 0 0 0 12.04.66C5.8.66.72 5.74.72 11.99c0 2 .52 3.95 1.52 5.67L.62 23.34l5.82-1.53a11.3 11.3 0 0 0 5.6 1.43h.01c6.24 0 11.32-5.08 11.32-11.33 0-3.03-1.18-5.87-3.32-8.01"/></svg>
+ <span><b>WhatsApp</b><small>Rispondiamo subito</small></span></a>
+
+<script>
+document.getElementById('yy').textContent=new Date().getFullYear();
+const bar=document.getElementById('bar');
+addEventListener('scroll',()=>bar.classList.toggle('stuck',scrollY>40));
+document.getElementById('bg').onclick=()=>document.getElementById('nv').classList.toggle('open');
+document.querySelectorAll('#nv a').forEach(a=>a.onclick=()=>document.getElementById('nv').classList.remove('open'));
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* cursor glow + hero parallax */
+const gl=document.getElementById('glow');
+addEventListener('pointermove',e=>{
+  gl.style.left=e.clientX+'px';gl.style.top=e.clientY+'px';
+  const h=document.querySelector('.house');
+  if(h&&innerWidth>1050){const x=(e.clientX/innerWidth-.5),y=(e.clientY/innerHeight-.5);
+    h.style.transform='';h.parentElement.style.transform=`rotateY(${x*10}deg) rotateX(${-y*8}deg)`}
+},{passive:true});
+
+/* tilt 3D cards */
+document.querySelectorAll('.c3').forEach(c=>{
+  c.addEventListener('pointermove',e=>{
+    const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+    c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%');
+    c.style.transform=`perspective(900px) rotateY(${(x-.5)*9}deg) rotateX(${(.5-y)*9}deg) translateY(-5px)`;
+  });
+  c.addEventListener('pointerleave',()=>c.style.transform='');
+});
+
+/* counters */
+document.querySelectorAll('.stats b').forEach(el=>{
+  const m=el.textContent.trim().match(/^(\d+)(.*)$/); if(!m)return;
+  const end=+m[1],suf=m[2];let s=null;
+  const step=t=>{if(!s)s=t;const p=Math.min((t-s)/1500,1);el.textContent=Math.floor(end*(1-Math.pow(1-p,3)))+suf;if(p<1)requestAnimationFrame(step)};
+  const o=new IntersectionObserver(e=>{if(e[0].isIntersecting){requestAnimationFrame(step);o.disconnect()}});o.observe(el);
+});
+
+/* fallback grafico generato se una foto non carica */
+function rnd(s){let x=Math.sin(s*9301+49297)*233280;return x-Math.floor(x)}
+function artwork(seed,label){
+  const W=1200,H=900;let s=seed*5+2,r=()=>rnd(s++),o='';
+  for(let i=0;i<9;i++){const x=r()*1000,w=90+r()*260,h=180+r()*520;
+    o+=`<rect x="${x.toFixed(0)}" y="${(H-h).toFixed(0)}" width="${w.toFixed(0)}" height="${h.toFixed(0)}" fill="none" stroke="#7ea6ff" stroke-opacity="${(.12+r()*.3).toFixed(2)}"/>`;}
+  for(let i=0;i<16;i++){const y=H-i*46;o+=`<line x1="0" y1="${y}" x2="${W}" y2="${y}" stroke="#7ea6ff" stroke-opacity="${(0.16-i*0.01).toFixed(2)}"/>`}
+  for(let i=0;i<22;i++)o+=`<circle cx="${(r()*W).toFixed(0)}" cy="${(r()*H).toFixed(0)}" r="${(r()*2).toFixed(1)}" fill="#ff9f6e" fill-opacity="${(r()*.4).toFixed(2)}"/>`;
+  const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
+  <defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d1120"/><stop offset="1" stop-color="#06070c"/></linearGradient>
+  <radialGradient id="g" cx="24%" cy="12%" r="80%"><stop offset="0" stop-color="#7ea6ff" stop-opacity=".26"/><stop offset="1" stop-color="#7ea6ff" stop-opacity="0"/></radialGradient>
+  <radialGradient id="g2" cx="86%" cy="80%" r="60%"><stop offset="0" stop-color="#ff9f6e" stop-opacity=".2"/><stop offset="1" stop-color="#ff9f6e" stop-opacity="0"/></radialGradient></defs>
+  <rect width="${W}" height="${H}" fill="url(#b)"/><rect width="${W}" height="${H}" fill="url(#g)"/><rect width="${W}" height="${H}" fill="url(#g2)"/>${o}
+  <text x="56" y="${H-52}" fill="#dfe6f7" fill-opacity=".8" font-family="Helvetica,Arial,sans-serif" font-size="32" font-weight="600">${(label||'').replace(/[<&>]/g,'')}</text></svg>`;
+  return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+}
+document.querySelectorAll('img').forEach((im,n)=>{
+  const fix=()=>{im.onerror=null;im.style.filter='none';im.src=artwork(n+1,im.closest('a')?.querySelector('span')?.textContent||'')};
+  im.onerror=fix; if(im.complete&&im.naturalWidth===0)fix();
+});
+</script>
+</body>
+</html>
