@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edilaj — Impresa edile e ristrutturazioni a Como (CO)</title>
+<meta name="description" content="Edilaj: Impresa edile e ristrutturazioni a Como e provincia di Como. Dal 2002 costruzioni, ristrutturazioni e finiture su misura. Sopralluogo e preventivo gratuito.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23070706'/><text x='50' y='68' font-size='52' font-family='serif' fill='%23b08144' text-anchor='middle'>E</text></svg>">
+<style>
+:root{
+  --ink:#070706; --ink-2:#0e0d0b; --ink-3:#141310; --acc-rgb:176,129,68;
+  --line:rgba(var(--acc-rgb),.18);
+  --acc:#b08144; --acc-2:#e6c495; --acc-3:#75512a;
+  --paper:#f0ebe2; --muted:#8e8677;
+  --serif:'Playfair Display',Georgia,serif; --sans:'Inter',system-ui,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--paper);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--acc);color:#000}
+.wrap{width:min(1220px,90vw);margin:0 auto}
+.gold{background:linear-gradient(100deg,var(--acc-3),var(--acc) 30%,var(--acc-2) 55%,var(--acc) 75%,var(--acc-3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.kicker{font-size:.7rem;letter-spacing:.42em;text-transform:uppercase;color:var(--acc);font-weight:400}
+.kicker.line{display:inline-flex;align-items:center;gap:14px}
+.kicker.line::before{content:"";width:46px;height:1px;background:linear-gradient(90deg,transparent,var(--acc))}
+h1,h2,h3{font-family:var(--serif);font-weight:300;line-height:1.08;letter-spacing:-.01em}
+h2{font-size:clamp(2.1rem,4.6vw,3.6rem)}
+p{color:#c9c4b8;font-weight:300}
+
+/* grain */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.045;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* NAV */
+header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.5s var(--ease);padding:26px 0}
+header.stuck{padding:12px 0;background:rgba(7,7,8,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:13px}
+.mono{width:44px;height:44px;flex:0 0 44px;border:1px solid var(--acc);display:grid;place-items:center;font-family:var(--serif);font-size:1.15rem;letter-spacing:.02em;color:var(--acc);position:relative}
+.mono::after{content:"";position:absolute;inset:4px;border:1px solid rgba(var(--acc-rgb),.28)}
+.logo b{font-family:var(--serif);font-size:1.28rem;font-weight:400;letter-spacing:.04em;display:block;line-height:1.1}
+.logo small{font-size:.58rem;letter-spacing:.34em;text-transform:uppercase;color:var(--muted)}
+nav ul{display:flex;gap:34px;list-style:none;font-size:.76rem;letter-spacing:.18em;text-transform:uppercase}
+nav a{position:relative;padding:4px 0;color:#d8d3c7}
+nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--acc);transition:.45s var(--ease)}
+nav a:hover::after{width:100%}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;border:1px solid var(--acc);color:var(--acc);position:relative;overflow:hidden;transition:color .5s var(--ease);white-space:nowrap}
+.btn::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,var(--acc-3),var(--acc),var(--acc-2));transform:translateY(101%);transition:transform .55s var(--ease);z-index:-1}
+.btn:hover{color:var(--ink)}
+.btn:hover::before{transform:translateY(0)}
+.btn.solid{color:var(--ink)}.btn.solid::before{transform:translateY(0)}
+.btn.solid:hover::before{transform:translateY(-101%)}
+.btn.solid:hover{color:var(--acc)}
+.burger{display:none;width:40px;height:40px;border:1px solid var(--line);background:none;cursor:pointer;position:relative}
+.burger span{position:absolute;left:11px;width:18px;height:1px;background:var(--acc);transition:.35s}
+.burger span:nth-child(1){top:16px}.burger span:nth-child(2){top:23px}
+
+/* HERO */
+.hero{min-height:100svh;position:relative;display:flex;align-items:center;padding:150px 0 90px;isolation:isolate;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:-2;background:#111 var(--hero) center/cover no-repeat;transform:scale(1.06);animation:zoomout 14s var(--ease) forwards}
+@keyframes zoomout{to{transform:scale(1)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
+ radial-gradient(120% 90% at 78% 18%,rgba(var(--acc-rgb),.2),transparent 58%),
+ linear-gradient(92deg,rgba(6,6,8,.95) 4%,rgba(6,6,8,.86) 38%,rgba(6,6,8,.6) 72%,rgba(6,6,8,.8))}
+.hero-bg{filter:grayscale(.15) contrast(1.06) brightness(.9)}
+.hero-in{max-width:830px}
+.hero h1{font-size:clamp(3rem,7.4vw,6.4rem);margin:26px 0 22px}
+.hero h1 em{font-style:italic;display:block}
+.hero p.lead{font-size:clamp(1rem,1.35vw,1.16rem);max-width:56ch;color:#cfcabd}
+.hero-cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:42px}
+.trust{display:flex;flex-wrap:wrap;gap:34px;margin-top:64px;padding-top:30px;border-top:1px solid var(--line)}
+.trust div small{display:block;font-size:.63rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.trust b{font-family:var(--serif);font-size:2.5rem;font-weight:400;color:var(--acc)}
+.scrollhint{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:10px}
+.scrollhint i{width:1px;height:46px;background:linear-gradient(var(--acc),transparent);animation:pulse 2.2s infinite}
+@keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
+
+/* MARQUEE */
+.marq{border-block:1px solid var(--line);background:var(--ink-2);overflow:hidden;padding:20px 0}
+.marq-in{display:flex;gap:60px;width:max-content;animation:slide 34s linear infinite}
+.marq span{font-family:var(--serif);font-size:1.35rem;font-style:italic;color:#6c6659;white-space:nowrap;display:flex;align-items:center;gap:60px}
+.marq span::after{content:"◆";font-size:.55rem;color:var(--acc);font-style:normal}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+section{padding:clamp(90px,11vw,160px) 0;position:relative;scroll-margin-top:80px}
+.sec-head.mid{text-align:center;margin-inline:auto}
+.sec-head.mid .kicker.line{justify-content:center}
+.sec-head.mid .kicker.line::after{content:"";width:46px;height:1px;background:linear-gradient(270deg,transparent,var(--acc))}
+.sec-head{max-width:760px;margin-bottom:66px}
+.sec-head h2{margin:20px 0 20px}
+
+/* ABOUT */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,90px);align-items:center}
+.frame{position:relative}
+.frame img{aspect-ratio:4/5;object-fit:cover;filter:grayscale(.28) contrast(1.05)}
+.frame::before{content:"";position:absolute;inset:-16px -16px 26px 26px;border:1px solid var(--acc);z-index:-1}
+.badge{position:absolute;right:-22px;bottom:-26px;background:var(--ink-2);border:1px solid var(--line);padding:22px 26px;text-align:center;box-shadow:0 30px 60px rgba(0,0,0,.6)}
+.badge b{font-family:var(--serif);font-size:2.6rem;color:var(--acc);display:block;line-height:1}
+.badge small{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.about p+p{margin-top:18px}
+.sig{margin-top:34px;font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--acc-2)}
+.sig small{display:block;font-family:var(--sans);font-style:normal;font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.ticks{list-style:none;margin-top:30px;display:grid;gap:14px}
+.ticks li{display:flex;gap:14px;align-items:flex-start;font-size:.95rem;color:#cfcabd}
+.ticks svg{flex:0 0 18px;margin-top:5px}
+
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.svc{background:var(--ink);padding:clamp(30px,3.4vw,46px);position:relative;transition:.6s var(--ease);overflow:hidden}
+.svc::before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(var(--acc-rgb),.11),transparent 62%);opacity:0;transition:.6s var(--ease)}
+.svc:hover{background:var(--ink-2);transform:translateY(-4px)}
+.svc:hover::before{opacity:1}
+.svc-n{font-family:var(--serif);font-size:.9rem;color:var(--acc-3);letter-spacing:.1em}
+.svc h3{font-size:1.7rem;margin:16px 0 12px}
+.svc p{font-size:.92rem}
+.svc i{display:block;width:34px;height:1px;background:var(--acc);margin-top:24px;transition:.6s var(--ease)}
+.svc:hover i{width:70px}
+
+/* GALLERY */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;gap:14px}
+.gal a{position:relative;overflow:hidden;display:block;background:var(--ink-3)}
+.gal a img{width:100%;height:100%;object-fit:cover;filter:grayscale(.35) brightness(.82);transition:1.1s var(--ease)}
+.gal a:hover img{transform:scale(1.07);filter:grayscale(0) brightness(1)}
+.gal a::after{content:attr(data-t);position:absolute;left:22px;bottom:18px;font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:#fff;opacity:0;transform:translateY(10px);transition:.6s var(--ease);text-shadow:0 2px 12px #000}
+.gal a:hover::after{opacity:1;transform:none}
+.g-a{grid-column:span 2;grid-row:span 2}
+.g-b{grid-column:span 2}
+.g-c{grid-row:span 2}
+
+/* PROCESS */
+.proc{display:grid;grid-template-columns:repeat(4,1fr);gap:34px;counter-reset:p}
+.step{padding-top:30px;border-top:1px solid var(--line);position:relative}
+.step::before{counter-increment:p;content:"0" counter(p);position:absolute;top:-22px;left:0;font-family:var(--serif);font-size:2.9rem;color:transparent;-webkit-text-stroke:1px rgba(var(--acc-rgb),.45)}
+.step h3{font-size:1.35rem;margin:22px 0 10px}
+.step p{font-size:.9rem}
+
+/* REVIEWS */
+.rev-wrap{background:var(--ink-2);border-block:1px solid var(--line)}
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.rev{border:1px solid var(--line);padding:36px 32px;background:linear-gradient(170deg,rgba(var(--acc-rgb),.05),transparent 60%);transition:.5s var(--ease)}
+.rev:hover{border-color:rgba(var(--acc-rgb),.45);transform:translateY(-5px)}
+.stars{color:var(--acc);letter-spacing:.22em;font-size:.85rem}
+.rev p{font-family:var(--serif);font-size:1.22rem;font-style:italic;line-height:1.55;color:#ded9cc;margin:18px 0 24px}
+.rev cite{font-style:normal;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc-2)}
+.rev cite small{display:block;color:var(--muted);letter-spacing:.14em;margin-top:5px;font-size:.66rem}
+.gscore{display:flex;align-items:center;gap:20px;justify-content:center;margin-top:56px;flex-wrap:wrap}
+.gscore b{font-family:var(--serif);font-size:3.2rem;color:var(--acc);line-height:1}
+
+/* ZONES */
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.chips span{border:1px solid var(--line);padding:11px 20px;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:#bdb8ab;transition:.4s}
+.chips span:hover{border-color:var(--acc);color:var(--acc)}
+
+/* CTA */
+.cta{text-align:center;position:relative;overflow:hidden;background:var(--ink-2)}
+.cta::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 130% at 50% 0%,rgba(var(--acc-rgb),.18),transparent 60%)}
+.cta .wrap{position:relative}
+.cta h2{font-size:clamp(2.4rem,6vw,4.6rem);margin:22px auto 24px;max-width:16ch}
+.cta p{max-width:52ch;margin:0 auto}
+.cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:44px}
+
+/* FOOTER */
+footer{padding:80px 0 34px;border-top:1px solid var(--line)}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:50px}
+footer h4{font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;color:var(--acc);margin-bottom:20px;font-weight:400}
+footer li{list-style:none;font-size:.9rem;color:#a9a498;margin-bottom:10px}
+footer a:hover{color:var(--acc)}
+.f-bot{margin-top:60px;padding-top:26px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.7rem;letter-spacing:.12em;color:#6b665b}
+
+/* FLOAT WA */
+.wa{position:fixed;right:24px;bottom:24px;z-index:200;display:flex;align-items:center;gap:12px;background:var(--ink-3);border:1px solid var(--acc);padding:13px 20px 13px 15px;box-shadow:0 18px 44px rgba(0,0,0,.65);transition:.5s var(--ease)}
+.wa:hover{background:var(--acc);color:var(--ink)}
+.wa:hover svg path{fill:#0a0a0b}
+.wa b{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+.wa small{display:block;font-size:.62rem;letter-spacing:.1em;color:var(--muted);text-transform:none}
+.wa:hover small{color:rgba(0,0,0,.62)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(34px);transition:1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:1000px){
+ .svc-grid{grid-template-columns:repeat(2,1fr)}
+ .proc{grid-template-columns:repeat(2,1fr);gap:40px}
+ .revs{grid-template-columns:1fr}
+ .split{grid-template-columns:1fr;gap:60px}
+ .f-grid{grid-template-columns:1fr 1fr}
+ .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}
+}
+@media(max-width:680px){
+ nav ul{display:none}.burger{display:block}
+ header .btn{display:none}
+ .svc-grid{grid-template-columns:1fr}
+ .trust{gap:26px}.trust b{font-size:2rem}
+ .badge{right:0;bottom:-20px}
+ .wa small{display:none}
+ nav.open ul{display:flex;position:fixed;inset:0;background:rgba(7,7,8,.98);flex-direction:column;justify-content:center;align-items:center;gap:30px;font-size:1rem}
+}
+</style>
+</head>
+<body>
+
+<header id="hd">
+  <div class="wrap nav">
+    <a href="#" class="logo">
+      <span class="mono">E</span>
+      <span><b>Edilaj</b><small>Como · CO</small></span>
+    </a>
+    <nav id="nv">
+      <ul>
+        <li><a href="#chi">Chi siamo</a></li>
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#lavori">Realizzazioni</a></li>
+        <li><a href="#recensioni">Recensioni</a></li>
+        <li><a href="#contatti">Contatti</a></li>
+      </ul>
+    </nav>
+    <a class="btn" href="tel:+393404556988">340 4556988</a>
+    <button class="burger" id="bg" aria-label="Menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg" style="--hero:url('https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?auto=format&fit=crop&w=1900&q=80')"></div>
+  <div class="wrap hero-in">
+    <span class="kicker line">Impresa edile e ristrutturazioni · dal 2002</span>
+    <h1>Case fatte bene, <em class="gold">una alla volta.</em></h1>
+    <p class="lead">Impresa edile a Como. Ristrutturazioni complete, opere in muratura e finiture per abitazioni e attività della zona di Como, con preventivi chiari e tempi rispettati.</p>
+    <div class="hero-cta">
+      <a class="btn solid" href="https://wa.me/393404556988?text=Buongiorno%2C%20ho%20visto%20il%20sito%20di%20Edilaj%20e%20vorrei%20un%20preventivo." target="_blank" rel="noopener">Preventivo su WhatsApp</a>
+      <a class="btn" href="#lavori">Guarda i lavori</a>
+    </div>
+    <div class="trust">
+      <div><b>23</b><small>anni sul territorio</small></div>
+      <div><b>257</b><small>lavori consegnati</small></div>
+      <div><b>100</b><small>preventivi rispettati %</small></div>
+    </div>
+  </div>
+  <div class="scrollhint"><i></i>Scorri</div>
+</div>
+
+<div class="marq"><div class="marq-in">
+  <span>Chiavi in mano</span><span>Cappotto termico</span><span>Preventivi chiari</span><span>Como</span>
+  <span>Chiavi in mano</span><span>Cappotto termico</span><span>Preventivi chiari</span><span>Como</span>
+</div></div>
+
+<!-- CHI SIAMO -->
+<section id="chi">
+  <div class="wrap split">
+    <div class="about rv">
+      <span class="kicker line">Chi siamo</span>
+      <h2>Una squadra<br>piccola. Un lavoro<br><span class="gold">fatto bene.</span></h2>
+      <p>Edilaj lavora a Como e in tutta la zona di Como. Siamo una realtà piccola per scelta: pochi cantieri per volta, seguiti direttamente da chi firma il preventivo.</p>
+      <p>Il cliente parla sempre con la stessa persona, dal sopralluogo alla consegna. È il modo più semplice per non avere sorprese.</p>
+      <ul class="ticks">
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#b08144" stroke-width="2"/></svg>Un unico referente dal sopralluogo alla consegna</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#b08144" stroke-width="2"/></svg>Preventivo dettagliato voce per voce</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#b08144" stroke-width="2"/></svg>Squadra interna, nessun subappalto anonimo</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#b08144" stroke-width="2"/></svg>Cantiere pulito e messo in sicurezza ogni sera</li>
+      </ul>
+      <div class="sig">Edilaj<small>Como · Como</small></div>
+    </div>
+    <div class="frame rv">
+      <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1000&q=80" alt="Cantiere Edilaj a Como" loading="lazy">
+      <div class="badge"><b>2002</b><small>Dal</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIZI -->
+<section id="servizi" style="background:var(--ink-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker line">Servizi</span>
+      <h2>Tutto quello che serve <span class="gold">alla vostra casa</span></h2>
+      <p>Dal sopralluogo alla consegna chiavi in mano: un unico referente, tempi certi, materiali dichiarati in preventivo.</p>
+    </div>
+    <div class="svc-grid rv"><article class="svc"><span class="svc-n">01</span><h3>Ristrutturazioni complete</h3><p>Appartamenti e case chiavi in mano: impianti, opere edili e finiture con un solo referente.</p><i></i></article><article class="svc"><span class="svc-n">02</span><h3>Muratura e strutture</h3><p>Aperture, tramezze, solai e consolidamenti eseguiti a regola d'arte.</p><i></i></article><article class="svc"><span class="svc-n">03</span><h3>Cappotto e facciate</h3><p>Isolamento termico, intonaci e tinteggiature con pratiche fiscali comprese.</p><i></i></article><article class="svc"><span class="svc-n">04</span><h3>Bagni e cucine</h3><p>Rifacimenti completi con demolizione, impianti, posa e sanitari scelti insieme.</p><i></i></article><article class="svc"><span class="svc-n">05</span><h3>Terrazzi e balconi</h3><p>Impermeabilizzazioni, ripristini del calcestruzzo e nuove pavimentazioni.</p><i></i></article><article class="svc"><span class="svc-n">06</span><h3>Manutenzioni</h3><p>Interventi rapidi e programmati per privati, condomini e attività.</p><i></i></article></div>
+  </div>
+</section>
+
+<!-- LAVORI -->
+<section id="lavori">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker line">Realizzazioni</span>
+      <h2>Alcuni <span class="gold">cantieri recenti</span></h2>
+      <p>Interventi realizzati a Como e nei comuni limitrofi. Su richiesta mostriamo referenze complete e cantieri visitabili.</p>
+    </div>
+    <div class="gal rv"><a href="#contatti" class="g-a" data-t="Casa ristrutturata"><img src="https://images.unsplash.com/photo-1503174971373-b1f69850bded?auto=format&fit=crop&w=1100&q=80" alt="Casa ristrutturata — Edilaj" loading="lazy"></a><a href="#contatti" class="g-b" data-t="Cappotto esterno"><img src="https://images.unsplash.com/photo-1590725140246-20acdee442be?auto=format&fit=crop&w=1100&q=80" alt="Cappotto esterno — Edilaj" loading="lazy"></a><a href="#contatti" class="" data-t="Bagno moderno"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1100&q=80" alt="Bagno moderno — Edilaj" loading="lazy"></a><a href="#contatti" class="g-c" data-t="Cucina aperta"><img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1100&q=80" alt="Cucina aperta — Edilaj" loading="lazy"></a><a href="#contatti" class="" data-t="Solaio nuovo"><img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1100&q=80" alt="Solaio nuovo — Edilaj" loading="lazy"></a><a href="#contatti" class="" data-t="Facciata rinnovata"><img src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&w=1100&q=80" alt="Facciata rinnovata — Edilaj" loading="lazy"></a></div>
+  </div>
+</section>
+
+<!-- PROCESSO -->
+<section style="background:var(--ink-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker line">Come lavoriamo</span>
+      <h2>Quattro passaggi, <span class="gold">zero sorprese</span></h2>
+    </div>
+    <div class="proc rv">
+      <div class="step"><h3>Sopralluogo</h3><p>Veniamo sul posto entro pochi giorni, misuriamo e ascoltiamo cosa serve davvero.</p></div>
+      <div class="step"><h3>Preventivo chiaro</h3><p>Voce per voce, materiali indicati per marca e quantità. Nessun costo nascosto.</p></div>
+      <div class="step"><h3>Cantiere</h3><p>Squadra fissa, area pulita ogni sera, aggiornamenti con foto direttamente su WhatsApp.</p></div>
+      <div class="step"><h3>Consegna</h3><p>Verifica insieme al cliente, documentazione e garanzia sulle lavorazioni eseguite.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RECENSIONI -->
+<div class="rev-wrap"><section id="recensioni" style="border:0">
+  <div class="wrap">
+    <div class="sec-head rv mid">
+      <span class="kicker line">Recensioni</span>
+      <h2>Le parole dei <span class="gold">nostri clienti</span></h2>
+    </div>
+    <div class="revs rv"><figure class="rev"><div class="stars">★ ★ ★ ★ ★</div><p>“Puntuali, precisi e disponibili. Un'esperienza diversa dal solito.”</p><cite>Chiara M.<small>Como · cliente privata</small></cite></figure><figure class="rev"><div class="stars">★ ★ ★ ★ ★</div><p>“Lavoro consegnato in anticipo e finiture di ottimo livello.”</p><cite>Luca P.<small>Albese con Cassano · proprietario</small></cite></figure><figure class="rev"><div class="stars">★ ★ ★ ★ ★</div><p>“Prezzo giusto e nessuna sorpresa in fattura. Bravissimi.”</p><cite>Elena G.<small>Bregnano · cliente privata</small></cite></figure></div>
+    <div class="gscore rv">
+      <b>4,8</b>
+      <div><div class="stars">★ ★ ★ ★ ★</div><small style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)">Media su 33 recensioni</small></div>
+    </div>
+  </div>
+</section></div>
+
+<!-- ZONE -->
+<section>
+  <div class="wrap split">
+    <div class="rv">
+      <span class="kicker line">Zone servite</span>
+      <h2>Operiamo in tutta <span class="gold">la zona di la zona di Como</span></h2>
+      <p style="margin-top:18px">Siamo di Como: conosciamo il territorio, i fornitori locali e gli uffici tecnici comunali. Questo significa pratiche più veloci e cantieri senza intoppi.</p>
+      <div class="chips"><span>Como</span><span>Albese con Cassano</span><span>Bregnano</span><span>Cabiate</span><span>Cantù</span><span>Canzo</span><span>Erba</span><span>Figino Serenza</span><span>Gravedona ed Uniti</span></div>
+    </div>
+    <div class="frame rv"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80" alt="la zona di Como" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contatti">
+  <div class="wrap">
+    <span class="kicker line" style="justify-content:center">Parliamone<i style="width:46px;height:1px;background:linear-gradient(270deg,transparent,var(--acc))"></i></span>
+    <h2>Raccontateci <span class="gold">il vostro progetto</span></h2>
+    <p>Sopralluogo e preventivo gratuiti a Como e dintorni. Rispondiamo su WhatsApp entro poche ore, anche solo per un consiglio.</p>
+    <div class="cta-row">
+      <a class="btn solid" href="https://wa.me/393404556988?text=Buongiorno%2C%20ho%20visto%20il%20sito%20di%20Edilaj%20e%20vorrei%20un%20preventivo." target="_blank" rel="noopener">Scrivici su WhatsApp</a>
+      <a class="btn" href="tel:+393404556988">340 4556988</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <a href="#" class="logo" style="margin-bottom:20px"><span class="mono">E</span><span><b>Edilaj</b><small>Como · CO</small></span></a>
+        <p style="font-size:.9rem;max-width:38ch">Edilaj — Impresa edile e ristrutturazioni a Como e provincia di Como.</p>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <ul>
+          <li><a href="tel:+393404556988">340 4556988</a></li>
+          <li><a href="https://wa.me/393404556988?text=Buongiorno%2C%20ho%20visto%20il%20sito%20di%20Edilaj%20e%20vorrei%20un%20preventivo." target="_blank" rel="noopener">WhatsApp diretto</a></li>
+          <li>Como (CO) — Lombardia</li>
+          <li>Lun–Sab · 7:30 – 19:00</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Servizi</h4>
+        <ul><li><a href="#servizi">Ristrutturazioni complete</a></li><li><a href="#servizi">Muratura e strutture</a></li><li><a href="#servizi">Cappotto e facciate</a></li><li><a href="#servizi">Bagni e cucine</a></li><li><a href="#servizi">Terrazzi e balconi</a></li></ul>
+      </div>
+    </div>
+    <div class="f-bot">
+      <span>© <span id="yy"></span> Edilaj · P.IVA 00000000000</span>
+      <span>Anteprima dimostrativa — testi e immagini di esempio</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/393404556988?text=Buongiorno%2C%20ho%20visto%20il%20sito%20di%20Edilaj%20e%20vorrei%20un%20preventivo." target="_blank" rel="noopener">
+  <svg width="24" height="24" viewBox="0 0 24 24"><path fill="#b08144" d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.86 1.21 3.06c.15.2 2.09 3.2 5.07 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35M12.04 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.44 9.44 0 0 1-1.44-5.03c0-5.21 4.24-9.45 9.45-9.45 2.52 0 4.9.99 6.68 2.77a9.4 9.4 0 0 1 2.77 6.69c0 5.21-4.24 9.44-9.47 9.44m8.05-17.5A11.32 11.32 0 0 0 12.04.66C5.8.66.72 5.74.72 11.99c0 2 .52 3.95 1.52 5.67L.62 23.34l5.82-1.53a11.3 11.3 0 0 0 5.6 1.43h.01c6.24 0 11.32-5.08 11.32-11.33 0-3.03-1.18-5.87-3.32-8.01"/></svg>
+  <span><b>WhatsApp</b><small>Rispondiamo subito</small></span>
+</a>
+
+<script>
+document.getElementById('yy').textContent=new Date().getFullYear();
+const hd=document.getElementById('hd');
+addEventListener('scroll',()=>hd.classList.toggle('stuck',scrollY>60));
+document.getElementById('bg').onclick=()=>document.getElementById('nv').classList.toggle('open');
+document.querySelectorAll('#nv a').forEach(a=>a.onclick=()=>document.getElementById('nv').classList.remove('open'));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+// counters
+document.querySelectorAll('.trust b').forEach(el=>{
+  const raw=el.textContent.trim(); const m=raw.match(/^(\d+)(.*)$/); if(!m)return;
+  const end=+m[1], suf=m[2]; let s=null;
+  const step=t=>{if(!s)s=t;const p=Math.min((t-s)/1400,1);el.textContent=Math.floor(end*(1-Math.pow(1-p,3)))+suf;if(p<1)requestAnimationFrame(step)};
+  const o=new IntersectionObserver(e=>{if(e[0].isIntersecting){requestAnimationFrame(step);o.disconnect()}});o.observe(el);
+});
+/* ---- fallback grafico generato: se una foto non carica, disegniamo
+      un'illustrazione architettonica oro/nero al suo posto ---- */
+function rnd(s){let x=Math.sin(s*9301+49297)*233280;return x-Math.floor(x)}
+function artwork(seed,label){
+  const W=1200,H=900,g='#b08144';let s=seed*7+3,r=()=>rnd(s++),o='';
+  for(let i=0;i<7;i++){const x=r()*900,y=260+r()*380,w=120+r()*280,h=110+r()*380;
+    o+=`<rect x="${x.toFixed(0)}" y="${(H-y-h/3).toFixed(0)}" width="${w.toFixed(0)}" height="${(h+y/2).toFixed(0)}" fill="none" stroke="${g}" stroke-opacity="${(0.1+r()*0.3).toFixed(2)}" stroke-width="1"/>`;
+    for(let j=1;j<4;j++)o+=`<line x1="${x.toFixed(0)}" y1="${(H-y-h/3+j*(h+y/2)/4).toFixed(0)}" x2="${(x+w).toFixed(0)}" y2="${(H-y-h/3+j*(h+y/2)/4).toFixed(0)}" stroke="${g}" stroke-opacity="${(0.06+r()*0.12).toFixed(2)}" stroke-width="1"/>`}
+  for(let i=0;i<26;i++){const x=r()*W,y=r()*H;o+=`<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${(r()*1.6).toFixed(1)}" fill="${g}" fill-opacity="${(r()*.35).toFixed(2)}"/>`}
+  o+=`<path d="M0 ${H} L${(280+r()*300).toFixed(0)} ${(300+r()*180).toFixed(0)} L${(700+r()*220).toFixed(0)} ${(420+r()*160).toFixed(0)} L${W} ${(320+r()*160).toFixed(0)} L${W} ${H} Z" fill="#000" fill-opacity=".55"/>`;
+  const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
+  <defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0e0d0b"/><stop offset="1" stop-color="#070706"/></linearGradient>
+  <radialGradient id="gl" cx="78%" cy="16%" r="70%"><stop offset="0" stop-color="#b08144" stop-opacity=".2"/><stop offset="1" stop-color="#b08144" stop-opacity="0"/></radialGradient></defs>
+  <rect width="${W}" height="${H}" fill="url(#b)"/><rect width="${W}" height="${H}" fill="url(#gl)"/>${o}
+  <text x="60" y="${H-56}" fill="${g}" fill-opacity=".75" font-family="Georgia,serif" font-size="34" letter-spacing="2">${(label||'').replace(/[<&>]/g,'')}</text>
+  <rect x="60" y="${H-40}" width="86" height="1" fill="${g}"/></svg>`;
+  return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+}
+document.querySelectorAll('img').forEach((im,n)=>{
+  const fix=()=>{im.onerror=null;im.style.filter='none';im.src=artwork(n+1,im.closest('a')?.dataset.t||'');};
+  im.onerror=fix; if(im.complete&&im.naturalWidth===0)fix();
+});
+(function(){
+  const el=document.querySelector('.hero-bg');
+  const u=getComputedStyle(el).backgroundImage.match(/url\(["']?(.*?)["']?\)/);
+  if(!u)return; const t=new Image();
+  t.onerror=()=>{el.style.backgroundImage=`url("${artwork(99,'')}")`;el.style.filter='none'};
+  t.src=u[1];
+})();
+</script>
+</body>
+</html>
