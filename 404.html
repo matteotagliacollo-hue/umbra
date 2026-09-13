@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="it"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Umbra</title>
+<style>html,body{margin:0;background:#050508;color:#8f8f9c;
+  font:14px/1.5 ui-sans-serif,system-ui,-apple-system,sans-serif}
+#msg{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}</style>
+</head><body>
+<div id="msg">Un momento&hellip;</div>
+<script>
+(function(){
+  var FILES = ["01-intro.js","02-content.js","03-photos.js","10-obsidian.js","11-atelier.js","12-aurum.js","13-meridian.js","14-velluto.js","15-chrome.js","16-notturno.js","17-grandtour.js","18-monolite.js","90-dati.js","99-render.js"];
+  var parti = location.pathname.replace(/\/+$/,'').split('/');
+  var slug = parti[parti.length-1] || '';
+  if (slug === 'ncc' || slug === '404.html' || slug === 'umbra') slug = '';
+  function ko(t){ var m=document.getElementById('msg'); if(m) m.textContent=t; }
+  var i = location.pathname.indexOf('/ncc/');
+  if (i < 0 || !slug) { ko('Pagina non trovata.'); return; }
+  var base = location.pathname.slice(0, i + 5) + '_a/';
+  var k = 0;
+  (function next(){
+    if (k >= FILES.length) { disegna(); return; }
+    var s = document.createElement('script');
+    s.src = base + FILES[k++];
+    s.onload = next;
+    s.onerror = function(){ ko('Anteprima non disponibile al momento.'); };
+    document.head.appendChild(s);
+  })();
+  function disegna(){
+    var html = null;
+    try { html = window.U && window.U.render ? window.U.render(slug) : null; } catch(e) {}
+    if (!html) { ko('Anteprima non trovata.'); return; }
+    document.open(); document.write(html); document.close();
+  }
+})();
+</script>
+</body></html>
