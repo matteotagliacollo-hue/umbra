@@ -1,948 +1,1108 @@
 <!doctype html>
 <html lang="it">
 <head>
-<meta name="robots" content="noindex,nofollow,noarchive">
-<meta name="referrer" content="no-referrer">
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Autonoleggio di Santi Samantha — Noleggio con conducente a Brescia</title>
 <meta name="description" content="Noleggio con conducente a Brescia. Preventivo su WhatsApp, prezzo concordato prima della partenza. +39 351 096 6221.">
-<meta name="theme-color" content="#FAFAF8">
+<meta name="theme-color" content="#0A0A0A">
+<meta name="robots" content="noindex">
 <meta property="og:title" content="Autonoleggio di Santi Samantha — Noleggio con conducente a Brescia">
 <meta property="og:description" content="Noleggio con conducente a Brescia. Preventivo su WhatsApp, prezzo concordato prima della partenza. +39 351 096 6221.">
-<meta property="og:locale" content="it_IT">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+/* ===================== CHROME — brutalismo di lusso =====================
+   Accento di questa azienda: lime elettrico #D6FF3F — assegnato
+   dall'hash del lead, contrasto verificato AA contro l'inchiostro. */
 :root{
-  --paper:#FAFAF8;
-  --ink:#111111;
-  --g1:#5C5C58;
-  --g2:#6E6E69;
-  --hair:#D9D9D3;
-  --grid:rgba(17,17,17,.055);
-  --acc:#FF4A1C;
-  --pad:clamp(18px,4.4vw,56px);
-  --t:160ms;
-  --line:1px;
-  --inset:clamp(12px,1.3vw,20px);
-  --plate:#EFEFE9;
+  --ink:#0A0A0A;
+  --paper:#EFEFEA;
+  --acc:#D6FF3F;
+  --acc-deep:#252a11;
+  --acc-veil:#131706;
+  --acc-18:rgba(214,255,63,0.18);
+  --acc-07:rgba(214,255,63,0.07);
+  --line:3px;
+  --gut:34px;
+  --bleed:2400px;
+  --disp:"Archivo Black","Arial Black","Helvetica Neue",Impact,sans-serif;
+  --sans:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+@media (min-width:900px){:root{--gut:56px}}
+
+*,*::before,*::after{box-sizing:border-box}
 body{
-  margin:0;background:var(--paper);color:var(--ink);
-  font-family:'Inter','Helvetica Neue',Helvetica,Arial,system-ui,sans-serif;
-  font-weight:400;font-size:15px;line-height:1.5;
-  font-variant-numeric:tabular-nums;font-feature-settings:'tnum' 1,'cv05' 1;
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;
-  padding-top:54px;
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  overflow-x:clip;
+  padding-top:56px;
+  padding-bottom:calc(74px + env(safe-area-inset-bottom,0px));
 }
-.num{font-variant-numeric:tabular-nums;font-feature-settings:'tnum' 1}
-h1,h2,h3,h4,p,figure{margin:0}
-a{color:inherit;text-decoration:none}
-:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
-img,svg{display:block;max-width:100%}
+@media (min-width:861px){body{padding-bottom:0}}
+img,svg{max-width:100%}
+p{margin:0}
+h1,h2,h3{margin:0;font-weight:400}
+a{color:inherit}
 
-/* ---------- griglia dichiarata ---------- */
-.gridlines{
-  position:fixed;inset:0;z-index:0;pointer-events:none;
-  max-width:1440px;margin:0 auto;padding:0 var(--pad);
-  display:grid;grid-template-columns:repeat(12,1fr);
-}
-.gridlines i{border-left:var(--line) solid var(--grid)}
-.gridlines i:last-child{border-right:var(--line) solid var(--grid)}
-@media(max-width:820px){
-  .gridlines{grid-template-columns:repeat(4,1fr)}
-  .gridlines i:nth-child(n+5){display:none}
+::selection{background:var(--acc);color:var(--ink)}
+
+a:focus-visible,button:focus-visible,summary:focus-visible{
+  outline:var(--line) solid var(--ink);
+  outline-offset:2px;
+  box-shadow:0 0 0 7px var(--acc);
 }
 
-.wrap{position:relative;z-index:1;max-width:1440px;margin:0 auto;padding:0 var(--pad)}
-.g{display:grid;grid-template-columns:repeat(12,1fr);gap:0}
-.col-3{grid-column:span 3}
-.col-4{grid-column:span 4}
-.col-5{grid-column:span 5}
-.col-6{grid-column:span 6}
-.col-7{grid-column:span 7}
-.col-8{grid-column:span 8}
-.pr{padding-right:28px}
-.pl{padding-left:28px}
+/* --------------------------------------------------------------- header */
+.hd{
+  position:fixed;top:0;left:0;right:0;z-index:60;
+  height:56px;display:flex;align-items:stretch;
+  background:var(--ink);color:var(--paper);
+}
+.hd-mark{
+  flex:0 0 auto;width:56px;display:grid;place-items:center;
+  background:var(--acc);color:var(--ink);
+  font-family:var(--disp);font-size:20px;letter-spacing:-.02em;
+  border-right:var(--line) solid var(--ink);
+}
+.hd-name{
+  flex:1 1 auto;min-width:0;display:flex;flex-direction:column;justify-content:center;
+  padding:0 12px;
+}
+.hd-name b{
+  font-family:var(--disp);font-size:13px;line-height:1;text-transform:uppercase;
+  letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.hd-name span{
+  font-size:9px;line-height:1.3;letter-spacing:.26em;text-transform:uppercase;
+  opacity:.72;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.hd-cta{
+  display:none;align-items:center;gap:8px;padding:0 22px;
+  background:var(--acc);color:var(--ink);text-decoration:none;
+  font-family:var(--disp);font-size:13px;text-transform:uppercase;letter-spacing:.02em;
+  border-left:var(--line) solid var(--ink);
+}
+.hd-cta svg{width:17px;height:17px;flex:0 0 auto}
+.hd-cta:hover,.hd-cta:active{background:var(--paper);color:var(--ink)}
+@media (min-width:700px){.hd-cta{display:flex}}
 
-/* ---------- header ---------- */
-.hdr{
-  position:fixed;top:0;left:0;right:0;z-index:40;height:54px;
-  background:rgba(250,250,248,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-  border-bottom:var(--line) solid var(--hair);
+/* ---------------------------------------------------------- impaginato */
+.sec{position:relative;padding-left:var(--gut);border-bottom:var(--line) solid var(--ink);overflow:hidden}
+.vtag{
+  position:absolute;left:0;top:0;bottom:0;width:var(--gut);
+  display:flex;align-items:flex-start;justify-content:center;
+  border-right:var(--line) solid var(--ink);
+  background:var(--paper);z-index:2;
 }
-.hdr-in{max-width:1440px;margin:0 auto;padding:0 var(--pad);height:100%;
-  display:flex;align-items:center;justify-content:space-between;gap:16px}
-.brand{display:flex;align-items:center;gap:12px;min-width:0}
-.mono{
-  width:28px;height:28px;flex:0 0 28px;border:var(--line) solid var(--ink);
-  display:grid;place-items:center;font-size:11px;font-weight:600;letter-spacing:.04em
+.vtag i{
+  writing-mode:vertical-rl;transform:rotate(180deg);
+  font-style:normal;font-family:var(--disp);font-size:10px;line-height:1;
+  letter-spacing:.34em;text-transform:uppercase;white-space:nowrap;padding:16px 0;
 }
-.brand-n{font-size:12.5px;font-weight:600;letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.hdr-r{display:flex;align-items:center;gap:18px}
-.clock{display:flex;align-items:center;gap:9px;white-space:nowrap}
-.dot{width:6px;height:6px;background:var(--acc);flex:0 0 6px;animation:blink 2s steps(1,end) infinite}
-@keyframes blink{0%,60%{opacity:1}61%,100%{opacity:.25}}
-.clock-l{font-size:9.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--g1)}
-.clock-t{font-size:12.5px;font-weight:600;letter-spacing:.06em}
+.vtag.vtag-dark{background:var(--ink);color:var(--paper);border-right-color:var(--paper)}
+/* la fascia verticale non si tinge tutta: prende un solo quadrato d'accento
+   in testa, grande quanto la colonna. Il ritmo resta, la superficie no. */
+.vtag.vtag-acc::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:var(--gut);
+  background:var(--acc);border-bottom:var(--line) solid var(--ink);
+}
+.vtag.vtag-acc i{padding-top:calc(var(--gut) + 16px)}
+.pad{padding:26px 14px 30px}
+@media (min-width:900px){.pad{padding:44px 30px 52px}}
+
+.eyebrow{
+  font-family:var(--disp);font-size:10px;line-height:1;letter-spacing:.32em;
+  text-transform:uppercase;display:block;margin-bottom:14px;
+}
+.eyebrow em{font-style:normal;background:var(--acc);color:var(--ink);padding:2px 6px;margin:0 2px}
+/* --------------------------------------------- tipografia su misura */
+/* Ogni riga è dimensionata per riempire la colonna fino al bordo dello
+   schermo senza mai eccederlo: il taglio non cade mai dentro una parola. */
+.fit{display:block;margin:0 -14px 0 0;--fs:10}
+@media (min-width:900px){.fit{margin-right:-30px}}
+.zone-b .fit{margin-right:0}
+.ml{
+  display:block;font-family:var(--disp);text-transform:uppercase;
+  font-size:calc(var(--fs) * 1vw);line-height:.82;letter-spacing:-.035em;
+  white-space:nowrap;
+}
+.ml-acc{
+  background:var(--acc);color:var(--ink);
+  margin-left:-14px;padding-left:14px;
+  margin-right:calc(var(--bleed) * -1);padding-right:var(--bleed);
+}
+@media (min-width:900px){.ml-acc{margin-left:-30px;padding-left:30px}}
+
+/* -------------------------------------------------------------- blocchi */
+.blk{
+  background:var(--paper);color:var(--ink);
+  border-right:var(--line) solid var(--ink);
+  border-bottom:var(--line) solid var(--ink);
+  padding:20px 16px 22px;
+  position:relative;
+}
+.blk-acc{background:var(--acc);color:var(--ink)}
+.blk-ink{background:var(--ink);color:var(--paper)}
+/* dentro il nero l'accento resta un dettaglio tipografico: una cifra, una
+   riga, un valore. All'inversione dell'hover torna inchiostro, altrimenti
+   sparirebbe sul proprio colore. */
+.acx{color:var(--acc)}
+.blk-h.blk-ink:hover .acx,.blk-h.blk-ink:active .acx{color:var(--ink)}
+/* inversione totale, di scatto: nessuna transizione */
+.blk-h:hover,.blk-h:active{background:var(--ink);color:var(--paper)}
+.blk-h.blk-acc:hover,.blk-h.blk-acc:active{background:var(--ink);color:var(--acc)}
+.blk-h.blk-ink:hover,.blk-h.blk-ink:active{background:var(--acc);color:var(--ink)}
+@media (hover:none){.blk-h:hover{background:var(--paper);color:var(--ink)}
+  .blk-h.blk-acc:hover{background:var(--acc);color:var(--ink)}
+  .blk-h.blk-ink:hover{background:var(--ink);color:var(--paper)}
+  .blk-h.blk-ink:hover .acx{color:var(--acc)}}
+
+/* ------------------------------------------------------------ bottoni */
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  height:34px;padding:0 16px;font-size:11.5px;font-weight:600;
-  letter-spacing:.16em;text-transform:uppercase;border:var(--line) solid var(--ink);
-  transition:background var(--t) linear,color var(--t) linear;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:16px 22px;text-decoration:none;
+  font-family:var(--disp);font-size:15px;text-transform:uppercase;letter-spacing:.02em;
+  border:var(--line) solid var(--ink);
+  box-shadow:6px 6px 0 0 var(--ink);
 }
-.btn-acc{background:var(--acc);border-color:var(--acc);color:#111}
-.btn-acc:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
-.btn-out:hover{background:var(--ink);color:var(--paper)}
-.btn-lg{height:46px;padding:0 24px;font-size:12px}
-@media(max-width:820px){.hdr .btn{display:none}}
+.btn svg{width:19px;height:19px;flex:0 0 auto}
+.btn-acc{background:var(--acc);color:var(--ink)}
+.btn-ink{background:var(--ink);color:var(--paper);box-shadow:6px 6px 0 0 var(--acc)}
+.btn-acc:hover,.btn-acc:active{background:var(--ink);color:var(--acc)}
+.btn-ink:hover,.btn-ink:active{background:var(--acc);color:var(--ink);box-shadow:6px 6px 0 0 var(--ink)}
+.btns{display:flex;flex-wrap:wrap;gap:11px;margin-top:18px}
+@media (min-width:900px){.btns{gap:14px;margin-top:22px}}
 
-/* ---------- hairline / reveal ---------- */
-.rule{display:block;height:var(--line);background:var(--hair);transform:scaleX(0);transform-origin:left center;
-  transition:transform 320ms linear}
-.is-in .rule,.rule.is-in{transform:none}
-[data-rv]{opacity:0;transform:translate3d(0,7px,0);transition:opacity var(--t) linear,transform var(--t) ease-out}
-[data-rv].is-in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){
-  [data-rv]{opacity:1;transform:none;transition:none}
-  .rule{transform:none;transition:none}
-  .dot{animation:none}
+/* ---------------------------------------------------------------- hero */
+.hero{border-bottom:var(--line) solid var(--ink)}
+.hero-top{position:relative;z-index:3;padding:18px 14px 4px}
+@media (min-width:900px){.hero-top{padding:38px 30px 10px}}
+.hero-kick{
+  font-family:var(--disp);font-size:9px;line-height:1.35;letter-spacing:.2em;text-transform:uppercase;
+  display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap;
 }
-
-/* ---------- etichette di sezione ---------- */
-/* solo il fondo: il padding orizzontale di .wrap tiene le sezioni sulla griglia */
-.sec{padding-bottom:clamp(56px,7vw,104px)}
-.sec-hd{padding:clamp(40px,5vw,72px) 0 26px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
-.sec-n{font-size:11px;font-weight:600;letter-spacing:.18em}
-.sec-l{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--g1)}
-.sec-d{margin-left:auto;font-size:11.5px;color:var(--g2);letter-spacing:.04em}
-@media(max-width:820px){.sec-d{margin-left:0;width:100%}}
-
-/* ---------- hero ---------- */
-.hero{padding-top:clamp(30px,5vw,58px)}
-.eyebrow{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--g1);
-  display:flex;align-items:baseline;gap:12px}
-.eyebrow b{color:var(--ink);font-weight:600}
-h1.h1{
-  font-size:clamp(2rem,5.9vw,4.5rem);font-weight:600;line-height:.99;letter-spacing:-.035em;
-  margin:20px 0 0;text-wrap:balance;
+@media (min-width:700px){.hero-kick{font-size:10px;letter-spacing:.28em}}
+.hero-kick b{
+  font-weight:400;background:var(--ink);color:var(--paper);padding:5px 9px;
 }
-.hero-sub{margin-top:18px;font-size:clamp(1.02rem,2.1vw,1.5rem);line-height:1.24;letter-spacing:-.012em;color:var(--g1)}
-.hero-sub b{color:var(--ink);font-weight:400}
-.lede{margin-top:22px;max-width:44ch;color:var(--g1);font-size:14.5px;line-height:1.62}
-.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
-.hero-note{margin-top:16px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--g2)}
-/* indice: ancora il piede della colonna sinistra al piede della scheda tecnica */
-.hero-left{display:flex;flex-direction:column}
-/* 3fr + 4fr su una cella da 7 colonne: i filetti cadono sulle linee 1, 4 e 7 */
-.idx{margin-top:auto;margin-right:-28px;padding-top:clamp(34px,4.4vw,62px);
-  display:grid;grid-template-columns:3fr 4fr;column-gap:0}
-.idx a:nth-of-type(even){padding-left:20px}
-.idx-l{grid-column:1/-1;font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--g2);border-top:var(--line) solid var(--ink);padding:9px 0 3px}
-.idx a{display:flex;gap:12px;align-items:baseline;padding:10px 0;
-  border-top:var(--line) solid var(--hair);font-size:11px;font-weight:600;
-  letter-spacing:.14em;text-transform:uppercase;transition:color var(--t) linear}
-.idx a i{font-style:normal;color:var(--g2)}
-.idx a:hover{color:var(--acc)}
-@media(max-width:820px){.idx{display:none}}
+.hero-grid{position:relative;z-index:2;background:var(--paper);display:grid;grid-template-columns:1fr;border-top:var(--line) solid var(--ink)}
+@media (min-width:900px){.hero-grid{grid-template-columns:1.1fr .9fr}}
+/* il fondo lascia sempre spazio alla barra CTA fissa: nessun bottone
+   può finire nascosto sotto la barra */
+.hero-say{padding:18px 14px calc(26px + 76px);border-bottom:var(--line) solid var(--ink)}
+@media (min-width:861px){.hero-say{padding-bottom:34px}}
+@media (min-width:900px){.hero-say{border-bottom:0;border-right:var(--line) solid var(--ink);padding:34px 30px 40px}}
+.hero-a{
+  font-family:var(--disp);text-transform:uppercase;line-height:.84;letter-spacing:-.03em;
+  font-size:clamp(30px,8.6vw,60px);
+}
+.hero-a i{font-style:normal;display:table;background:var(--acc);color:var(--ink);padding:0 .14em;margin-top:.08em}
+.hero-lede{margin-top:14px;font-size:16px;line-height:1.5;max-width:46ch}
+@media (min-width:900px){.hero-lede{margin-top:18px;font-size:18px}}
 
-.spec{border-top:var(--line) solid var(--ink);margin-top:0}
-.spec-hd{display:flex;justify-content:space-between;align-items:baseline;padding:10px var(--inset) 12px 0}
-.spec-hd span{font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
-.spec-hd i{font-style:normal;font-size:10.5px;letter-spacing:.16em;color:var(--g2)}
-/* il filetto arriva alla linea di griglia, il valore si ferma un gutter prima */
-.spec-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;
-  padding:11px var(--inset) 11px 0;border-top:var(--line) solid var(--hair)}
-.spec-k{font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--g1);flex:0 0 auto}
-.spec-v{font-size:13.5px;text-align:right;letter-spacing:.01em;min-width:0;overflow-wrap:anywhere}
-.spec-v .u{color:var(--g2)}
-
-/* ---------- fotografia: telaio, didascalia, filetto ---------- */
-.fig{border-top:var(--line) solid var(--ink)}
-.fig-hd{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
-  padding:9px var(--inset) 11px 0;font-size:10px;font-weight:600;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--g1)}
-.fig-hd b{color:var(--ink);font-weight:600}
-.fig-hd i{font-style:normal;letter-spacing:.16em;color:var(--g2);white-space:nowrap}
-.ph{position:relative;display:block;overflow:hidden;
-  background:
-    repeating-linear-gradient(135deg,rgba(17,17,17,.05) 0 1px,rgba(17,17,17,0) 1px 11px),
-    linear-gradient(180deg,#F2F2ED 0%,var(--plate) 55%,#E3E3DB 100%);
-  border:var(--line) solid var(--hair)}
-/* crocino di centratura: se la foto non arriva resta una piastra tecnica, mai un buco bianco */
-.ph::before{content:"";position:absolute;left:50%;top:50%;width:26px;height:26px;margin:-13px 0 0 -13px;
-  background:
-    linear-gradient(var(--g2),var(--g2)) center/100% 1px no-repeat,
-    linear-gradient(var(--g2),var(--g2)) center/1px 100% no-repeat;
-  opacity:.42}
-/* crocini d'angolo: la piastra resta una figura tecnica anche senza foto */
-.ph::after{content:"";position:absolute;inset:12px;pointer-events:none;opacity:.55;
-  background:
-    linear-gradient(var(--g2),var(--g2)) left top/14px 1px no-repeat,
-    linear-gradient(var(--g2),var(--g2)) left top/1px 14px no-repeat,
-    linear-gradient(var(--g2),var(--g2)) right top/14px 1px no-repeat,
-    linear-gradient(var(--g2),var(--g2)) right top/1px 14px no-repeat,
-    linear-gradient(var(--g2),var(--g2)) left bottom/14px 1px no-repeat,
-    linear-gradient(var(--g2),var(--g2)) left bottom/1px 14px no-repeat,
-    linear-gradient(var(--g2),var(--g2)) right bottom/14px 1px no-repeat,
-    linear-gradient(var(--g2),var(--g2)) right bottom/1px 14px no-repeat}
-.ph img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;
-  filter:saturate(.86) contrast(1.03) brightness(1.03)}
-.r-hero{aspect-ratio:16/9}
-.r-trio{aspect-ratio:4/3}
-.r-ins{aspect-ratio:2/1}
-.r-band{aspect-ratio:21/9;border-left:0;border-right:0}
-
-/* tre foto di flotta: gap zero, i bordi cadono sulle linee 4 e 8 della griglia */
-.trio{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr)}
-.trio .fig+.fig .ph{border-left:0}
-
-/* inserto interni nella sezione servizi */
-.ins{grid-column:6/-1;margin-top:clamp(34px,4vw,58px)}
-/* la nota parte dallo stesso filetto della didascalia: una sola linea attraversa le 12 colonne */
-.ins-note{grid-column:1/5;align-self:start;margin-top:clamp(34px,4vw,58px);
-  border-top:var(--line) solid var(--ink);padding:9px 28px 0 0;
-  font-size:11px;line-height:1.7;color:var(--g2);letter-spacing:.06em}
-
-/* fascia panoramica a tutta larghezza */
-.fascia{margin-top:clamp(44px,6vw,88px);border-top:var(--line) solid var(--ink)}
-.fascia-hd{display:flex;align-items:baseline;justify-content:space-between;gap:14px;
-  padding-top:10px;padding-bottom:12px;
-  font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--g1)}
-.fascia-hd b{color:var(--ink);font-weight:600}
-.fascia-hd i{font-style:normal;letter-spacing:.16em;color:var(--g2);white-space:nowrap}
-
-/* ---------- blueprint ---------- */
-.bp{margin-top:clamp(40px,5vw,70px);border-top:var(--line) solid var(--ink);padding-top:14px}
-.bp-hd{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
-  font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--g1)}
-.bp-hd b{color:var(--ink);font-weight:600}
-.bp-box{margin-top:10px;padding:6px 0 0}
-.bp svg{width:100%;height:auto}
-.bp svg path,.bp svg circle,.zone-fig svg path,.zone-fig svg circle,.zone-fig svg rect{vector-effect:non-scaling-stroke}
-.bp .dr{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 900ms linear}
-.bp.is-in .dr{stroke-dashoffset:0}
-@media(prefers-reduced-motion:reduce){.bp .dr{stroke-dashoffset:0;transition:none}}
-.bp-cap{margin-top:8px;font-size:11px;color:var(--g2);letter-spacing:.06em;
-  border-top:var(--line) solid var(--hair);padding-top:9px}
-.bp-scroll{display:none;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--g2);margin-top:8px}
-@media(max-width:1024px){
-  .bp-box{overflow-x:auto;-webkit-overflow-scrolling:touch}
-  .bp-box svg{min-width:900px}
-  .bp svg text{font-size:18px}
-  .bp-scroll{display:block}
+/* slot foto hero: la fotografia in bianco e nero stampata sulla carta
+   sporca, sotto la silhouette disegnata a mano. L'accento entra solo
+   nell'ombra dura della silhouette e nella targhetta. */
+.hero-art{
+  position:relative;isolation:isolate;background:var(--paper);color:var(--ink);
+  min-height:206px;overflow:hidden;display:flex;align-items:flex-end;
+}
+@media (min-width:900px){.hero-art{min-height:320px}}
+.hero-art .ph-i{
+  filter:grayscale(1) contrast(1.28) brightness(1.04);
+  mix-blend-mode:multiply;
+}
+.hero-art .dots{
+  position:absolute;inset:0;
+  background-image:radial-gradient(var(--ink) 1.4px,transparent 1.5px);
+  background-size:13px 13px;opacity:.34;
+}
+.hero-art .bars{
+  position:absolute;left:0;right:0;top:0;height:34px;
+  background:repeating-linear-gradient(90deg,var(--ink) 0 14px,transparent 14px 28px);
+}
+/* la silhouette sta sopra la fotografia, non sotto: l'ombra dura in
+   accento la stacca anche da uno scatto molto scuro */
+.hero-car{
+  position:relative;z-index:2;flex:0 0 auto;width:150%;max-width:none;
+  margin:0 -34% -6px 6%;display:block;
+  filter:drop-shadow(6px 6px 0 var(--acc));
+}
+.hero-art .plate{
+  position:absolute;left:0;bottom:0;z-index:3;background:var(--ink);color:var(--acc);
+  font-family:var(--disp);font-size:10px;letter-spacing:.3em;text-transform:uppercase;
+  padding:8px 12px;
 }
 
-/* ---------- fascia rilevazioni ---------- */
-.band{border-top:var(--line) solid var(--ink);border-bottom:var(--line) solid var(--ink);margin-top:clamp(44px,5vw,72px)}
-.band-in{display:grid;grid-template-columns:repeat(12,1fr)}
-.band-l{grid-column:span 6;padding:22px 28px 22px 0;border-right:var(--line) solid var(--hair)}
-.band-r{grid-column:span 6;display:grid;grid-template-columns:repeat(3,1fr)}
-.proof-t{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
-.proof-x{margin-top:7px;font-size:13.5px;color:var(--g1)}
-.stat{padding:22px 20px;border-left:var(--line) solid var(--hair)}
-.stat:first-child{border-left:0}
-.stat-v{display:block;font-size:clamp(1.7rem,3.4vw,2.6rem);font-weight:600;letter-spacing:-.035em;line-height:1}
-.stat-k{display:block;margin-top:8px;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--g1)}
+/* -------------------------------------------------------------- ticker */
+.mq{
+  background:var(--ink);color:var(--paper);
+  border-top:var(--line) solid var(--ink);border-bottom:var(--line) solid var(--ink);
+  overflow:hidden;padding:10px 0;
+}
+.mq-track{display:flex;width:max-content;will-change:transform}
+.mq-seg{display:flex;align-items:center;white-space:nowrap}
+.mq-w{
+  font-family:var(--disp);text-transform:uppercase;letter-spacing:-.01em;
+  font-size:clamp(26px,6.4vw,54px);line-height:1;
+}
+.mq-s{
+  color:var(--acc);font-family:var(--disp);
+  font-size:clamp(22px,5vw,44px);line-height:1;padding:0 .34em;
+}
 
-/* ---------- servizi ---------- */
-.srv{padding:0 22px 0 0}
-.srv .rule-top{margin-bottom:14px;background:var(--ink)}
-.srv-n{font-size:10.5px;font-weight:600;letter-spacing:.18em;color:var(--ink)}
-.srv-t{margin-top:9px;font-size:16px;font-weight:600;letter-spacing:-.012em}
-.srv-x{margin-top:9px;font-size:13.5px;line-height:1.6;color:var(--g1)}
+/* --------------------------------------------------------------- prova */
+.proof{display:grid;grid-template-columns:repeat(3,1fr)}
+.stat{padding:18px 10px 20px;text-align:left}
+.num{font-family:var(--disp);font-size:clamp(28px,8vw,52px);line-height:.9;display:block;font-weight:400;font-variant-numeric:tabular-nums}
+.stat-l{
+  display:block;margin-top:8px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  font-weight:600;line-height:1.3;
+}
+.rate{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:16px}
+.stars{display:flex;gap:3px;color:var(--ink)}
+.star{width:17px;height:17px}
+.rate-x{font-size:13px;letter-spacing:.02em;font-weight:600}
+.rate-x .num{display:inline;font-size:19px}
+.proof-claim{padding:22px 16px}
+.proof-claim h2{font-family:var(--disp);font-size:clamp(22px,6vw,38px);line-height:.92;text-transform:uppercase;letter-spacing:-.02em}
+.proof-claim p{margin-top:10px;font-size:14px;font-weight:600;letter-spacing:.02em}
 
-/* ---------- tabella flotta ---------- */
-.tbl{overflow-x:auto;-webkit-overflow-scrolling:touch;border-top:var(--line) solid var(--ink)}
-table{width:100%;min-width:640px;border-collapse:collapse;text-align:left}
-th,td{padding:15px 18px 15px 0;vertical-align:top;font-weight:400}
-.tbl thead th{font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--g1);
-  padding-top:11px;padding-bottom:11px;border-bottom:var(--line) solid var(--hair)}
-tbody tr{border-bottom:var(--line) solid var(--hair)}
-tbody tr:last-child{border-bottom:0}
-.tc-n{width:52px;color:var(--g2);font-size:11.5px;padding-top:18px}
-.tc-name{width:26%;font-size:15px;font-weight:600;letter-spacing:-.01em}
-.tc-size{width:20%;font-size:13px;color:var(--g1);white-space:nowrap}
-.tc-note{font-size:13.5px;color:var(--g1);line-height:1.55}
-.tbl-note{margin-top:12px;font-size:11px;color:var(--g2);letter-spacing:.06em}
+/* ------------------------------------------------------------ servizi */
+.grid2{display:grid;grid-template-columns:1fr;border-top:var(--line) solid var(--ink)}
+@media (min-width:700px){.grid2{grid-template-columns:1fr 1fr}}
+.svc{padding:24px 16px 28px}
+.svc-n{
+  font-family:var(--disp);font-size:12px;letter-spacing:.24em;display:block;margin-bottom:14px;
+}
+.svc-t{font-family:var(--disp);font-size:clamp(22px,6.2vw,34px);line-height:.9;text-transform:uppercase;letter-spacing:-.02em}
+.svc-x{margin-top:12px;font-size:15px;line-height:1.45;max-width:38ch}
 
-/* ---------- procedura ---------- */
-.step{padding:0 26px 0 0}
-.step .rule-top{margin-bottom:14px;background:var(--ink)}
-.step-n{font-size:10.5px;font-weight:600;letter-spacing:.18em;color:var(--g2)}
-.step-t{margin-top:9px;font-size:17px;font-weight:600;letter-spacing:-.015em}
-.step-x{margin-top:9px;font-size:13.5px;line-height:1.6;color:var(--g1)}
+/* ------------------------------------------------------------- flotta */
+/* le tre vetture non sono allineate: si sfalsano in verticale */
+.rail{display:flex;gap:0;align-items:flex-start;border-top:var(--line) solid var(--ink);overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding-bottom:2px}
+.rail::-webkit-scrollbar{height:8px}
+.rail::-webkit-scrollbar-track{background:var(--paper);border-top:var(--line) solid var(--ink)}
+.rail::-webkit-scrollbar-thumb{background:var(--ink)}
+.car{flex:0 0 auto;width:272px;scroll-snap-align:start;padding:14px 14px 0}
+@media (min-width:900px){.car{width:352px;padding:18px 18px 0}}
+@media (min-width:1180px){.car{width:428px}}
+.car:nth-child(1){margin-top:0}
+.car:nth-child(2){margin-top:38px}
+.car:nth-child(3){margin-top:14px}
+@media (min-width:900px){.car:nth-child(2){margin-top:56px}.car:nth-child(3){margin-top:22px}}
+.car-art{
+  aspect-ratio:16/11;color:var(--paper);
+  margin:0 9px 9px 0;box-shadow:9px 9px 0 0 var(--ink);
+}
+.car-art-acc{color:var(--ink);box-shadow:9px 9px 0 0 var(--acc)}
+.car-grid{
+  position:absolute;inset:0;z-index:3;opacity:.34;
+  background-image:linear-gradient(currentColor 1px,transparent 1px),linear-gradient(90deg,currentColor 1px,transparent 1px);
+  background-size:26px 26px;
+}
+/* la silhouette resta leggibile su qualunque fotografia: contorno duro
+   nel colore opposto, senza sfocatura */
+.car-svg{position:absolute;z-index:4;left:-9%;bottom:-2px;display:block;width:118%;
+  filter:drop-shadow(4px 4px 0 var(--ink))}
+.car-art-acc .car-svg{filter:drop-shadow(4px 4px 0 var(--acc))}
+.car-b{padding:20px 2px 22px}
+.car-tag{font-family:var(--disp);font-size:10px;letter-spacing:.26em;text-transform:uppercase;display:block}
+.car-t{font-family:var(--disp);font-size:clamp(20px,5.6vw,28px);line-height:.92;text-transform:uppercase;margin-top:10px;letter-spacing:-.02em}
+.car-x{margin-top:10px;font-size:14px;line-height:1.45}
+.rail-hint{font-size:10px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;padding:12px 14px 0;opacity:.6}
 
-/* ---------- zona ---------- */
-.zone-t{font-size:clamp(1.5rem,3.4vw,2.5rem);font-weight:600;letter-spacing:-.03em;line-height:1.02}
-.zone-x{margin-top:16px;max-width:40ch;font-size:13.5px;line-height:1.6;color:var(--g1)}
-.zone-fig{border:var(--line) solid var(--hair);padding:14px}
-.zone-fig svg{width:100%;height:auto}
-@media(max-width:820px){.zone-fig svg text{font-size:20px}}
-.zone-cap{margin-top:9px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--g2)}
+/* ------------------------------------------------------- come funziona */
+.how{background:var(--ink);color:var(--paper)}
+.steps{display:grid;grid-template-columns:1fr;margin-top:24px;border-top:var(--line) solid var(--paper)}
+@media (min-width:800px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{padding:22px 16px 26px;border-bottom:var(--line) solid var(--paper)}
+@media (min-width:800px){.step{border-bottom:0;border-right:var(--line) solid var(--paper)}.step:last-child{border-right:0}}
+.step-n{font-family:var(--disp);font-size:clamp(44px,13vw,84px);line-height:.8;color:var(--acc);display:block}
+.step-t{font-family:var(--disp);font-size:clamp(19px,5.4vw,26px);text-transform:uppercase;margin-top:12px;line-height:.94;letter-spacing:-.01em}
+.step-x{margin-top:10px;font-size:14px;line-height:1.5;opacity:.86;max-width:34ch}
 
-/* ---------- faq ---------- */
-.faq{border-top:var(--line) solid var(--hair)}
+/* --------------------------------------------------------------- zona */
+.zone{display:grid;grid-template-columns:1fr}
+@media (min-width:900px){.zone{grid-template-columns:1.2fr .8fr}}
+.zone-b{padding:24px 14px 28px}
+@media (min-width:900px){.zone-b{padding:40px 30px}}
+/* la mappa non è più una campitura d'accento: reticolo e anelli esterni
+   sono di carta su nero, l'accento resta il pallino e il primo anello —
+   cioè il punto in cui si guarda */
+.zone-map{position:relative;isolation:isolate;background:var(--ink);color:var(--paper);min-height:230px;overflow:hidden}
+.zone-map .ph-i{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.5) brightness(.42)}
+.zone-map .net,.zone-map .pin,.zone-map .ring{z-index:3}
+.zone-map .net{
+  position:absolute;inset:-20%;
+  background-image:linear-gradient(currentColor 1px,transparent 1px),linear-gradient(90deg,currentColor 1px,transparent 1px);
+  background-size:34px 34px;opacity:.16;transform:rotate(-9deg);
+}
+.zone-map .pin{position:absolute;left:50%;top:50%;width:16px;height:16px;margin:-8px 0 0 -8px;background:var(--acc);border-radius:50%}
+.zone-map .ring{position:absolute;left:50%;top:50%;border:2px solid currentColor;border-radius:50%;opacity:.34}
+.zone-map .r1{width:96px;height:96px;margin:-48px 0 0 -48px;border-color:var(--acc);opacity:1}
+.zone-map .r2{width:172px;height:172px;margin:-86px 0 0 -86px;opacity:.26}
+.zone-map .r3{width:250px;height:250px;margin:-125px 0 0 -125px;opacity:.14}
+.zone-note{margin-top:16px;font-size:15px;line-height:1.5;max-width:42ch}
+.zone-addr{
+  margin-top:20px;display:inline-block;background:var(--acc);color:var(--ink);
+  border:var(--line) solid var(--ink);box-shadow:6px 6px 0 0 var(--ink);
+  padding:12px 14px;font-size:13px;font-weight:600;line-height:1.4;letter-spacing:.02em;
+}
+
+/* ---------------------------------------------------------------- faq */
+.faq{border-bottom:var(--line) solid var(--ink)}
 .faq:first-of-type{border-top:var(--line) solid var(--ink)}
-.faq summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:16px;padding:16px 0}
+.faq summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;
+  padding:18px 14px;font-family:var(--disp);text-transform:uppercase;
+  font-size:clamp(15px,4.2vw,21px);line-height:1.04;letter-spacing:-.01em;
+}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary:hover .faq-q{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
-.faq summary:hover .faq-s{color:var(--acc)}
-.faq-n{font-size:10.5px;font-weight:600;letter-spacing:.18em;color:var(--g2);flex:0 0 auto}
-.faq-q{font-size:15px;font-weight:600;letter-spacing:-.01em;flex:1 1 auto}
-.faq-s{flex:0 0 auto;width:11px;height:11px;position:relative;align-self:center}
-.faq-s::before,.faq-s::after{content:"";position:absolute;background:currentColor;transition:transform var(--t) linear}
-.faq-s::before{left:0;top:5px;width:11px;height:1px}
-.faq-s::after{left:5px;top:0;width:1px;height:11px}
-.faq[open] .faq-s::after{transform:scaleY(0)}
-.faq-a{padding:0 0 18px 0}
-.faq-a p{max-width:62ch;font-size:13.5px;line-height:1.62;color:var(--g1);padding-left:35px}
-@media(max-width:640px){.faq-a p{padding-left:0}}
+.faq summary:hover,.faq summary:active{background:var(--ink);color:var(--paper)}
+.faq-q{flex:1 1 auto}
+.faq-i{
+  flex:0 0 auto;width:26px;height:26px;position:relative;
+  border:var(--line) solid currentColor;
+}
+.faq-i::before,.faq-i::after{content:"";position:absolute;background:currentColor}
+.faq-i::before{left:4px;right:4px;top:9px;height:3px}
+.faq-i::after{top:4px;bottom:4px;left:9px;width:3px}
+.faq[open] .faq-i::after{display:none}
+/* la riga aperta si inverte in nero: l'accento resta il quadratino del
+   segno, non tutta la fascia */
+.faq[open] summary{background:var(--ink);color:var(--paper)}
+.faq[open] .faq-i{background:var(--acc);border-color:var(--acc)}
+.faq[open] .faq-i::before{background:var(--ink)}
+.faq[open] summary:hover,.faq[open] summary:active{color:var(--acc)}
+.faq-a{padding:0 14px 20px;max-width:60ch}
+.faq-a p{font-size:15px;line-height:1.55}
 
-/* ---------- contatti ---------- */
-.ct{border-top:var(--line) solid var(--ink);padding-top:26px}
-.ct-h{font-size:clamp(1.5rem,3.6vw,2.6rem);font-weight:600;letter-spacing:-.032em;line-height:1.02;max-width:14ch}
-.ct-row{display:flex;justify-content:space-between;align-items:baseline;gap:18px;
-  padding:13px var(--inset) 13px 0;border-bottom:var(--line) solid var(--hair)}
-.ct-k{font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--g1)}
-.ct-v{font-size:14px;text-align:right}
-.ct-v a{border-bottom:var(--line) solid var(--hair);transition:border-color var(--t) linear}
-.ct-v a:hover{border-color:var(--acc)}
+/* ----------------------------------------------------------- contatti */
+.ct{display:grid;grid-template-columns:1fr;border-top:var(--line) solid var(--ink)}
+@media (min-width:800px){.ct{grid-template-columns:repeat(3,1fr)}}
+.ct-b{padding:24px 16px 26px;text-decoration:none;display:block}
+.ct-l{font-family:var(--disp);font-size:10px;letter-spacing:.28em;text-transform:uppercase;display:block}
+.ct-v{font-family:var(--disp);font-size:clamp(19px,5.2vw,26px);line-height:1.02;margin-top:12px;display:block;letter-spacing:-.01em;word-break:break-word}
+.ct-x{margin-top:10px;font-size:13px;line-height:1.45;font-weight:600}
 
-/* ---------- footer ---------- */
-.ftr{border-top:var(--line) solid var(--ink);padding-top:26px;padding-bottom:118px}
-.ftr-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
-  font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--g2)}
-.ftr-in b{color:var(--ink);font-weight:600}
-@media(min-width:821px){.ftr{padding-bottom:34px}}
+/* ------------------------------------------------------------- footer */
+.ft{background:var(--ink);color:var(--paper);padding:30px 14px calc(30px + env(safe-area-inset-bottom,0px))}
+@media (min-width:900px){.ft{padding:44px 30px}}
+.ft-n{font-family:var(--disp);font-size:clamp(24px,7vw,44px);text-transform:uppercase;line-height:.9;letter-spacing:-.02em}
+.ft-r{margin-top:18px;display:flex;flex-wrap:wrap;gap:12px 26px;align-items:baseline;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.72}
+.ft-u{margin-top:22px;font-size:10px;letter-spacing:.26em;text-transform:uppercase;opacity:.5}
+.ft-cta{margin-top:26px}
 
-/* ---------- barra mobile ---------- */
-.bar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;
-  border-top:var(--line) solid var(--ink);background:var(--paper);
-  padding-bottom:env(safe-area-inset-bottom)}
-.bar-in{display:grid;grid-template-columns:1fr 1fr}
-.bar-in.one{grid-template-columns:1fr}
-.bar a{height:56px;display:flex;align-items:center;justify-content:center;gap:8px;
-  font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
-.bar .wa{background:var(--acc);color:#111}
-.bar .tl{border-left:var(--line) solid var(--ink)}
-.bar-in.one .tl{border-left:0}
-@media(max-width:820px){.bar{display:block}}
+/* ------------------------------------------------------- barra mobile */
+.bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;
+  display:flex;border-top:var(--line) solid var(--ink);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  background:var(--paper);
+}
+@media (min-width:861px){.bar{display:none}}
+.bar a{
+  flex:1 1 0;display:flex;align-items:center;justify-content:center;gap:9px;
+  padding:19px 8px;text-decoration:none;
+  font-family:var(--disp);font-size:14px;text-transform:uppercase;letter-spacing:.02em;
+}
+.bar a svg{width:18px;height:18px}
+.bar .b-wa{background:var(--acc);color:var(--ink);border-right:var(--line) solid var(--ink)}
+.bar .b-tel{background:var(--ink);color:var(--paper)}
+.bar .b-wa:active{background:var(--ink);color:var(--acc)}
+.bar .b-tel:active{background:var(--acc);color:var(--ink)}
 
-/* ---------- responsive ---------- */
-@media(max-width:1080px){
-  .srv{grid-column:span 6}
-  .ins{grid-column:4/-1}
-  .ins-note{grid-column:1/4}
+/* ====================================================== FOTOGRAFIA =====
+   Trattamento CHROME: bianco e nero secco, contrastato, bordo nero pieno
+   da 3px, ombra dura senza sfocatura, zero raggi d'angolo. Il duotone
+   pieno resta a UNA sola fotografia per pagina (il dettaglio d'interni):
+   è il colpo, e un colpo si dà una volta sola. Sotto ogni foto resta un
+   fondo scuro del tema: se la rete cade non si apre mai un buco bianco. */
+.ph{
+  position:relative;isolation:isolate;overflow:hidden;
+  border:var(--line) solid var(--ink);
+  background-color:var(--ink);
+  background-image:
+    radial-gradient(circle at 24% 24%,var(--acc-18),transparent 58%),
+    repeating-linear-gradient(90deg,var(--acc-07) 0 2px,transparent 2px 11px),
+    linear-gradient(146deg,#0A0A0A 0%,var(--acc-deep) 52%,#0A0A0A 100%);
 }
-@media(max-width:820px){
-  .ins,.ins-note{grid-column:1/-1}
-  .ins-note{padding-right:0;margin-top:clamp(28px,4vw,46px)}
-  .ins{margin-top:20px}
-  .r-ins{aspect-ratio:16/9}
+.ph-sh{box-shadow:10px 10px 0 0 var(--ink)}
+.ph-sh-acc{box-shadow:10px 10px 0 0 var(--acc)}
+.ph-i{
+  position:absolute;inset:0;z-index:1;
+  width:100%;height:100%;object-fit:cover;display:block;border:0;
 }
-@media(max-width:700px){
-  .trio{grid-template-columns:1fr}
-  .trio .fig+.fig{margin-top:24px}
-  .trio .fig+.fig .ph{border-left:var(--line) solid var(--hair)}
-  .r-trio{aspect-ratio:16/9}
+/* duotone: le luci prendono l'accento, le ombre restano nere.
+   Una sola foto per pagina lo porta. */
+.ph-duo .ph-i{filter:grayscale(1) contrast(1.34) brightness(1.04)}
+.ph-duo::before,.ph-duo::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none}
+/* Il velo non copre a tinta piena: sfuma, cosi' anche una foto chiara resta una
+   fotografia e non diventa un rettangolo di colore. */
+.ph-duo::before{background:linear-gradient(158deg,var(--acc) 0%,var(--acc) 34%,transparent 88%);
+  mix-blend-mode:multiply;opacity:.72}
+.ph-duo::after{background:var(--acc-veil);mix-blend-mode:screen;opacity:.55}
+/* bianco e nero secco */
+.ph-bw .ph-i{filter:grayscale(1) contrast(1.44) brightness(.93)}
+/* se la foto non arriva, via i velari: resta il fondo scuro disegnato */
+.ph-off::before,.ph-off::after{display:none}
+
+.ph-grid{
+  position:absolute;inset:0;z-index:3;pointer-events:none;opacity:.42;
+  background-image:linear-gradient(rgba(10,10,10,.85) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(10,10,10,.85) 1px,transparent 1px);
+  background-size:28px 28px;
 }
-@media(max-width:820px){
-  body{font-size:15px}
-  .g > *{grid-column:1/-1}
-  .pr,.pl,.srv,.step{padding-right:0;padding-left:0}
-  .hero-right{margin-top:38px}
-  .band-in{display:block}
-  .band-l{padding:20px 0;border-right:0;border-bottom:var(--line) solid var(--hair)}
-  .band-r{display:grid;grid-template-columns:repeat(3,1fr)}
-  .stat{padding:18px 10px 18px 12px}
-  .stat:first-child{padding-left:0}
-  .srv{margin-top:26px}
-  .step{margin-top:26px}
-  .zone-fig{margin-top:28px}
+.ph-bars{
+  position:absolute;left:0;right:0;top:0;height:22px;z-index:4;
+  background:repeating-linear-gradient(90deg,var(--ink) 0 12px,transparent 12px 24px);
 }
-@media(max-width:560px){
-  .clock-l{font-size:8.5px;letter-spacing:.12em}
-  .clock-t{font-size:11.5px}
-  .brand-n{font-size:11.5px}
+.ph-plate{
+  position:absolute;left:0;bottom:0;z-index:5;
+  background:var(--ink);color:var(--acc);
+  font-family:var(--disp);font-size:10px;letter-spacing:.3em;text-transform:uppercase;
+  padding:8px 12px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
 }
-@media(max-width:420px){
-  .band-r{grid-template-columns:1fr 1fr}
-  .stat:nth-child(3){grid-column:1/-1;border-left:0;padding-left:0;border-top:var(--line) solid var(--hair)}
+.ph-plate-acc{background:var(--acc);color:var(--ink)}
+
+/* fascia fotografica dell'hero: la riga accento del titolo le passa
+   davanti e la taglia di netto */
+.hero-band{
+  position:relative;z-index:1;display:block;
+  height:clamp(184px,33vw,340px);margin-top:-26px;border-left:0;border-right:0;
+}
+
+/* fotografia dentro l'intestazione di una sezione */
+.sec-head{display:grid;grid-template-columns:1fr;gap:20px}
+@media (min-width:900px){.sec-head{grid-template-columns:1.12fr .88fr;gap:34px;align-items:end}}
+.sec-head-t .fit{margin-right:0}
+.sec-head-ph{aspect-ratio:16/10}
+@media (min-width:900px){.sec-head-ph{aspect-ratio:16/9;max-height:262px;margin:0 10px 10px 0}}
+
+/* prova: ritratto dell'autista accanto al blocco lime */
+.proof-2{display:grid;grid-template-columns:1fr}
+@media (min-width:800px){.proof-2{grid-template-columns:1.02fr .98fr}}
+.proof-ph{min-height:222px;border-top:0}
+@media (min-width:800px){.proof-ph{border-top:var(--line) solid var(--ink);border-left:0}}
+
+/* ticker fotografico: piccole foto che scorrono, sfalsate a coppie */
+.mq-ph{padding:14px 0}
+.pcell{
+  flex:0 0 auto;width:150px;height:102px;margin-right:14px;
+}
+.pcell:nth-child(even){transform:translateY(14px)}
+@media (min-width:900px){.pcell{width:198px;height:132px;margin-right:18px}
+  .pcell:nth-child(even){transform:translateY(20px)}}
+
+/* foto gigante in bianco e nero, nome in carta sopra un velo d'inchiostro:
+   qui il colore non serve, serve il buio */
+.mono{
+  position:relative;isolation:isolate;overflow:hidden;
+  border-bottom:var(--line) solid var(--ink);
+  min-height:clamp(300px,54vw,520px);
+  display:flex;align-items:flex-end;
+  background:linear-gradient(146deg,#0A0A0A 0%,var(--acc-deep) 52%,#0A0A0A 100%);
+}
+.mono-ph{position:absolute;inset:0;z-index:0;border:0}
+.mono-ph .ph-i{filter:grayscale(1) contrast(1.5) brightness(.5)}
+/* velo: garantisce il contrasto AA del testo su qualunque fotografia,
+   anche chiarissima */
+.mono::after{
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(180deg,rgba(10,10,10,.42) 0%,rgba(10,10,10,.88) 78%);
+}
+.mono-in{position:relative;z-index:4;width:100%;padding:26px 14px 30px}
+@media (min-width:900px){.mono-in{padding:46px 30px 44px}}
+.mono-eye{color:var(--paper)}
+.mono-t{margin-right:0}
+.mono-t .ml{color:var(--paper)}
+.mono-x{
+  position:relative;z-index:4;margin-top:14px;max-width:40ch;
+  font-size:14px;line-height:1.5;font-weight:600;color:var(--paper);
+  background:rgba(10,10,10,.72);display:inline-block;padding:10px 12px;
+  border-left:var(--line) solid var(--acc);
+}
+@media (prefers-reduced-motion:reduce){.pcell:nth-child(even){transform:none}}
+
+/* ------------------------------------------------------------ entrate */
+.rise{opacity:0;transform:translate3d(0,26px,0)}
+.rise.in{
+  opacity:1;transform:none;
+  transition:transform .34s steps(5,end),opacity .22s steps(3,end);
+}
+/* Nel rail la traslazione verrebbe tagliata: si entra con una spazzata
+   secca. La tendina è un velo sopra la card, non un ritaglio della card:
+   un clip-path a superficie nulla renderebbe l'elemento invisibile
+   all'IntersectionObserver e la card non si rivelerebbe mai. */
+.rail .rise{opacity:1;transform:none}
+.rail .rise::before{
+  content:"";position:absolute;inset:0;z-index:6;pointer-events:none;
+  background:var(--paper);transform-origin:100% 50%;
+}
+.rail .rise.in::before{transform:scaleX(0);transition:transform .42s steps(6,end)}
+@media (scripting:none){
+  .rise{opacity:1;transform:none}
+  .rail .rise::before{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .rise{opacity:1;transform:none;transition:none}
+  .rail .rise::before{display:none}
+  .mq-track{transform:none!important}
 }
 </style>
 </head>
 <body>
 
-<div class="gridlines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-
-<header class="hdr">
-  <div class="hdr-in">
-    <div class="brand">
-      <span class="mono" aria-hidden="true">AD</span>
-      <span class="brand-n">Autonoleggio di Santi Samantha</span>
-    </div>
-    <div class="hdr-r">
-      <div class="clock">
-        <span class="dot" aria-hidden="true"></span>
-        <span class="clock-l">Operativo ora</span>
-        <span class="clock-t num" id="mClock">--:--:--</span>
-      </div>
-      <a class="btn btn-acc" href="https://wa.me/393510966221" target="_blank" rel="noopener">WhatsApp</a>
-    </div>
+<header class="hd">
+  <span class="hd-mark" aria-hidden="true">AD</span>
+  <div class="hd-name">
+    <b>Autonoleggio di Santi Samantha</b>
+    <span>Noleggio con conducente &middot; Brescia</span>
   </div>
+  <a class="hd-cta" href="https://wa.me/393510966221" target="_blank" rel="noopener" aria-label="Scrivi su WhatsApp a Autonoleggio di Santi Samantha"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 0 1 0 16 8 8 0 0 1-4.2-1.2l-.4-.2-2.5.6.7-2.4-.3-.4A8 8 0 0 1 12 4zm-3.3 4.2c-.2 0-.5.1-.7.4-.3.3-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.2 1.7 2.7 4.2 3.7 2 .8 2.5.7 2.9.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.6-.3l-1.5-.7c-.2-.1-.4-.1-.6.1l-.7.9c-.1.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.3-1.6-1.5-1.9-.1-.2 0-.4.1-.5l.5-.6c.1-.2.2-.3.3-.5v-.5c-.1-.2-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4z"/></svg><span>Preventivo</span></a>
 </header>
 
 <main>
 
-  <!-- ============ HERO ============ -->
-  <section class="wrap hero">
-    <div class="g">
-      <div class="col-7 pr hero-left">
-        <p class="eyebrow" data-rv><span class="num">00</span> — <b>Noleggio con conducente</b></p>
-        <h1 class="h1" data-rv style="transition-delay:60ms">Autonoleggio di Santi Samantha</h1>
-        <p class="hero-sub" data-rv style="transition-delay:110ms">Il viaggio <b>come dovrebbe essere</b>.</p>
-        <p class="lede" data-rv style="transition-delay:150ms">Autista privato, puntualità al minuto e discrezione assoluta. Prenotate in trenta secondi su WhatsApp: vi rispondiamo noi, non un centralino.</p>
-        <div class="cta" data-rv style="transition-delay:190ms">
-          <a class="btn btn-acc btn-lg" href="https://wa.me/393510966221" target="_blank" rel="noopener">Preventivo su WhatsApp</a>
-          <a class="btn btn-out btn-lg" href="tel:+393510966221">Telefono +39 351 096 6221</a>
-        </div>
-        <p class="hero-note" data-rv style="transition-delay:230ms">Prezzo concordato prima della partenza</p>
-        <nav class="idx" aria-label="Indice della pagina" data-rv style="transition-delay:270ms">
-          <span class="idx-l">Indice</span>
-          <a href="#servizi"><i class="num">01</i> Servizi</a>
-          <a href="#flotta"><i class="num">02</i> Flotta</a>
-          <a href="#procedura"><i class="num">03</i> Procedura</a>
-          <a href="#zona"><i class="num">04</i> Zona operativa</a>
-          <a href="#domande"><i class="num">05</i> Domande</a>
-          <a href="#contatto"><i class="num">06</i> Contatto</a>
-        </nav>
-      </div>
-
-      <div class="col-5 hero-right">
-        
-      <figure class="fig" data-rv>
-        <figcaption class="fig-hd"><span><b>Fig. 01</b> — Vettura executive</span><i>16 : 9</i></figcaption>
-        <div class="ph r-hero"><img src="https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=1800&q=78" srcset="https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=900&q=78 900w, https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=1800&q=78 1800w, https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=2400&q=78 2400w" sizes="(max-width:820px) 100vw, 44vw" alt="Berlina executive di colore scuro" data-photo-slot="hero" loading="eager" decoding="async" referrerpolicy="no-referrer"></div>
-      </figure>
-        <div class="spec" style="margin-top:clamp(26px,3vw,40px)">
-          <div class="spec-hd">
-            <span>Scheda tecnica</span><i class="num">REV. 01</i>
-          </div>
-          
-        <div class="spec-row" data-rv style="transition-delay:40ms">
-          <span class="spec-k">Zona operativa</span>
-          <span class="spec-v num">Brescia</span>
-        </div>
-        <div class="spec-row" data-rv style="transition-delay:70ms">
-          <span class="spec-k">Categoria</span>
-          <span class="spec-v num">Servizio taxi</span>
-        </div>
-        <div class="spec-row" data-rv style="transition-delay:100ms">
-          <span class="spec-k">Valutazione Google</span>
-          <span class="spec-v num">5,0 <span class="u">/ 5</span></span>
-        </div>
-        <div class="spec-row" data-rv style="transition-delay:130ms">
-          <span class="spec-k">Recensioni</span>
-          <span class="spec-v num">30</span>
-        </div>
-        <div class="spec-row" data-rv style="transition-delay:160ms">
-          <span class="spec-k">Contatto</span>
-          <span class="spec-v num">+39 351 096 6221</span>
-        </div>
-        <div class="spec-row" data-rv style="transition-delay:190ms">
-          <span class="spec-k">Indirizzo</span>
-          <span class="spec-v num">Via Collebeato, 74</span>
-        </div>
-        <div class="spec-row" data-rv style="transition-delay:220ms">
-          <span class="spec-k">Prenotazione</span>
-          <span class="spec-v num">WhatsApp / telefono</span>
-        </div>
-        </div>
+<!-- ============================== HERO ============================== -->
+<section class="sec hero" aria-labelledby="h1">
+  <span class="vtag vtag-acc" aria-hidden="true"><i>Noleggio con conducente &mdash; Brescia</i></span>
+  <div class="hero-top">
+    <p class="hero-kick"><b>Servizio taxi</b></p>
+    <h1 class="fit" data-fit="mega" data-acc="last" id="h1" data-words="AUTONOLEGGIO|DI|SANTI|SAMANTHA"><span class="ml" style="--fs:7">AUTONOLEGGIO DI</span><span class="ml ml-acc" style="--fs:7.5">SANTI SAMANTHA</span></h1>
+  </div>
+  <div class="ph ph-duo hero-band"><img src="https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=1900&q=74" srcset="https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=950&q=74 950w, https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=1900&q=74 1900w, https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=2400&q=74 2400w" sizes="100vw" alt="Berlina executive di colore scuro — Autonoleggio di Santi Samantha" data-photo-slot="hero" class="ph-i" loading="eager" decoding="async" referrerpolicy="no-referrer"><span class="ph-grid" aria-hidden="true"></span><span class="ph-bars" aria-hidden="true"></span><span class="ph-plate" aria-hidden="true">Brescia</span></div>
+  <div class="hero-grid">
+    <div class="hero-say">
+      <h2 class="hero-a">Il viaggio<i>come dovrebbe essere</i></h2>
+      <p class="hero-lede">Autista privato, puntualità al minuto e discrezione assoluta. Prenotate in trenta secondi su WhatsApp: vi rispondiamo noi, non un centralino.</p>
+      <div class="btns">
+        <a class="btn btn-acc" href="https://wa.me/393510966221" target="_blank" rel="noopener" aria-label="Scrivi su WhatsApp a Autonoleggio di Santi Samantha"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 0 1 0 16 8 8 0 0 1-4.2-1.2l-.4-.2-2.5.6.7-2.4-.3-.4A8 8 0 0 1 12 4zm-3.3 4.2c-.2 0-.5.1-.7.4-.3.3-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.2 1.7 2.7 4.2 3.7 2 .8 2.5.7 2.9.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.6-.3l-1.5-.7c-.2-.1-.4-.1-.6.1l-.7.9c-.1.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.3-1.6-1.5-1.9-.1-.2 0-.4.1-.5l.5-.6c.1-.2.2-.3.3-.5v-.5c-.1-.2-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4z"/></svg><span>Preventivo su WhatsApp</span></a>
+        <a class="btn btn-ink" href="tel:+393510966221" aria-label="Telefona a Autonoleggio di Santi Samantha"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 3h3l1.6 4-2 1.4a12 12 0 0 0 5.4 5.4l1.4-2 4 1.6v3c0 .9-.7 1.6-1.6 1.6A15.4 15.4 0 0 1 3 5.6C3 4.7 3.7 4 4.6 4z"/></svg><span>+39 351 096 6221</span></a>
       </div>
     </div>
+    <div class="hero-art">
+      <img src="https://images.unsplash.com/photo-1629019879059-2a0345f93aea?auto=format&fit=crop&w=1100&q=76" srcset="https://images.unsplash.com/photo-1629019879059-2a0345f93aea?auto=format&fit=crop&w=550&q=76 550w, https://images.unsplash.com/photo-1629019879059-2a0345f93aea?auto=format&fit=crop&w=1100&q=76 1100w, https://images.unsplash.com/photo-1629019879059-2a0345f93aea?auto=format&fit=crop&w=2200&q=76 2200w" sizes="(max-width:900px) 100vw, 620px" alt="Berlina executive di colore scuro" data-photo-slot="hero-2" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+      <span class="dots" aria-hidden="true"></span>
+      <span class="bars" aria-hidden="true"></span>
+      <svg class="hero-car" viewBox="0 0 480 162" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M4 122C4 110 10 102 22 99L52 91C82 84 118 78 146 72L200 62L232 34C238 29 246 26 254 26L316 26C326 26 334 29 340 34L378 68L444 79C464 83 474 92 476 108L477 122C477 128 474 130 468 130L436 130A28 28 0 0 0 380 130L124 130A28 28 0 0 0 68 130L14 130C8 130 4 127 4 122Z"/><circle cx="408" cy="130" r="25"/><circle cx="96" cy="130" r="25"/></g></svg>
+      <span class="plate">Brescia</span>
+    </div>
+  </div>
+</section>
 
+<div class="mq" data-speed="64" aria-hidden="true">
+      <div class="mq-track"><span class="mq-seg"><span class="mq-w">Autonoleggio di Santi Samantha</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Transfer aeroportuali</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Business travel</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Lunga percorrenza</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Servizi su misura</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Noleggio con conducente</span><span class="mq-s" aria-hidden="true">+</span></span><span class="mq-seg"><span class="mq-w">Autonoleggio di Santi Samantha</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Transfer aeroportuali</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Business travel</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Lunga percorrenza</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Servizi su misura</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Noleggio con conducente</span><span class="mq-s" aria-hidden="true">+</span></span><span class="mq-seg"><span class="mq-w">Autonoleggio di Santi Samantha</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Transfer aeroportuali</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Business travel</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Lunga percorrenza</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Servizi su misura</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Noleggio con conducente</span><span class="mq-s" aria-hidden="true">+</span></span><span class="mq-seg"><span class="mq-w">Autonoleggio di Santi Samantha</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Transfer aeroportuali</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Business travel</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Lunga percorrenza</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Servizi su misura</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Noleggio con conducente</span><span class="mq-s" aria-hidden="true">+</span></span><span class="mq-seg"><span class="mq-w">Autonoleggio di Santi Samantha</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Transfer aeroportuali</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Business travel</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Lunga percorrenza</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Servizi su misura</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Noleggio con conducente</span><span class="mq-s" aria-hidden="true">+</span></span><span class="mq-seg"><span class="mq-w">Autonoleggio di Santi Samantha</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Transfer aeroportuali</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Business travel</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Lunga percorrenza</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Servizi su misura</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Noleggio con conducente</span><span class="mq-s" aria-hidden="true">+</span></span></div>
+    </div>
 
-    <!-- fascia rilevazioni -->
-    <div class="band" data-rv>
-      <div class="band-in">
-        <div class="band-l">
-          <p class="proof-t">Preventivo fisso</p>
-          <p class="proof-x">Nessun costo a sorpresa a fine corsa</p>
-        </div>
-        <div class="band-r">
-
-            <div class="stat" data-rv style="transition-delay:0ms">
-              <span class="stat-v num" data-count="5,0">5,0</span>
-              <span class="stat-k">su Google</span>
-            </div>
-            <div class="stat" data-rv style="transition-delay:60ms">
-              <span class="stat-v num" data-count="30">30</span>
-              <span class="stat-k">recensioni verificate</span>
-            </div>
-            <div class="stat" data-rv style="transition-delay:120ms">
-              <span class="stat-v num" data-count="1">1</span>
-              <span class="stat-k">referente diretto</span>
-            </div>
-        </div>
+<!-- ============================= PROVA ============================== -->
+<section class="sec" aria-label="Perché sceglierci">
+  <span class="vtag" aria-hidden="true"><i>Numeri veri</i></span>
+  <div class="proof">
+      <div class="stat blk">
+        <b class="num" data-val="5,0">5,0</b>
+        <span class="stat-l">su Google</span>
       </div>
-    </div>
-  </section>
-
-  <!-- ============ 01 SERVIZI ============ -->
-  <section class="wrap sec" id="servizi">
-    <div class="sec-hd" data-rv>
-      <span class="sec-n num">01</span><span class="sec-l">Servizi</span>
-      <span class="sec-d">Quattro voci, su preventivo</span>
-    </div>
-    <div class="g">
-
-          <article class="srv col-3" data-rv style="transition-delay:0ms">
-            <span class="rule rule-top" aria-hidden="true"></span>
-            <span class="srv-n num">01</span>
-            <h3 class="srv-t">Transfer aeroportuali</h3>
-            <p class="srv-x">Monitoraggio del volo in tempo reale. Se il vostro aereo ritarda, l’auto vi aspetta comunque.</p>
-          </article>
-          <article class="srv col-3" data-rv style="transition-delay:50ms">
-            <span class="rule rule-top" aria-hidden="true"></span>
-            <span class="srv-n num">02</span>
-            <h3 class="srv-t">Business travel</h3>
-            <p class="srv-x">Riunioni, fiere, appuntamenti. Un autista che conosce la città e non vi fa mai arrivare tardi.</p>
-          </article>
-          <article class="srv col-3" data-rv style="transition-delay:100ms">
-            <span class="rule rule-top" aria-hidden="true"></span>
-            <span class="srv-n num">03</span>
-            <h3 class="srv-t">Lunga percorrenza</h3>
-            <p class="srv-x">Trasferimenti fra città e verso l’estero, con preventivo fisso concordato prima della partenza.</p>
-          </article>
-          <article class="srv col-3" data-rv style="transition-delay:150ms">
-            <span class="rule rule-top" aria-hidden="true"></span>
-            <span class="srv-n num">04</span>
-            <h3 class="srv-t">Servizi su misura</h3>
-            <p class="srv-x">Serate, congressi, disposizione oraria. Ci dite l’esigenza, costruiamo il servizio.</p>
-          </article>
-      <p class="ins-note" data-rv>Dotazioni e allestimenti si confermano insieme al preventivo, prima della partenza.</p>
-
-      <figure class="fig ins" data-rv style="transition-delay:60ms">
-        <figcaption class="fig-hd"><span><b>Fig. 02</b> — Interni, dettaglio</span><i>2 : 1</i></figcaption>
-        <div class="ph r-ins"><img src="https://images.unsplash.com/photo-1781281209767-d5bcca177f79?auto=format&fit=crop&w=1200&q=78" srcset="https://images.unsplash.com/photo-1781281209767-d5bcca177f79?auto=format&fit=crop&w=600&q=78 600w, https://images.unsplash.com/photo-1781281209767-d5bcca177f79?auto=format&fit=crop&w=1200&q=78 1200w, https://images.unsplash.com/photo-1781281209767-d5bcca177f79?auto=format&fit=crop&w=2400&q=78 2400w" sizes="(max-width:820px) 100vw, 58vw" alt="Interni in pelle di una vettura di rappresentanza" data-photo-slot="interni" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ 02 FLOTTA ============ -->
-  <section class="wrap sec" id="flotta">
-    <div class="sec-hd" data-rv>
-      <span class="sec-n num">02</span><span class="sec-l">Flotta</span>
-      <span class="sec-d">Disponibilità confermata in fase di preventivo</span>
-    </div>
-    <div class="g">
-      <div class="trio">
-
-      <figure class="fig" data-rv>
-        <figcaption class="fig-hd"><span><b>Fig. 03</b> — Berlina executive</span><i>4 : 3</i></figcaption>
-        <div class="ph r-trio"><img src="https://images.unsplash.com/photo-1592309905620-e5b59f6dcb98?auto=format&fit=crop&w=900&q=78" srcset="https://images.unsplash.com/photo-1592309905620-e5b59f6dcb98?auto=format&fit=crop&w=450&q=78 450w, https://images.unsplash.com/photo-1592309905620-e5b59f6dcb98?auto=format&fit=crop&w=900&q=78 900w, https://images.unsplash.com/photo-1592309905620-e5b59f6dcb98?auto=format&fit=crop&w=1800&q=78 1800w" sizes="(max-width:700px) 100vw, 31vw" alt="Berlina executive — Berlina executive di colore scuro" data-photo-slot="flotta-1" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
-      </figure>
-      <figure class="fig" data-rv style="transition-delay:60ms">
-        <figcaption class="fig-hd"><span><b>Fig. 04</b> — Van premium</span><i>4 : 3</i></figcaption>
-        <div class="ph r-trio"><img src="https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=900&q=78" srcset="https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=450&q=78 450w, https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=900&q=78 900w, https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=1800&q=78 1800w" sizes="(max-width:700px) 100vw, 31vw" alt="Van premium — Van premium per trasferimenti di gruppo" data-photo-slot="flotta-2" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
-      </figure>
-      <figure class="fig" data-rv style="transition-delay:120ms">
-        <figcaption class="fig-hd"><span><b>Fig. 05</b> — Ammiraglia</span><i>4 : 3</i></figcaption>
-        <div class="ph r-trio"><img src="https://images.unsplash.com/photo-1604969232137-4e4646534f2e?auto=format&fit=crop&w=900&q=78" srcset="https://images.unsplash.com/photo-1604969232137-4e4646534f2e?auto=format&fit=crop&w=450&q=78 450w, https://images.unsplash.com/photo-1604969232137-4e4646534f2e?auto=format&fit=crop&w=900&q=78 900w, https://images.unsplash.com/photo-1604969232137-4e4646534f2e?auto=format&fit=crop&w=1800&q=78 1800w" sizes="(max-width:700px) 100vw, 31vw" alt="Ammiraglia — Berlina executive di colore scuro" data-photo-slot="flotta-3" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
-      </figure>
+      <div class="stat blk blk-ink">
+        <b class="num acx" data-val="30">30</b>
+        <span class="stat-l">recensioni verificate</span>
       </div>
-    </div>
-    <div class="tbl" style="margin-top:clamp(30px,3.4vw,50px)">
-      <table>
-        <thead>
-          <tr>
-            <th scope="col" class="tc-n">N.</th>
-            <th scope="col" class="tc-name">Vettura</th>
-            <th scope="col" class="tc-size">Capienza</th>
-            <th scope="col" class="tc-note">Note</th>
-          </tr>
-        </thead>
-        <tbody>
-
-              <tr data-rv style="transition-delay:0ms">
-                <td class="num tc-n">01</td>
-                <th scope="row" class="tc-name">Berlina executive</th>
-                <td class="tc-size num">1–3 passeggeri</td>
-                <td class="tc-note">Classe E, Serie 5 o equivalente. La scelta standard per il business.</td>
-              </tr>
-              <tr data-rv style="transition-delay:50ms">
-                <td class="num tc-n">02</td>
-                <th scope="row" class="tc-name">Van premium</th>
-                <td class="tc-size num">1–7 passeggeri</td>
-                <td class="tc-note">Classe V o equivalente. Spazio per bagagli veri, non da cabina.</td>
-              </tr>
-              <tr data-rv style="transition-delay:100ms">
-                <td class="num tc-n">03</td>
-                <th scope="row" class="tc-name">Ammiraglia</th>
-                <td class="tc-size num">1–3 passeggeri</td>
-                <td class="tc-note">Classe S o equivalente. Quando l’auto fa parte dell’accoglienza.</td>
-              </tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="tbl-note">Modelli e allestimenti indicati come riferimento di categoria.</p>
-
-    <!-- disegno tecnico: dopo le fotografie, cosi foto e schema si parlano -->
-    <figure class="bp" data-rv>
-      <figcaption class="bp-hd">
-        <span><b>Fig. 06</b> — Vettura, vista laterale</span>
-        <span>Tratto 1 px · quote indicative</span>
-      </figcaption>
-      <div class="bp-box">
-        <svg viewBox="0 0 1240 512" role="img" aria-label="Disegno tecnico schematico di una vettura in vista laterale, con linee di quota indicative">
-          <g fill="none" stroke="#111" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="round">
-            <!-- crocini di allineamento -->
-            <g stroke="#6E6E69" stroke-width="1">
-              <path d="M30 34h18M39 25v18"/><path d="M1210 34h-18M1201 25v18"/>
-              <path d="M30 478h18M39 469v18"/><path d="M1210 478h-18M1201 469v18"/>
-            </g>
-            <!-- linea di terra -->
-            <path class="dr" pathLength="1" d="M60 380H1200" stroke="#D9D9D3"/>
-            <!-- carrozzeria -->
-            <path class="dr" pathLength="1" d="M132 320V286c0-24 8-34 36-40l68-8 64-6 86-6 150-100 254-6 110 106 110 6 62 12c20 6 24 18 24 40v34H970a70 70 0 0 0-140 0H370a70 70 0 0 0-140 0H132Z"/>
-            <!-- vetratura -->
-            <path class="dr" pathLength="1" stroke="#6E6E69" d="M404 218 542 138 782 132 880 212Z"/>
-            <!-- ruote -->
-            <circle class="dr" pathLength="1" cx="300" cy="318" r="62"/>
-            <circle class="dr" pathLength="1" cx="300" cy="318" r="26" stroke="#6E6E69"/>
-            <circle class="dr" pathLength="1" cx="900" cy="318" r="62"/>
-            <circle class="dr" pathLength="1" cx="900" cy="318" r="26" stroke="#6E6E69"/>
-            <!-- dettagli: montante, porte, maniglie, fari -->
-            <g class="dr" pathLength="1" stroke="#6E6E69">
-              <path d="M628 134V222M386 226H900"/>
-              <path d="M486 226V318M628 226V318M804 226V314"/>
-              <path d="M528 262h48M684 262h48"/>
-              <path d="M138 290h46M1038 286h44"/>
-            </g>
-            <!-- quota: passo -->
-            <g stroke="#111" stroke-width="1">
-              <path class="dr" pathLength="1" d="M300 388v42M900 388v42"/>
-              <path class="dr" pathLength="1" d="M300 424h600M300 424l14-6M300 424l14 6M900 424l-14-6M900 424l-14 6"/>
-            </g>
-            <!-- quota: lunghezza -->
-            <g stroke="#111" stroke-width="1">
-              <path class="dr" pathLength="1" d="M132 388v86M1086 388v86"/>
-              <path class="dr" pathLength="1" d="M132 468h954M132 468l14-6M132 468l14 6M1086 468l-14-6M1086 468l-14 6"/>
-            </g>
-            <!-- quota: altezza -->
-            <g stroke="#111" stroke-width="1">
-              <path class="dr" pathLength="1" d="M1098 120h60M1098 380h60"/>
-              <path class="dr" pathLength="1" d="M1150 120v260M1150 120l-6 14M1150 120l6 14M1150 380l-6-14M1150 380l6-14"/>
-            </g>
-          </g>
-          <g fill="#5C5C58" font-family="Inter,Helvetica,Arial,sans-serif" font-size="15" letter-spacing="1.6">
-            <text x="600" y="414" text-anchor="middle">PASSO — INDICATIVO</text>
-            <text x="609" y="458" text-anchor="middle">LUNGHEZZA — INDICATIVO</text>
-            <text x="1168" y="240" transform="rotate(-90 1168 240)" text-anchor="middle">ALTEZZA — INDICATIVO</text>
-            <text x="60" y="76" font-size="14">SCHEMA / NON IN SCALA</text>
-          </g>
-        </svg>
+      <div class="stat blk">
+        <b class="num" data-val="1">1</b>
+        <span class="stat-l">referente diretto</span>
+      </div></div>
+  
+      <div class="blk rate">
+        <div class="stars" aria-hidden="true"><svg class="star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 1.6l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1-6.3-3.5-6.3 3.5 1.3-7.1L1.8 9.1l7.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 1.6l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1-6.3-3.5-6.3 3.5 1.3-7.1L1.8 9.1l7.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 1.6l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1-6.3-3.5-6.3 3.5 1.3-7.1L1.8 9.1l7.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 1.6l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1-6.3-3.5-6.3 3.5 1.3-7.1L1.8 9.1l7.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 1.6l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1-6.3-3.5-6.3 3.5 1.3-7.1L1.8 9.1l7.1-.9z"/></svg></div>
+        <p class="rate-x"><b class="num" data-val="5,0">5,0</b> su Google &middot; <b class="num" data-val="30">30</b> recensioni</p>
       </div>
-      <p class="bp-scroll">Scorrere il disegno →</p>
-      <p class="bp-cap">Disegno schematico, tracciato a 1 px sulla stessa griglia delle fotografie. Le proporzioni sono indicative e non descrivono un veicolo specifico.</p>
-    </figure>
-  </section>
-
-  <!-- ============ 03 PROCEDURA ============ -->
-  <section class="wrap sec" id="procedura">
-    <div class="sec-hd" data-rv>
-      <span class="sec-n num">03</span><span class="sec-l">Procedura</span>
-      <span class="sec-d">Tre passaggi</span>
+  <div class="proof-2">
+    <div class="blk blk-acc blk-h proof-claim">
+      <h2>Preventivo fisso</h2>
+      <p>Nessun costo a sorpresa a fine corsa</p>
     </div>
-    <div class="g">
+    <div class="ph ph-bw proof-ph"><img src="https://images.unsplash.com/photo-1603087462214-2aadc739429c?auto=format&fit=crop&w=900&q=76" srcset="https://images.unsplash.com/photo-1603087462214-2aadc739429c?auto=format&fit=crop&w=450&q=76 450w, https://images.unsplash.com/photo-1603087462214-2aadc739429c?auto=format&fit=crop&w=900&q=76 900w, https://images.unsplash.com/photo-1603087462214-2aadc739429c?auto=format&fit=crop&w=1800&q=76 1800w" sizes="(max-width:800px) 100vw, 50vw" alt="Autista in giacca accanto alla vettura" data-photo-slot="autista" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="ph-grid" aria-hidden="true"></span><span class="ph-plate ph-plate-acc" aria-hidden="true">Chi guida</span></div>
+  </div>
+</section>
 
-      <article class="step col-4" data-rv style="transition-delay:0ms">
-        <span class="rule rule-top" aria-hidden="true"></span>
-        <span class="step-n num">FASE 01</span>
-        <h3 class="step-t">Si scrive</h3>
-        <p class="step-x">Data, orario, punto di partenza e destinazione su WhatsApp. Basta una riga.</p>
+<!-- ============================ SERVIZI ============================= -->
+<section class="sec" aria-labelledby="h-srv">
+  <span class="vtag" aria-hidden="true"><i>Cosa facciamo</i></span>
+  <div class="pad sec-head">
+    <div class="sec-head-t">
+      <span class="eyebrow">Servizi <em>&mdash;</em> Brescia</span>
+      <h2 class="fit sec-h" data-fit="head" id="h-srv" data-words="SI|FA|COSÌ"><span class="ml" style="--fs:10.5">SI FA COSÌ</span></h2>
+    </div>
+    <div class="ph ph-bw sec-head-ph ph-sh"><img src="https://images.unsplash.com/photo-1781281209767-d5bcca177f79?auto=format&fit=crop&w=900&q=76" srcset="https://images.unsplash.com/photo-1781281209767-d5bcca177f79?auto=format&fit=crop&w=450&q=76 450w, https://images.unsplash.com/photo-1781281209767-d5bcca177f79?auto=format&fit=crop&w=900&q=76 900w, https://images.unsplash.com/photo-1781281209767-d5bcca177f79?auto=format&fit=crop&w=1800&q=76 1800w" sizes="(max-width:900px) 100vw, 44vw" alt="Interni in pelle di una vettura di rappresentanza" data-photo-slot="interni" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="ph-grid" aria-hidden="true"></span><span class="ph-plate" aria-hidden="true">A bordo</span></div>
+  </div>
+  <div class="grid2">
+      <article class="blk blk-h svc rise">
+        <span class="svc-n">01</span>
+        <h3 class="svc-t">Transfer aeroportuali</h3>
+        <p class="svc-x">Monitoraggio del volo in tempo reale. Se il vostro aereo ritarda, l’auto vi aspetta comunque.</p>
       </article>
-      <article class="step col-4" data-rv style="transition-delay:60ms">
-        <span class="rule rule-top" aria-hidden="true"></span>
-        <span class="step-n num">FASE 02</span>
-        <h3 class="step-t">Si riceve il preventivo</h3>
-        <p class="step-x">Prezzo concordato prima della partenza. Nessun ricalcolo a fine corsa.</p>
+      <article class="blk blk-h svc rise blk-ink">
+        <span class="svc-n acx">02</span>
+        <h3 class="svc-t">Business travel</h3>
+        <p class="svc-x">Riunioni, fiere, appuntamenti. Un autista che conosce la città e non vi fa mai arrivare tardi.</p>
       </article>
-      <article class="step col-4" data-rv style="transition-delay:120ms">
-        <span class="rule rule-top" aria-hidden="true"></span>
-        <span class="step-n num">FASE 03</span>
-        <h3 class="step-t">Si viaggia</h3>
-        <p class="step-x">Vettura e autista confermati. All’orario stabilito, nel punto stabilito.</p>
+      <article class="blk blk-h svc rise">
+        <span class="svc-n">03</span>
+        <h3 class="svc-t">Lunga percorrenza</h3>
+        <p class="svc-x">Trasferimenti fra città e verso l’estero, con preventivo fisso concordato prima della partenza.</p>
       </article>
-    </div>
-  </section>
+      <article class="blk blk-h svc rise">
+        <span class="svc-n">04</span>
+        <h3 class="svc-t">Servizi su misura</h3>
+        <p class="svc-x">Serate, congressi, disposizione oraria. Ci dite l’esigenza, costruiamo il servizio.</p>
+      </article></div>
+</section>
 
-  <!-- ============ FASCIA PANORAMICA — unica a tutta larghezza ============ -->
-  <section class="fascia" aria-label="Percorrenza">
-    <div class="wrap fascia-hd" data-rv>
-      <span><b>Fig. 07</b> — Percorrenza, Nord Italia</span>
-      <i>21 : 9</i>
-    </div>
-    <div class="ph r-band"><img src="https://images.unsplash.com/photo-1600066333973-abd515815372?auto=format&fit=crop&w=2000&q=76" srcset="https://images.unsplash.com/photo-1600066333973-abd515815372?auto=format&fit=crop&w=1000&q=76 1000w, https://images.unsplash.com/photo-1600066333973-abd515815372?auto=format&fit=crop&w=2000&q=76 2000w, https://images.unsplash.com/photo-1600066333973-abd515815372?auto=format&fit=crop&w=2400&q=76 2400w" sizes="100vw" alt="Strada panoramica del Nord Italia" data-photo-slot="strada" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
-  </section>
-
-  <!-- ============ 04 ZONA OPERATIVA ============ -->
-  <section class="wrap sec" id="zona">
-    <div class="sec-hd" data-rv>
-      <span class="sec-n num">04</span><span class="sec-l">Zona operativa</span>
-      <span class="sec-d">Base e raggio di servizio</span>
-    </div>
-    <div class="g">
-      <div class="col-6 pr" data-rv>
-        <h2 class="zone-t">Brescia</h2>
-        <p class="zone-x">Partenze da Brescia e dalle località vicine. Le destinazioni, anche fuori regione o all’estero, si concordano insieme al preventivo.</p>
-        <div class="spec" style="margin-top:26px">
-          <div class="spec-row"><span class="spec-k">Base</span><span class="spec-v num">Brescia</span></div>
-          <div class="spec-row"><span class="spec-k">Indirizzo</span><span class="spec-v num">Via Collebeato, 74</span></div>
-          <div class="spec-row"><span class="spec-k">Riferimento</span><span class="spec-v num">+39 351 096 6221</span></div>
+<!-- ============================= FLOTTA ============================= -->
+<section class="sec" aria-labelledby="h-flt">
+  <span class="vtag vtag-acc" aria-hidden="true"><i>Vetture</i></span>
+  <div class="pad">
+    <span class="eyebrow">Flotta <em>&mdash;</em> su richiesta</span>
+    <h2 class="fit sec-h" data-fit="head" id="h-flt" data-words="SCEGLIETE"><span class="ml" style="--fs:11">SCEGLIETE</span></h2>
+    <p class="rail-hint">Trascinate &rarr;</p>
+  </div>
+  <div class="rail">
+      <article class="car blk blk-h rise">
+        <div class="ph ph-bw car-art"><img src="https://images.unsplash.com/photo-1592309905620-e5b59f6dcb98?auto=format&fit=crop&w=760&q=76" srcset="https://images.unsplash.com/photo-1592309905620-e5b59f6dcb98?auto=format&fit=crop&w=380&q=76 380w, https://images.unsplash.com/photo-1592309905620-e5b59f6dcb98?auto=format&fit=crop&w=760&q=76 760w, https://images.unsplash.com/photo-1592309905620-e5b59f6dcb98?auto=format&fit=crop&w=1520&q=76 1520w" sizes="(max-width:900px) 260px, 340px" alt="Berlina executive — berlina executive di colore scuro" data-photo-slot="flotta-1" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="car-grid" aria-hidden="true"></span><svg class="car-svg" viewBox="0 0 480 162" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M4 122C4 110 10 102 22 99L52 91C82 84 118 78 146 72L200 62L232 34C238 29 246 26 254 26L316 26C326 26 334 29 340 34L378 68L444 79C464 83 474 92 476 108L477 122C477 128 474 130 468 130L436 130A28 28 0 0 0 380 130L124 130A28 28 0 0 0 68 130L14 130C8 130 4 127 4 122Z"/><circle cx="408" cy="130" r="25"/><circle cx="96" cy="130" r="25"/></g></svg></div>
+        <div class="car-b">
+          <span class="car-tag">1–3 passeggeri</span>
+          <h3 class="car-t">Berlina executive</h3>
+          <p class="car-x">Classe E, Serie 5 o equivalente. La scelta standard per il business.</p>
         </div>
-      </div>
-      <div class="col-6 pl" data-rv style="transition-delay:80ms">
-        <div class="zone-fig">
-          <svg viewBox="0 0 520 340" role="img" aria-label="Schema di orientamento: reticolo tecnico con al centro la base operativa di Brescia">
-            <g fill="none" stroke="#D9D9D3" stroke-width="1">
-              <path d="M0 60h520M0 120h520M0 180h520M0 240h520M0 300h520"/>
-              <path d="M60 0v340M120 0v340M180 0v340M240 0v340M300 0v340M360 0v340M420 0v340M480 0v340"/>
-            </g>
-            <g fill="none" stroke="#8E8E89" stroke-width="1" stroke-dasharray="3 5">
-              <circle cx="260" cy="170" r="52"/><circle cx="260" cy="170" r="104"/><circle cx="260" cy="170" r="156"/>
-            </g>
-            <g fill="none" stroke="#111" stroke-width="1.1">
-              <path d="M260 118v104M208 170h104"/>
-              <rect x="252" y="162" width="16" height="16"/>
-            </g>
-            <g fill="#5C5C58" font-family="Inter,Helvetica,Arial,sans-serif" font-size="12" letter-spacing="1.4">
-              <text x="284" y="152">BRESCIA</text>
-              <text x="16" y="26">SCHEMA DI ORIENTAMENTO</text>
-              <text x="504" y="326" text-anchor="end">NON IN SCALA</text>
-            </g>
-          </svg>
+      </article>
+      <article class="car blk blk-h rise">
+        <div class="ph ph-bw car-art car-art-acc"><img src="https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=760&q=76" srcset="https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=380&q=76 380w, https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=760&q=76 760w, https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=1520&q=76 1520w" sizes="(max-width:900px) 260px, 340px" alt="Van premium — van premium per trasferimenti di gruppo" data-photo-slot="flotta-2" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="car-grid" aria-hidden="true"></span><svg class="car-svg" viewBox="0 0 480 162" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M6 118C6 100 12 86 26 78L74 50C86 42 100 38 116 38L392 38C424 38 448 48 462 70L474 92C478 100 478 110 478 120C478 126 474 130 468 130L438 130A28 28 0 0 0 382 130L130 130A28 28 0 0 0 74 130L16 130C10 130 6 126 6 118Z"/><circle cx="410" cy="130" r="25"/><circle cx="102" cy="130" r="25"/></g></svg></div>
+        <div class="car-b">
+          <span class="car-tag">1–7 passeggeri</span>
+          <h3 class="car-t">Van premium</h3>
+          <p class="car-x">Classe V o equivalente. Spazio per bagagli veri, non da cabina.</p>
         </div>
-        <p class="zone-cap">Fig. 08 — Schema, non una mappa. Nessuna distanza rappresentata.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 05 DOMANDE ============ -->
-  <section class="wrap sec" id="domande">
-    <div class="sec-hd" data-rv>
-      <span class="sec-n num">05</span><span class="sec-l">Domande frequenti</span>
-      <span class="sec-d">Quattro risposte</span>
-    </div>
-    <div class="g">
-      <div class="col-8">
-
-          <details class="faq" data-rv style="transition-delay:0ms">
-            <summary>
-              <span class="faq-n num">01</span>
-              <span class="faq-q">Come si prenota?</span>
-              <span class="faq-s" aria-hidden="true"></span>
-            </summary>
-            <div class="faq-a"><p>Il modo più veloce è WhatsApp: scriveteci data, orario, luogo di partenza e destinazione. Vi rispondiamo con il preventivo. Se preferite, potete anche chiamare.</p></div>
-          </details>
-          <details class="faq" data-rv style="transition-delay:40ms">
-            <summary>
-              <span class="faq-n num">02</span>
-              <span class="faq-q">Il prezzo è fisso?</span>
-              <span class="faq-s" aria-hidden="true"></span>
-            </summary>
-            <div class="faq-a"><p>Sì. Il preventivo viene concordato prima del servizio e non cambia a fine corsa, salvo modifiche richieste da voi durante il viaggio.</p></div>
-          </details>
-          <details class="faq" data-rv style="transition-delay:80ms">
-            <summary>
-              <span class="faq-n num">03</span>
-              <span class="faq-q">Con quanto anticipo devo prenotare?</span>
-              <span class="faq-s" aria-hidden="true"></span>
-            </summary>
-            <div class="faq-a"><p>Prima si prenota, più è facile garantire la vettura richiesta. Per le richieste last minute conviene scrivere direttamente su WhatsApp: se c’è disponibilità lo sapete subito.</p></div>
-          </details>
-          <details class="faq" data-rv style="transition-delay:120ms">
-            <summary>
-              <span class="faq-n num">04</span>
-              <span class="faq-q">Si può pagare con carta?</span>
-              <span class="faq-s" aria-hidden="true"></span>
-            </summary>
-            <div class="faq-a"><p>Sì. I metodi di pagamento accettati vengono confermati al momento della prenotazione.</p></div>
-          </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 06 CONTATTO ============ -->
-  <section class="wrap sec" id="contatto">
-    <div class="sec-hd" data-rv>
-      <span class="sec-n num">06</span><span class="sec-l">Contatto</span>
-      <span class="sec-d">Risposta diretta</span>
-    </div>
-    <div class="g">
-      <div class="col-6 pr" data-rv>
-        <h2 class="ct-h">Si scrive, si parte.</h2>
-        <div class="cta">
-          <a class="btn btn-acc btn-lg" href="https://wa.me/393510966221" target="_blank" rel="noopener">Scrivere su WhatsApp</a>
-          <a class="btn btn-out btn-lg" href="tel:+393510966221">Chiamare</a>
+      </article>
+      <article class="car blk blk-h rise">
+        <div class="ph ph-bw car-art"><img src="https://images.unsplash.com/photo-1604969232137-4e4646534f2e?auto=format&fit=crop&w=760&q=76" srcset="https://images.unsplash.com/photo-1604969232137-4e4646534f2e?auto=format&fit=crop&w=380&q=76 380w, https://images.unsplash.com/photo-1604969232137-4e4646534f2e?auto=format&fit=crop&w=760&q=76 760w, https://images.unsplash.com/photo-1604969232137-4e4646534f2e?auto=format&fit=crop&w=1520&q=76 1520w" sizes="(max-width:900px) 260px, 340px" alt="Ammiraglia — berlina executive di colore scuro" data-photo-slot="flotta-3" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="car-grid" aria-hidden="true"></span><svg class="car-svg" viewBox="0 0 620 162" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M4 122C4 110 10 102 22 99L52 92C86 84 130 78 168 73L206 40C212 33 222 30 232 30L470 30C480 30 488 33 494 40L520 70L580 80C602 84 612 94 614 110L615 122C615 128 612 130 606 130L574 130A28 28 0 0 0 518 130L124 130A28 28 0 0 0 68 130L14 130C8 130 4 127 4 122Z"/><circle cx="546" cy="130" r="25"/><circle cx="96" cy="130" r="25"/></g></svg></div>
+        <div class="car-b">
+          <span class="car-tag">1–3 passeggeri</span>
+          <h3 class="car-t">Ammiraglia</h3>
+          <p class="car-x">Classe S o equivalente. Quando l’auto fa parte dell’accoglienza.</p>
         </div>
-      </div>
-      <div class="col-6 pl" data-rv style="transition-delay:80ms">
-        <div class="ct">
-          <div class="ct-row"><span class="ct-k">WhatsApp</span><span class="ct-v"><a href="https://wa.me/393510966221" target="_blank" rel="noopener">+39 351 096 6221</a></span></div>
-          <div class="ct-row"><span class="ct-k">Telefono</span><span class="ct-v num"><a href="tel:+393510966221">+39 351 096 6221</a></span></div>
-          <div class="ct-row"><span class="ct-k">Indirizzo</span><span class="ct-v">Via Collebeato, 74, Brescia</span></div>
-          <div class="ct-row"><span class="ct-k">Google</span><span class="ct-v num">5,0 / 5 · 30 recensioni</span></div>
-        </div>
-      </div>
+      </article></div>
+</section>
+
+<!-- ===================== TICKER FOTOGRAFICO ======================== -->
+
+<div class="mq mq-ph" data-speed="30" aria-hidden="true">
+  <div class="mq-track"><span class="mq-seg"><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Berlina executive di colore scuro" data-photo-slot="hero" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1592309905620-e5b59f6dcb98?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1592309905620-e5b59f6dcb98?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1592309905620-e5b59f6dcb98?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1592309905620-e5b59f6dcb98?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Berlina executive di colore scuro" data-photo-slot="flotta-1" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1781281209767-d5bcca177f79?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1781281209767-d5bcca177f79?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1781281209767-d5bcca177f79?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1781281209767-d5bcca177f79?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Interni in pelle di una vettura di rappresentanza" data-photo-slot="interni" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1516707577720-8221c3643fa3?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1516707577720-8221c3643fa3?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1516707577720-8221c3643fa3?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1516707577720-8221c3643fa3?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Strada cittadina di notte" data-photo-slot="notturno" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Van premium per trasferimenti di gruppo" data-photo-slot="flotta-2" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1603087462214-2aadc739429c?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1603087462214-2aadc739429c?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1603087462214-2aadc739429c?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1603087462214-2aadc739429c?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Autista in giacca accanto alla vettura" data-photo-slot="autista" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1687552626877-f4596995931c?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1687552626877-f4596995931c?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1687552626877-f4596995931c?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1687552626877-f4596995931c?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Terminal aeroportuale" data-photo-slot="aeroporto" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1604969232137-4e4646534f2e?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1604969232137-4e4646534f2e?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1604969232137-4e4646534f2e?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1604969232137-4e4646534f2e?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Berlina executive di colore scuro" data-photo-slot="flotta-3" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1600066333973-abd515815372?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1600066333973-abd515815372?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1600066333973-abd515815372?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1600066333973-abd515815372?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Strada panoramica del Nord Italia" data-photo-slot="strada" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1629019879059-2a0345f93aea?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1629019879059-2a0345f93aea?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1629019879059-2a0345f93aea?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1629019879059-2a0345f93aea?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Berlina executive di colore scuro" data-photo-slot="hero-2" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div></span><span class="mq-seg"><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Berlina executive di colore scuro" data-photo-slot="hero" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1592309905620-e5b59f6dcb98?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1592309905620-e5b59f6dcb98?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1592309905620-e5b59f6dcb98?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1592309905620-e5b59f6dcb98?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Berlina executive di colore scuro" data-photo-slot="flotta-1" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1781281209767-d5bcca177f79?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1781281209767-d5bcca177f79?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1781281209767-d5bcca177f79?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1781281209767-d5bcca177f79?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Interni in pelle di una vettura di rappresentanza" data-photo-slot="interni" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1516707577720-8221c3643fa3?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1516707577720-8221c3643fa3?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1516707577720-8221c3643fa3?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1516707577720-8221c3643fa3?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Strada cittadina di notte" data-photo-slot="notturno" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Van premium per trasferimenti di gruppo" data-photo-slot="flotta-2" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1603087462214-2aadc739429c?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1603087462214-2aadc739429c?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1603087462214-2aadc739429c?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1603087462214-2aadc739429c?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Autista in giacca accanto alla vettura" data-photo-slot="autista" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1687552626877-f4596995931c?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1687552626877-f4596995931c?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1687552626877-f4596995931c?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1687552626877-f4596995931c?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Terminal aeroportuale" data-photo-slot="aeroporto" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1604969232137-4e4646534f2e?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1604969232137-4e4646534f2e?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1604969232137-4e4646534f2e?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1604969232137-4e4646534f2e?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Berlina executive di colore scuro" data-photo-slot="flotta-3" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1600066333973-abd515815372?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1600066333973-abd515815372?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1600066333973-abd515815372?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1600066333973-abd515815372?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Strada panoramica del Nord Italia" data-photo-slot="strada" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1629019879059-2a0345f93aea?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1629019879059-2a0345f93aea?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1629019879059-2a0345f93aea?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1629019879059-2a0345f93aea?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Berlina executive di colore scuro" data-photo-slot="hero-2" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div></span><span class="mq-seg"><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Berlina executive di colore scuro" data-photo-slot="hero" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1592309905620-e5b59f6dcb98?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1592309905620-e5b59f6dcb98?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1592309905620-e5b59f6dcb98?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1592309905620-e5b59f6dcb98?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Berlina executive di colore scuro" data-photo-slot="flotta-1" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1781281209767-d5bcca177f79?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1781281209767-d5bcca177f79?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1781281209767-d5bcca177f79?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1781281209767-d5bcca177f79?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Interni in pelle di una vettura di rappresentanza" data-photo-slot="interni" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1516707577720-8221c3643fa3?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1516707577720-8221c3643fa3?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1516707577720-8221c3643fa3?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1516707577720-8221c3643fa3?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Strada cittadina di notte" data-photo-slot="notturno" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Van premium per trasferimenti di gruppo" data-photo-slot="flotta-2" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1603087462214-2aadc739429c?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1603087462214-2aadc739429c?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1603087462214-2aadc739429c?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1603087462214-2aadc739429c?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Autista in giacca accanto alla vettura" data-photo-slot="autista" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1687552626877-f4596995931c?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1687552626877-f4596995931c?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1687552626877-f4596995931c?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1687552626877-f4596995931c?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Terminal aeroportuale" data-photo-slot="aeroporto" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1604969232137-4e4646534f2e?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1604969232137-4e4646534f2e?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1604969232137-4e4646534f2e?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1604969232137-4e4646534f2e?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Berlina executive di colore scuro" data-photo-slot="flotta-3" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1600066333973-abd515815372?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1600066333973-abd515815372?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1600066333973-abd515815372?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1600066333973-abd515815372?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Strada panoramica del Nord Italia" data-photo-slot="strada" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1629019879059-2a0345f93aea?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1629019879059-2a0345f93aea?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1629019879059-2a0345f93aea?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1629019879059-2a0345f93aea?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Berlina executive di colore scuro" data-photo-slot="hero-2" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div></span></div>
+</div>
+
+<!-- ================ FOTO GIGANTE + SCRITTA IN DIFFERENCE =========== -->
+<section class="mono" aria-labelledby="h-mono">
+  <div class="ph ph-bw mono-ph"><img src="https://images.unsplash.com/photo-1600066333973-abd515815372?auto=format&fit=crop&w=2000&q=74" srcset="https://images.unsplash.com/photo-1600066333973-abd515815372?auto=format&fit=crop&w=1000&q=74 1000w, https://images.unsplash.com/photo-1600066333973-abd515815372?auto=format&fit=crop&w=2000&q=74 2000w, https://images.unsplash.com/photo-1600066333973-abd515815372?auto=format&fit=crop&w=2400&q=74 2400w" sizes="100vw" alt="Strada panoramica del Nord Italia" data-photo-slot="strada" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="ph-grid" aria-hidden="true"></span><span class="ph-bars" aria-hidden="true"></span></div>
+  <div class="mono-in">
+    <span class="eyebrow mono-eye">Brescia <em>&mdash;</em> Noleggio con conducente</span>
+    <h2 class="fit mono-t" data-fit="head" id="h-mono" data-words="AUTONOLEGGIO|DI|SANTI|SAMANTHA"><span class="ml" style="--fs:7">AUTONOLEGGIO DI</span><span class="ml" style="--fs:7.5">SANTI SAMANTHA</span></h2>
+    <p class="mono-x">Si parte quando dite voi. Preventivo prima, nessuna sorpresa dopo.</p>
+  </div>
+</section>
+
+<!-- ========================== COME FUNZIONA ========================= -->
+<section class="sec how" aria-labelledby="h-how">
+  <span class="vtag vtag-dark" aria-hidden="true"><i>Tre passaggi</i></span>
+  <div class="pad">
+    <span class="eyebrow">Come funziona <em>&mdash;</em> senza attese</span>
+    <h2 class="fit sec-h" data-fit="head" id="h-how" data-words="SCRIVI.|RICEVI.|VIAGGI."><span class="ml" style="--fs:7">SCRIVI. RICEVI.</span><span class="ml" style="--fs:11">VIAGGI.</span></h2>
+    <div class="steps">
+      <article class="step rise">
+        <span class="step-n">01</span>
+        <h3 class="step-t">Scrivete</h3>
+        <p class="step-x">Data, ora, partenza, destinazione. Su WhatsApp o al telefono. Bastano trenta secondi.</p>
+      </article>
+      <article class="step rise">
+        <span class="step-n">02</span>
+        <h3 class="step-t">Ricevete il preventivo</h3>
+        <p class="step-x">Prezzo concordato prima della partenza. Se va bene si conferma, altrimenti nessun impegno.</p>
+      </article>
+      <article class="step rise">
+        <span class="step-n">03</span>
+        <h3 class="step-t">Viaggiate</h3>
+        <p class="step-x">L’autista arriva all’orario stabilito. Da lì in poi non dovete pensare a nulla.</p>
+      </article></div>
+  </div>
+</section>
+
+<!-- =========================== ZONA OPERATIVA ====================== -->
+<section class="sec" aria-labelledby="h-zone">
+  <span class="vtag" aria-hidden="true"><i>Dove operiamo</i></span>
+  <div class="zone">
+    <div class="zone-b">
+      <span class="eyebrow">Zona operativa</span>
+      <h2 class="fit" data-fit="mega" id="h-zone" data-words="BRESCIA"><span class="ml" style="--fs:15">BRESCIA</span></h2>
+      <p class="zone-note">Si parte da Brescia e si arriva dove serve: percorso, orari e prezzo si concordano prima, mai dopo. Per le corse fuori zona basta chiedere.</p>
+      <p class="zone-addr">Via Collebeato, 74<br>Brescia</p>
     </div>
-  </section>
+    <div class="zone-map">
+      <img src="https://images.unsplash.com/photo-1687552626877-f4596995931c?auto=format&fit=crop&w=1000&q=74" srcset="https://images.unsplash.com/photo-1687552626877-f4596995931c?auto=format&fit=crop&w=500&q=74 500w, https://images.unsplash.com/photo-1687552626877-f4596995931c?auto=format&fit=crop&w=1000&q=74 1000w, https://images.unsplash.com/photo-1687552626877-f4596995931c?auto=format&fit=crop&w=2000&q=74 2000w" sizes="(max-width:900px) 100vw, 40vw" alt="Terminal aeroportuale" data-photo-slot="aeroporto" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+      <span class="net" aria-hidden="true"></span>
+      <span class="ring r3" aria-hidden="true"></span><span class="ring r2" aria-hidden="true"></span><span class="ring r1" aria-hidden="true"></span>
+      <span class="pin" aria-hidden="true"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FAQ ============================== -->
+<section class="sec" aria-labelledby="h-faq">
+  <span class="vtag vtag-acc" aria-hidden="true"><i>Domande</i></span>
+  <div class="pad">
+    <span class="eyebrow">Domande <em>&mdash;</em> risposte secche</span>
+    <h2 class="fit sec-h" data-fit="head" id="h-faq" data-words="CHIEDETE"><span class="ml" style="--fs:11">CHIEDETE</span></h2>
+  </div>
+  <div class="faqs">
+      <details class="faq">
+        <summary><span class="faq-q">Come si prenota?</span><span class="faq-i" aria-hidden="true"></span></summary>
+        <div class="faq-a"><p>Il modo più veloce è WhatsApp: scriveteci data, orario, luogo di partenza e destinazione. Vi rispondiamo con il preventivo. Se preferite, potete anche chiamare.</p></div>
+      </details>
+      <details class="faq">
+        <summary><span class="faq-q">Il prezzo è fisso?</span><span class="faq-i" aria-hidden="true"></span></summary>
+        <div class="faq-a"><p>Sì. Il preventivo viene concordato prima del servizio e non cambia a fine corsa, salvo modifiche richieste da voi durante il viaggio.</p></div>
+      </details>
+      <details class="faq">
+        <summary><span class="faq-q">Con quanto anticipo devo prenotare?</span><span class="faq-i" aria-hidden="true"></span></summary>
+        <div class="faq-a"><p>Prima si prenota, più è facile garantire la vettura richiesta. Per le richieste last minute conviene scrivere direttamente su WhatsApp: se c’è disponibilità lo sapete subito.</p></div>
+      </details>
+      <details class="faq">
+        <summary><span class="faq-q">Si può pagare con carta?</span><span class="faq-i" aria-hidden="true"></span></summary>
+        <div class="faq-a"><p>Sì. I metodi di pagamento accettati vengono confermati al momento della prenotazione.</p></div>
+      </details></div>
+</section>
+
+<div class="mq" data-speed="48" aria-hidden="true">
+      <div class="mq-track"><span class="mq-seg"><span class="mq-w">Autonoleggio di Santi Samantha</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Transfer aeroportuali</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Business travel</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Lunga percorrenza</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Servizi su misura</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Noleggio con conducente</span><span class="mq-s" aria-hidden="true">+</span></span><span class="mq-seg"><span class="mq-w">Autonoleggio di Santi Samantha</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Transfer aeroportuali</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Business travel</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Lunga percorrenza</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Servizi su misura</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Noleggio con conducente</span><span class="mq-s" aria-hidden="true">+</span></span><span class="mq-seg"><span class="mq-w">Autonoleggio di Santi Samantha</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Transfer aeroportuali</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Business travel</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Lunga percorrenza</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Servizi su misura</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Noleggio con conducente</span><span class="mq-s" aria-hidden="true">+</span></span><span class="mq-seg"><span class="mq-w">Autonoleggio di Santi Samantha</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Transfer aeroportuali</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Business travel</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Lunga percorrenza</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Servizi su misura</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Noleggio con conducente</span><span class="mq-s" aria-hidden="true">+</span></span><span class="mq-seg"><span class="mq-w">Autonoleggio di Santi Samantha</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Transfer aeroportuali</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Business travel</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Lunga percorrenza</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Servizi su misura</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Noleggio con conducente</span><span class="mq-s" aria-hidden="true">+</span></span><span class="mq-seg"><span class="mq-w">Autonoleggio di Santi Samantha</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Transfer aeroportuali</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Business travel</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Lunga percorrenza</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Servizi su misura</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Noleggio con conducente</span><span class="mq-s" aria-hidden="true">+</span></span></div>
+    </div>
+
+<!-- ============================ CONTATTI =========================== -->
+<section class="sec" aria-labelledby="h-ct">
+  <span class="vtag vtag-dark" aria-hidden="true"><i>Contatti</i></span>
+  <div class="pad">
+    <span class="eyebrow">Contatti <em>&mdash;</em> risponde una persona</span>
+    <h2 class="fit sec-h" data-fit="head" id="h-ct" data-words="PARLIAMONE"><span class="ml" style="--fs:10.5">PARLIAMONE</span></h2>
+  </div>
+  <div class="ct">
+    <a class="blk blk-acc blk-h ct-b" href="https://wa.me/393510966221" target="_blank" rel="noopener">
+      <span class="ct-l">WhatsApp</span>
+      <span class="ct-v">Scrivete ora</span>
+      <span class="ct-x">Data, ora, partenza e destinazione. Rispondiamo con il preventivo.</span>
+    </a>
+    <a class="blk blk-ink blk-h ct-b" href="tel:+393510966221">
+      <span class="ct-l">Telefono</span>
+      <span class="ct-v">+39 351 096 6221</span>
+      <span class="ct-x">Chiamata diretta. Nessun centralino, nessuna coda.</span>
+    </a>
+    <div class="blk blk-h ct-b">
+      <span class="ct-l">Indirizzo</span>
+      <span class="ct-v">Via Collebeato, 74<br>Brescia</span>
+      <span class="ct-x">Riferimento operativo. I servizi si concordano su appuntamento.</span>
+    </div>
+  </div>
+</section>
 
 </main>
 
-<footer class="wrap ftr">
-  <div class="ftr-in">
-    <span><b>Autonoleggio di Santi Samantha</b> — Brescia</span>
-    <span>Valutazione e recensioni: fonte Google</span>
-    <span>Anteprima realizzata da <b>Umbra</b></span>
+<footer class="ft">
+  <p class="ft-n">Autonoleggio di Santi Samantha</p>
+  <div class="ft-r">
+    <span>Noleggio con conducente</span>
+    <span>Servizio taxi</span>
+    <span>Brescia</span>
+    <span>+39 351 096 6221</span>
   </div>
+  <div class="ft-cta">
+    <a class="btn btn-acc" href="https://wa.me/393510966221" target="_blank" rel="noopener" aria-label="Scrivi su WhatsApp a Autonoleggio di Santi Samantha"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 0 1 0 16 8 8 0 0 1-4.2-1.2l-.4-.2-2.5.6.7-2.4-.3-.4A8 8 0 0 1 12 4zm-3.3 4.2c-.2 0-.5.1-.7.4-.3.3-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.2 1.7 2.7 4.2 3.7 2 .8 2.5.7 2.9.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.6-.3l-1.5-.7c-.2-.1-.4-.1-.6.1l-.7.9c-.1.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.3-1.6-1.5-1.9-.1-.2 0-.4.1-.5l.5-.6c.1-.2.2-.3.3-.5v-.5c-.1-.2-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4z"/></svg><span>Preventivo su WhatsApp</span></a>
+  </div>
+  <p class="ft-u">Anteprima realizzata da Umbra</p>
 </footer>
 
 <nav class="bar" aria-label="Contatti rapidi">
-  <div class="bar-in">
-    <a class="wa" href="https://wa.me/393510966221" target="_blank" rel="noopener" aria-label="Scrivere su WhatsApp a Autonoleggio di Santi Samantha">WhatsApp</a>
-    <a class="tl" href="tel:+393510966221" aria-label="Chiamare Autonoleggio di Santi Samantha al +39 351 096 6221">Telefono</a>
-  </div>
+  <a class="b-wa" href="https://wa.me/393510966221" target="_blank" rel="noopener" aria-label="Scrivi su WhatsApp a Autonoleggio di Santi Samantha"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 0 1 0 16 8 8 0 0 1-4.2-1.2l-.4-.2-2.5.6.7-2.4-.3-.4A8 8 0 0 1 12 4zm-3.3 4.2c-.2 0-.5.1-.7.4-.3.3-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.2 1.7 2.7 4.2 3.7 2 .8 2.5.7 2.9.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.6-.3l-1.5-.7c-.2-.1-.4-.1-.6.1l-.7.9c-.1.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.3-1.6-1.5-1.9-.1-.2 0-.4.1-.5l.5-.6c.1-.2.2-.3.3-.5v-.5c-.1-.2-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4z"/></svg><span>WhatsApp</span></a>
+  <a class="b-tel" href="tel:+393510966221" aria-label="Telefona a Autonoleggio di Santi Samantha"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 3h3l1.6 4-2 1.4a12 12 0 0 0 5.4 5.4l1.4-2 4 1.6v3c0 .9-.7 1.6-1.6 1.6A15.4 15.4 0 0 1 3 5.6C3 4.7 3.7 4 4.6 4z"/></svg><span>Chiama</span></a>
 </nav>
 
 <script>
 (function(){
-  var d = document;
-  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  'use strict';
+  var RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasIO = typeof IntersectionObserver === 'function';
 
-  /* --- orologio: ora corrente, fuso italiano --- */
-  var clock = d.getElementById('mClock');
-  function pad(v){ return v < 10 ? '0' + v : '' + v; }
-  function tick(){
-    if (!clock || d.hidden) return;
-    var s;
-    try {
-      s = new Intl.DateTimeFormat('it-IT', {
-        hour: '2-digit', minute: '2-digit', second: '2-digit',
-        hour12: false, timeZone: 'Europe/Rome'
-      }).format(new Date());
-    } catch (e) {
-      var n = new Date();
-      s = pad(n.getHours()) + ':' + pad(n.getMinutes()) + ':' + pad(n.getSeconds());
+  /* ---- titoli su misura ------------------------------------------------
+     Ogni riga viene misurata con il font effettivamente in uso (anche di
+     ripiego) e rimpicciolita finché sta dentro la colonna. Conseguenze:
+     nessuna parola viene mai tranciata a metà e l'ultima riga è sempre
+     intera. Il numero di righe cresce con la lunghezza del nome. */
+  var fits = [].slice.call(document.querySelectorAll('.fit'));
+
+  function fitOne(el){
+    var words = (el.getAttribute('data-words') || '').split('|').filter(Boolean);
+    if (!words.length) return;
+    var avail = el.clientWidth;
+    if (!avail || avail < 60) return;
+    /* Riserva anti-taglio. La misura di una riga non comprende lo sbordo
+       d'inchiostro dell'ultima lettera (il tracking è negativo): senza
+       riserva l'ultimo glifo finisce mezzo fuori dallo schermo. Si toglie
+       una fetta prudente e si aggiunge lo sbordo al modello. */
+    var SAFE = Math.max(5, avail * 0.014);
+    var W = avail - SAFE;
+    var BEAR = 5;                               // sbordo su 100px di corpo
+    var narrow = window.innerWidth < 700;
+    var mega = el.getAttribute('data-fit') === 'mega';
+    var maxFs = Math.min(W * (mega ? 0.44 : 0.32), mega ? (narrow ? 84 : 190) : (narrow ? 52 : 104));
+    var maxLines = mega ? (narrow ? 4 : 3) : (narrow ? 3 : 2);
+    var minFs = mega ? (narrow ? 22 : 38) : (narrow ? 18 : 30);
+
+    var probe = document.createElement('span');
+    probe.className = 'ml';
+    probe.setAttribute('aria-hidden', 'true');
+    probe.style.cssText = 'position:absolute;left:-99999px;top:0;visibility:hidden;' +
+      'white-space:pre;display:inline-block;font-size:100px;background:none;' +
+      'padding:0;margin:0;width:auto;max-width:none';
+    el.appendChild(probe);
+    function size(t){
+      probe.textContent = t;
+      var w = probe.getBoundingClientRect().width || 1;
+      return W / (w + BEAR) * 100;
     }
-    clock.textContent = s.replace(/\u2236/g, ':');
-  }
-  tick();
-  setInterval(tick, 1000);
-  d.addEventListener('visibilitychange', tick);
+    function layout(floor){
+      var out = [], i = 0, guard = 0;
+      while (i < words.length && guard++ < 80){
+        var cur = words[i], fs = size(cur), j = i + 1;
+        while (j < words.length){
+          var cand = cur + ' ' + words[j], cfs = size(cand);
+          if (cfs < floor) break;
+          cur = cand; fs = cfs; j++;
+        }
+        out.push({ t: cur, fs: Math.min(fs, maxFs) });   // mai forzato in su: sta sempre dentro
+        i = j;
+      }
+      return out;
+    }
+    var floor = maxFs * 0.64;
+    var lines = layout(floor), guard = 0;
+    while (lines.length > maxLines && floor > minFs && guard++ < 12){
+      floor = Math.max(minFs, floor * 0.85);
+      lines = layout(floor);
+    }
+    el.removeChild(probe);
 
-  /* --- comparse: traslazione secca --- */
-  var nodes = [].slice.call(d.querySelectorAll('[data-rv]'));
-  if (reduced || !('IntersectionObserver' in window)) {
-    nodes.forEach(function(n){ n.classList.add('is-in'); });
+    var acc = el.getAttribute('data-acc') === 'last' ? lines.length - 1 : -1;
+    while (el.firstChild) el.removeChild(el.firstChild);
+    for (var n = 0; n < lines.length; n++){
+      var s = document.createElement('span');
+      s.className = 'ml' + (n === acc ? ' ml-acc' : '');
+      s.style.fontSize = lines[n].fs.toFixed(1) + 'px';
+      s.textContent = lines[n].t;
+      el.appendChild(s);
+    }
+
+    /* Verifica sul rendering vero: nessuna riga può sporgere oltre il
+       bordo della colonna. Si misura l'inchiostro con un Range (la riga
+       accento ha un padding di sfondamento che falserebbe il rettangolo
+       dell'elemento) e si stringe finché rientra. Conseguenza: il taglio
+       non cade mai dentro una parola e l'ultima riga è sempre intera. */
+    if (document.createRange){
+      var rg = document.createRange();
+      var lim = el.getBoundingClientRect().left + avail - 2;
+      for (var m = 0; m < el.children.length; m++){
+        var sp = el.children[m];
+        var fs = parseFloat(sp.style.fontSize) || 0;
+        var g = 0;
+        rg.selectNodeContents(sp);
+        while (fs > 8 && rg.getBoundingClientRect().right > lim && g++ < 16){
+          fs *= 0.962;
+          sp.style.fontSize = fs.toFixed(1) + 'px';
+          rg.selectNodeContents(sp);
+        }
+      }
+    }
+  }
+
+  /* La riga accento del titolo deve passare DAVANTI alla fascia
+     fotografica dell'hero e tagliarla: la fascia risale sotto il titolo
+     di poco meno di mezza riga, misurata sul corpo reale. */
+  function bandOverlap(){
+    var h1 = document.getElementById('h1');
+    var band = document.querySelector('.hero-band');
+    if (!h1 || !band) return;
+    var acc = h1.querySelector('.ml-acc') || h1.lastElementChild;
+    if (!acc) return;
+    var h = acc.getBoundingClientRect().height || 0;
+    var bh = band.getBoundingClientRect().height || 200;
+    var ov = Math.max(18, Math.min(h * 0.42, bh * 0.36, 108));
+    band.style.marginTop = '-' + Math.round(ov) + 'px';
+  }
+
+  /* Rete di sicurezza sul telefono: il nome del cliente e la fotografia
+     devono stare insieme nella prima schermata. Se il titolo cresce troppo
+     e spinge la fascia sotto la piega, il titolo si stringe: mai il
+     contrario. Il nome resta comunque su più righe intere. */
+  function heroGuard(){
+    var h1 = document.getElementById('h1');
+    var band = document.querySelector('.hero-band');
+    var bar = document.querySelector('.bar');
+    if (!h1 || !band || !bar) return;
+    if (getComputedStyle(bar).display === 'none') return;
+    var limit = window.innerHeight * 0.80;
+    var base = [], i;
+    for (i = 0; i < h1.children.length; i++) base.push(parseFloat(h1.children[i].style.fontSize) || 0);
+    var k = 1, guard = 0;
+    while (band.getBoundingClientRect().top > limit && k > 0.7 && guard++ < 8){
+      k -= 0.05;
+      for (i = 0; i < h1.children.length; i++) h1.children[i].style.fontSize = (base[i] * k).toFixed(1) + 'px';
+      bandOverlap();
+    }
+  }
+
+  function fitAll(){
+    for (var i = 0; i < fits.length; i++) fitOne(fits[i]);
+    bandOverlap();
+    heroGuard();
+  }
+  fitAll();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitAll).catch(function(){});
+  setTimeout(fitAll, 400);
+  var fitT;
+  addEventListener('resize', function(){
+    clearTimeout(fitT);
+    fitT = setTimeout(fitAll, 140);
+  }, { passive: true });
+
+  /* ---- entrate a scatto ---- */
+  var rises = [].slice.call(document.querySelectorAll('.rise'));
+  if (RM || !hasIO) {
+    rises.forEach(function(el){ el.classList.add('in'); });
   } else {
-    var io = new IntersectionObserver(function(entries){
+    var ioR = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
-        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+        if (e.isIntersecting){ e.target.classList.add('in'); ioR.unobserve(e.target); }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
-    nodes.forEach(function(n){ io.observe(n); });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    rises.forEach(function(el){ ioR.observe(el); });
+    // rete di sicurezza: se lo scroll resta bloccato, mostra comunque il primo schermo
+    setTimeout(function(){
+      rises.forEach(function(el){
+        var r = el.getBoundingClientRect();
+        if (r.top < innerHeight) el.classList.add('in');
+      });
+    }, 1200);
   }
 
-  /* --- blueprint: tratto che si disegna --- */
-  var bp = d.querySelector('.bp');
-  if (bp) {
-    if (reduced || !('IntersectionObserver' in window)) {
-      bp.classList.add('is-in');
-    } else {
-      var bo = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if (e.isIntersecting) { e.target.classList.add('is-in'); bo.unobserve(e.target); }
-        });
-      }, { threshold: 0.2 });
-      bo.observe(bp);
-    }
-  }
-
-  /* --- contatori che scattano --- */
-  function fmt(v, dec){ var s = v.toFixed(dec); return dec ? s.replace('.', ',') : s; }
-  function run(node){
-    var raw = node.getAttribute('data-count');
-    var m = /^(\d+)(?:,(\d+))?$/.exec(raw);
-    if (!m) { node.textContent = raw; return; }
-    var dec = m[2] ? m[2].length : 0;
-    var target = parseFloat(raw.replace(',', '.'));
-    var t0 = 0, dur = 820;
-    function frame(ts){
+  /* ---- contatori che sgranano ---- */
+  var nums = [].slice.call(document.querySelectorAll('.num'));
+  var DIG = '0123456789';
+  function grind(el){
+    var fin = el.getAttribute('data-val') || el.textContent;
+    if (RM){ el.textContent = fin; return; }
+    var t0 = 0, n = fin.length, dur = 620;
+    function step(ts){
       if (!t0) t0 = ts;
-      var k = (ts - t0) / dur;
-      if (k >= 1) { node.textContent = raw; return; }
-      node.textContent = fmt(target * k, dec);
+      var p = Math.min(1, (ts - t0) / dur), out = '';
+      for (var i = 0; i < n; i++){
+        var ch = fin.charAt(i);
+        if (ch >= '0' && ch <= '9'){
+          out += (p * n * 1.5 - i >= 1) ? ch : DIG.charAt((Math.random() * 10) | 0);
+        } else { out += ch; }
+      }
+      el.textContent = out;
+      if (p < 1) requestAnimationFrame(step); else el.textContent = fin;
+    }
+    requestAnimationFrame(step);
+  }
+  if (!hasIO || RM){
+    nums.forEach(function(el){ el.textContent = el.getAttribute('data-val') || el.textContent; });
+  } else {
+    var ioN = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ ioN.unobserve(e.target); grind(e.target); }
+      });
+    }, { threshold: 0.4 });
+    nums.forEach(function(el){ ioN.observe(el); });
+  }
+
+  /* ---- ticker infinito, inverte direzione allo scroll ---- */
+  var dir = 1, lastY = window.pageYOffset || 0;
+  addEventListener('scroll', function(){
+    var y = window.pageYOffset || 0, d = y - lastY;
+    if (d > 1){ dir = 1; lastY = y; }
+    else if (d < -1){ dir = -1; lastY = y; }
+  }, { passive: true });
+
+  [].slice.call(document.querySelectorAll('.mq')).forEach(function(mq){
+    var track = mq.querySelector('.mq-track');
+    var seg = mq.querySelector('.mq-seg');
+    if (!track || !seg) return;
+    var base = parseFloat(mq.getAttribute('data-speed')) || 60;
+    var x = 0, w = 1, visible = false, running = false, last = 0;
+
+    function measure(){ w = seg.getBoundingClientRect().width || 1; }
+    measure();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure).catch(function(){});
+    addEventListener('resize', measure, { passive: true });
+
+    if (RM) return;
+
+    function frame(ts){
+      if (!visible){ running = false; return; }
+      var dt = last ? Math.min(64, ts - last) : 16;
+      last = ts;
+      x -= base * dir * dt / 1000;
+      if (x <= -w) x += w; else if (x >= 0) x -= w;
+      track.style.transform = 'translate3d(' + x.toFixed(2) + 'px,0,0)';
       requestAnimationFrame(frame);
     }
-    node.textContent = fmt(0, dec);
-    requestAnimationFrame(frame);
-  }
-  var counters = [].slice.call(d.querySelectorAll('[data-count]'));
-  if (reduced || !('IntersectionObserver' in window)) {
-    counters.forEach(function(n){ n.textContent = n.getAttribute('data-count'); });
-  } else {
-    var co = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (e.isIntersecting) { run(e.target); co.unobserve(e.target); }
-      });
-    }, { threshold: 0.6 });
-    counters.forEach(function(n){ co.observe(n); });
-  }
+    function start(){ if (!running){ running = true; last = 0; requestAnimationFrame(frame); } }
 
-  /* --- rete di sicurezza fotografica: se una foto non arriva resta la piastra tecnica --- */
-  [].slice.call(d.querySelectorAll('img[data-photo-slot]')).forEach(function(im){
-    im.addEventListener('error', function(){ im.style.display = 'none'; });
-    if (im.complete && im.naturalWidth === 0) im.style.display = 'none';
+    if (!hasIO){ visible = true; start(); return; }
+    new IntersectionObserver(function(entries){
+      visible = entries[0].isIntersecting;
+      if (visible) start();
+    }, { threshold: 0 }).observe(mq);
   });
 
-  /* --- accordion: una sola voce aperta --- */
-  var faqs = [].slice.call(d.querySelectorAll('details.faq'));
-  faqs.forEach(function(f){
-    f.addEventListener('toggle', function(){
-      if (!f.open) return;
-      faqs.forEach(function(o){ if (o !== f) o.open = false; });
+  /* ---- fotografie: se una non arriva, resta il fondo disegnato ----
+     Si toglie l'immagine e si spengono i velari del duotone, altrimenti
+     tingerebbero il fondo di sicurezza. Nessun rettangolo bianco. */
+  function photoFail(im){
+    im.style.display = 'none';
+    var box = im.parentNode;
+    if (box && box.classList) box.classList.add('ph-off');
+  }
+  [].slice.call(document.querySelectorAll('img[data-photo-slot]')).forEach(function(im){
+    im.addEventListener('error', function(){ photoFail(im); });
+    if (im.complete && im.naturalWidth === 0) photoFail(im);
+  });
+
+  /* ---- FAQ: una alla volta, cambio di stato istantaneo ---- */
+  var faqs = [].slice.call(document.querySelectorAll('.faq'));
+  faqs.forEach(function(d){
+    d.addEventListener('toggle', function(){
+      if (!d.open) return;
+      faqs.forEach(function(o){ if (o !== d) o.open = false; });
     });
   });
 })();
 </script>
 
-
-<div class="umbra-flag" role="note">
-  <svg width="15" height="15" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="14" stroke="#C3C6D3" stroke-width="2"/><path d="M16 3.5a12.5 12.5 0 0 1 0 25 15.5 15.5 0 0 0 0-25z" fill="#EEF0F6"/></svg>
-  <span><b>Anteprima Umbra</b> realizzata per Autonoleggio di Santi Samantha &middot; non &egrave; il sito ufficiale dell'azienda</span>
-</div>
-<style>
-.umbra-flag{position:fixed;left:14px;bottom:14px;z-index:8500;display:flex;align-items:center;gap:9px;
-  max-width:min(430px,calc(100vw - 28px));padding:9px 14px;border-radius:999px;
-  background:rgba(8,8,11,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  border:1px solid rgba(238,240,246,.22);box-shadow:0 6px 26px rgba(0,0,0,.4);
-  font:400 11.5px/1.35 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  color:#C8C8D2;letter-spacing:.01em;pointer-events:none}
-.umbra-flag b{color:#F4F2EC;font-weight:600}
-.umbra-flag svg{flex:none}
-@media (max-width:760px){
-  .umbra-flag{left:8px;right:8px;max-width:none;bottom:calc(78px + env(safe-area-inset-bottom,0px));
-    font-size:10.5px;padding:7px 11px;justify-content:center;text-align:center}
-}
-@media print{.umbra-flag{display:none}}
-</style>
 <!-- ===== UMBRA INTRO 3D — configurare solo "name" ===== -->
 <script>window.UMBRA_INTRO = { name: "Autonoleggio di Santi Samantha" };</script>
 <div id="uPortal">
@@ -950,7 +1110,6 @@ tbody tr:last-child{border-bottom:0}
   <div class="u-ui" id="uUi">
     <svg width="34" height="34" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="url(#ug)" stroke-width="1.6"/><path d="M16 3.5a12.5 12.5 0 0 1 0 25 15.5 15.5 0 0 0 0-25z" fill="url(#ug)"/><defs><linearGradient id="ug" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#EEF0F6"/><stop offset="1" stop-color="#C3C6D3"/></linearGradient></defs></svg>
     <div class="u-brand">Umbra</div>
-    <div class="u-by">by Matteo Tagliacollo</div>
     <div class="u-status">Stiamo aprendo l'anteprima riservata a <b class="u-name"></b></div>
     <div class="u-track"><div class="u-fill" id="uFill"></div></div>
     <div class="u-pct" id="uPct">0%</div>
@@ -960,7 +1119,6 @@ tbody tr:last-child{border-bottom:0}
     <div class="u-eyebrow">Umbra presenta</div>
     <h1 class="u-h1">Benvenuto,<br><span class="u-shine u-name"></span></h1>
     <p class="u-sub">Il vostro nuovo sito è pronto. Guardatelo.</p>
-    <div class="u-sign">Umbra · by Matteo Tagliacollo</div>
   </div>
 </div>
 <style>
@@ -970,8 +1128,6 @@ tbody tr:last-child{border-bottom:0}
 #uPortal canvas{position:absolute;inset:0;width:100%;height:100%}
 #uPortal .u-ui{position:absolute;left:0;right:0;bottom:9vh;display:flex;flex-direction:column;align-items:center;gap:13px;pointer-events:none}
 #uPortal .u-brand{font-family:Georgia,serif;font-size:1.25rem;letter-spacing:.02em}
-#uPortal .u-by{margin-top:-9px;font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;color:#77747f;
-  font-family:'Inter',system-ui,sans-serif}
 #uPortal .u-status{color:#A5A2B0;font-size:.92rem;text-align:center;padding:0 20px}
 #uPortal .u-status b{color:#F4F2EC;font-weight:600}
 #uPortal .u-track{width:min(320px,70vw);height:2px;background:rgba(238,240,246,.12);border-radius:2px;overflow:hidden}
@@ -988,8 +1144,6 @@ tbody tr:last-child{border-bottom:0}
   background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:uShine 3.5s ease-in-out infinite}
 @keyframes uShine{0%,100%{background-position:12% 0}50%{background-position:88% 0}}
 #uPortal .u-sub{color:#A5A2B0;font-size:1.05rem;margin-top:16px}
-#uPortal .u-sign{position:absolute;bottom:6vh;left:0;right:0;text-align:center;font-size:.6rem;
-  letter-spacing:.34em;text-transform:uppercase;color:#5f5d68}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>

@@ -1,948 +1,775 @@
 <!doctype html>
 <html lang="it">
 <head>
-<meta name="robots" content="noindex,nofollow,noarchive">
-<meta name="referrer" content="no-referrer">
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>AM Autonoleggio con Conducente — Noleggio con conducente a Alessandria</title>
 <meta name="description" content="Noleggio con conducente a Alessandria. Preventivo su WhatsApp, prezzo concordato prima della partenza. +39 0384 858366.">
-<meta name="theme-color" content="#FAFAF8">
+<meta name="theme-color" content="#000000">
 <meta property="og:title" content="AM Autonoleggio con Conducente — Noleggio con conducente a Alessandria">
 <meta property="og:description" content="Noleggio con conducente a Alessandria. Preventivo su WhatsApp, prezzo concordato prima della partenza. +39 0384 858366.">
-<meta property="og:locale" content="it_IT">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#FAFAF8;
-  --ink:#111111;
-  --g1:#5C5C58;
-  --g2:#6E6E69;
-  --hair:#D9D9D3;
-  --grid:rgba(17,17,17,.055);
-  --acc:#FF4A1C;
-  --pad:clamp(18px,4.4vw,56px);
-  --t:160ms;
-  --line:1px;
-  --inset:clamp(12px,1.3vw,20px);
-  --plate:#EFEFE9;
+  --acc:#FF2D16;
+  --pad:clamp(18px,5vw,72px);
+  --ease:cubic-bezier(.76,0,.24,1);
+  --out:cubic-bezier(.16,1,.3,1);
 }
-*{box-sizing:border-box}
+*,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{
-  margin:0;background:var(--paper);color:var(--ink);
-  font-family:'Inter','Helvetica Neue',Helvetica,Arial,system-ui,sans-serif;
-  font-weight:400;font-size:15px;line-height:1.5;
-  font-variant-numeric:tabular-nums;font-feature-settings:'tnum' 1,'cv05' 1;
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;
-  padding-top:54px;
+  margin:0;background:#FFF;color:#000;
+  font-family:'Archivo','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight:400;font-size:16px;line-height:1.5;
+  overflow-x:clip;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
 }
-.num{font-variant-numeric:tabular-nums;font-feature-settings:'tnum' 1}
-h1,h2,h3,h4,p,figure{margin:0}
-a{color:inherit;text-decoration:none}
-:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
 img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+p{margin:0}
+h1,h2,h3{margin:0;font-weight:700}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+::selection{background:#000;color:#FFF}
+.inv ::selection{background:#FFF;color:#000}
 
-/* ---------- griglia dichiarata ---------- */
-.gridlines{
-  position:fixed;inset:0;z-index:0;pointer-events:none;
-  max-width:1440px;margin:0 auto;padding:0 var(--pad);
-  display:grid;grid-template-columns:repeat(12,1fr);
+/* ---------- tipografia ---------- */
+.giant{font-size:clamp(2.6rem,6.8vw,7rem);line-height:.86;letter-spacing:-.055em;font-weight:700;
+  text-transform:uppercase;overflow-wrap:break-word}
+.big{font-size:clamp(2.2rem,7.5vw,5.5rem);line-height:.92;letter-spacing:-.045em;font-weight:700;text-transform:uppercase}
+@media (max-width:560px){
+  .giant{font-size:clamp(1.8rem,9vw,3rem);letter-spacing:-.04em}
+  .big{font-size:clamp(1.8rem,7vw,2.6rem);letter-spacing:-.035em}
 }
-.gridlines i{border-left:var(--line) solid var(--grid)}
-.gridlines i:last-child{border-right:var(--line) solid var(--grid)}
-@media(max-width:820px){
-  .gridlines{grid-template-columns:repeat(4,1fr)}
-  .gridlines i:nth-child(n+5){display:none}
-}
+.lbl{font-size:.66rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;line-height:1.2}
+.mono{font-variant-numeric:tabular-nums}
 
-.wrap{position:relative;z-index:1;max-width:1440px;margin:0 auto;padding:0 var(--pad)}
-.g{display:grid;grid-template-columns:repeat(12,1fr);gap:0}
-.col-3{grid-column:span 3}
-.col-4{grid-column:span 4}
-.col-5{grid-column:span 5}
-.col-6{grid-column:span 6}
-.col-7{grid-column:span 7}
-.col-8{grid-column:span 8}
-.pr{padding-right:28px}
-.pl{padding-left:28px}
+/* ---------- barra di lettura (accento 1/3) ---------- */
+.prog{position:fixed;top:0;left:0;right:0;height:2px;z-index:70;pointer-events:none}
+.prog i{display:block;height:100%;width:100%;background:var(--acc);transform:scaleX(0);transform-origin:0 50%}
+
+/* ---------- cursore ---------- */
+.dot{position:fixed;top:0;left:0;width:12px;height:12px;border-radius:50%;background:#FFF;
+  mix-blend-mode:difference;pointer-events:none;z-index:8000;opacity:0;
+  transition:width .35s var(--out),height .35s var(--out),opacity .3s linear;will-change:transform}
+html.curs .dot{opacity:1}
+html.curs.hov .dot{width:46px;height:46px}
+html.curs body,html.curs a,html.curs button{cursor:none}
 
 /* ---------- header ---------- */
-.hdr{
-  position:fixed;top:0;left:0;right:0;z-index:40;height:54px;
-  background:rgba(250,250,248,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-  border-bottom:var(--line) solid var(--hair);
-}
-.hdr-in{max-width:1440px;margin:0 auto;padding:0 var(--pad);height:100%;
-  display:flex;align-items:center;justify-content:space-between;gap:16px}
-.brand{display:flex;align-items:center;gap:12px;min-width:0}
-.mono{
-  width:28px;height:28px;flex:0 0 28px;border:var(--line) solid var(--ink);
-  display:grid;place-items:center;font-size:11px;font-weight:600;letter-spacing:.04em
-}
-.brand-n{font-size:12.5px;font-weight:600;letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.hdr-r{display:flex;align-items:center;gap:18px}
-.clock{display:flex;align-items:center;gap:9px;white-space:nowrap}
-.dot{width:6px;height:6px;background:var(--acc);flex:0 0 6px;animation:blink 2s steps(1,end) infinite}
-@keyframes blink{0%,60%{opacity:1}61%,100%{opacity:.25}}
-.clock-l{font-size:9.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--g1)}
-.clock-t{font-size:12.5px;font-weight:600;letter-spacing:.06em}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  height:34px;padding:0 16px;font-size:11.5px;font-weight:600;
-  letter-spacing:.16em;text-transform:uppercase;border:var(--line) solid var(--ink);
-  transition:background var(--t) linear,color var(--t) linear;
-}
-.btn-acc{background:var(--acc);border-color:var(--acc);color:#111}
-.btn-acc:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
-.btn-out:hover{background:var(--ink);color:var(--paper)}
-.btn-lg{height:46px;padding:0 24px;font-size:12px}
-@media(max-width:820px){.hdr .btn{display:none}}
+.hdr{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;
+  justify-content:space-between;gap:16px;padding:16px var(--pad);
+  color:#FFF;mix-blend-mode:difference}
+.hdr-l{display:flex;align-items:center;gap:12px;min-width:0}
+.hdr-m{width:26px;height:26px;border:1px solid currentColor;display:grid;place-items:center;
+  font-size:.6rem;font-weight:700;letter-spacing:.02em;flex:none}
+.hdr-n{font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;white-space:nowrap}
+@media (max-width:700px){.hdr-n{display:none}}
+.hdr-r{display:flex;align-items:center;gap:26px}
+.hdr-a{font-size:.66rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;position:relative;white-space:nowrap}
+.hdr-a::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:1px;background:currentColor;
+  transform:scaleX(0);transform-origin:0 50%;transition:transform .5s var(--ease)}
+.hdr-a:hover::after,.hdr-a:focus-visible::after{transform:scaleX(1)}
+@media (max-width:860px){.hdr-r .hdr-a.only-d{display:none}}
 
-/* ---------- hairline / reveal ---------- */
-.rule{display:block;height:var(--line);background:var(--hair);transform:scaleX(0);transform-origin:left center;
-  transition:transform 320ms linear}
-.is-in .rule,.rule.is-in{transform:none}
-[data-rv]{opacity:0;transform:translate3d(0,7px,0);transition:opacity var(--t) linear,transform var(--t) ease-out}
-[data-rv].is-in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){
-  [data-rv]{opacity:1;transform:none;transition:none}
-  .rule{transform:none;transition:none}
-  .dot{animation:none}
-}
+/* ---------- cinetica ---------- */
+.kw{display:inline-block;overflow:hidden;vertical-align:bottom;max-width:100%;
+  padding-bottom:.1em;margin-bottom:-.1em;padding-right:.06em;margin-right:-.06em}
+.kwi{display:inline-block;max-width:100%;overflow-wrap:break-word;
+  transform:translateY(115%);transition:transform 1s var(--out)}
+.kin.on .kwi{transform:none}
+.rev{opacity:0;transform:translateY(28px);transition:opacity .9s var(--out),transform .9s var(--out)}
+.rev.on{opacity:1;transform:none}
+.rule{height:1px;background:currentColor;transform:scaleX(0);transform-origin:0 50%;
+  transition:transform 1.4s var(--ease);opacity:.85}
+.rule.on{transform:scaleX(1)}
+html.nomo .kwi{transform:none}
+html.nomo .rev{opacity:1;transform:none}
+html.nomo .rule{transform:scaleX(1)}
+html.nomo *{transition-duration:.001s!important;animation:none!important}
 
-/* ---------- etichette di sezione ---------- */
-/* solo il fondo: il padding orizzontale di .wrap tiene le sezioni sulla griglia */
-.sec{padding-bottom:clamp(56px,7vw,104px)}
-.sec-hd{padding:clamp(40px,5vw,72px) 0 26px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
-.sec-n{font-size:11px;font-weight:600;letter-spacing:.18em}
-.sec-l{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--g1)}
-.sec-d{margin-left:auto;font-size:11.5px;color:var(--g2);letter-spacing:.04em}
-@media(max-width:820px){.sec-d{margin-left:0;width:100%}}
+/* ---------- fotografia: bianco e nero assoluto ---------- */
+/* color:transparent — se una foto si rompe non deve comparire il testo alt
+   sopra il fondo nero: resta il blocco scuro, l'alt resta agli screen reader */
+.ph{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.15);color:transparent}
+.ph-rev{clip-path:inset(0 0 100% 0);transition:clip-path 1.2s var(--ease)}
+.ph-rev.on{clip-path:inset(0 0 0 0)}
+html.nomo .ph-rev{clip-path:none;transition:none}
+/* fondo di sicurezza: se una foto non carica resta un blocco scuro, mai un buco bianco */
+.shot{position:relative;margin:0;overflow:hidden;isolation:isolate;
+  background:linear-gradient(180deg,#171717 0%,#000 100%)}
+.shot::before{content:"";position:absolute;inset:0;z-index:0;opacity:.5;
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 1px,transparent 1px 36px)}
+.shot img{position:absolute;inset:0;z-index:1}
+.shot-c{position:absolute;z-index:2;left:clamp(14px,2.4vw,28px);bottom:clamp(14px,2.4vw,26px);
+  color:#FFF;mix-blend-mode:difference;max-width:calc(100% - 40px)}
 
 /* ---------- hero ---------- */
-.hero{padding-top:clamp(30px,5vw,58px)}
-.eyebrow{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--g1);
-  display:flex;align-items:baseline;gap:12px}
-.eyebrow b{color:var(--ink);font-weight:600}
-h1.h1{
-  font-size:clamp(2rem,5.9vw,4.5rem);font-weight:600;line-height:.99;letter-spacing:-.035em;
-  margin:20px 0 0;text-wrap:balance;
+.hero{min-height:100svh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,32%)}
+.hero-type{padding:88px var(--pad) 30px;display:grid;min-width:0;
+  grid-template-rows:auto 1fr auto;gap:clamp(28px,6vw,60px)}
+.hero-shot{border-left:1px solid #000}
+/* il quadrato rosso: unico colore della pagina, a cavallo dell'angolo della foto */
+.sq-o{position:absolute;top:0;left:0;width:clamp(34px,4.4vw,68px);height:clamp(34px,4.4vw,68px);
+  background:var(--acc);z-index:3}
+@media (max-width:900px){
+  .hero{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto}
+  .hero-shot{height:clamp(210px,34svh,340px);border-left:0;border-top:1px solid #000}
 }
-.hero-sub{margin-top:18px;font-size:clamp(1.02rem,2.1vw,1.5rem);line-height:1.24;letter-spacing:-.012em;color:var(--g1)}
-.hero-sub b{color:var(--ink);font-weight:400}
-.lede{margin-top:22px;max-width:44ch;color:var(--g1);font-size:14.5px;line-height:1.62}
-.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
-.hero-note{margin-top:16px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--g2)}
-/* indice: ancora il piede della colonna sinistra al piede della scheda tecnica */
-.hero-left{display:flex;flex-direction:column}
-/* 3fr + 4fr su una cella da 7 colonne: i filetti cadono sulle linee 1, 4 e 7 */
-.idx{margin-top:auto;margin-right:-28px;padding-top:clamp(34px,4.4vw,62px);
-  display:grid;grid-template-columns:3fr 4fr;column-gap:0}
-.idx a:nth-of-type(even){padding-left:20px}
-.idx-l{grid-column:1/-1;font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--g2);border-top:var(--line) solid var(--ink);padding:9px 0 3px}
-.idx a{display:flex;gap:12px;align-items:baseline;padding:10px 0;
-  border-top:var(--line) solid var(--hair);font-size:11px;font-weight:600;
-  letter-spacing:.14em;text-transform:uppercase;transition:color var(--t) linear}
-.idx a i{font-style:normal;color:var(--g2)}
-.idx a:hover{color:var(--acc)}
-@media(max-width:820px){.idx{display:none}}
+.hero-top{display:block;min-width:0}
+.hero-k{margin-bottom:14px;opacity:.62}
+.fit{white-space:nowrap;max-width:100%;line-height:.9;letter-spacing:-.045em;font-weight:700;text-transform:uppercase;
+  font-size:clamp(1.4rem,7vw,4rem)}
+.fit span{display:inline-block;letter-spacing:-.045em}
+.hero-mid{display:flex;flex-direction:column;justify-content:center;min-width:0}
+.hero-mid .giant{max-width:14ch}
+@media (max-width:700px){.hero-mid .giant{max-width:none}}
+.hero-mid .giant:nth-child(2){padding-left:clamp(0px,4vw,96px)}
+.hero-bot{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.hero-info{max-width:min(520px,100%);min-width:0}
+.hero-lede{font-size:.92rem;line-height:1.5;max-width:34ch;opacity:.75}
+.hero-cta{display:flex;gap:22px;margin-top:20px;flex-wrap:wrap}
+.link-u{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  padding-bottom:5px;border-bottom:1px solid currentColor;transition:opacity .35s var(--ease)}
+.link-u:hover{opacity:.5}
+.meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:14px clamp(22px,6vw,44px);
+  padding-top:14px;border-top:1px solid #000}
+.meta div{font-size:.86rem;letter-spacing:-.01em;font-weight:700;line-height:1.1}
+.meta div span{display:block;margin-top:7px;font-size:.6rem;line-height:1.2;opacity:.62;
+  font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+@media (max-width:560px){.meta{gap:12px 26px}.meta div{font-size:.8rem}}
+.scroll{display:flex;align-items:flex-end;gap:12px;flex:none;margin-left:auto}
+@media (max-width:700px){.scroll{display:none}}
+.scroll b{font-size:.62rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;writing-mode:vertical-rl}
+.scroll i{display:block;width:1px;height:74px;background:currentColor;opacity:.25;position:relative;overflow:hidden}
+.scroll i::after{content:"";position:absolute;left:0;top:0;width:1px;height:26px;background:#000;
+  animation:sc 2.2s var(--ease) infinite}
+@keyframes sc{0%{transform:translateY(-30px)}60%,100%{transform:translateY(76px)}}
 
-.spec{border-top:var(--line) solid var(--ink);margin-top:0}
-.spec-hd{display:flex;justify-content:space-between;align-items:baseline;padding:10px var(--inset) 12px 0}
-.spec-hd span{font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
-.spec-hd i{font-style:normal;font-size:10.5px;letter-spacing:.16em;color:var(--g2)}
-/* il filetto arriva alla linea di griglia, il valore si ferma un gutter prima */
-.spec-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;
-  padding:11px var(--inset) 11px 0;border-top:var(--line) solid var(--hair)}
-.spec-k{font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--g1);flex:0 0 auto}
-.spec-v{font-size:13.5px;text-align:right;letter-spacing:.01em;min-width:0;overflow-wrap:anywhere}
-.spec-v .u{color:var(--g2)}
+/* ---------- fasce ---------- */
+.sec{padding:clamp(70px,11vw,150px) var(--pad);border-top:1px solid #000}
+.inv .sec,.sec.inv{border-color:rgba(255,255,255,.3)}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:clamp(34px,6vw,72px)}
+.sec-h .lbl{opacity:.6}
 
-/* ---------- fotografia: telaio, didascalia, filetto ---------- */
-.fig{border-top:var(--line) solid var(--ink)}
-.fig-hd{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
-  padding:9px var(--inset) 11px 0;font-size:10px;font-weight:600;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--g1)}
-.fig-hd b{color:var(--ink);font-weight:600}
-.fig-hd i{font-style:normal;letter-spacing:.16em;color:var(--g2);white-space:nowrap}
-.ph{position:relative;display:block;overflow:hidden;
-  background:
-    repeating-linear-gradient(135deg,rgba(17,17,17,.05) 0 1px,rgba(17,17,17,0) 1px 11px),
-    linear-gradient(180deg,#F2F2ED 0%,var(--plate) 55%,#E3E3DB 100%);
-  border:var(--line) solid var(--hair)}
-/* crocino di centratura: se la foto non arriva resta una piastra tecnica, mai un buco bianco */
-.ph::before{content:"";position:absolute;left:50%;top:50%;width:26px;height:26px;margin:-13px 0 0 -13px;
-  background:
-    linear-gradient(var(--g2),var(--g2)) center/100% 1px no-repeat,
-    linear-gradient(var(--g2),var(--g2)) center/1px 100% no-repeat;
-  opacity:.42}
-/* crocini d'angolo: la piastra resta una figura tecnica anche senza foto */
-.ph::after{content:"";position:absolute;inset:12px;pointer-events:none;opacity:.55;
-  background:
-    linear-gradient(var(--g2),var(--g2)) left top/14px 1px no-repeat,
-    linear-gradient(var(--g2),var(--g2)) left top/1px 14px no-repeat,
-    linear-gradient(var(--g2),var(--g2)) right top/14px 1px no-repeat,
-    linear-gradient(var(--g2),var(--g2)) right top/1px 14px no-repeat,
-    linear-gradient(var(--g2),var(--g2)) left bottom/14px 1px no-repeat,
-    linear-gradient(var(--g2),var(--g2)) left bottom/1px 14px no-repeat,
-    linear-gradient(var(--g2),var(--g2)) right bottom/14px 1px no-repeat,
-    linear-gradient(var(--g2),var(--g2)) right bottom/1px 14px no-repeat}
-.ph img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;
-  filter:saturate(.86) contrast(1.03) brightness(1.03)}
-.r-hero{aspect-ratio:16/9}
-.r-trio{aspect-ratio:4/3}
-.r-ins{aspect-ratio:2/1}
-.r-band{aspect-ratio:21/9;border-left:0;border-right:0}
+/* prova */
+.proof-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,30%);
+  gap:clamp(26px,4vw,64px);align-items:start}
+.inset{aspect-ratio:3/4}
+@media (max-width:860px){
+  .proof-grid{grid-template-columns:minmax(0,1fr)}
+  .inset{aspect-ratio:16/10;order:-1}
+}
+.proof-line{font-size:clamp(1.5rem,4.4vw,3.2rem);line-height:1.02;letter-spacing:-.035em;font-weight:700;max-width:20ch}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:clamp(40px,6vw,72px);border-top:1px solid #000;padding-top:22px}
+.stat-v{font-size:clamp(2rem,5.5vw,4rem);line-height:1;letter-spacing:-.05em;font-weight:700}
+.stat-l{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;margin-top:8px;opacity:.62;font-weight:700}
+@media (max-width:600px){.stats{grid-template-columns:1fr;gap:0}
+  .stat{padding:16px 0;border-bottom:1px solid rgba(0,0,0,.15);display:flex;align-items:baseline;gap:16px}
+  .stat:last-child{border-bottom:0}.stat-l{margin-top:0}}
 
-/* tre foto di flotta: gap zero, i bordi cadono sulle linee 4 e 8 della griglia */
-.trio{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr)}
-.trio .fig+.fig .ph{border-left:0}
+/* servizi */
+.srv{display:grid;grid-template-columns:64px minmax(0,1fr) minmax(0,34ch);gap:clamp(16px,3vw,48px);
+  align-items:start;padding:clamp(24px,3.4vw,44px) 0;border-bottom:1px solid rgba(0,0,0,.18)}
+.srv:first-of-type{border-top:1px solid rgba(0,0,0,.18)}
+.srv-n{font-size:.68rem;font-weight:700;letter-spacing:.14em;padding-top:.7em;opacity:.6}
+.srv-t{font-size:clamp(1.6rem,4.4vw,3.4rem);line-height:.98;letter-spacing:-.04em;text-transform:uppercase}
+.srv-d{font-size:.94rem;line-height:1.55;opacity:.72;padding-top:.5em}
+@media (max-width:760px){.srv{grid-template-columns:44px minmax(0,1fr)}
+  .srv-d{grid-column:2}}
 
-/* inserto interni nella sezione servizi */
-.ins{grid-column:6/-1;margin-top:clamp(34px,4vw,58px)}
-/* la nota parte dallo stesso filetto della didascalia: una sola linea attraversa le 12 colonne */
-.ins-note{grid-column:1/5;align-self:start;margin-top:clamp(34px,4vw,58px);
-  border-top:var(--line) solid var(--ink);padding:9px 28px 0 0;
-  font-size:11px;line-height:1.7;color:var(--g2);letter-spacing:.06em}
+/* ---------- fascia fotografica a piena pagina ---------- */
+.band{height:clamp(300px,86svh,900px);border-top:1px solid #000}
+.band .shot-c{left:var(--pad);bottom:clamp(20px,3vw,38px)}
+.band-x{position:absolute;z-index:2;right:var(--pad);top:clamp(76px,9vw,96px);
+  color:#FFF;mix-blend-mode:difference}
 
-/* fascia panoramica a tutta larghezza */
-.fascia{margin-top:clamp(44px,6vw,88px);border-top:var(--line) solid var(--ink)}
-.fascia-hd{display:flex;align-items:baseline;justify-content:space-between;gap:14px;
-  padding-top:10px;padding-bottom:12px;
-  font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--g1)}
-.fascia-hd b{color:var(--ink);font-weight:600}
-.fascia-hd i{font-style:normal;letter-spacing:.16em;color:var(--g2);white-space:nowrap}
+/* ---------- inversione: il blocco che si espande ---------- */
+.flip{position:relative;height:clamp(280px,52vh,520px);background:#FFF;overflow:hidden;
+  display:grid;place-items:center;border-top:1px solid #000}
+.flip-b{position:absolute;inset:0;background:#000;transform:scaleY(0);transform-origin:50% 100%;
+  transition:transform 1.15s var(--ease)}
+.flip.on .flip-b{transform:none}
+.flip-t{position:relative;z-index:1;color:#FFF;mix-blend-mode:difference;text-align:center;
+  font-size:clamp(2rem,9vw,7rem);line-height:.9;letter-spacing:-.06em;font-weight:700;text-transform:uppercase}
 
-/* ---------- blueprint ---------- */
-.bp{margin-top:clamp(40px,5vw,70px);border-top:var(--line) solid var(--ink);padding-top:14px}
-.bp-hd{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
-  font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--g1)}
-.bp-hd b{color:var(--ink);font-weight:600}
-.bp-box{margin-top:10px;padding:6px 0 0}
-.bp svg{width:100%;height:auto}
-.bp svg path,.bp svg circle,.zone-fig svg path,.zone-fig svg circle,.zone-fig svg rect{vector-effect:non-scaling-stroke}
-.bp .dr{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 900ms linear}
-.bp.is-in .dr{stroke-dashoffset:0}
-@media(prefers-reduced-motion:reduce){.bp .dr{stroke-dashoffset:0;transition:none}}
-.bp-cap{margin-top:8px;font-size:11px;color:var(--g2);letter-spacing:.06em;
-  border-top:var(--line) solid var(--hair);padding-top:9px}
-.bp-scroll{display:none;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--g2);margin-top:8px}
-@media(max-width:1024px){
-  .bp-box{overflow-x:auto;-webkit-overflow-scrolling:touch}
-  .bp-box svg{min-width:900px}
-  .bp svg text{font-size:18px}
-  .bp-scroll{display:block}
+/* ---------- metà nera ---------- */
+.inv{background:#000;color:#FFF}
+.inv .meta,.inv .stats,.inv .srv:first-of-type{border-color:rgba(255,255,255,.3)}
+.inv .srv{border-bottom-color:rgba(255,255,255,.18)}
+.inv .scroll i::after{background:#FFF}
+
+/* ---------- flotta fissata ---------- */
+.fleet{display:grid;grid-template-columns:minmax(0,40%) minmax(0,60%);border-top:1px solid rgba(255,255,255,.3)}
+.fleet-l{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;
+  gap:clamp(14px,2.6vh,26px);overflow:hidden;padding:0 clamp(20px,3vw,48px) 0 var(--pad);border-right:1px solid rgba(255,255,255,.3)}
+.fleet-l h2{font-size:clamp(2.2rem,5vw,4.2rem);line-height:.9;letter-spacing:-.05em;text-transform:uppercase}
+.fleet-l h2 span{display:block}
+.lbl-d{opacity:.62}
+.count{display:flex;align-items:baseline;gap:10px;font-size:.7rem;font-weight:700;letter-spacing:.2em}
+.count b{font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:-.04em;line-height:1}
+.count s{text-decoration:none;opacity:.62}
+.silh{width:100%;max-width:480px;opacity:.9}
+.silh path,.silh circle,.silh line{fill:none;stroke:#FFF;stroke-width:2.4;vector-effect:non-scaling-stroke;
+  stroke-linecap:square;stroke-linejoin:miter}
+.silh .thin{opacity:.35;stroke-width:1.4}
+.silh .draw{stroke-dasharray:2600;stroke-dashoffset:2600;transition:stroke-dashoffset 2.4s var(--out)}
+.silh.on .draw{stroke-dashoffset:0}
+html.nomo .silh .draw{stroke-dashoffset:0}
+.car{min-height:100svh;display:grid;grid-template-columns:minmax(0,32%) minmax(0,1fr);
+  align-items:center;gap:clamp(22px,3.4vw,54px);padding:60px clamp(20px,4vw,72px);
+  border-bottom:1px solid rgba(255,255,255,.18)}
+.car:last-child{border-bottom:0}
+.car-shot{height:min(76svh,720px);border:1px solid rgba(255,255,255,.28)}
+.car-num{position:absolute;z-index:2;left:0;top:0;color:#FFF;mix-blend-mode:difference;
+  font-size:clamp(3rem,8vw,7.5rem);line-height:.78;letter-spacing:-.06em;font-weight:700;
+  padding:clamp(8px,1.4vw,18px) clamp(10px,1.6vw,22px)}
+.car-in{max-width:44ch}
+.car-t{font-size:clamp(1.7rem,2.8vw,2.6rem);line-height:.94;letter-spacing:-.045em;
+  text-transform:uppercase;overflow-wrap:break-word}
+.car-s{font-size:.66rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;margin-top:16px;opacity:.62}
+.car-d{font-size:1rem;line-height:1.55;margin-top:20px;opacity:.75;max-width:34ch}
+@media (max-width:860px){
+  .fleet{grid-template-columns:1fr}
+  .fleet-l{position:static;height:auto;padding:clamp(60px,10vw,90px) var(--pad) 30px;border-right:0;
+    border-bottom:1px solid rgba(255,255,255,.3)}
+  .car{min-height:0;padding:36px var(--pad) 44px;grid-template-columns:minmax(0,1fr);
+    gap:clamp(20px,5vw,32px)}
+  .car-shot{height:auto;aspect-ratio:4/5;max-height:64svh}
+  .count{display:none}
 }
 
-/* ---------- fascia rilevazioni ---------- */
-.band{border-top:var(--line) solid var(--ink);border-bottom:var(--line) solid var(--ink);margin-top:clamp(44px,5vw,72px)}
-.band-in{display:grid;grid-template-columns:repeat(12,1fr)}
-.band-l{grid-column:span 6;padding:22px 28px 22px 0;border-right:var(--line) solid var(--hair)}
-.band-r{grid-column:span 6;display:grid;grid-template-columns:repeat(3,1fr)}
-.proof-t{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
-.proof-x{margin-top:7px;font-size:13.5px;color:var(--g1)}
-.stat{padding:22px 20px;border-left:var(--line) solid var(--hair)}
-.stat:first-child{border-left:0}
-.stat-v{display:block;font-size:clamp(1.7rem,3.4vw,2.6rem);font-weight:600;letter-spacing:-.035em;line-height:1}
-.stat-k{display:block;margin-top:8px;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--g1)}
+/* ---------- come funziona: foto fissata, testo che le scorre accanto ---------- */
+.pinsec{border-top:1px solid rgba(255,255,255,.3)}
+.pin{display:grid;grid-template-columns:minmax(0,42%) minmax(0,58%)}
+.pin-shot{align-self:start;position:sticky;top:0;height:100svh;
+  border-right:1px solid rgba(255,255,255,.3)}
+.pin-txt{padding:0 var(--pad)}
+.pin-txt .sec-h{padding-top:clamp(60px,9vw,110px)}
+.step{min-height:62svh;display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(28px,4vw,54px) 0;border-bottom:1px solid rgba(255,255,255,.18)}
+.step:last-child{border-bottom:0;padding-bottom:clamp(60px,9vw,110px)}
+.step-n{font-size:clamp(3.4rem,9vw,7.5rem);line-height:.78;letter-spacing:-.06em;font-weight:700;opacity:.9}
+.step h3{font-size:clamp(1.2rem,2.6vw,2rem);letter-spacing:-.02em;margin-top:26px;text-transform:uppercase}
+.step p{font-size:.95rem;line-height:1.55;opacity:.65;margin-top:14px;max-width:36ch}
+@media (max-width:860px){
+  .pin{grid-template-columns:minmax(0,1fr)}
+  .pin-shot{position:static;height:clamp(240px,44svh,420px);border-right:0;
+    border-bottom:1px solid rgba(255,255,255,.3)}
+  .step{min-height:0;padding:30px 0}
+  .step:last-child{padding-bottom:clamp(50px,10vw,80px)}
+}
 
-/* ---------- servizi ---------- */
-.srv{padding:0 22px 0 0}
-.srv .rule-top{margin-bottom:14px;background:var(--ink)}
-.srv-n{font-size:10.5px;font-weight:600;letter-spacing:.18em;color:var(--ink)}
-.srv-t{margin-top:9px;font-size:16px;font-weight:600;letter-spacing:-.012em}
-.srv-x{margin-top:9px;font-size:13.5px;line-height:1.6;color:var(--g1)}
+/* zona */
+.zona{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(28px,4vw,56px)}
+.zona-city{font-size:clamp(2.4rem,15vw,11rem);line-height:.82;letter-spacing:-.06em;font-weight:700;
+  text-transform:uppercase;overflow-wrap:break-word}
+/* maschera tipografica — un colpo solo in tutta la pagina.
+   Rete di sicurezza doppia: il colore pieno se background-clip:text non c'è,
+   e un secondo strato bianco sotto la foto se l'immagine non carica. */
+.mask{color:#FFF}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .mask{
+    background-image:var(--ph),linear-gradient(#FFF,#FFF);
+    background-size:cover,cover;background-position:50% 46%;background-repeat:no-repeat;
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;
+    filter:grayscale(1) contrast(1.15);
+  }
+}
+.zona-row{display:flex;gap:clamp(24px,5vw,90px);flex-wrap:wrap}
+.zona-row div{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.zona-row div span{display:block;opacity:.5;font-weight:400;letter-spacing:.08em;margin-top:8px;text-transform:none;font-size:.86rem}
 
-/* ---------- tabella flotta ---------- */
-.tbl{overflow-x:auto;-webkit-overflow-scrolling:touch;border-top:var(--line) solid var(--ink)}
-table{width:100%;min-width:640px;border-collapse:collapse;text-align:left}
-th,td{padding:15px 18px 15px 0;vertical-align:top;font-weight:400}
-.tbl thead th{font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--g1);
-  padding-top:11px;padding-bottom:11px;border-bottom:var(--line) solid var(--hair)}
-tbody tr{border-bottom:var(--line) solid var(--hair)}
-tbody tr:last-child{border-bottom:0}
-.tc-n{width:52px;color:var(--g2);font-size:11.5px;padding-top:18px}
-.tc-name{width:26%;font-size:15px;font-weight:600;letter-spacing:-.01em}
-.tc-size{width:20%;font-size:13px;color:var(--g1);white-space:nowrap}
-.tc-note{font-size:13.5px;color:var(--g1);line-height:1.55}
-.tbl-note{margin-top:12px;font-size:11px;color:var(--g2);letter-spacing:.06em}
+/* faq */
+.faq-i{border-bottom:1px solid rgba(255,255,255,.2)}
+.faq-i:first-child{border-top:1px solid rgba(255,255,255,.2)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:24px;width:100%;
+  text-align:left;padding:clamp(20px,2.6vw,32px) 0;
+  font-size:clamp(1.05rem,2.4vw,1.7rem);line-height:1.15;letter-spacing:-.02em;font-weight:700}
+.faq-p{position:relative;width:16px;height:16px;flex:none}
+.faq-p::before,.faq-p::after{content:"";position:absolute;left:0;top:7px;width:16px;height:2px;background:#FFF;
+  transition:transform .5s var(--ease)}
+.faq-p::after{transform:rotate(90deg)}
+.faq-i.on .faq-p::after{transform:rotate(0)}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s var(--ease)}
+.faq-i.on .faq-a{grid-template-rows:1fr}
+.faq-a>div{overflow:hidden}
+.faq-a p{font-size:.96rem;line-height:1.6;opacity:.65;max-width:60ch;padding-bottom:clamp(20px,2.6vw,32px)}
 
-/* ---------- procedura ---------- */
-.step{padding:0 26px 0 0}
-.step .rule-top{margin-bottom:14px;background:var(--ink)}
-.step-n{font-size:10.5px;font-weight:600;letter-spacing:.18em;color:var(--g2)}
-.step-t{margin-top:9px;font-size:17px;font-weight:600;letter-spacing:-.015em}
-.step-x{margin-top:9px;font-size:13.5px;line-height:1.6;color:var(--g1)}
+/* contatti */
+.cta-big{font-size:clamp(2.2rem,8vw,6rem);line-height:.92;letter-spacing:-.05em;font-weight:700;
+  text-transform:uppercase;padding:clamp(18px,2.4vw,30px) 0;border-bottom:1px solid rgba(255,255,255,.2);
+  display:flex;align-items:baseline;justify-content:space-between;gap:20px;
+  transition:padding-left .6s var(--ease),opacity .4s var(--ease)}
+.cta-big:first-of-type{border-top:1px solid rgba(255,255,255,.2)}
+.cta-big em{font-style:normal;font-size:.6rem;letter-spacing:.24em;opacity:.6;font-weight:700;flex:none}
+.cta-big:hover{padding-left:clamp(10px,2vw,32px)}
+.cta-acc{display:inline-block;margin-top:clamp(34px,5vw,56px);background:var(--acc);color:#000;
+  padding:20px 34px;font-size:.72rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
+  transition:transform .5s var(--ease)}
+.cta-acc:hover{transform:translateY(-3px)}
+.contact-grid{display:flex;gap:clamp(24px,5vw,90px);flex-wrap:wrap;margin-top:clamp(40px,6vw,70px)}
+.contact-grid div{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.contact-grid div span{display:block;opacity:.5;font-weight:400;letter-spacing:.06em;margin-top:8px;
+  text-transform:none;font-size:.92rem}
 
-/* ---------- zona ---------- */
-.zone-t{font-size:clamp(1.5rem,3.4vw,2.5rem);font-weight:600;letter-spacing:-.03em;line-height:1.02}
-.zone-x{margin-top:16px;max-width:40ch;font-size:13.5px;line-height:1.6;color:var(--g1)}
-.zone-fig{border:var(--line) solid var(--hair);padding:14px}
-.zone-fig svg{width:100%;height:auto}
-@media(max-width:820px){.zone-fig svg text{font-size:20px}}
-.zone-cap{margin-top:9px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--g2)}
+/* footer */
+.foot{background:#000;color:#FFF;padding:40px var(--pad) calc(40px + env(safe-area-inset-bottom));
+  border-top:1px solid rgba(255,255,255,.2);display:flex;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700}
+.foot span{opacity:.62}
 
-/* ---------- faq ---------- */
-.faq{border-top:var(--line) solid var(--hair)}
-.faq:first-of-type{border-top:var(--line) solid var(--ink)}
-.faq summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:16px;padding:16px 0}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary:hover .faq-q{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
-.faq summary:hover .faq-s{color:var(--acc)}
-.faq-n{font-size:10.5px;font-weight:600;letter-spacing:.18em;color:var(--g2);flex:0 0 auto}
-.faq-q{font-size:15px;font-weight:600;letter-spacing:-.01em;flex:1 1 auto}
-.faq-s{flex:0 0 auto;width:11px;height:11px;position:relative;align-self:center}
-.faq-s::before,.faq-s::after{content:"";position:absolute;background:currentColor;transition:transform var(--t) linear}
-.faq-s::before{left:0;top:5px;width:11px;height:1px}
-.faq-s::after{left:5px;top:0;width:1px;height:11px}
-.faq[open] .faq-s::after{transform:scaleY(0)}
-.faq-a{padding:0 0 18px 0}
-.faq-a p{max-width:62ch;font-size:13.5px;line-height:1.62;color:var(--g1);padding-left:35px}
-@media(max-width:640px){.faq-a p{padding-left:0}}
-
-/* ---------- contatti ---------- */
-.ct{border-top:var(--line) solid var(--ink);padding-top:26px}
-.ct-h{font-size:clamp(1.5rem,3.6vw,2.6rem);font-weight:600;letter-spacing:-.032em;line-height:1.02;max-width:14ch}
-.ct-row{display:flex;justify-content:space-between;align-items:baseline;gap:18px;
-  padding:13px var(--inset) 13px 0;border-bottom:var(--line) solid var(--hair)}
-.ct-k{font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--g1)}
-.ct-v{font-size:14px;text-align:right}
-.ct-v a{border-bottom:var(--line) solid var(--hair);transition:border-color var(--t) linear}
-.ct-v a:hover{border-color:var(--acc)}
-
-/* ---------- footer ---------- */
-.ftr{border-top:var(--line) solid var(--ink);padding-top:26px;padding-bottom:118px}
-.ftr-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
-  font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--g2)}
-.ftr-in b{color:var(--ink);font-weight:600}
-@media(min-width:821px){.ftr{padding-bottom:34px}}
-
-/* ---------- barra mobile ---------- */
-.bar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;
-  border-top:var(--line) solid var(--ink);background:var(--paper);
+/* barra mobile */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:65;display:none;min-height:62px;
+  border-top:1px solid rgba(255,255,255,.25);background:#000;
   padding-bottom:env(safe-area-inset-bottom)}
-.bar-in{display:grid;grid-template-columns:1fr 1fr}
-.bar-in.one{grid-template-columns:1fr}
-.bar a{height:56px;display:flex;align-items:center;justify-content:center;gap:8px;
-  font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
-.bar .wa{background:var(--acc);color:#111}
-.bar .tl{border-left:var(--line) solid var(--ink)}
-.bar-in.one .tl{border-left:0}
-@media(max-width:820px){.bar{display:block}}
+.bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:17px 10px;
+  font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#FFF}
+.bar a.wa{background:var(--acc);color:#000}
+.bar a+a{border-left:1px solid rgba(255,255,255,.25)}
+@media (max-width:860px){.bar{display:flex}
+  body{padding-bottom:calc(62px + env(safe-area-inset-bottom))}
+  .hero{min-height:calc(100svh - 62px)}}
 
-/* ---------- responsive ---------- */
-@media(max-width:1080px){
-  .srv{grid-column:span 6}
-  .ins{grid-column:4/-1}
-  .ins-note{grid-column:1/4}
-}
-@media(max-width:820px){
-  .ins,.ins-note{grid-column:1/-1}
-  .ins-note{padding-right:0;margin-top:clamp(28px,4vw,46px)}
-  .ins{margin-top:20px}
-  .r-ins{aspect-ratio:16/9}
-}
-@media(max-width:700px){
-  .trio{grid-template-columns:1fr}
-  .trio .fig+.fig{margin-top:24px}
-  .trio .fig+.fig .ph{border-left:var(--line) solid var(--hair)}
-  .r-trio{aspect-ratio:16/9}
-}
-@media(max-width:820px){
-  body{font-size:15px}
-  .g > *{grid-column:1/-1}
-  .pr,.pl,.srv,.step{padding-right:0;padding-left:0}
-  .hero-right{margin-top:38px}
-  .band-in{display:block}
-  .band-l{padding:20px 0;border-right:0;border-bottom:var(--line) solid var(--hair)}
-  .band-r{display:grid;grid-template-columns:repeat(3,1fr)}
-  .stat{padding:18px 10px 18px 12px}
-  .stat:first-child{padding-left:0}
-  .srv{margin-top:26px}
-  .step{margin-top:26px}
-  .zone-fig{margin-top:28px}
-}
-@media(max-width:560px){
-  .clock-l{font-size:8.5px;letter-spacing:.12em}
-  .clock-t{font-size:11.5px}
-  .brand-n{font-size:11.5px}
-}
-@media(max-width:420px){
-  .band-r{grid-template-columns:1fr 1fr}
-  .stat:nth-child(3){grid-column:1/-1;border-left:0;padding-left:0;border-top:var(--line) solid var(--hair)}
+@media (prefers-reduced-motion:reduce){
+  .kwi{transform:none}.rev{opacity:1;transform:none}.rule{transform:scaleX(1)}
+  .flip-b{transform:none}.silh .draw{stroke-dashoffset:0}
+  *{animation:none!important;transition-duration:.001s!important}
 }
 </style>
 </head>
 <body>
 
-<div class="gridlines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<div class="prog" aria-hidden="true"><i id="pg"></i></div>
+<div class="dot" id="dot" aria-hidden="true"></div>
 
 <header class="hdr">
-  <div class="hdr-in">
-    <div class="brand">
-      <span class="mono" aria-hidden="true">AA</span>
-      <span class="brand-n">AM Autonoleggio con Conducente</span>
-    </div>
-    <div class="hdr-r">
-      <div class="clock">
-        <span class="dot" aria-hidden="true"></span>
-        <span class="clock-l">Operativo ora</span>
-        <span class="clock-t num" id="mClock">--:--:--</span>
-      </div>
-      
-    </div>
+  <div class="hdr-l">
+    <div class="hdr-m" aria-hidden="true">AA</div>
+    <div class="hdr-n">AM Autonoleggio con Conducente</div>
   </div>
+  <nav class="hdr-r">
+    <a class="hdr-a only-d" href="#contatti">Contatti</a>
+    <a class="hdr-a" href="tel:+390384858366" aria-label="Telefonare a AM Autonoleggio con Conducente">Telefono</a>
+  </nav>
 </header>
 
 <main>
 
-  <!-- ============ HERO ============ -->
-  <section class="wrap hero">
-    <div class="g">
-      <div class="col-7 pr hero-left">
-        <p class="eyebrow" data-rv><span class="num">00</span> — <b>Noleggio con conducente</b></p>
-        <h1 class="h1" data-rv style="transition-delay:60ms">AM Autonoleggio con Conducente</h1>
-        <p class="hero-sub" data-rv style="transition-delay:110ms">Il viaggio <b>come dovrebbe essere</b>.</p>
-        <p class="lede" data-rv style="transition-delay:150ms">Autista privato, puntualità al minuto e discrezione assoluta. Prenotate in trenta secondi su WhatsApp: vi rispondiamo noi, non un centralino.</p>
-        <div class="cta" data-rv style="transition-delay:190ms">
-          
-          <a class="btn btn-out btn-lg" href="tel:+390384858366">Telefono +39 0384 858366</a>
-        </div>
-        <p class="hero-note" data-rv style="transition-delay:230ms">Prezzo concordato prima della partenza</p>
-        <nav class="idx" aria-label="Indice della pagina" data-rv style="transition-delay:270ms">
-          <span class="idx-l">Indice</span>
-          <a href="#servizi"><i class="num">01</i> Servizi</a>
-          <a href="#flotta"><i class="num">02</i> Flotta</a>
-          <a href="#procedura"><i class="num">03</i> Procedura</a>
-          <a href="#zona"><i class="num">04</i> Zona operativa</a>
-          <a href="#domande"><i class="num">05</i> Domande</a>
-          <a href="#contatto"><i class="num">06</i> Contatto</a>
-        </nav>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-type">
+      <div class="hero-top">
+        <div class="hero-k lbl">Noleggio con conducente — Alessandria</div>
+        <h1 class="fit"><span id="nm">AM Autonoleggio con Conducente</span></h1>
       </div>
 
-      <div class="col-5 hero-right">
-        
-      <figure class="fig" data-rv>
-        <figcaption class="fig-hd"><span><b>Fig. 01</b> — Vettura executive</span><i>16 : 9</i></figcaption>
-        <div class="ph r-hero"><img src="https://images.unsplash.com/photo-1604969232137-4e4646534f2e?auto=format&fit=crop&w=1800&q=78" srcset="https://images.unsplash.com/photo-1604969232137-4e4646534f2e?auto=format&fit=crop&w=900&q=78 900w, https://images.unsplash.com/photo-1604969232137-4e4646534f2e?auto=format&fit=crop&w=1800&q=78 1800w, https://images.unsplash.com/photo-1604969232137-4e4646534f2e?auto=format&fit=crop&w=2400&q=78 2400w" sizes="(max-width:820px) 100vw, 44vw" alt="Berlina executive di colore scuro" data-photo-slot="hero" loading="eager" decoding="async" referrerpolicy="no-referrer"></div>
-      </figure>
-        <div class="spec" style="margin-top:clamp(26px,3vw,40px)">
-          <div class="spec-hd">
-            <span>Scheda tecnica</span><i class="num">REV. 01</i>
+      <div class="hero-mid">
+        <p class="giant kin">Il viaggio</p>
+        <p class="giant kin">come dovrebbe essere</p>
+      </div>
+
+      <div class="hero-bot">
+        <div class="hero-info">
+          <p class="hero-lede">Autista privato, puntualità al minuto e discrezione assoluta. Prenotate in trenta secondi su WhatsApp: vi rispondiamo noi, non un centralino.</p>
+          <div class="hero-cta">
+            
+            <a class="link-u" href="tel:+390384858366">+39 0384 858366</a>
           </div>
-          
-        <div class="spec-row" data-rv style="transition-delay:40ms">
-          <span class="spec-k">Zona operativa</span>
-          <span class="spec-v num">Alessandria</span>
+          <div class="meta">
+            <div>Alessandria<span>Zona operativa</span></div>
+            <div class="mono">5,0<span>Valutazione Google</span></div>
+            <div class="mono">2<span>Recensioni Google</span></div>
+          </div>
         </div>
-        <div class="spec-row" data-rv style="transition-delay:70ms">
-          <span class="spec-k">Categoria</span>
-          <span class="spec-v num">Servizio di trasporto con accompagnatore</span>
-        </div>
-        <div class="spec-row" data-rv style="transition-delay:100ms">
-          <span class="spec-k">Valutazione Google</span>
-          <span class="spec-v num">5,0 <span class="u">/ 5</span></span>
-        </div>
-        <div class="spec-row" data-rv style="transition-delay:130ms">
-          <span class="spec-k">Recensioni</span>
-          <span class="spec-v num">2</span>
-        </div>
-        <div class="spec-row" data-rv style="transition-delay:160ms">
-          <span class="spec-k">Contatto</span>
-          <span class="spec-v num">+39 0384 858366</span>
-        </div>
-        <div class="spec-row" data-rv style="transition-delay:190ms">
-          <span class="spec-k">Indirizzo</span>
-          <span class="spec-v num">Via Gallerina, 19</span>
-        </div>
-        <div class="spec-row" data-rv style="transition-delay:220ms">
-          <span class="spec-k">Prenotazione</span>
-          <span class="spec-v num">Telefono</span>
-        </div>
-        </div>
+        <div class="scroll" aria-hidden="true"><b>Scorrere</b><i></i></div>
       </div>
     </div>
 
-
-    <!-- fascia rilevazioni -->
-    <div class="band" data-rv>
-      <div class="band-in">
-        <div class="band-l">
-          <p class="proof-t">Preventivo fisso</p>
-          <p class="proof-x">Nessun costo a sorpresa a fine corsa</p>
-        </div>
-        <div class="band-r">
-
-            <div class="stat" data-rv style="transition-delay:0ms">
-              <span class="stat-v num" data-count="5,0">5,0</span>
-              <span class="stat-k">su Google</span>
-            </div>
-            <div class="stat" data-rv style="transition-delay:60ms">
-              <span class="stat-v num" data-count="2">2</span>
-              <span class="stat-k">recensioni verificate</span>
-            </div>
-            <div class="stat" data-rv style="transition-delay:120ms">
-              <span class="stat-v num" data-count="1">1</span>
-              <span class="stat-k">referente diretto</span>
-            </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 01 SERVIZI ============ -->
-  <section class="wrap sec" id="servizi">
-    <div class="sec-hd" data-rv>
-      <span class="sec-n num">01</span><span class="sec-l">Servizi</span>
-      <span class="sec-d">Quattro voci, su preventivo</span>
-    </div>
-    <div class="g">
-
-          <article class="srv col-3" data-rv style="transition-delay:0ms">
-            <span class="rule rule-top" aria-hidden="true"></span>
-            <span class="srv-n num">01</span>
-            <h3 class="srv-t">Transfer aeroportuali</h3>
-            <p class="srv-x">Monitoraggio del volo in tempo reale. Se il vostro aereo ritarda, l’auto vi aspetta comunque.</p>
-          </article>
-          <article class="srv col-3" data-rv style="transition-delay:50ms">
-            <span class="rule rule-top" aria-hidden="true"></span>
-            <span class="srv-n num">02</span>
-            <h3 class="srv-t">Business travel</h3>
-            <p class="srv-x">Riunioni, fiere, appuntamenti. Un autista che conosce la città e non vi fa mai arrivare tardi.</p>
-          </article>
-          <article class="srv col-3" data-rv style="transition-delay:100ms">
-            <span class="rule rule-top" aria-hidden="true"></span>
-            <span class="srv-n num">03</span>
-            <h3 class="srv-t">Lunga percorrenza</h3>
-            <p class="srv-x">Trasferimenti fra città e verso l’estero, con preventivo fisso concordato prima della partenza.</p>
-          </article>
-          <article class="srv col-3" data-rv style="transition-delay:150ms">
-            <span class="rule rule-top" aria-hidden="true"></span>
-            <span class="srv-n num">04</span>
-            <h3 class="srv-t">Servizi su misura</h3>
-            <p class="srv-x">Serate, congressi, disposizione oraria. Ci dite l’esigenza, costruiamo il servizio.</p>
-          </article>
-      <p class="ins-note" data-rv>Dotazioni e allestimenti si confermano insieme al preventivo, prima della partenza.</p>
-
-      <figure class="fig ins" data-rv style="transition-delay:60ms">
-        <figcaption class="fig-hd"><span><b>Fig. 02</b> — Interni, dettaglio</span><i>2 : 1</i></figcaption>
-        <div class="ph r-ins"><img src="https://images.unsplash.com/photo-1584099662811-6744be099a74?auto=format&fit=crop&w=1200&q=78" srcset="https://images.unsplash.com/photo-1584099662811-6744be099a74?auto=format&fit=crop&w=600&q=78 600w, https://images.unsplash.com/photo-1584099662811-6744be099a74?auto=format&fit=crop&w=1200&q=78 1200w, https://images.unsplash.com/photo-1584099662811-6744be099a74?auto=format&fit=crop&w=2400&q=78 2400w" sizes="(max-width:820px) 100vw, 58vw" alt="Interni in pelle di una vettura di rappresentanza" data-photo-slot="interni" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============ 02 FLOTTA ============ -->
-  <section class="wrap sec" id="flotta">
-    <div class="sec-hd" data-rv>
-      <span class="sec-n num">02</span><span class="sec-l">Flotta</span>
-      <span class="sec-d">Disponibilità confermata in fase di preventivo</span>
-    </div>
-    <div class="g">
-      <div class="trio">
-
-      <figure class="fig" data-rv>
-        <figcaption class="fig-hd"><span><b>Fig. 03</b> — Berlina executive</span><i>4 : 3</i></figcaption>
-        <div class="ph r-trio"><img src="https://images.unsplash.com/photo-1654484521052-c6d2e96c120c?auto=format&fit=crop&w=900&q=78" srcset="https://images.unsplash.com/photo-1654484521052-c6d2e96c120c?auto=format&fit=crop&w=450&q=78 450w, https://images.unsplash.com/photo-1654484521052-c6d2e96c120c?auto=format&fit=crop&w=900&q=78 900w, https://images.unsplash.com/photo-1654484521052-c6d2e96c120c?auto=format&fit=crop&w=1800&q=78 1800w" sizes="(max-width:700px) 100vw, 31vw" alt="Berlina executive — Berlina executive di colore scuro" data-photo-slot="flotta-1" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
-      </figure>
-      <figure class="fig" data-rv style="transition-delay:60ms">
-        <figcaption class="fig-hd"><span><b>Fig. 04</b> — Van premium</span><i>4 : 3</i></figcaption>
-        <div class="ph r-trio"><img src="https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=900&q=78" srcset="https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=450&q=78 450w, https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=900&q=78 900w, https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=1800&q=78 1800w" sizes="(max-width:700px) 100vw, 31vw" alt="Van premium — Van premium per trasferimenti di gruppo" data-photo-slot="flotta-2" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
-      </figure>
-      <figure class="fig" data-rv style="transition-delay:120ms">
-        <figcaption class="fig-hd"><span><b>Fig. 05</b> — Ammiraglia</span><i>4 : 3</i></figcaption>
-        <div class="ph r-trio"><img src="https://images.unsplash.com/photo-1654441796759-face90b2ae78?auto=format&fit=crop&w=900&q=78" srcset="https://images.unsplash.com/photo-1654441796759-face90b2ae78?auto=format&fit=crop&w=450&q=78 450w, https://images.unsplash.com/photo-1654441796759-face90b2ae78?auto=format&fit=crop&w=900&q=78 900w, https://images.unsplash.com/photo-1654441796759-face90b2ae78?auto=format&fit=crop&w=1800&q=78 1800w" sizes="(max-width:700px) 100vw, 31vw" alt="Ammiraglia — Berlina executive di colore scuro" data-photo-slot="flotta-3" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
-      </figure>
-      </div>
-    </div>
-    <div class="tbl" style="margin-top:clamp(30px,3.4vw,50px)">
-      <table>
-        <thead>
-          <tr>
-            <th scope="col" class="tc-n">N.</th>
-            <th scope="col" class="tc-name">Vettura</th>
-            <th scope="col" class="tc-size">Capienza</th>
-            <th scope="col" class="tc-note">Note</th>
-          </tr>
-        </thead>
-        <tbody>
-
-              <tr data-rv style="transition-delay:0ms">
-                <td class="num tc-n">01</td>
-                <th scope="row" class="tc-name">Berlina executive</th>
-                <td class="tc-size num">1–3 passeggeri</td>
-                <td class="tc-note">Classe E, Serie 5 o equivalente. La scelta standard per il business.</td>
-              </tr>
-              <tr data-rv style="transition-delay:50ms">
-                <td class="num tc-n">02</td>
-                <th scope="row" class="tc-name">Van premium</th>
-                <td class="tc-size num">1–7 passeggeri</td>
-                <td class="tc-note">Classe V o equivalente. Spazio per bagagli veri, non da cabina.</td>
-              </tr>
-              <tr data-rv style="transition-delay:100ms">
-                <td class="num tc-n">03</td>
-                <th scope="row" class="tc-name">Ammiraglia</th>
-                <td class="tc-size num">1–3 passeggeri</td>
-                <td class="tc-note">Classe S o equivalente. Quando l’auto fa parte dell’accoglienza.</td>
-              </tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="tbl-note">Modelli e allestimenti indicati come riferimento di categoria.</p>
-
-    <!-- disegno tecnico: dopo le fotografie, cosi foto e schema si parlano -->
-    <figure class="bp" data-rv>
-      <figcaption class="bp-hd">
-        <span><b>Fig. 06</b> — Vettura, vista laterale</span>
-        <span>Tratto 1 px · quote indicative</span>
-      </figcaption>
-      <div class="bp-box">
-        <svg viewBox="0 0 1240 512" role="img" aria-label="Disegno tecnico schematico di una vettura in vista laterale, con linee di quota indicative">
-          <g fill="none" stroke="#111" stroke-width="1.1" stroke-linecap="square" stroke-linejoin="round">
-            <!-- crocini di allineamento -->
-            <g stroke="#6E6E69" stroke-width="1">
-              <path d="M30 34h18M39 25v18"/><path d="M1210 34h-18M1201 25v18"/>
-              <path d="M30 478h18M39 469v18"/><path d="M1210 478h-18M1201 469v18"/>
-            </g>
-            <!-- linea di terra -->
-            <path class="dr" pathLength="1" d="M60 380H1200" stroke="#D9D9D3"/>
-            <!-- carrozzeria -->
-            <path class="dr" pathLength="1" d="M132 320V286c0-24 8-34 36-40l68-8 64-6 86-6 150-100 254-6 110 106 110 6 62 12c20 6 24 18 24 40v34H970a70 70 0 0 0-140 0H370a70 70 0 0 0-140 0H132Z"/>
-            <!-- vetratura -->
-            <path class="dr" pathLength="1" stroke="#6E6E69" d="M404 218 542 138 782 132 880 212Z"/>
-            <!-- ruote -->
-            <circle class="dr" pathLength="1" cx="300" cy="318" r="62"/>
-            <circle class="dr" pathLength="1" cx="300" cy="318" r="26" stroke="#6E6E69"/>
-            <circle class="dr" pathLength="1" cx="900" cy="318" r="62"/>
-            <circle class="dr" pathLength="1" cx="900" cy="318" r="26" stroke="#6E6E69"/>
-            <!-- dettagli: montante, porte, maniglie, fari -->
-            <g class="dr" pathLength="1" stroke="#6E6E69">
-              <path d="M628 134V222M386 226H900"/>
-              <path d="M486 226V318M628 226V318M804 226V314"/>
-              <path d="M528 262h48M684 262h48"/>
-              <path d="M138 290h46M1038 286h44"/>
-            </g>
-            <!-- quota: passo -->
-            <g stroke="#111" stroke-width="1">
-              <path class="dr" pathLength="1" d="M300 388v42M900 388v42"/>
-              <path class="dr" pathLength="1" d="M300 424h600M300 424l14-6M300 424l14 6M900 424l-14-6M900 424l-14 6"/>
-            </g>
-            <!-- quota: lunghezza -->
-            <g stroke="#111" stroke-width="1">
-              <path class="dr" pathLength="1" d="M132 388v86M1086 388v86"/>
-              <path class="dr" pathLength="1" d="M132 468h954M132 468l14-6M132 468l14 6M1086 468l-14-6M1086 468l-14 6"/>
-            </g>
-            <!-- quota: altezza -->
-            <g stroke="#111" stroke-width="1">
-              <path class="dr" pathLength="1" d="M1098 120h60M1098 380h60"/>
-              <path class="dr" pathLength="1" d="M1150 120v260M1150 120l-6 14M1150 120l6 14M1150 380l-6-14M1150 380l6-14"/>
-            </g>
-          </g>
-          <g fill="#5C5C58" font-family="Inter,Helvetica,Arial,sans-serif" font-size="15" letter-spacing="1.6">
-            <text x="600" y="414" text-anchor="middle">PASSO — INDICATIVO</text>
-            <text x="609" y="458" text-anchor="middle">LUNGHEZZA — INDICATIVO</text>
-            <text x="1168" y="240" transform="rotate(-90 1168 240)" text-anchor="middle">ALTEZZA — INDICATIVO</text>
-            <text x="60" y="76" font-size="14">SCHEMA / NON IN SCALA</text>
-          </g>
-        </svg>
-      </div>
-      <p class="bp-scroll">Scorrere il disegno →</p>
-      <p class="bp-cap">Disegno schematico, tracciato a 1 px sulla stessa griglia delle fotografie. Le proporzioni sono indicative e non descrivono un veicolo specifico.</p>
+    <figure class="shot hero-shot">
+      <img src="https://images.unsplash.com/photo-1592309905620-e5b59f6dcb98?auto=format&fit=crop&w=1800&q=78" srcset="https://images.unsplash.com/photo-1592309905620-e5b59f6dcb98?auto=format&fit=crop&w=900&q=78 900w, https://images.unsplash.com/photo-1592309905620-e5b59f6dcb98?auto=format&fit=crop&w=1800&q=78 1800w, https://images.unsplash.com/photo-1592309905620-e5b59f6dcb98?auto=format&fit=crop&w=2400&q=78 2400w" sizes="(max-width:900px) 100vw, 34vw" alt="Berlina executive di colore scuro — AM Autonoleggio con Conducente" data-photo-slot="hero" class="ph" loading="eager" decoding="async" referrerpolicy="no-referrer">
+      <div class="sq-o" aria-hidden="true"></div>
     </figure>
   </section>
 
-  <!-- ============ 03 PROCEDURA ============ -->
-  <section class="wrap sec" id="procedura">
-    <div class="sec-hd" data-rv>
-      <span class="sec-n num">03</span><span class="sec-l">Procedura</span>
-      <span class="sec-d">Tre passaggi</span>
-    </div>
-    <div class="g">
-
-      <article class="step col-4" data-rv style="transition-delay:0ms">
-        <span class="rule rule-top" aria-hidden="true"></span>
-        <span class="step-n num">FASE 01</span>
-        <h3 class="step-t">Si chiama</h3>
-        <p class="step-x">Si comunicano data, orario, punto di partenza e destinazione.</p>
-      </article>
-      <article class="step col-4" data-rv style="transition-delay:60ms">
-        <span class="rule rule-top" aria-hidden="true"></span>
-        <span class="step-n num">FASE 02</span>
-        <h3 class="step-t">Si riceve il preventivo</h3>
-        <p class="step-x">Prezzo concordato prima della partenza. Nessun ricalcolo a fine corsa.</p>
-      </article>
-      <article class="step col-4" data-rv style="transition-delay:120ms">
-        <span class="rule rule-top" aria-hidden="true"></span>
-        <span class="step-n num">FASE 03</span>
-        <h3 class="step-t">Si viaggia</h3>
-        <p class="step-x">Vettura e autista confermati. All’orario stabilito, nel punto stabilito.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- ============ FASCIA PANORAMICA — unica a tutta larghezza ============ -->
-  <section class="fascia" aria-label="Percorrenza">
-    <div class="wrap fascia-hd" data-rv>
-      <span><b>Fig. 07</b> — Percorrenza, Nord Italia</span>
-      <i>21 : 9</i>
-    </div>
-    <div class="ph r-band"><img src="https://images.unsplash.com/photo-1606816493585-22a8486501cb?auto=format&fit=crop&w=2000&q=76" srcset="https://images.unsplash.com/photo-1606816493585-22a8486501cb?auto=format&fit=crop&w=1000&q=76 1000w, https://images.unsplash.com/photo-1606816493585-22a8486501cb?auto=format&fit=crop&w=2000&q=76 2000w, https://images.unsplash.com/photo-1606816493585-22a8486501cb?auto=format&fit=crop&w=2400&q=76 2400w" sizes="100vw" alt="Strada panoramica del Nord Italia" data-photo-slot="strada" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>
-  </section>
-
-  <!-- ============ 04 ZONA OPERATIVA ============ -->
-  <section class="wrap sec" id="zona">
-    <div class="sec-hd" data-rv>
-      <span class="sec-n num">04</span><span class="sec-l">Zona operativa</span>
-      <span class="sec-d">Base e raggio di servizio</span>
-    </div>
-    <div class="g">
-      <div class="col-6 pr" data-rv>
-        <h2 class="zone-t">Alessandria</h2>
-        <p class="zone-x">Partenze da Alessandria e dalle località vicine. Le destinazioni, anche fuori regione o all’estero, si concordano insieme al preventivo.</p>
-        <div class="spec" style="margin-top:26px">
-          <div class="spec-row"><span class="spec-k">Base</span><span class="spec-v num">Alessandria</span></div>
-          <div class="spec-row"><span class="spec-k">Indirizzo</span><span class="spec-v num">Via Gallerina, 19</span></div>
-          <div class="spec-row"><span class="spec-k">Riferimento</span><span class="spec-v num">+39 0384 858366</span></div>
-        </div>
+  <!-- PROVA -->
+  <section class="sec">
+    <div class="sec-h"><h2 class="lbl">01 — Prova</h2><div class="lbl">Preventivo fisso</div></div>
+    <div class="proof-grid">
+      <div>
+        <p class="proof-line kin">Nessun costo a sorpresa a fine corsa</p>
+        <div class="stats">
+          <div class="stat rev"><div class="stat-v">5,0</div><div class="stat-l">su Google</div></div>
+          <div class="stat rev"><div class="stat-v">2</div><div class="stat-l">recensioni verificate</div></div>
+          <div class="stat rev"><div class="stat-v">1</div><div class="stat-l">referente diretto</div></div></div>
       </div>
-      <div class="col-6 pl" data-rv style="transition-delay:80ms">
-        <div class="zone-fig">
-          <svg viewBox="0 0 520 340" role="img" aria-label="Schema di orientamento: reticolo tecnico con al centro la base operativa di Alessandria">
-            <g fill="none" stroke="#D9D9D3" stroke-width="1">
-              <path d="M0 60h520M0 120h520M0 180h520M0 240h520M0 300h520"/>
-              <path d="M60 0v340M120 0v340M180 0v340M240 0v340M300 0v340M360 0v340M420 0v340M480 0v340"/>
-            </g>
-            <g fill="none" stroke="#8E8E89" stroke-width="1" stroke-dasharray="3 5">
-              <circle cx="260" cy="170" r="52"/><circle cx="260" cy="170" r="104"/><circle cx="260" cy="170" r="156"/>
-            </g>
-            <g fill="none" stroke="#111" stroke-width="1.1">
-              <path d="M260 118v104M208 170h104"/>
-              <rect x="252" y="162" width="16" height="16"/>
-            </g>
-            <g fill="#5C5C58" font-family="Inter,Helvetica,Arial,sans-serif" font-size="12" letter-spacing="1.4">
-              <text x="284" y="152">ALESSANDRIA</text>
-              <text x="16" y="26">SCHEMA DI ORIENTAMENTO</text>
-              <text x="504" y="326" text-anchor="end">NON IN SCALA</text>
-            </g>
+      <figure class="shot inset">
+        <img src="https://images.unsplash.com/photo-1786561048051-191fb1075f6d?auto=format&fit=crop&w=900&q=74" srcset="https://images.unsplash.com/photo-1786561048051-191fb1075f6d?auto=format&fit=crop&w=450&q=74 450w, https://images.unsplash.com/photo-1786561048051-191fb1075f6d?auto=format&fit=crop&w=900&q=74 900w, https://images.unsplash.com/photo-1786561048051-191fb1075f6d?auto=format&fit=crop&w=1800&q=74 1800w" sizes="(max-width:860px) 100vw, 30vw" alt="Interni in pelle di una vettura di rappresentanza" data-photo-slot="interni" class="ph ph-rev" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+      </figure>
+    </div>
+  </section>
+
+  <!-- FASCIA FOTOGRAFICA A PIENA PAGINA -->
+  <figure class="shot band">
+    <img src="https://images.unsplash.com/photo-1588756111081-8ca618899256?auto=format&fit=crop&w=1800&q=76" srcset="https://images.unsplash.com/photo-1588756111081-8ca618899256?auto=format&fit=crop&w=900&q=76 900w, https://images.unsplash.com/photo-1588756111081-8ca618899256?auto=format&fit=crop&w=1800&q=76 1800w, https://images.unsplash.com/photo-1588756111081-8ca618899256?auto=format&fit=crop&w=2400&q=76 2400w" sizes="100vw" alt="Strada panoramica del Nord Italia" data-photo-slot="strada" class="ph ph-rev" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+    <figcaption class="shot-c lbl">Alessandria e dintorni</figcaption>
+    <div class="band-x lbl" aria-hidden="true">Noleggio con conducente</div>
+  </figure>
+
+  <!-- SERVIZI -->
+  <section class="sec" id="servizi">
+    <div class="sec-h"><h2 class="lbl">02 — Servizi</h2><div class="lbl">Alessandria</div></div>
+    
+      <article class="srv rev">
+        <div class="srv-n">01</div>
+        <h3 class="srv-t kin">Transfer aeroportuali</h3>
+        <p class="srv-d">Monitoraggio del volo in tempo reale. Se il vostro aereo ritarda, l'auto vi aspetta comunque.</p>
+      </article>
+      <article class="srv rev">
+        <div class="srv-n">02</div>
+        <h3 class="srv-t kin">Business travel</h3>
+        <p class="srv-d">Riunioni, fiere, appuntamenti. Un autista che conosce la città e non vi fa mai arrivare tardi.</p>
+      </article>
+      <article class="srv rev">
+        <div class="srv-n">03</div>
+        <h3 class="srv-t kin">Lunga percorrenza</h3>
+        <p class="srv-d">Trasferimenti fra città e verso l'estero, con preventivo fisso concordato prima della partenza.</p>
+      </article>
+      <article class="srv rev">
+        <div class="srv-n">04</div>
+        <h3 class="srv-t kin">Servizi su misura</h3>
+        <p class="srv-d">Serate, congressi, disposizione oraria. Ci dite l'esigenza, costruiamo il servizio.</p>
+      </article>
+  </section>
+
+  <!-- INVERSIONE -->
+  <div class="flip" id="flip" aria-hidden="true">
+    <div class="flip-b"></div>
+    <div class="flip-t">Flotta</div>
+  </div>
+
+  <!-- FLOTTA FISSATA -->
+  <section class="inv" id="flotta">
+    <div class="fleet">
+      <div class="fleet-l">
+        <div class="lbl lbl-d">03 — Flotta</div>
+        <h2><span class="kin">Le</span><span class="kin">vetture</span></h2>
+        <div class="count"><b id="cn">01</b><s>/ 03</s></div>
+        <div>
+          <svg class="silh" viewBox="0 0 900 300" role="img" aria-label="Profilo essenziale di una vettura">
+            <path class="draw" d="M58 214 C58 184 86 170 134 165 L238 152 C302 94 374 74 470 74 C574 74 648 102 708 155 L816 176 C856 184 870 196 870 214"/>
+            <path class="draw" d="M268 148 C322 102 386 86 468 86 L468 150"/>
+            <path class="thin" d="M492 88 C556 92 616 112 664 150"/>
+            <circle cx="214" cy="214" r="52"/>
+            <circle cx="712" cy="214" r="52"/>
+            <line class="thin" x1="266" y1="214" x2="660" y2="214"/>
+            <line class="thin" x1="20" y1="272" x2="880" y2="272"/>
           </svg>
         </div>
-        <p class="zone-cap">Fig. 08 — Schema, non una mappa. Nessuna distanza rappresentata.</p>
+      </div>
+      <div class="fleet-r">
+        <article class="car" data-i="0">
+          <figure class="shot car-shot">
+            <img src="https://images.unsplash.com/photo-1624343747608-85a728776125?auto=format&fit=crop&w=900&q=74" srcset="https://images.unsplash.com/photo-1624343747608-85a728776125?auto=format&fit=crop&w=450&q=74 450w, https://images.unsplash.com/photo-1624343747608-85a728776125?auto=format&fit=crop&w=900&q=74 900w, https://images.unsplash.com/photo-1624343747608-85a728776125?auto=format&fit=crop&w=1800&q=74 1800w" sizes="(max-width:860px) 100vw, 30vw" alt="Berlina executive — berlina executive di colore scuro" data-photo-slot="flotta-1" class="ph ph-rev" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+            <div class="car-num mono" aria-hidden="true">01</div>
+          </figure>
+          <div class="car-in">
+            <h3 class="car-t kin">Berlina executive</h3>
+            <div class="car-s">1–3 passeggeri</div>
+            <p class="car-d">Classe E, Serie 5 o equivalente. La scelta standard per il business.</p>
+          </div>
+        </article>
+        <article class="car" data-i="1">
+          <figure class="shot car-shot">
+            <img src="https://images.unsplash.com/photo-1768391069045-d8851f8ba18e?auto=format&fit=crop&w=900&q=74" srcset="https://images.unsplash.com/photo-1768391069045-d8851f8ba18e?auto=format&fit=crop&w=450&q=74 450w, https://images.unsplash.com/photo-1768391069045-d8851f8ba18e?auto=format&fit=crop&w=900&q=74 900w, https://images.unsplash.com/photo-1768391069045-d8851f8ba18e?auto=format&fit=crop&w=1800&q=74 1800w" sizes="(max-width:860px) 100vw, 30vw" alt="Van premium — van premium per trasferimenti di gruppo" data-photo-slot="flotta-2" class="ph ph-rev" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+            <div class="car-num mono" aria-hidden="true">02</div>
+          </figure>
+          <div class="car-in">
+            <h3 class="car-t kin">Van premium</h3>
+            <div class="car-s">1–7 passeggeri</div>
+            <p class="car-d">Classe V o equivalente. Spazio per bagagli veri, non da cabina.</p>
+          </div>
+        </article>
+        <article class="car" data-i="2">
+          <figure class="shot car-shot">
+            <img src="https://images.unsplash.com/photo-1661589997089-405a6076fc18?auto=format&fit=crop&w=900&q=74" srcset="https://images.unsplash.com/photo-1661589997089-405a6076fc18?auto=format&fit=crop&w=450&q=74 450w, https://images.unsplash.com/photo-1661589997089-405a6076fc18?auto=format&fit=crop&w=900&q=74 900w, https://images.unsplash.com/photo-1661589997089-405a6076fc18?auto=format&fit=crop&w=1800&q=74 1800w" sizes="(max-width:860px) 100vw, 30vw" alt="Ammiraglia — berlina executive di colore scuro" data-photo-slot="flotta-3" class="ph ph-rev" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+            <div class="car-num mono" aria-hidden="true">03</div>
+          </figure>
+          <div class="car-in">
+            <h3 class="car-t kin">Ammiraglia</h3>
+            <div class="car-s">1–3 passeggeri</div>
+            <p class="car-d">Classe S o equivalente. Quando l'auto fa parte dell'accoglienza.</p>
+          </div>
+        </article></div>
+    </div>
+  </section>
+
+  <!-- COME FUNZIONA — foto fissata, testo che le scorre accanto -->
+  <section class="pinsec inv">
+    <div class="pin">
+      <figure class="shot pin-shot">
+        <img src="https://images.unsplash.com/photo-1740485863233-032dff964d0d?auto=format&fit=crop&w=1200&q=76" srcset="https://images.unsplash.com/photo-1740485863233-032dff964d0d?auto=format&fit=crop&w=600&q=76 600w, https://images.unsplash.com/photo-1740485863233-032dff964d0d?auto=format&fit=crop&w=1200&q=76 1200w, https://images.unsplash.com/photo-1740485863233-032dff964d0d?auto=format&fit=crop&w=2400&q=76 2400w" sizes="(max-width:860px) 100vw, 44vw" alt="Autista in giacca accanto alla vettura" data-photo-slot="autista" class="ph" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+      </figure>
+      <div class="pin-txt">
+        <div class="sec-h"><h2 class="lbl">04 — Metodo</h2><div class="lbl">Tre passaggi</div></div>
+        <div class="step rev"><div class="step-n mono">01</div><h3>Si scrive</h3><p>Una telefonata con data, orario, partenza e destinazione.</p></div><div class="step rev"><div class="step-n mono">02</div><h3>Si riceve il preventivo</h3><p>Prezzo concordato prima della partenza. Non cambia a fine corsa.</p></div><div class="step rev"><div class="step-n mono">03</div><h3>Si viaggia</h3><p>L'auto arriva all'indirizzo indicato. Il resto non vi riguarda.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ============ 05 DOMANDE ============ -->
-  <section class="wrap sec" id="domande">
-    <div class="sec-hd" data-rv>
-      <span class="sec-n num">05</span><span class="sec-l">Domande frequenti</span>
-      <span class="sec-d">Quattro risposte</span>
-    </div>
-    <div class="g">
-      <div class="col-8">
-
-          <details class="faq" data-rv style="transition-delay:0ms">
-            <summary>
-              <span class="faq-n num">01</span>
-              <span class="faq-q">Come si prenota?</span>
-              <span class="faq-s" aria-hidden="true"></span>
-            </summary>
-            <div class="faq-a"><p>Il modo più veloce è WhatsApp: scriveteci data, orario, luogo di partenza e destinazione. Vi rispondiamo con il preventivo. Se preferite, potete anche chiamare.</p></div>
-          </details>
-          <details class="faq" data-rv style="transition-delay:40ms">
-            <summary>
-              <span class="faq-n num">02</span>
-              <span class="faq-q">Il prezzo è fisso?</span>
-              <span class="faq-s" aria-hidden="true"></span>
-            </summary>
-            <div class="faq-a"><p>Sì. Il preventivo viene concordato prima del servizio e non cambia a fine corsa, salvo modifiche richieste da voi durante il viaggio.</p></div>
-          </details>
-          <details class="faq" data-rv style="transition-delay:80ms">
-            <summary>
-              <span class="faq-n num">03</span>
-              <span class="faq-q">Con quanto anticipo devo prenotare?</span>
-              <span class="faq-s" aria-hidden="true"></span>
-            </summary>
-            <div class="faq-a"><p>Prima si prenota, più è facile garantire la vettura richiesta. Per le richieste last minute conviene scrivere direttamente su WhatsApp: se c’è disponibilità lo sapete subito.</p></div>
-          </details>
-          <details class="faq" data-rv style="transition-delay:120ms">
-            <summary>
-              <span class="faq-n num">04</span>
-              <span class="faq-q">Si può pagare con carta?</span>
-              <span class="faq-s" aria-hidden="true"></span>
-            </summary>
-            <div class="faq-a"><p>Sì. I metodi di pagamento accettati vengono confermati al momento della prenotazione.</p></div>
-          </details>
+  <!-- ZONA -->
+  <section class="sec inv">
+    <div class="sec-h"><h2 class="lbl">05 — Zona</h2><div class="lbl">Base operativa</div></div>
+    <div class="zona">
+      <div class="zona-city mask rev" style="--ph:url('https://images.unsplash.com/photo-1610369644714-20595c5abc24?auto=format&amp;fit=crop&amp;w=1600&amp;q=74')" role="img"
+           aria-label="Alessandria, ritagliata dentro la fotografia: Strada cittadina di notte">Alessandria</div>
+      <div class="rule" aria-hidden="true"></div>
+      <div class="zona-row">
+        <div>Indirizzo<span>Via Gallerina, 19</span></div>
+        <div>Telefono<span><a href="tel:+390384858366">+39 0384 858366</a></span></div>
+        <div>Categoria<span>Servizio di trasporto con accompagnatore</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ============ 06 CONTATTO ============ -->
-  <section class="wrap sec" id="contatto">
-    <div class="sec-hd" data-rv>
-      <span class="sec-n num">06</span><span class="sec-l">Contatto</span>
-      <span class="sec-d">Risposta diretta</span>
-    </div>
-    <div class="g">
-      <div class="col-6 pr" data-rv>
-        <h2 class="ct-h">Si chiama, si parte.</h2>
-        <div class="cta">
-          
-          <a class="btn btn-out btn-lg" href="tel:+390384858366">Chiamare</a>
+  <!-- FAQ -->
+  <section class="sec inv">
+    <div class="sec-h"><h2 class="lbl">06 — Domande</h2><div class="lbl">Risposte brevi</div></div>
+    <div class="faq">
+        <div class="faq-i">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="fa0">
+            <span>Come si prenota?</span><i class="faq-p" aria-hidden="true"></i>
+          </button>
+          <div class="faq-a" id="fa0"><div><p>Il modo più veloce è WhatsApp: scriveteci data, orario, luogo di partenza e destinazione. Vi rispondiamo con il preventivo. Se preferite, potete anche chiamare.</p></div></div>
         </div>
-      </div>
-      <div class="col-6 pl" data-rv style="transition-delay:80ms">
-        <div class="ct">
-          
-          <div class="ct-row"><span class="ct-k">Telefono</span><span class="ct-v num"><a href="tel:+390384858366">+39 0384 858366</a></span></div>
-          <div class="ct-row"><span class="ct-k">Indirizzo</span><span class="ct-v">Via Gallerina, 19, Alessandria</span></div>
-          <div class="ct-row"><span class="ct-k">Google</span><span class="ct-v num">5,0 / 5 · 2 recensioni</span></div>
+        <div class="faq-i">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="fa1">
+            <span>Il prezzo è fisso?</span><i class="faq-p" aria-hidden="true"></i>
+          </button>
+          <div class="faq-a" id="fa1"><div><p>Sì. Il preventivo viene concordato prima del servizio e non cambia a fine corsa, salvo modifiche richieste da voi durante il viaggio.</p></div></div>
         </div>
-      </div>
-    </div>
+        <div class="faq-i">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="fa2">
+            <span>Con quanto anticipo devo prenotare?</span><i class="faq-p" aria-hidden="true"></i>
+          </button>
+          <div class="faq-a" id="fa2"><div><p>Prima si prenota, più è facile garantire la vettura richiesta. Per le richieste last minute conviene scrivere direttamente su WhatsApp: se c'è disponibilità lo sapete subito.</p></div></div>
+        </div>
+        <div class="faq-i">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="fa3">
+            <span>Si può pagare con carta?</span><i class="faq-p" aria-hidden="true"></i>
+          </button>
+          <div class="faq-a" id="fa3"><div><p>Sì. I metodi di pagamento accettati vengono confermati al momento della prenotazione.</p></div></div>
+        </div></div>
   </section>
 
+  <!-- CONTATTI -->
+  <section class="sec inv" id="contatti">
+    <div class="sec-h"><div class="lbl">07 — Contatti</div><div class="lbl">Alessandria</div></div>
+    <h2 class="big kin" style="margin-bottom:clamp(30px,5vw,60px)">Si parte da una telefonata</h2>
+    
+    <a class="cta-big" href="tel:+390384858366">+39 0384 858366<em>Chiamata</em></a>
+    <div class="contact-grid">
+      <div>Indirizzo<span>Via Gallerina, 19</span></div>
+      <div>Zona<span>Alessandria</span></div>
+      <div>Riferimento<span>AM Autonoleggio con Conducente</span></div>
+    </div>
+    <a class="cta-acc" href="tel:+390384858366">Chiamare ora</a>
+  </section>
 </main>
 
-<footer class="wrap ftr">
-  <div class="ftr-in">
-    <span><b>AM Autonoleggio con Conducente</b> — Alessandria</span>
-    <span>Valutazione e recensioni: fonte Google</span>
-    <span>Anteprima realizzata da <b>Umbra</b></span>
-  </div>
+<footer class="foot">
+  <div>AM Autonoleggio con Conducente</div>
+  <span>Anteprima realizzata da Umbra</span>
 </footer>
 
 <nav class="bar" aria-label="Contatti rapidi">
-  <div class="bar-in one">
-    
-    <a class="tl" href="tel:+390384858366" aria-label="Chiamare AM Autonoleggio con Conducente al +39 0384 858366">Telefono</a>
-  </div>
+  
+  <a href="tel:+390384858366">Chiamare</a>
 </nav>
 
 <script>
 (function(){
-  var d = document;
+  var docEl = document.documentElement;
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) docEl.classList.add('nomo');
 
-  /* --- orologio: ora corrente, fuso italiano --- */
-  var clock = d.getElementById('mClock');
-  function pad(v){ return v < 10 ? '0' + v : '' + v; }
-  function tick(){
-    if (!clock || d.hidden) return;
-    var s;
-    try {
-      s = new Intl.DateTimeFormat('it-IT', {
-        hour: '2-digit', minute: '2-digit', second: '2-digit',
-        hour12: false, timeZone: 'Europe/Rome'
-      }).format(new Date());
-    } catch (e) {
-      var n = new Date();
-      s = pad(n.getHours()) + ':' + pad(n.getMinutes()) + ':' + pad(n.getSeconds());
-    }
-    clock.textContent = s.replace(/\u2236/g, ':');
+  /* --- nome adattato alla larghezza, su una riga sola --- */
+  var nm = document.getElementById('nm');
+  var MIN = 15;   /* sotto questo corpo si va a capo invece di rimpicciolire */
+  function measure(){
+    return Math.max(nm.scrollWidth, Math.ceil(nm.getBoundingClientRect().width));
   }
-  tick();
-  setInterval(tick, 1000);
-  d.addEventListener('visibilitychange', tick);
+  function fit(){
+    if (!nm) return;
+    var box = nm.parentElement;
+    /* si misura con un corpo minuscolo: il contenitore non puo' essere gonfiato dal testo */
+    box.style.whiteSpace = 'nowrap';
+    box.style.overflowWrap = '';
+    nm.style.fontSize = '10px';
+    var avail = Math.min(box.clientWidth, docEl.clientWidth);
+    if (!avail) { nm.style.fontSize = ''; return; }
+    nm.style.fontSize = '100px';
+    var w = measure();
+    if (!w) { nm.style.fontSize = ''; return; }
+    var size = Math.min(190, 100 * avail / w);
+    if (size < MIN){                       /* nome lunghissimo: due righe, corpo leggibile */
+      box.style.whiteSpace = 'normal';
+      box.style.overflowWrap = 'break-word';
+      nm.style.fontSize = '';
+      return;
+    }
+    nm.style.fontSize = size.toFixed(2) + 'px';
+    /* rete di sicurezza: la riga non deve mai superare il contenitore */
+    for (var i = 0; i < 8; i++){
+      var cur = measure();
+      if (cur <= avail || size <= MIN) break;
+      size = Math.max(MIN, size * Math.max(0.88, avail / cur));
+      nm.style.fontSize = size.toFixed(2) + 'px';
+    }
+    if (measure() > avail){
+      box.style.whiteSpace = 'normal';
+      box.style.overflowWrap = 'break-word';
+      nm.style.fontSize = size.toFixed(2) + 'px';
+    }
+  }
+  fit();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit).catch(function(){});
+  var rt;
+  addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(fit, 120); });
 
-  /* --- comparse: traslazione secca --- */
-  var nodes = [].slice.call(d.querySelectorAll('[data-rv]'));
-  if (reduced || !('IntersectionObserver' in window)) {
-    nodes.forEach(function(n){ n.classList.add('is-in'); });
-  } else {
+  /* --- spezzatura dei titoli in parole mascherate --- */
+  function split(el){
+    if (el.dataset.split) return;
+    el.dataset.split = '1';
+    var words = (el.textContent || '').split(/\s+/).filter(Boolean);
+    var extra = el.querySelector('.sq');
+    el.textContent = '';
+    words.forEach(function(word, i){
+      var mask = document.createElement('span');
+      mask.className = 'kw';
+      var inner = document.createElement('span');
+      inner.className = 'kwi';
+      inner.textContent = word;
+      inner.style.transitionDelay = (i * 0.075).toFixed(3) + 's';
+      mask.appendChild(inner);
+      el.appendChild(mask);
+      if (i < words.length - 1) el.appendChild(document.createTextNode(' '));
+      else if (extra) inner.appendChild(extra);
+    });
+    if (extra && !extra.parentElement) el.appendChild(extra);
+  }
+  var kins = [].slice.call(document.querySelectorAll('.kin'));
+  if (!reduced) kins.forEach(split);
+
+  /* --- rivelazioni --- */
+  var revs = [].slice.call(document.querySelectorAll('.kin,.rev,.rule,.silh,.ph-rev'));
+  function start(){
+    if (reduced || !('IntersectionObserver' in window)){
+      revs.forEach(function(e){ e.classList.add('on'); });
+      var f = document.getElementById('flip'); if (f) f.classList.add('on');
+      return;
+    }
     var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+      entries.forEach(function(en){
+        if (en.isIntersecting){ en.target.classList.add('on'); io.unobserve(en.target); }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
-    nodes.forEach(function(n){ io.observe(n); });
-  }
+    }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+    revs.forEach(function(e){ io.observe(e); });
 
-  /* --- blueprint: tratto che si disegna --- */
-  var bp = d.querySelector('.bp');
-  if (bp) {
-    if (reduced || !('IntersectionObserver' in window)) {
-      bp.classList.add('is-in');
-    } else {
-      var bo = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if (e.isIntersecting) { e.target.classList.add('is-in'); bo.unobserve(e.target); }
+    var flip = document.getElementById('flip');
+    if (flip){
+      var io2 = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if (en.isIntersecting){ flip.classList.add('on'); io2.disconnect(); }
         });
-      }, { threshold: 0.2 });
-      bo.observe(bp);
+      }, { threshold: 0.35 });
+      io2.observe(flip);
+    }
+
+    var cn = document.getElementById('cn');
+    var cars = [].slice.call(document.querySelectorAll('.car'));
+    if (cn && cars.length){
+      var io3 = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if (en.isIntersecting){
+            var n = parseInt(en.target.getAttribute('data-i'), 10) + 1;
+            cn.textContent = (n < 10 ? '0' : '') + n;
+          }
+        });
+      }, { rootMargin: '-50% 0px -50% 0px' });
+      cars.forEach(function(e){ io3.observe(e); });
     }
   }
 
-  /* --- contatori che scattano --- */
-  function fmt(v, dec){ var s = v.toFixed(dec); return dec ? s.replace('.', ',') : s; }
-  function run(node){
-    var raw = node.getAttribute('data-count');
-    var m = /^(\d+)(?:,(\d+))?$/.exec(raw);
-    if (!m) { node.textContent = raw; return; }
-    var dec = m[2] ? m[2].length : 0;
-    var target = parseFloat(raw.replace(',', '.'));
-    var t0 = 0, dur = 820;
-    function frame(ts){
-      if (!t0) t0 = ts;
-      var k = (ts - t0) / dur;
-      if (k >= 1) { node.textContent = raw; return; }
-      node.textContent = fmt(target * k, dec);
-      requestAnimationFrame(frame);
-    }
-    node.textContent = fmt(0, dec);
-    requestAnimationFrame(frame);
+  /* l'intro Umbra tiene lo scroll bloccato: si parte quando sparisce */
+  (function whenReady(){
+    var portal = document.getElementById('uPortal');
+    if (!portal){ start(); return; }
+    var t0 = Date.now();
+    var iv = setInterval(function(){
+      var gone = portal.style.display === 'none' || portal.classList.contains('u-out');
+      if (gone || Date.now() - t0 > 9000){ clearInterval(iv); start(); }
+    }, 120);
+  })();
+
+  /* --- barra di lettura --- */
+  var pg = document.getElementById('pg'), tick = false;
+  function prog(){
+    var h = document.documentElement.scrollHeight - innerHeight;
+    var p = h > 0 ? Math.min(1, Math.max(0, (window.pageYOffset || 0) / h)) : 0;
+    pg.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+    tick = false;
   }
-  var counters = [].slice.call(d.querySelectorAll('[data-count]'));
-  if (reduced || !('IntersectionObserver' in window)) {
-    counters.forEach(function(n){ n.textContent = n.getAttribute('data-count'); });
-  } else {
-    var co = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (e.isIntersecting) { run(e.target); co.unobserve(e.target); }
-      });
-    }, { threshold: 0.6 });
-    counters.forEach(function(n){ co.observe(n); });
+  addEventListener('scroll', function(){
+    if (!tick){ tick = true; requestAnimationFrame(prog); }
+  }, { passive: true });
+  prog();
+
+  /* --- cursore a punto pieno (solo mouse) --- */
+  var fine = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+  if (fine && !reduced){
+    var dot = document.getElementById('dot');
+    var x = innerWidth / 2, y = innerHeight / 2, cx = x, cy = y, running = false, shown = false;
+    dot.style.transform = 'translate(' + (cx - 6) + 'px,' + (cy - 6) + 'px)';
+    function loop(){
+      cx += (x - cx) * 0.22; cy += (y - cy) * 0.22;
+      dot.style.transform = 'translate(' + (cx - 6) + 'px,' + (cy - 6) + 'px)';
+      if (Math.abs(x - cx) > 0.4 || Math.abs(y - cy) > 0.4){ requestAnimationFrame(loop); }
+      else { running = false; }
+    }
+    addEventListener('mousemove', function(e){
+      x = e.clientX; y = e.clientY;
+      if (!shown){ shown = true; cx = x; cy = y; docEl.classList.add('curs'); }
+      if (!running){ running = true; requestAnimationFrame(loop); }
+      var t = e.target;
+      var over = t && t.closest && t.closest('a,button');
+      docEl.classList.toggle('hov', !!over);
+    }, { passive: true });
   }
 
-  /* --- rete di sicurezza fotografica: se una foto non arriva resta la piastra tecnica --- */
-  [].slice.call(d.querySelectorAll('img[data-photo-slot]')).forEach(function(im){
-    im.addEventListener('error', function(){ im.style.display = 'none'; });
-    if (im.complete && im.naturalWidth === 0) im.style.display = 'none';
+  /* --- FAQ --- */
+  [].slice.call(document.querySelectorAll('.faq-q')).forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.parentElement;
+      var open = item.classList.toggle('on');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
   });
 
-  /* --- accordion: una sola voce aperta --- */
-  var faqs = [].slice.call(d.querySelectorAll('details.faq'));
-  faqs.forEach(function(f){
-    f.addEventListener('toggle', function(){
-      if (!f.open) return;
-      faqs.forEach(function(o){ if (o !== f) o.open = false; });
-    });
+  /* --- foto: se una non carica resta il fondo scuro del tema, mai un buco --- */
+  [].slice.call(document.querySelectorAll('img[data-photo-slot]')).forEach(function(im){
+    function drop(){ im.style.display = 'none'; }
+    im.addEventListener('error', drop);
+    /* l'errore puo' essere gia' scattato prima di questo script */
+    if (im.complete && !im.naturalWidth) drop();
   });
 })();
 </script>
-
-
-<div class="umbra-flag" role="note">
-  <svg width="15" height="15" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="14" stroke="#C3C6D3" stroke-width="2"/><path d="M16 3.5a12.5 12.5 0 0 1 0 25 15.5 15.5 0 0 0 0-25z" fill="#EEF0F6"/></svg>
-  <span><b>Anteprima Umbra</b> realizzata per AM Autonoleggio con Conducente &middot; non &egrave; il sito ufficiale dell'azienda</span>
-</div>
-<style>
-.umbra-flag{position:fixed;left:14px;bottom:14px;z-index:8500;display:flex;align-items:center;gap:9px;
-  max-width:min(430px,calc(100vw - 28px));padding:9px 14px;border-radius:999px;
-  background:rgba(8,8,11,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  border:1px solid rgba(238,240,246,.22);box-shadow:0 6px 26px rgba(0,0,0,.4);
-  font:400 11.5px/1.35 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  color:#C8C8D2;letter-spacing:.01em;pointer-events:none}
-.umbra-flag b{color:#F4F2EC;font-weight:600}
-.umbra-flag svg{flex:none}
-@media (max-width:760px){
-  .umbra-flag{left:8px;right:8px;max-width:none;bottom:calc(78px + env(safe-area-inset-bottom,0px));
-    font-size:10.5px;padding:7px 11px;justify-content:center;text-align:center}
-}
-@media print{.umbra-flag{display:none}}
-</style>
 <!-- ===== UMBRA INTRO 3D — configurare solo "name" ===== -->
 <script>window.UMBRA_INTRO = { name: "AM Autonoleggio con Conducente" };</script>
 <div id="uPortal">
@@ -950,7 +777,6 @@ tbody tr:last-child{border-bottom:0}
   <div class="u-ui" id="uUi">
     <svg width="34" height="34" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="url(#ug)" stroke-width="1.6"/><path d="M16 3.5a12.5 12.5 0 0 1 0 25 15.5 15.5 0 0 0 0-25z" fill="url(#ug)"/><defs><linearGradient id="ug" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#EEF0F6"/><stop offset="1" stop-color="#C3C6D3"/></linearGradient></defs></svg>
     <div class="u-brand">Umbra</div>
-    <div class="u-by">by Matteo Tagliacollo</div>
     <div class="u-status">Stiamo aprendo l'anteprima riservata a <b class="u-name"></b></div>
     <div class="u-track"><div class="u-fill" id="uFill"></div></div>
     <div class="u-pct" id="uPct">0%</div>
@@ -960,7 +786,6 @@ tbody tr:last-child{border-bottom:0}
     <div class="u-eyebrow">Umbra presenta</div>
     <h1 class="u-h1">Benvenuto,<br><span class="u-shine u-name"></span></h1>
     <p class="u-sub">Il vostro nuovo sito è pronto. Guardatelo.</p>
-    <div class="u-sign">Umbra · by Matteo Tagliacollo</div>
   </div>
 </div>
 <style>
@@ -970,8 +795,6 @@ tbody tr:last-child{border-bottom:0}
 #uPortal canvas{position:absolute;inset:0;width:100%;height:100%}
 #uPortal .u-ui{position:absolute;left:0;right:0;bottom:9vh;display:flex;flex-direction:column;align-items:center;gap:13px;pointer-events:none}
 #uPortal .u-brand{font-family:Georgia,serif;font-size:1.25rem;letter-spacing:.02em}
-#uPortal .u-by{margin-top:-9px;font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;color:#77747f;
-  font-family:'Inter',system-ui,sans-serif}
 #uPortal .u-status{color:#A5A2B0;font-size:.92rem;text-align:center;padding:0 20px}
 #uPortal .u-status b{color:#F4F2EC;font-weight:600}
 #uPortal .u-track{width:min(320px,70vw);height:2px;background:rgba(238,240,246,.12);border-radius:2px;overflow:hidden}
@@ -988,8 +811,6 @@ tbody tr:last-child{border-bottom:0}
   background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:uShine 3.5s ease-in-out infinite}
 @keyframes uShine{0%,100%{background-position:12% 0}50%{background-position:88% 0}}
 #uPortal .u-sub{color:#A5A2B0;font-size:1.05rem;margin-top:16px}
-#uPortal .u-sign{position:absolute;bottom:6vh;left:0;right:0;text-align:center;font-size:.6rem;
-  letter-spacing:.34em;text-transform:uppercase;color:#5f5d68}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>

@@ -1,1126 +1,999 @@
 <!doctype html>
 <html lang="it">
 <head>
-<meta name="robots" content="noindex,nofollow,noarchive">
-<meta name="referrer" content="no-referrer">
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Autonoleggio Bernardin Servizi — Noleggio con conducente a Belluno</title>
 <meta name="description" content="Noleggio con conducente a Belluno. Preventivo su WhatsApp, prezzo concordato prima della partenza. 0439 64393.">
-<meta name="theme-color" content="#0A0A0A">
-<meta name="robots" content="noindex">
+<meta name="theme-color" content="#F6F2EA">
 <meta property="og:title" content="Autonoleggio Bernardin Servizi — Noleggio con conducente a Belluno">
 <meta property="og:description" content="Noleggio con conducente a Belluno. Preventivo su WhatsApp, prezzo concordato prima della partenza. 0439 64393.">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
-/* ===================== CHROME — brutalismo di lusso =====================
-   Accento di questa azienda: lime elettrico #D6FF3F — assegnato
-   dall'hash del lead, contrasto verificato AA contro l'inchiostro. */
 :root{
-  --ink:#0A0A0A;
-  --paper:#EFEFEA;
-  --acc:#D6FF3F;
-  --acc-deep:#252a11;
-  --acc-veil:#131706;
-  --acc-18:rgba(214,255,63,0.18);
-  --acc-07:rgba(214,255,63,0.07);
-  --line:3px;
-  --gut:34px;
-  --bleed:2400px;
-  --disp:"Archivo Black","Arial Black","Helvetica Neue",Impact,sans-serif;
-  --sans:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --paper:#F6F2EA;
+  --paper-2:#F1EBE0;
+  --ink:#141210;
+  --sepia:#6E655A;
+  --sepia-2:#8C8375;
+  --rule:#D8D0C2;
+  --rule-soft:#E4DCCF;
+  --accent:#1C3A2E;
+  --accent-ink:#2A5643;
+  --serif:"Cormorant Garamond","Cormorant",Garamond,"Times New Roman",Georgia,serif;
+  --sans:"Helvetica Neue",Helvetica,Arial,"Segoe UI",system-ui,sans-serif;
+  --pad:clamp(22px,6vw,88px);
+  --max:1280px;
 }
-@media (min-width:900px){:root{--gut:56px}}
-
 *,*::before,*::after{box-sizing:border-box}
 body{
-  margin:0;
-  background:var(--paper);
-  color:var(--ink);
-  font-family:var(--sans);
-  font-size:16px;
-  line-height:1.5;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-  overflow-x:clip;
-  padding-top:56px;
-  padding-bottom:calc(74px + env(safe-area-inset-bottom,0px));
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--serif);font-weight:400;font-size:clamp(17px,1.05vw + 14px,20px);
+  line-height:1.62;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden;padding-bottom:calc(68px + env(safe-area-inset-bottom));
 }
-@media (min-width:861px){body{padding-bottom:0}}
-img,svg{max-width:100%}
-p{margin:0}
-h1,h2,h3{margin:0;font-weight:400}
+img,svg{max-width:100%;display:block}
 a{color:inherit}
+::selection{background:var(--accent);color:var(--paper)}
+:focus-visible{outline:1.5px solid var(--accent);outline-offset:4px}
+h1,h2,h3,p,ul,ol,figure,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
 
-::selection{background:var(--acc);color:var(--ink)}
+/* grana di carta, generata inline */
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:160px 160px}
 
-a:focus-visible,button:focus-visible,summary:focus-visible{
-  outline:var(--line) solid var(--ink);
-  outline-offset:2px;
-  box-shadow:0 0 0 7px var(--acc);
-}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.lbl{font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--sepia);line-height:1.9;display:inline-block}
+.lbl-ink{color:var(--ink)}
+.lbl-acc{color:var(--accent)}
+.rule{height:1px;background:var(--rule);border:0;margin:0}
+.serif-xl{font-weight:300;line-height:.94;letter-spacing:-.014em}
 
-/* --------------------------------------------------------------- header */
-.hd{
-  position:fixed;top:0;left:0;right:0;z-index:60;
-  height:56px;display:flex;align-items:stretch;
-  background:var(--ink);color:var(--paper);
-}
-.hd-mark{
-  flex:0 0 auto;width:56px;display:grid;place-items:center;
-  background:var(--acc);color:var(--ink);
-  font-family:var(--disp);font-size:20px;letter-spacing:-.02em;
-  border-right:var(--line) solid var(--ink);
-}
-.hd-name{
-  flex:1 1 auto;min-width:0;display:flex;flex-direction:column;justify-content:center;
-  padding:0 12px;
-}
-.hd-name b{
-  font-family:var(--disp);font-size:13px;line-height:1;text-transform:uppercase;
-  letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
-.hd-name span{
-  font-size:9px;line-height:1.3;letter-spacing:.26em;text-transform:uppercase;
-  opacity:.72;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
-.hd-cta{
-  display:none;align-items:center;gap:8px;padding:0 22px;
-  background:var(--acc);color:var(--ink);text-decoration:none;
-  font-family:var(--disp);font-size:13px;text-transform:uppercase;letter-spacing:.02em;
-  border-left:var(--line) solid var(--ink);
-}
-.hd-cta svg{width:17px;height:17px;flex:0 0 auto}
-.hd-cta:hover,.hd-cta:active{background:var(--paper);color:var(--ink)}
-@media (min-width:700px){.hd-cta{display:flex}}
+/* ————— fotografia: tavole di rivista —————
+   stampa calda su carta avorio: viraggio seppia leggero, neri mai profondi,
+   un solo filetto attorno all'immagine, nessuna ombra, nessun raggio.
+   Sotto la foto resta sempre l'incisione su fondo avorio: se la rete cade,
+   la pagina non mostra un buco bianco ma una tavola disegnata. */
+.ph{position:relative;overflow:hidden;border:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:center;
+  background-color:var(--paper-2);
+  background-image:linear-gradient(152deg,#F3ECDF 0%,#EAE1CF 54%,#E1D6C1 100%)}
+.ph>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;
+  filter:sepia(.12) saturate(.9) contrast(1.04);transition:filter .8s ease}
+.ph .engr{position:relative;z-index:1;width:82%;height:auto;color:var(--accent)}
+/* velo d'avorio: alza il nero massimo e tiene la foto sulla stessa carta */
+.ph::before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
+  background:linear-gradient(180deg,rgba(246,242,234,.20),rgba(246,242,234,.11) 44%,rgba(246,242,234,.26))}
+.ph-45{aspect-ratio:4/5}
+.ph-23{aspect-ratio:2/3}
+.bleed-r{margin-right:calc(var(--pad) * -1)}
+.bleed-l{margin-left:calc(var(--pad) * -1)}
+/* didascalia: filetto sottile sopra, maiuscoletto spaziato — firma del tema */
+.ph-cap{display:block;margin-top:14px;padding-top:11px;border-top:1px solid var(--rule);
+  font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.26em;
+  text-transform:uppercase;line-height:1.8;color:var(--sepia)}
+.ph-cap b{font-weight:500;color:var(--accent)}
 
-/* ---------------------------------------------------------- impaginato */
-.sec{position:relative;padding-left:var(--gut);border-bottom:var(--line) solid var(--ink);overflow:hidden}
-.vtag{
-  position:absolute;left:0;top:0;bottom:0;width:var(--gut);
-  display:flex;align-items:flex-start;justify-content:center;
-  border-right:var(--line) solid var(--ink);
-  background:var(--paper);z-index:2;
-}
-.vtag i{
-  writing-mode:vertical-rl;transform:rotate(180deg);
-  font-style:normal;font-family:var(--disp);font-size:10px;line-height:1;
-  letter-spacing:.34em;text-transform:uppercase;white-space:nowrap;padding:16px 0;
-}
-.vtag.vtag-dark{background:var(--ink);color:var(--paper);border-right-color:var(--paper)}
-/* la fascia verticale non si tinge tutta: prende un solo quadrato d'accento
-   in testa, grande quanto la colonna. Il ritmo resta, la superficie no. */
-.vtag.vtag-acc::before{
-  content:"";position:absolute;left:0;right:0;top:0;height:var(--gut);
-  background:var(--acc);border-bottom:var(--line) solid var(--ink);
-}
-.vtag.vtag-acc i{padding-top:calc(var(--gut) + 16px)}
-.pad{padding:26px 14px 30px}
-@media (min-width:900px){.pad{padding:44px 30px 52px}}
+/* ————— intestazione ————— */
+.hdr{position:fixed;top:0;left:0;right:0;z-index:7000;background:rgba(246,242,234,.86);
+  backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);transition:box-shadow .5s ease}
+.hdr::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--rule);
+  transform:scaleX(0);transform-origin:left;transition:transform .9s cubic-bezier(.19,1,.22,1)}
+.hdr.on::after{transform:scaleX(1)}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:58px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.mono{width:30px;height:30px;flex:0 0 30px;border:1px solid var(--rule);border-radius:50%;
+  display:grid;place-items:center;font-family:var(--serif);font-size:13px;letter-spacing:.04em;color:var(--accent)}
+.brand-n{font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:44vw}
+.hdr-nav{display:none;gap:26px}
+.hdr-nav a{font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;
+  text-decoration:none;color:var(--sepia);transition:color .4s ease}
+.hdr-nav a:hover{color:var(--accent)}
+.hdr-cta{display:none;font-family:var(--sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  text-decoration:none;color:var(--paper);background:var(--accent);padding:11px 20px;transition:background .45s ease}
+.hdr-cta:hover{background:var(--accent-ink)}
+.prog{position:absolute;left:0;bottom:0;height:1px;background:var(--accent);width:0;z-index:2}
 
-.eyebrow{
-  font-family:var(--disp);font-size:10px;line-height:1;letter-spacing:.32em;
-  text-transform:uppercase;display:block;margin-bottom:14px;
-}
-.eyebrow em{font-style:normal;background:var(--acc);color:var(--ink);padding:2px 6px;margin:0 2px}
-/* --------------------------------------------- tipografia su misura */
-/* Ogni riga è dimensionata per riempire la colonna fino al bordo dello
-   schermo senza mai eccederlo: il taglio non cade mai dentro una parola. */
-.fit{display:block;margin:0 -14px 0 0;--fs:10}
-@media (min-width:900px){.fit{margin-right:-30px}}
-.zone-b .fit{margin-right:0}
-.ml{
-  display:block;font-family:var(--disp);text-transform:uppercase;
-  font-size:calc(var(--fs) * 1vw);line-height:.82;letter-spacing:-.035em;
-  white-space:nowrap;
-}
-.ml-acc{
-  background:var(--acc);color:var(--ink);
-  margin-left:-14px;padding-left:14px;
-  margin-right:calc(var(--bleed) * -1);padding-right:var(--bleed);
-}
-@media (min-width:900px){.ml-acc{margin-left:-30px;padding-left:30px}}
+/* ————— hero ————— */
+.hero{position:relative;z-index:2;padding-top:clamp(112px,17vh,186px);padding-bottom:clamp(30px,5vh,54px)}
+.hero-top{display:flex;align-items:baseline;gap:16px;margin-bottom:clamp(26px,5vh,52px)}
+.hero-top .line{flex:1;height:1px;background:var(--rule)}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:clamp(28px,4vw,52px)}
+.measure{--m:calc(min(100vw,var(--max)) - 2 * var(--pad))}
+.hero-h{font-size:clamp(2.2rem,calc(var(--m) / var(--hn,8)),9.4rem);margin:0 0 clamp(6px,2vh,26px) -.03em}
+.hero-h .l2{padding-left:.3em}
+.hero-h .l3{padding-left:.08em;font-style:italic;font-weight:300;color:var(--accent);display:flex;align-items:center;gap:.4em}
+.hero-h .l3::before{content:"";width:clamp(30px,7vw,110px);height:1px;background:var(--accent);opacity:.5;flex:0 0 auto;
+  transform:scaleX(0);transform-origin:left;transition:transform 1.3s cubic-bezier(.19,1,.22,1) .28s}
+[data-r].in .hero-h .l3::before{transform:none}
+.hero-side{max-width:22em}
+.hero-lede{color:var(--sepia);font-size:clamp(1.02rem,.5vw + .92rem,1.16rem);line-height:1.72}
+.hero-side .rule{margin:22px 0}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:18px 24px}
+.btn{display:inline-flex;align-items:center;gap:12px;font-family:var(--sans);font-size:10px;
+  letter-spacing:.24em;text-transform:uppercase;text-decoration:none;padding:15px 24px;
+  background:var(--accent);color:var(--paper);transition:background .45s ease,transform .45s ease}
+.btn:hover{background:var(--accent-ink)}
+.btn-ghost{padding:0;background:none;color:var(--ink);position:relative}
+.btn-ghost::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--ink);
+  transform-origin:right;transition:transform .6s cubic-bezier(.19,1,.22,1)}
+.btn-ghost:hover::after{transform:scaleX(0)}
+.hero-data{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:clamp(34px,7vh,68px);
+  padding-top:18px;border-top:1px solid var(--rule)}
+.hero-data span{font-family:var(--sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--sepia)}
+.hero-data i{width:1px;height:12px;background:var(--rule);display:inline-block}
+.hero-data span:last-of-type{color:var(--ink)}
+.hero-fig{margin-top:clamp(6px,2vh,18px)}
 
-/* -------------------------------------------------------------- blocchi */
-.blk{
-  background:var(--paper);color:var(--ink);
-  border-right:var(--line) solid var(--ink);
-  border-bottom:var(--line) solid var(--ink);
-  padding:20px 16px 22px;
-  position:relative;
-}
-.blk-acc{background:var(--acc);color:var(--ink)}
-.blk-ink{background:var(--ink);color:var(--paper)}
-/* dentro il nero l'accento resta un dettaglio tipografico: una cifra, una
-   riga, un valore. All'inversione dell'hover torna inchiostro, altrimenti
-   sparirebbe sul proprio colore. */
-.acx{color:var(--acc)}
-.blk-h.blk-ink:hover .acx,.blk-h.blk-ink:active .acx{color:var(--ink)}
-/* inversione totale, di scatto: nessuna transizione */
-.blk-h:hover,.blk-h:active{background:var(--ink);color:var(--paper)}
-.blk-h.blk-acc:hover,.blk-h.blk-acc:active{background:var(--ink);color:var(--acc)}
-.blk-h.blk-ink:hover,.blk-h.blk-ink:active{background:var(--acc);color:var(--ink)}
-@media (hover:none){.blk-h:hover{background:var(--paper);color:var(--ink)}
-  .blk-h.blk-acc:hover{background:var(--acc);color:var(--ink)}
-  .blk-h.blk-ink:hover{background:var(--ink);color:var(--paper)}
-  .blk-h.blk-ink:hover .acx{color:var(--acc)}}
+/* ————— composizione tipografica ————— */
+.plate{position:relative;z-index:2;padding-top:clamp(48px,9vh,110px);padding-bottom:clamp(40px,7vh,86px);overflow:hidden}
+.plate-grid{display:grid;grid-template-columns:1fr;gap:clamp(24px,4vw,46px);align-items:end}
+.plate-q{font-size:clamp(1.45rem,4.4vw,3.4rem);font-weight:300;line-height:1.1;letter-spacing:-.014em}
+.plate-q em{font-style:italic;color:var(--accent)}
+.plate-note{color:var(--sepia);font-size:1rem;line-height:1.74;max-width:23em}
+.plate-fig{margin-top:clamp(30px,6vh,66px)}
+.art-hero{position:relative;margin-top:clamp(26px,5vh,54px);padding:clamp(18px,4vw,44px) 0;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);color:var(--accent)}
+.art-hero .engr{width:100%;height:auto;opacity:.92}
+.art-cap{position:absolute;right:0;bottom:10px;color:var(--sepia-2)}
 
-/* ------------------------------------------------------------ bottoni */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  padding:16px 22px;text-decoration:none;
-  font-family:var(--disp);font-size:15px;text-transform:uppercase;letter-spacing:.02em;
-  border:var(--line) solid var(--ink);
-  box-shadow:6px 6px 0 0 var(--ink);
-}
-.btn svg{width:19px;height:19px;flex:0 0 auto}
-.btn-acc{background:var(--acc);color:var(--ink)}
-.btn-ink{background:var(--ink);color:var(--paper);box-shadow:6px 6px 0 0 var(--acc)}
-.btn-acc:hover,.btn-acc:active{background:var(--ink);color:var(--acc)}
-.btn-ink:hover,.btn-ink:active{background:var(--acc);color:var(--ink);box-shadow:6px 6px 0 0 var(--ink)}
-.btns{display:flex;flex-wrap:wrap;gap:11px;margin-top:18px}
-@media (min-width:900px){.btns{gap:14px;margin-top:22px}}
+/* ————— fascia di prova ————— */
+.proof{position:relative;z-index:2;background:var(--paper-2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.proof-in{padding-top:clamp(38px,7vh,76px);padding-bottom:clamp(38px,7vh,76px)}
+.proof-head{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:clamp(28px,5vh,52px)}
+.proof-t{font-size:clamp(1.5rem,4.6vw,2.5rem);font-weight:300;line-height:1.12;letter-spacing:-.01em}
+.proof-d{color:var(--sepia);max-width:22em;font-size:1rem;line-height:1.74}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule)}
+.stat{padding:22px 12px 0 0;border-right:1px solid var(--rule)}
+.stat:last-child{border-right:0}
+.stat-v{display:block;font-size:clamp(1.9rem,7vw,3.2rem);font-weight:300;line-height:1;letter-spacing:-.02em;color:var(--accent)}
+.stat-l{margin-top:10px;display:block;max-width:14ch}
 
-/* ---------------------------------------------------------------- hero */
-.hero{border-bottom:var(--line) solid var(--ink)}
-.hero-top{position:relative;z-index:3;padding:18px 14px 4px}
-@media (min-width:900px){.hero-top{padding:38px 30px 10px}}
-.hero-kick{
-  font-family:var(--disp);font-size:9px;line-height:1.35;letter-spacing:.2em;text-transform:uppercase;
-  display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap;
-}
-@media (min-width:700px){.hero-kick{font-size:10px;letter-spacing:.28em}}
-.hero-kick b{
-  font-weight:400;background:var(--ink);color:var(--paper);padding:5px 9px;
-}
-.hero-grid{position:relative;z-index:2;background:var(--paper);display:grid;grid-template-columns:1fr;border-top:var(--line) solid var(--ink)}
-@media (min-width:900px){.hero-grid{grid-template-columns:1.1fr .9fr}}
-/* il fondo lascia sempre spazio alla barra CTA fissa: nessun bottone
-   può finire nascosto sotto la barra */
-.hero-say{padding:18px 14px calc(26px + 76px);border-bottom:var(--line) solid var(--ink)}
-@media (min-width:861px){.hero-say{padding-bottom:34px}}
-@media (min-width:900px){.hero-say{border-bottom:0;border-right:var(--line) solid var(--ink);padding:34px 30px 40px}}
-.hero-a{
-  font-family:var(--disp);text-transform:uppercase;line-height:.84;letter-spacing:-.03em;
-  font-size:clamp(30px,8.6vw,60px);
-}
-.hero-a i{font-style:normal;display:table;background:var(--acc);color:var(--ink);padding:0 .14em;margin-top:.08em}
-.hero-lede{margin-top:14px;font-size:16px;line-height:1.5;max-width:46ch}
-@media (min-width:900px){.hero-lede{margin-top:18px;font-size:18px}}
+/* ————— sezioni ————— */
+.sec{position:relative;z-index:2;padding-top:clamp(56px,10vh,132px);padding-bottom:clamp(56px,10vh,132px)}
+.sec-head{display:grid;grid-template-columns:1fr;gap:16px;align-items:baseline;margin-bottom:clamp(30px,6vh,66px)}
+.sec-h{font-size:clamp(2rem,7.6vw,4.4rem);font-weight:300;line-height:1.02;letter-spacing:-.018em}
+.sec-h em{font-style:italic;color:var(--accent)}
+.sec-lead{color:var(--sepia);font-size:1rem;line-height:1.74;max-width:22em}
+.num{display:flex;align-items:center;gap:12px}
+.num::after{content:"";width:clamp(24px,5vw,60px);height:1px;background:var(--rule)}
 
-/* slot foto hero: la fotografia in bianco e nero stampata sulla carta
-   sporca, sotto la silhouette disegnata a mano. L'accento entra solo
-   nell'ombra dura della silhouette e nella targhetta. */
-.hero-art{
-  position:relative;isolation:isolate;background:var(--paper);color:var(--ink);
-  min-height:206px;overflow:hidden;display:flex;align-items:flex-end;
-}
-@media (min-width:900px){.hero-art{min-height:320px}}
-.hero-art .ph-i{
-  filter:grayscale(1) contrast(1.28) brightness(1.04);
-  mix-blend-mode:multiply;
-}
-.hero-art .dots{
-  position:absolute;inset:0;
-  background-image:radial-gradient(var(--ink) 1.4px,transparent 1.5px);
-  background-size:13px 13px;opacity:.34;
-}
-.hero-art .bars{
-  position:absolute;left:0;right:0;top:0;height:34px;
-  background:repeating-linear-gradient(90deg,var(--ink) 0 14px,transparent 14px 28px);
-}
-/* la silhouette sta sopra la fotografia, non sotto: l'ombra dura in
-   accento la stacca anche da uno scatto molto scuro */
-.hero-car{
-  position:relative;z-index:2;flex:0 0 auto;width:150%;max-width:none;
-  margin:0 -34% -6px 6%;display:block;
-  filter:drop-shadow(6px 6px 0 var(--acc));
-}
-.hero-art .plate{
-  position:absolute;left:0;bottom:0;z-index:3;background:var(--ink);color:var(--acc);
-  font-family:var(--disp);font-size:10px;letter-spacing:.3em;text-transform:uppercase;
-  padding:8px 12px;
-}
+/* servizi */
+.svcs{border-top:1px solid var(--rule)}
+.svc{display:grid;grid-template-columns:1fr;gap:8px;padding:clamp(24px,4vh,40px) 0;border-bottom:1px solid var(--rule);
+  transition:background .6s ease}
+.svc:hover{background:var(--paper-2)}
+.svc-t{font-size:clamp(1.45rem,5.2vw,2.35rem);font-weight:300;line-height:1.08;letter-spacing:-.012em}
+.svc-d{color:var(--sepia);font-size:1rem;line-height:1.72;max-width:26em}
+.svc-n .lbl{color:var(--accent)}
+.svc-layout{display:grid;grid-template-columns:1fr;gap:clamp(34px,6vh,60px)}
+.svc-fig{margin-top:0}
 
-/* -------------------------------------------------------------- ticker */
-.mq{
-  background:var(--ink);color:var(--paper);
-  border-top:var(--line) solid var(--ink);border-bottom:var(--line) solid var(--ink);
-  overflow:hidden;padding:10px 0;
-}
-.mq-track{display:flex;width:max-content;will-change:transform}
-.mq-seg{display:flex;align-items:center;white-space:nowrap}
-.mq-w{
-  font-family:var(--disp);text-transform:uppercase;letter-spacing:-.01em;
-  font-size:clamp(26px,6.4vw,54px);line-height:1;
-}
-.mq-s{
-  color:var(--acc);font-family:var(--disp);
-  font-size:clamp(22px,5vw,44px);line-height:1;padding:0 .34em;
-}
+/* ————— doppia pagina fotografica ————— */
+.spread{position:relative;z-index:2;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.spread-fig{position:relative;display:flex;align-items:flex-end;
+  min-height:clamp(430px,72vh,700px)}
+.ph-spread{position:absolute;inset:0;border-left:0;border-right:0;border-top:0;border-bottom:0}
+/* qui il velo diventa lavaggio: la foto scolora verso la carta e il titolo
+   in inchiostro resta leggibile anche se la fotografia non arriva */
+.ph-spread::before{background:linear-gradient(180deg,rgba(246,242,234,.30) 0%,rgba(246,242,234,.74) 48%,rgba(246,242,234,.96) 100%)}
+.ph-spread{align-items:flex-start}
+.ph-spread .engr{width:76%;margin-top:7%}
+.spread-in{position:relative;z-index:5;width:100%;
+  padding-top:clamp(56px,11vh,120px);padding-bottom:clamp(28px,5vh,58px)}
+.spread-h{font-size:clamp(2rem,7.4vw,4.3rem);margin:16px 0 20px}
+.spread-h em{font-style:italic;color:var(--accent)}
+.spread-p{color:var(--sepia);font-size:1rem;line-height:1.74;max-width:27em}
+.spread-cap{margin-top:clamp(26px,5vh,48px);max-width:30em}
+.zone-fig{margin-top:clamp(28px,5vh,44px)}
 
-/* --------------------------------------------------------------- prova */
-.proof{display:grid;grid-template-columns:repeat(3,1fr)}
-.stat{padding:18px 10px 20px;text-align:left}
-.num{font-family:var(--disp);font-size:clamp(28px,8vw,52px);line-height:.9;display:block;font-weight:400;font-variant-numeric:tabular-nums}
-.stat-l{
-  display:block;margin-top:8px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;
-  font-weight:600;line-height:1.3;
-}
-.rate{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:16px}
-.stars{display:flex;gap:3px;color:var(--ink)}
-.star{width:17px;height:17px}
-.rate-x{font-size:13px;letter-spacing:.02em;font-weight:600}
-.rate-x .num{display:inline;font-size:19px}
-.proof-claim{padding:22px 16px}
-.proof-claim h2{font-family:var(--disp);font-size:clamp(22px,6vw,38px);line-height:.92;text-transform:uppercase;letter-spacing:-.02em}
-.proof-claim p{margin-top:10px;font-size:14px;font-weight:600;letter-spacing:.02em}
+/* flotta */
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(268px,80%);gap:clamp(18px,3vw,34px);
+  overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  padding-bottom:20px;margin-right:calc(var(--pad) * -1);padding-right:var(--pad);
+  scrollbar-width:thin;scrollbar-color:var(--rule) transparent}
+.rail::-webkit-scrollbar{height:1px}
+.rail::-webkit-scrollbar-thumb{background:var(--rule)}
+.car{scroll-snap-align:start}
+.car-art{color:var(--accent)}
+.car-art .engr{width:86%}
+.car:hover .car-art>img{filter:sepia(.06) saturate(.98) contrast(1.06)}
+.car-num{position:absolute;top:0;left:0;z-index:5;background:var(--paper);
+  padding:9px 12px 8px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  font-family:var(--sans);font-size:10px;letter-spacing:.28em;color:var(--sepia)}
+.car-meta{margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+.car-t{font-size:clamp(1.3rem,4.4vw,1.72rem);font-weight:400;line-height:1.14}
+.car-s{margin-top:8px;color:var(--accent)}
+.car-d{margin-top:12px;color:var(--sepia);font-size:.98rem;line-height:1.7}
 
-/* ------------------------------------------------------------ servizi */
-.grid2{display:grid;grid-template-columns:1fr;border-top:var(--line) solid var(--ink)}
-@media (min-width:700px){.grid2{grid-template-columns:1fr 1fr}}
-.svc{padding:24px 16px 28px}
-.svc-n{
-  font-family:var(--disp);font-size:12px;letter-spacing:.24em;display:block;margin-bottom:14px;
-}
-.svc-t{font-family:var(--disp);font-size:clamp(22px,6.2vw,34px);line-height:.9;text-transform:uppercase;letter-spacing:-.02em}
-.svc-x{margin-top:12px;font-size:15px;line-height:1.45;max-width:38ch}
+/* metodo */
+.steps{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--rule)}
+.step{padding:clamp(26px,4vh,44px) 0;border-bottom:1px solid var(--rule);display:grid;
+  grid-template-columns:auto 1fr;column-gap:clamp(18px,4vw,52px);row-gap:10px;align-items:baseline}
+.step-n{font-size:clamp(1.5rem,5vw,2.4rem);font-weight:300;color:var(--accent);line-height:1;font-style:italic;
+  min-width:1.6em}
+.step-t{font-size:clamp(1.35rem,4.8vw,2.1rem);font-weight:300;line-height:1.1;letter-spacing:-.01em}
+.step-d{grid-column:2;color:var(--sepia);font-size:1rem;line-height:1.72;max-width:27em}
 
-/* ------------------------------------------------------------- flotta */
-/* le tre vetture non sono allineate: si sfalsano in verticale */
-.rail{display:flex;gap:0;align-items:flex-start;border-top:var(--line) solid var(--ink);overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding-bottom:2px}
-.rail::-webkit-scrollbar{height:8px}
-.rail::-webkit-scrollbar-track{background:var(--paper);border-top:var(--line) solid var(--ink)}
-.rail::-webkit-scrollbar-thumb{background:var(--ink)}
-.car{flex:0 0 auto;width:272px;scroll-snap-align:start;padding:14px 14px 0}
-@media (min-width:900px){.car{width:352px;padding:18px 18px 0}}
-@media (min-width:1180px){.car{width:428px}}
-.car:nth-child(1){margin-top:0}
-.car:nth-child(2){margin-top:38px}
-.car:nth-child(3){margin-top:14px}
-@media (min-width:900px){.car:nth-child(2){margin-top:56px}.car:nth-child(3){margin-top:22px}}
-.car-art{
-  aspect-ratio:16/11;color:var(--paper);
-  margin:0 9px 9px 0;box-shadow:9px 9px 0 0 var(--ink);
+/* zona */
+.zone{position:relative;background:var(--paper-2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  overflow:hidden}
+.zone-ghost{font-size:clamp(3.2rem,calc(var(--m) / var(--zn,4)),15rem);font-weight:300;line-height:.86;
+  letter-spacing:-.03em;color:var(--rule);white-space:nowrap;pointer-events:none;user-select:none;margin-left:-.05em}
+@supports (-webkit-text-stroke:1px black){
+  .zone-ghost{-webkit-text-stroke:1px var(--rule);color:transparent}
 }
-.car-art-acc{color:var(--ink);box-shadow:9px 9px 0 0 var(--acc)}
-.car-grid{
-  position:absolute;inset:0;z-index:3;opacity:.34;
-  background-image:linear-gradient(currentColor 1px,transparent 1px),linear-gradient(90deg,currentColor 1px,transparent 1px);
-  background-size:26px 26px;
-}
-/* la silhouette resta leggibile su qualunque fotografia: contorno duro
-   nel colore opposto, senza sfocatura */
-.car-svg{position:absolute;z-index:4;left:-9%;bottom:-2px;display:block;width:118%;
-  filter:drop-shadow(4px 4px 0 var(--ink))}
-.car-art-acc .car-svg{filter:drop-shadow(4px 4px 0 var(--acc))}
-.car-b{padding:20px 2px 22px}
-.car-tag{font-family:var(--disp);font-size:10px;letter-spacing:.26em;text-transform:uppercase;display:block}
-.car-t{font-family:var(--disp);font-size:clamp(20px,5.6vw,28px);line-height:.92;text-transform:uppercase;margin-top:10px;letter-spacing:-.02em}
-.car-x{margin-top:10px;font-size:14px;line-height:1.45}
-.rail-hint{font-size:10px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;padding:12px 14px 0;opacity:.6}
+.zone-body{display:grid;grid-template-columns:1fr;gap:clamp(20px,4vw,46px);margin-top:clamp(20px,4vh,40px)}
+.zone-p{color:var(--sepia);font-size:1.02rem;line-height:1.76;max-width:24em}
+.addr{font-size:clamp(1.15rem,4vw,1.5rem);font-weight:400;line-height:1.4}
+.addr span{display:block}
+.addr .lbl{display:block;margin-bottom:10px}
 
-/* ------------------------------------------------------- come funziona */
-.how{background:var(--ink);color:var(--paper)}
-.steps{display:grid;grid-template-columns:1fr;margin-top:24px;border-top:var(--line) solid var(--paper)}
-@media (min-width:800px){.steps{grid-template-columns:repeat(3,1fr)}}
-.step{padding:22px 16px 26px;border-bottom:var(--line) solid var(--paper)}
-@media (min-width:800px){.step{border-bottom:0;border-right:var(--line) solid var(--paper)}.step:last-child{border-right:0}}
-.step-n{font-family:var(--disp);font-size:clamp(44px,13vw,84px);line-height:.8;color:var(--acc);display:block}
-.step-t{font-family:var(--disp);font-size:clamp(19px,5.4vw,26px);text-transform:uppercase;margin-top:12px;line-height:.94;letter-spacing:-.01em}
-.step-x{margin-top:10px;font-size:14px;line-height:1.5;opacity:.86;max-width:34ch}
+/* faq */
+.qa{border-bottom:1px solid var(--rule)}
+.qa:first-child{border-top:1px solid var(--rule)}
+.qa-q{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:clamp(14px,3vw,30px);
+  width:100%;text-align:left;padding:clamp(20px,3vh,30px) 0}
+.qa-n{font-family:var(--sans);font-size:10px;letter-spacing:.28em;color:var(--accent)}
+.qa-txt{font-size:clamp(1.12rem,3.9vw,1.55rem);font-weight:400;line-height:1.24}
+.qa-ico{position:relative;width:15px;height:15px;flex:0 0 15px}
+.qa-ico i{position:absolute;inset:50% 0 auto 0;height:1px;background:var(--ink);transition:transform .6s cubic-bezier(.19,1,.22,1),background .4s ease}
+.qa-ico i:last-child{transform:rotate(90deg)}
+.qa-q[aria-expanded="true"] .qa-ico i{background:var(--accent)}
+.qa-q[aria-expanded="true"] .qa-ico i:last-child{transform:rotate(0)}
+.qa-p{display:grid;grid-template-rows:0fr;transition:grid-template-rows .68s cubic-bezier(.19,1,.22,1)}
+.qa-p>div{overflow:hidden}
+.qa-p p{color:var(--sepia);font-size:1rem;line-height:1.74;max-width:30em;padding:0 0 26px}
+.qa.open .qa-p{grid-template-rows:1fr}
 
-/* --------------------------------------------------------------- zona */
-.zone{display:grid;grid-template-columns:1fr}
-@media (min-width:900px){.zone{grid-template-columns:1.2fr .8fr}}
-.zone-b{padding:24px 14px 28px}
-@media (min-width:900px){.zone-b{padding:40px 30px}}
-/* la mappa non è più una campitura d'accento: reticolo e anelli esterni
-   sono di carta su nero, l'accento resta il pallino e il primo anello —
-   cioè il punto in cui si guarda */
-.zone-map{position:relative;isolation:isolate;background:var(--ink);color:var(--paper);min-height:230px;overflow:hidden}
-.zone-map .ph-i{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.5) brightness(.42)}
-.zone-map .net,.zone-map .pin,.zone-map .ring{z-index:3}
-.zone-map .net{
-  position:absolute;inset:-20%;
-  background-image:linear-gradient(currentColor 1px,transparent 1px),linear-gradient(90deg,currentColor 1px,transparent 1px);
-  background-size:34px 34px;opacity:.16;transform:rotate(-9deg);
-}
-.zone-map .pin{position:absolute;left:50%;top:50%;width:16px;height:16px;margin:-8px 0 0 -8px;background:var(--acc);border-radius:50%}
-.zone-map .ring{position:absolute;left:50%;top:50%;border:2px solid currentColor;border-radius:50%;opacity:.34}
-.zone-map .r1{width:96px;height:96px;margin:-48px 0 0 -48px;border-color:var(--acc);opacity:1}
-.zone-map .r2{width:172px;height:172px;margin:-86px 0 0 -86px;opacity:.26}
-.zone-map .r3{width:250px;height:250px;margin:-125px 0 0 -125px;opacity:.14}
-.zone-note{margin-top:16px;font-size:15px;line-height:1.5;max-width:42ch}
-.zone-addr{
-  margin-top:20px;display:inline-block;background:var(--acc);color:var(--ink);
-  border:var(--line) solid var(--ink);box-shadow:6px 6px 0 0 var(--ink);
-  padding:12px 14px;font-size:13px;font-weight:600;line-height:1.4;letter-spacing:.02em;
-}
+/* contatti */
+.contact{background:var(--accent);color:var(--paper);position:relative;z-index:2}
+.contact .lbl{color:rgba(246,242,234,.62)}
+.contact-in{padding-top:clamp(54px,10vh,124px);padding-bottom:clamp(54px,10vh,124px)}
+.contact-h{font-size:clamp(2.1rem,8vw,4.6rem);font-weight:300;line-height:1.02;letter-spacing:-.02em;
+  margin:clamp(18px,3vh,30px) 0 clamp(24px,4vh,42px)}
+.contact-h em{font-style:italic}
+.contact-grid{display:grid;grid-template-columns:1fr;gap:clamp(24px,4vw,50px);
+  border-top:1px solid rgba(246,242,234,.22);padding-top:clamp(24px,4vh,42px)}
+.ct{display:block;text-decoration:none}
+.ct .lbl{display:block;margin-bottom:9px}
+.ct-v{font-size:clamp(1.15rem,4vw,1.5rem);line-height:1.34;position:relative;display:inline-block}
+a.ct .ct-v::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:1px;background:rgba(246,242,234,.5);
+  transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.19,1,.22,1)}
+a.ct:hover .ct-v::after{transform:scaleX(1)}
+.btn-pale{background:var(--paper);color:var(--accent);margin-top:clamp(26px,4vh,44px)}
+.btn-pale:hover{background:#fff}
+.contact :focus-visible{outline-color:var(--paper)}
 
-/* ---------------------------------------------------------------- faq */
-.faq{border-bottom:var(--line) solid var(--ink)}
-.faq:first-of-type{border-top:var(--line) solid var(--ink)}
-.faq summary{
-  list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;
-  padding:18px 14px;font-family:var(--disp);text-transform:uppercase;
-  font-size:clamp(15px,4.2vw,21px);line-height:1.04;letter-spacing:-.01em;
-}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary:hover,.faq summary:active{background:var(--ink);color:var(--paper)}
-.faq-q{flex:1 1 auto}
-.faq-i{
-  flex:0 0 auto;width:26px;height:26px;position:relative;
-  border:var(--line) solid currentColor;
-}
-.faq-i::before,.faq-i::after{content:"";position:absolute;background:currentColor}
-.faq-i::before{left:4px;right:4px;top:9px;height:3px}
-.faq-i::after{top:4px;bottom:4px;left:9px;width:3px}
-.faq[open] .faq-i::after{display:none}
-/* la riga aperta si inverte in nero: l'accento resta il quadratino del
-   segno, non tutta la fascia */
-.faq[open] summary{background:var(--ink);color:var(--paper)}
-.faq[open] .faq-i{background:var(--acc);border-color:var(--acc)}
-.faq[open] .faq-i::before{background:var(--ink)}
-.faq[open] summary:hover,.faq[open] summary:active{color:var(--acc)}
-.faq-a{padding:0 14px 20px;max-width:60ch}
-.faq-a p{font-size:15px;line-height:1.55}
+/* footer */
+.foot{padding-top:clamp(30px,5vh,54px);padding-bottom:clamp(30px,5vh,54px);position:relative;z-index:2}
+.foot-in{display:grid;gap:16px;border-top:1px solid var(--rule);padding-top:22px}
+.foot .lbl{display:block}
+.foot-n{font-size:1.05rem}
+.foot-u{color:var(--sepia-2)}
 
-/* ----------------------------------------------------------- contatti */
-.ct{display:grid;grid-template-columns:1fr;border-top:var(--line) solid var(--ink)}
-@media (min-width:800px){.ct{grid-template-columns:repeat(3,1fr)}}
-.ct-b{padding:24px 16px 26px;text-decoration:none;display:block}
-.ct-l{font-family:var(--disp);font-size:10px;letter-spacing:.28em;text-transform:uppercase;display:block}
-.ct-v{font-family:var(--disp);font-size:clamp(19px,5.2vw,26px);line-height:1.02;margin-top:12px;display:block;letter-spacing:-.01em;word-break:break-word}
-.ct-x{margin-top:10px;font-size:13px;line-height:1.45;font-weight:600}
+/* barra fissa mobile */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:8000;display:grid;background:rgba(246,242,234,.95);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--rule);
+  padding-bottom:env(safe-area-inset-bottom)}
+.bar a{display:flex;align-items:center;justify-content:center;gap:9px;height:68px;text-decoration:none;
+  font-family:var(--sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase}
+.bar .b-wa{background:var(--accent);color:var(--paper)}
+.bar .b-tel{color:var(--ink)}
+.bar svg{width:14px;height:14px;flex:0 0 14px}
 
-/* ------------------------------------------------------------- footer */
-.ft{background:var(--ink);color:var(--paper);padding:30px 14px calc(30px + env(safe-area-inset-bottom,0px))}
-@media (min-width:900px){.ft{padding:44px 30px}}
-.ft-n{font-family:var(--disp);font-size:clamp(24px,7vw,44px);text-transform:uppercase;line-height:.9;letter-spacing:-.02em}
-.ft-r{margin-top:18px;display:flex;flex-wrap:wrap;gap:12px 26px;align-items:baseline;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.72}
-.ft-u{margin-top:22px;font-size:10px;letter-spacing:.26em;text-transform:uppercase;opacity:.5}
-.ft-cta{margin-top:26px}
+/* rivelazioni */
+.mask{display:block;overflow:hidden;padding-bottom:.13em;margin-bottom:-.09em}
+.mask>*{display:block;transform:translateY(112%);opacity:0;
+  transition:transform 1.15s cubic-bezier(.19,1,.22,1) var(--d,0s),opacity 1.1s ease var(--d,0s)}
+[data-r].in .mask>*{transform:none;opacity:1}
+.fade{opacity:0;transform:translateY(14px);
+  transition:opacity 1.25s ease calc(var(--d,0s) + .16s),transform 1.25s cubic-bezier(.19,1,.22,1) calc(var(--d,0s) + .16s)}
+/* la dissolvenza vale sia per i figli sia per l'elemento osservato:
+   senza il secondo selettore i paragrafi con data-r e fade insieme
+   (zona, recapito, occhielli di sezione) restavano invisibili */
+[data-r].in .fade,[data-r].in.fade{opacity:1;transform:none}
+[data-r] .engr{opacity:0;transition:opacity 1s ease var(--d,0s)}
+[data-r].in .engr{opacity:.9}
+.engr path,.engr circle,.engr line{stroke-dashoffset:var(--len,0)}
+[data-r].in .engr path,[data-r].in .engr circle,[data-r].in .engr line{stroke-dashoffset:0;
+  transition:stroke-dashoffset 2.6s cubic-bezier(.33,.7,.3,1)}
+.art-hero .engr{opacity:0}
+[data-r].in .art-hero .engr{opacity:.92}
 
-/* ------------------------------------------------------- barra mobile */
-.bar{
-  position:fixed;left:0;right:0;bottom:0;z-index:70;
-  display:flex;border-top:var(--line) solid var(--ink);
-  padding-bottom:env(safe-area-inset-bottom,0px);
-  background:var(--paper);
-}
-@media (min-width:861px){.bar{display:none}}
-.bar a{
-  flex:1 1 0;display:flex;align-items:center;justify-content:center;gap:9px;
-  padding:19px 8px;text-decoration:none;
-  font-family:var(--disp);font-size:14px;text-transform:uppercase;letter-spacing:.02em;
-}
-.bar a svg{width:18px;height:18px}
-.bar .b-wa{background:var(--acc);color:var(--ink);border-right:var(--line) solid var(--ink)}
-.bar .b-tel{background:var(--ink);color:var(--paper)}
-.bar .b-wa:active{background:var(--ink);color:var(--acc)}
-.bar .b-tel:active{background:var(--acc);color:var(--ink)}
+/* cambio pagina */
+.leaf{position:fixed;inset:0;z-index:8500;background:var(--paper);transform:scaleX(0);transform-origin:left;
+  pointer-events:none;box-shadow:1px 0 0 var(--rule)}
+.leaf::after{content:"";position:absolute;right:0;top:0;bottom:0;width:1px;background:var(--accent);opacity:.25}
 
-/* ====================================================== FOTOGRAFIA =====
-   Trattamento CHROME: bianco e nero secco, contrastato, bordo nero pieno
-   da 3px, ombra dura senza sfocatura, zero raggi d'angolo. Il duotone
-   pieno resta a UNA sola fotografia per pagina (il dettaglio d'interni):
-   è il colpo, e un colpo si dà una volta sola. Sotto ogni foto resta un
-   fondo scuro del tema: se la rete cade non si apre mai un buco bianco. */
-.ph{
-  position:relative;isolation:isolate;overflow:hidden;
-  border:var(--line) solid var(--ink);
-  background-color:var(--ink);
-  background-image:
-    radial-gradient(circle at 24% 24%,var(--acc-18),transparent 58%),
-    repeating-linear-gradient(90deg,var(--acc-07) 0 2px,transparent 2px 11px),
-    linear-gradient(146deg,#0A0A0A 0%,var(--acc-deep) 52%,#0A0A0A 100%);
+@media (min-width:640px){
+  .stat{padding-right:24px}
+  .foot-in{grid-template-columns:1fr auto;align-items:end}
+  .bar{grid-template-columns:1fr 1fr}
+  .bar.solo{grid-template-columns:1fr}
 }
-.ph-sh{box-shadow:10px 10px 0 0 var(--ink)}
-.ph-sh-acc{box-shadow:10px 10px 0 0 var(--acc)}
-.ph-i{
-  position:absolute;inset:0;z-index:1;
-  width:100%;height:100%;object-fit:cover;display:block;border:0;
-}
-/* duotone: le luci prendono l'accento, le ombre restano nere.
-   Una sola foto per pagina lo porta. */
-.ph-duo .ph-i{filter:grayscale(1) contrast(1.34) brightness(1.04)}
-.ph-duo::before,.ph-duo::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none}
-/* Il velo non copre a tinta piena: sfuma, cosi' anche una foto chiara resta una
-   fotografia e non diventa un rettangolo di colore. */
-.ph-duo::before{background:linear-gradient(158deg,var(--acc) 0%,var(--acc) 34%,transparent 88%);
-  mix-blend-mode:multiply;opacity:.72}
-.ph-duo::after{background:var(--acc-veil);mix-blend-mode:screen;opacity:.55}
-/* bianco e nero secco */
-.ph-bw .ph-i{filter:grayscale(1) contrast(1.44) brightness(.93)}
-/* se la foto non arriva, via i velari: resta il fondo scuro disegnato */
-.ph-off::before,.ph-off::after{display:none}
-
-.ph-grid{
-  position:absolute;inset:0;z-index:3;pointer-events:none;opacity:.42;
-  background-image:linear-gradient(rgba(10,10,10,.85) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(10,10,10,.85) 1px,transparent 1px);
-  background-size:28px 28px;
-}
-.ph-bars{
-  position:absolute;left:0;right:0;top:0;height:22px;z-index:4;
-  background:repeating-linear-gradient(90deg,var(--ink) 0 12px,transparent 12px 24px);
-}
-.ph-plate{
-  position:absolute;left:0;bottom:0;z-index:5;
-  background:var(--ink);color:var(--acc);
-  font-family:var(--disp);font-size:10px;letter-spacing:.3em;text-transform:uppercase;
-  padding:8px 12px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-}
-.ph-plate-acc{background:var(--acc);color:var(--ink)}
-
-/* fascia fotografica dell'hero: la riga accento del titolo le passa
-   davanti e la taglia di netto */
-.hero-band{
-  position:relative;z-index:1;display:block;
-  height:clamp(184px,33vw,340px);margin-top:-26px;border-left:0;border-right:0;
-}
-
-/* fotografia dentro l'intestazione di una sezione */
-.sec-head{display:grid;grid-template-columns:1fr;gap:20px}
-@media (min-width:900px){.sec-head{grid-template-columns:1.12fr .88fr;gap:34px;align-items:end}}
-.sec-head-t .fit{margin-right:0}
-.sec-head-ph{aspect-ratio:16/10}
-@media (min-width:900px){.sec-head-ph{aspect-ratio:16/9;max-height:262px;margin:0 10px 10px 0}}
-
-/* prova: ritratto dell'autista accanto al blocco lime */
-.proof-2{display:grid;grid-template-columns:1fr}
-@media (min-width:800px){.proof-2{grid-template-columns:1.02fr .98fr}}
-.proof-ph{min-height:222px;border-top:0}
-@media (min-width:800px){.proof-ph{border-top:var(--line) solid var(--ink);border-left:0}}
-
-/* ticker fotografico: piccole foto che scorrono, sfalsate a coppie */
-.mq-ph{padding:14px 0}
-.pcell{
-  flex:0 0 auto;width:150px;height:102px;margin-right:14px;
-}
-.pcell:nth-child(even){transform:translateY(14px)}
-@media (min-width:900px){.pcell{width:198px;height:132px;margin-right:18px}
-  .pcell:nth-child(even){transform:translateY(20px)}}
-
-/* foto gigante in bianco e nero, nome in carta sopra un velo d'inchiostro:
-   qui il colore non serve, serve il buio */
-.mono{
-  position:relative;isolation:isolate;overflow:hidden;
-  border-bottom:var(--line) solid var(--ink);
-  min-height:clamp(300px,54vw,520px);
-  display:flex;align-items:flex-end;
-  background:linear-gradient(146deg,#0A0A0A 0%,var(--acc-deep) 52%,#0A0A0A 100%);
-}
-.mono-ph{position:absolute;inset:0;z-index:0;border:0}
-.mono-ph .ph-i{filter:grayscale(1) contrast(1.5) brightness(.5)}
-/* velo: garantisce il contrasto AA del testo su qualunque fotografia,
-   anche chiarissima */
-.mono::after{
-  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
-  background:linear-gradient(180deg,rgba(10,10,10,.42) 0%,rgba(10,10,10,.88) 78%);
-}
-.mono-in{position:relative;z-index:4;width:100%;padding:26px 14px 30px}
-@media (min-width:900px){.mono-in{padding:46px 30px 44px}}
-.mono-eye{color:var(--paper)}
-.mono-t{margin-right:0}
-.mono-t .ml{color:var(--paper)}
-.mono-x{
-  position:relative;z-index:4;margin-top:14px;max-width:40ch;
-  font-size:14px;line-height:1.5;font-weight:600;color:var(--paper);
-  background:rgba(10,10,10,.72);display:inline-block;padding:10px 12px;
-  border-left:var(--line) solid var(--acc);
-}
-@media (prefers-reduced-motion:reduce){.pcell:nth-child(even){transform:none}}
-
-/* ------------------------------------------------------------ entrate */
-.rise{opacity:0;transform:translate3d(0,26px,0)}
-.rise.in{
-  opacity:1;transform:none;
-  transition:transform .34s steps(5,end),opacity .22s steps(3,end);
-}
-/* Nel rail la traslazione verrebbe tagliata: si entra con una spazzata
-   secca. La tendina è un velo sopra la card, non un ritaglio della card:
-   un clip-path a superficie nulla renderebbe l'elemento invisibile
-   all'IntersectionObserver e la card non si rivelerebbe mai. */
-.rail .rise{opacity:1;transform:none}
-.rail .rise::before{
-  content:"";position:absolute;inset:0;z-index:6;pointer-events:none;
-  background:var(--paper);transform-origin:100% 50%;
-}
-.rail .rise.in::before{transform:scaleX(0);transition:transform .42s steps(6,end)}
-@media (scripting:none){
-  .rise{opacity:1;transform:none}
-  .rail .rise::before{display:none}
+@media (min-width:900px){
+  body{padding-bottom:0}
+  .hdr-nav{display:flex}
+  .hdr-cta{display:inline-block}
+  .brand-n{font-size:11px;max-width:none}
+  .bar{display:none}
+  /* spread editoriale: titolone a sinistra, tavola verticale a destra che
+     sborda oltre la griglia dal solo lato esterno. La misura del titolo si
+     accorcia sulla colonna, così le tre righe restano tre righe. */
+  .hero-grid{grid-template-columns:minmax(0,6.2fr) minmax(300px,3.8fr);
+    column-gap:clamp(36px,5vw,80px);row-gap:0;
+    grid-template-areas:"title photo" "side photo" "data photo";align-items:start}
+  .hero-h{--m:calc((min(100vw,var(--max)) - 2 * var(--pad)) * .55);grid-area:title;
+    margin-bottom:clamp(28px,5.5vh,62px)}
+  .hero-side{grid-area:side;max-width:24em}
+  .hero-data{grid-area:data;margin-top:clamp(34px,7vh,68px);align-self:end}
+  .hero-fig{grid-area:photo;margin-top:clamp(6px,1.5vh,16px)}
+  .plate-grid{grid-template-columns:minmax(0,6.6fr) minmax(0,4fr);gap:clamp(36px,6vw,90px);align-items:start}
+  .plate-side{margin-top:clamp(10px,3vh,34px)}
+  .plate-fig .bleed-l{margin-left:0}
+  .svc-layout{grid-template-columns:minmax(0,7.1fr) minmax(0,2.9fr);
+    column-gap:clamp(36px,5vw,76px);align-items:start}
+  .svc-fig{margin-top:clamp(40px,9vh,120px)}
+  .spread-fig{align-items:center}
+  .ph-spread{align-items:center}
+  .ph-spread .engr{width:42%;margin-left:auto;margin-right:7%}
+  .spread-h,.spread-p{max-width:15em}
+  .spread-cap{max-width:26em}
+  .ph-spread::before{background:linear-gradient(90deg,rgba(246,242,234,.96) 0%,rgba(246,242,234,.86) 34%,rgba(246,242,234,.42) 74%,rgba(246,242,234,.24) 100%)}
+  .zone-fig{margin-top:0}
+  .sec-head{grid-template-columns:minmax(0,6.6fr) minmax(0,4fr);gap:clamp(36px,6vw,90px)}
+  .svc{grid-template-columns:minmax(96px,1.1fr) minmax(0,5.2fr) minmax(0,4.4fr);
+    column-gap:clamp(24px,4vw,64px);align-items:baseline}
+  .rail{grid-auto-columns:1fr;grid-auto-flow:column;overflow:visible;margin-right:0;padding-right:0;padding-bottom:0}
+  .step{grid-template-columns:minmax(96px,1.1fr) minmax(0,5.2fr) minmax(0,4.4fr);align-items:baseline}
+  .step-d{grid-column:3;padding-left:0}
+  .zone-body{grid-template-columns:minmax(0,4.2fr) minmax(0,2.6fr) minmax(0,3.2fr);align-items:start}
+  .contact-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .proof-head{grid-template-columns:minmax(0,6fr) minmax(0,4.6fr);gap:clamp(36px,6vw,90px)}
+  .art-cap{bottom:22px}
 }
 @media (prefers-reduced-motion:reduce){
-  .rise{opacity:1;transform:none;transition:none}
-  .rail .rise::before{display:none}
-  .mq-track{transform:none!important}
+  .mask>*,.fade,.engr,[data-r] .engr{transform:none!important;opacity:1!important;transition:none!important}
+  .engr path,.engr circle,.engr line{stroke-dashoffset:0!important;transition:none!important}
+  .hero-h .l3::before{transform:none!important;transition:none!important}
+  .art-hero .engr{opacity:.92}
+  .leaf{display:none}
+  .qa-p{transition:none}
+  html{scroll-behavior:auto}
 }
 </style>
 </head>
-<body>
+<body class="measure">
+<div class="grain" aria-hidden="true"></div>
+<div class="leaf" id="leaf" aria-hidden="true"></div>
 
-<header class="hd">
-  <span class="hd-mark" aria-hidden="true">AB</span>
-  <div class="hd-name">
-    <b>Autonoleggio Bernardin Servizi</b>
-    <span>Noleggio con conducente &middot; Belluno</span>
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a class="brand" href="#top" aria-label="Autonoleggio Bernardin Servizi — torna in cima">
+      <span class="mono" aria-hidden="true">AB</span>
+      <span class="brand-n">Autonoleggio Bernardin Servizi</span>
+    </a>
+    <nav class="hdr-nav" aria-label="Sezioni">
+      <a href="#servizi">Servizi</a>
+      <a href="#flotta">Vetture</a>
+      <a href="#metodo">Metodo</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+    <a class="hdr-cta" href="tel:+39043964393">Telefonare</a>
   </div>
-  <a class="hd-cta" href="tel:+39043964393" aria-label="Telefona a Autonoleggio Bernardin Servizi"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 3h3l1.6 4-2 1.4a12 12 0 0 0 5.4 5.4l1.4-2 4 1.6v3c0 .9-.7 1.6-1.6 1.6A15.4 15.4 0 0 1 3 5.6C3 4.7 3.7 4 4.6 4z"/></svg><span>0439 64393</span></a>
+  <div class="prog" id="prog" aria-hidden="true"></div>
 </header>
 
-<main>
+<main id="top">
 
-<!-- ============================== HERO ============================== -->
-<section class="sec hero" aria-labelledby="h1">
-  <span class="vtag vtag-acc" aria-hidden="true"><i>Noleggio con conducente &mdash; Belluno</i></span>
-  <div class="hero-top">
-    <p class="hero-kick"><b>Agenzia di noleggio auto</b></p>
-    <h1 class="fit" data-fit="mega" data-acc="last" id="h1" data-words="AUTONOLEGGIO|BERNARDIN|SERVIZI"><span class="ml" style="--fs:8.8">AUTONOLEGGIO</span><span class="ml" style="--fs:11.7">BERNARDIN</span><span class="ml ml-acc" style="--fs:15">SERVIZI</span></h1>
-  </div>
-  <div class="ph ph-duo hero-band"><img src="https://images.unsplash.com/photo-1610099610040-ab19f3a5ec35?auto=format&fit=crop&w=1900&q=74" srcset="https://images.unsplash.com/photo-1610099610040-ab19f3a5ec35?auto=format&fit=crop&w=950&q=74 950w, https://images.unsplash.com/photo-1610099610040-ab19f3a5ec35?auto=format&fit=crop&w=1900&q=74 1900w, https://images.unsplash.com/photo-1610099610040-ab19f3a5ec35?auto=format&fit=crop&w=2400&q=74 2400w" sizes="100vw" alt="Berlina executive di colore scuro — Autonoleggio Bernardin Servizi" data-photo-slot="hero" class="ph-i" loading="eager" decoding="async" referrerpolicy="no-referrer"><span class="ph-grid" aria-hidden="true"></span><span class="ph-bars" aria-hidden="true"></span><span class="ph-plate" aria-hidden="true">Belluno</span></div>
-  <div class="hero-grid">
-    <div class="hero-say">
-      <h2 class="hero-a">Il viaggio<i>come dovrebbe essere</i></h2>
-      <p class="hero-lede">Autista privato, puntualità al minuto e discrezione assoluta. Prenotate in trenta secondi su WhatsApp: vi rispondiamo noi, non un centralino.</p>
-      <div class="btns">
-        
-        <a class="btn btn-ink" href="tel:+39043964393" aria-label="Telefona a Autonoleggio Bernardin Servizi"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 3h3l1.6 4-2 1.4a12 12 0 0 0 5.4 5.4l1.4-2 4 1.6v3c0 .9-.7 1.6-1.6 1.6A15.4 15.4 0 0 1 3 5.6C3 4.7 3.7 4 4.6 4z"/></svg><span>0439 64393</span></a>
+  <section class="hero wrap">
+    <div class="hero-top">
+      <span class="lbl lbl-acc">I</span>
+      <span class="line" aria-hidden="true"></span>
+      <span class="lbl">Noleggio con conducente</span>
+    </div>
+    <div class="hero-grid">
+      <h1 class="hero-h serif-xl" data-r style="--hn:8.59">
+        <span class="mask"><span>Il viaggio</span></span>
+        <span class="mask l2"><span style="--d:.09s">come dovrebbe essere</span></span>
+        <span class="mask l3"><span style="--d:.18s">Belluno</span></span>
+      </h1>
+      <aside class="hero-side" data-r>
+        <p class="hero-lede fade">Autista privato, puntualità al minuto e discrezione assoluta. Prenotate in trenta secondi su WhatsApp: vi rispondiamo noi, non un centralino.</p>
+        <hr class="rule">
+        <div class="cta-row fade" style="--d:.1s">
+          
+          <a class="btn-ghost" href="tel:+39043964393" aria-label="Telefonare al 0439 64393">Telefonare</a>
+        </div>
+      </aside>
+      <figure class="ph-fig hero-fig" data-r>
+        <div class="ph ph-45 bleed-r fade">
+          <svg class="engr" data-draw viewBox="0 0 960 430" fill="none" aria-hidden="true" focusable="false">
+  <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke">
+    <path d="M104 318 C96 292 98 262 120 248 L236 234 C266 186 322 154 404 148 L566 150 C614 156 652 186 682 220 L800 236 C838 244 858 264 862 292 C866 312 856 322 838 322 L774 322"/>
+    <path d="M774 322 C770 276 738 250 706 250 C674 250 642 276 638 322"/>
+    <path d="M638 322 L354 322"/>
+    <path d="M354 322 C350 276 318 250 286 250 C254 250 222 276 218 322"/>
+    <path d="M218 322 L104 318"/>
+    <path d="M262 236 C296 190 344 166 404 162 L556 164 C598 170 630 194 656 224 Z" opacity=".85"/>
+    <path d="M430 163 L436 226" opacity=".7"/>
+    <path d="M540 164 L556 225" opacity=".7"/>
+    <path d="M240 236 L664 226" opacity=".55"/>
+    <path d="M806 240 C826 250 838 264 842 280" opacity=".6"/>
+    <path d="M796 262 L850 268" opacity=".8"/>
+    <path d="M120 272 L182 276" opacity=".8"/>
+    <circle cx="286" cy="296" r="52"/><circle cx="286" cy="296" r="24" opacity=".8"/>
+    <circle cx="706" cy="296" r="52"/><circle cx="706" cy="296" r="24" opacity=".8"/>
+    <path d="M286 244 L286 268 M286 324 L286 348 M234 296 L258 296 M314 296 L338 296" opacity=".55"/>
+    <path d="M706 244 L706 268 M706 324 L706 348 M654 296 L678 296 M734 296 L758 296" opacity=".55"/>
+    <path d="M196 150 C246 118 312 100 392 98 L556 100" opacity=".4"/>
+    <path d="M196 150 L172 214" opacity=".4"/>
+    <path d="M556 100 C602 108 640 132 668 162" opacity=".4"/>
+    <path d="M60 348 L900 348" opacity=".5"/>
+    <path d="M150 366 L470 366 M520 366 L720 366 M760 366 L862 366" opacity=".3"/>
+    <path d="M210 384 L400 384 M600 384 L800 384" opacity=".2"/>
+  </g>
+</svg>
+          <img src="https://images.unsplash.com/photo-1720812943633-e0e64d4aec55?auto=format&fit=crop&w=1800&q=78" srcset="https://images.unsplash.com/photo-1720812943633-e0e64d4aec55?auto=format&fit=crop&w=900&q=78 900w, https://images.unsplash.com/photo-1720812943633-e0e64d4aec55?auto=format&fit=crop&w=1800&q=78 1800w, https://images.unsplash.com/photo-1720812943633-e0e64d4aec55?auto=format&fit=crop&w=2400&q=78 2400w" sizes="(max-width:899px) 100vw, 46vw" alt="Berlina executive di colore scuro" data-photo-slot="hero" loading="eager" decoding="async" referrerpolicy="no-referrer">
+        </div>
+        <figcaption class="ph-cap fade" style="--d:.1s"><b>Tav.&nbsp;I</b> — Berlina executive</figcaption>
+      </figure>
+      <div class="hero-data" data-r>
+        <span>Belluno</span><i aria-hidden="true"></i><span>5,0 su Google · 2 recensioni</span><i aria-hidden="true"></i><span>0439 64393</span>
       </div>
     </div>
-    <div class="hero-art">
-      <img src="https://images.unsplash.com/photo-1671332752309-259609d9801f?auto=format&fit=crop&w=1100&q=76" srcset="https://images.unsplash.com/photo-1671332752309-259609d9801f?auto=format&fit=crop&w=550&q=76 550w, https://images.unsplash.com/photo-1671332752309-259609d9801f?auto=format&fit=crop&w=1100&q=76 1100w, https://images.unsplash.com/photo-1671332752309-259609d9801f?auto=format&fit=crop&w=2200&q=76 2200w" sizes="(max-width:900px) 100vw, 620px" alt="Berlina executive di colore scuro" data-photo-slot="hero-2" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer">
-      <span class="dots" aria-hidden="true"></span>
-      <span class="bars" aria-hidden="true"></span>
-      <svg class="hero-car" viewBox="0 0 480 162" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M4 122C4 110 10 102 22 99L52 91C82 84 118 78 146 72L200 62L232 34C238 29 246 26 254 26L316 26C326 26 334 29 340 34L378 68L444 79C464 83 474 92 476 108L477 122C477 128 474 130 468 130L436 130A28 28 0 0 0 380 130L124 130A28 28 0 0 0 68 130L14 130C8 130 4 127 4 122Z"/><circle cx="408" cy="130" r="25"/><circle cx="96" cy="130" r="25"/></g></svg>
-      <span class="plate">Belluno</span>
-    </div>
-  </div>
-</section>
+  </section>
 
-<div class="mq" data-speed="64" aria-hidden="true">
-      <div class="mq-track"><span class="mq-seg"><span class="mq-w">Autonoleggio Bernardin Servizi</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Transfer aeroportuali</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Business travel</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Lunga percorrenza</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Servizi su misura</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Noleggio con conducente</span><span class="mq-s" aria-hidden="true">+</span></span><span class="mq-seg"><span class="mq-w">Autonoleggio Bernardin Servizi</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Transfer aeroportuali</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Business travel</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Lunga percorrenza</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Servizi su misura</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Noleggio con conducente</span><span class="mq-s" aria-hidden="true">+</span></span><span class="mq-seg"><span class="mq-w">Autonoleggio Bernardin Servizi</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Transfer aeroportuali</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Business travel</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Lunga percorrenza</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Servizi su misura</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Noleggio con conducente</span><span class="mq-s" aria-hidden="true">+</span></span><span class="mq-seg"><span class="mq-w">Autonoleggio Bernardin Servizi</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Transfer aeroportuali</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Business travel</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Lunga percorrenza</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Servizi su misura</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Noleggio con conducente</span><span class="mq-s" aria-hidden="true">+</span></span><span class="mq-seg"><span class="mq-w">Autonoleggio Bernardin Servizi</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Transfer aeroportuali</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Business travel</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Lunga percorrenza</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Servizi su misura</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Noleggio con conducente</span><span class="mq-s" aria-hidden="true">+</span></span><span class="mq-seg"><span class="mq-w">Autonoleggio Bernardin Servizi</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Transfer aeroportuali</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Business travel</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Lunga percorrenza</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Servizi su misura</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Noleggio con conducente</span><span class="mq-s" aria-hidden="true">+</span></span></div>
+  <section class="plate wrap" aria-labelledby="plate-h">
+    <div class="hero-top">
+      <span class="lbl lbl-acc">II</span>
+      <span class="line" aria-hidden="true"></span>
+      <span class="lbl">La misura</span>
     </div>
+    <div class="plate-grid" data-r>
+      <p class="plate-q serif-xl" id="plate-h"><span class="mask"><span>Non è la vettura</span></span><span class="mask"><span style="--d:.08s">a fare la differenza,</span></span><span class="mask"><span style="--d:.16s">ma la <em>precisione</em>.</span></span></p>
+      <div class="plate-side">
+        <p class="plate-note fade" style="--d:.2s">L’orario rispettato al minuto, la strada scelta bene, il silenzio quando serve e la parola quando la si desidera: è su questi dettagli, e non su altro, che si misura chi guida. Una giornata sta in piedi per come è stata pensata prima, non per come appare all’arrivo.</p>
+        <figure class="ph-fig plate-fig" data-r>
+        <div class="ph ph-23 bleed-l fade">
+          <svg class="engr" data-draw viewBox="0 0 420 260" fill="none" aria-hidden="true" focusable="false">
+  <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke">
+    <circle cx="210" cy="126" r="94"/><circle cx="210" cy="126" r="78" opacity=".8"/>
+    <circle cx="210" cy="126" r="34" opacity=".9"/><circle cx="210" cy="126" r="13" opacity=".7"/>
+    <path d="M210 48 L210 92 M210 160 L210 204 M132 126 L176 126 M244 126 L288 126" opacity=".75"/>
+    <path d="M155 71 L186 102 M234 150 L265 181 M265 71 L234 102 M186 150 L155 181" opacity=".55"/>
+    <path d="M118 126 A92 92 0 0 1 210 34" opacity=".35"/>
+    <path d="M302 126 A92 92 0 0 1 210 218" opacity=".35"/>
+    <path d="M40 240 L380 240" opacity=".4"/>
+    <path d="M96 252 L200 252 M240 252 L332 252" opacity=".22"/>
+  </g>
+</svg>
+          <img src="https://images.unsplash.com/photo-1519120433933-22bc753101f3?auto=format&fit=crop&w=1100&q=78" srcset="https://images.unsplash.com/photo-1519120433933-22bc753101f3?auto=format&fit=crop&w=550&q=78 550w, https://images.unsplash.com/photo-1519120433933-22bc753101f3?auto=format&fit=crop&w=1100&q=78 1100w, https://images.unsplash.com/photo-1519120433933-22bc753101f3?auto=format&fit=crop&w=2200&q=78 2200w" sizes="(max-width:899px) 100vw, 34vw" alt="Interni in pelle di una vettura di rappresentanza" data-photo-slot="interni" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        </div>
+        <figcaption class="ph-cap fade" style="--d:.1s"><b>Tav.&nbsp;II</b> — Interni, dettaglio</figcaption>
+      </figure>
+      </div>
+    </div>
+    <figure class="art-hero" data-r>
+      <svg class="engr" data-draw viewBox="0 0 960 430" fill="none" aria-hidden="true" focusable="false">
+  <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke">
+    <path d="M104 318 C96 292 98 262 120 248 L236 234 C266 186 322 154 404 148 L566 150 C614 156 652 186 682 220 L800 236 C838 244 858 264 862 292 C866 312 856 322 838 322 L774 322"/>
+    <path d="M774 322 C770 276 738 250 706 250 C674 250 642 276 638 322"/>
+    <path d="M638 322 L354 322"/>
+    <path d="M354 322 C350 276 318 250 286 250 C254 250 222 276 218 322"/>
+    <path d="M218 322 L104 318"/>
+    <path d="M262 236 C296 190 344 166 404 162 L556 164 C598 170 630 194 656 224 Z" opacity=".85"/>
+    <path d="M430 163 L436 226" opacity=".7"/>
+    <path d="M540 164 L556 225" opacity=".7"/>
+    <path d="M240 236 L664 226" opacity=".55"/>
+    <path d="M806 240 C826 250 838 264 842 280" opacity=".6"/>
+    <path d="M796 262 L850 268" opacity=".8"/>
+    <path d="M120 272 L182 276" opacity=".8"/>
+    <circle cx="286" cy="296" r="52"/><circle cx="286" cy="296" r="24" opacity=".8"/>
+    <circle cx="706" cy="296" r="52"/><circle cx="706" cy="296" r="24" opacity=".8"/>
+    <path d="M286 244 L286 268 M286 324 L286 348 M234 296 L258 296 M314 296 L338 296" opacity=".55"/>
+    <path d="M706 244 L706 268 M706 324 L706 348 M654 296 L678 296 M734 296 L758 296" opacity=".55"/>
+    <path d="M196 150 C246 118 312 100 392 98 L556 100" opacity=".4"/>
+    <path d="M196 150 L172 214" opacity=".4"/>
+    <path d="M556 100 C602 108 640 132 668 162" opacity=".4"/>
+    <path d="M60 348 L900 348" opacity=".5"/>
+    <path d="M150 366 L470 366 M520 366 L720 366 M760 366 L862 366" opacity=".3"/>
+    <path d="M210 384 L400 384 M600 384 L800 384" opacity=".2"/>
+  </g>
+</svg>
+      <figcaption class="lbl art-cap">Studio — tre quarti</figcaption>
+    </figure>
+  </section>
 
-<!-- ============================= PROVA ============================== -->
-<section class="sec" aria-label="Perché sceglierci">
-  <span class="vtag" aria-hidden="true"><i>Numeri veri</i></span>
-  <div class="proof">
-      <div class="stat blk">
-        <b class="num" data-val="5,0">5,0</b>
-        <span class="stat-l">su Google</span>
+  <section class="proof" aria-labelledby="proof-h">
+    <div class="wrap proof-in">
+      <div class="proof-head">
+        <div data-r>
+          <span class="lbl lbl-acc">Ciò che possiamo garantire</span>
+          <h2 class="proof-t" id="proof-h" style="margin-top:14px"><span class="mask"><span>Preventivo fisso</span></span></h2>
+        </div>
+        <p class="proof-d fade" data-r>Nessun costo a sorpresa a fine corsa. È la sola promessa che ci sentiamo di fare per iscritto, e vale ogni volta.</p>
       </div>
-      <div class="stat blk blk-ink">
-        <b class="num acx" data-val="2">2</b>
-        <span class="stat-l">recensioni verificate</span>
+      <div class="stats" style="grid-template-columns:repeat(3,1fr)">
+        <div class="stat" data-r style="--d:0s">
+          <span class="stat-v"><span class="mask"><span>5,0</span></span></span>
+          <span class="lbl stat-l">su Google</span>
+        </div>
+        <div class="stat" data-r style="--d:0.08s">
+          <span class="stat-v"><span class="mask"><span>2</span></span></span>
+          <span class="lbl stat-l">recensioni verificate</span>
+        </div>
+        <div class="stat" data-r style="--d:0.16s">
+          <span class="stat-v"><span class="mask"><span>1</span></span></span>
+          <span class="lbl stat-l">referente diretto</span>
+        </div></div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="servizi" aria-labelledby="servizi-h">
+    <div class="sec-head">
+      <div data-r>
+        <span class="lbl lbl-acc num">III</span>
+        <h2 class="sec-h" id="servizi-h" style="margin-top:16px">
+          <span class="mask"><span>Quello che</span></span>
+          <span class="mask"><span style="--d:.08s"><em>facciamo</em></span></span>
+        </h2>
       </div>
-      <div class="stat blk">
-        <b class="num" data-val="1">1</b>
-        <span class="stat-l">referente diretto</span>
+      <p class="sec-lead fade" data-r>Quattro modi di lavorare che nascono dalla stessa idea: chi sale in macchina non deve pensare a nulla, se non a dove sta andando.</p>
+    </div>
+    <div class="svc-layout">
+      <div class="svcs">
+      <article class="svc" data-r style="--d:0s">
+        <div class="svc-n"><span class="lbl">01</span></div>
+        <h3 class="svc-t"><span class="mask"><span>Transfer aeroportuali</span></span></h3>
+        <p class="svc-d fade">Monitoraggio del volo in tempo reale. Se il vostro aereo ritarda, l’auto vi aspetta comunque.</p>
+      </article>
+      <article class="svc" data-r style="--d:0.08s">
+        <div class="svc-n"><span class="lbl">02</span></div>
+        <h3 class="svc-t"><span class="mask"><span>Business travel</span></span></h3>
+        <p class="svc-d fade">Riunioni, fiere, appuntamenti. Un autista che conosce la città e non vi fa mai arrivare tardi.</p>
+      </article>
+      <article class="svc" data-r style="--d:0s">
+        <div class="svc-n"><span class="lbl">03</span></div>
+        <h3 class="svc-t"><span class="mask"><span>Lunga percorrenza</span></span></h3>
+        <p class="svc-d fade">Trasferimenti fra città e verso l’estero, con preventivo fisso concordato prima della partenza.</p>
+      </article>
+      <article class="svc" data-r style="--d:0.08s">
+        <div class="svc-n"><span class="lbl">04</span></div>
+        <h3 class="svc-t"><span class="mask"><span>Servizi su misura</span></span></h3>
+        <p class="svc-d fade">Serate, congressi, disposizione oraria. Ci dite l’esigenza, costruiamo il servizio.</p>
+      </article></div>
+      <figure class="ph-fig svc-fig" data-r>
+        <div class="ph ph-23 bleed-r fade">
+          <svg class="engr" data-draw viewBox="0 0 420 260" fill="none" aria-hidden="true" focusable="false">
+  <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke">
+    <path d="M74 190 C66 160 70 128 86 116 L120 62 C130 44 152 36 210 36 C268 36 290 44 300 62 L334 116 C350 128 354 160 346 190"/>
+    <path d="M86 116 L334 116" opacity=".7"/>
+    <path d="M124 68 C144 56 276 56 296 68" opacity=".6"/>
+    <path d="M92 140 C110 132 140 130 158 134" opacity=".85"/>
+    <path d="M328 140 C310 132 280 130 262 134" opacity=".85"/>
+    <path d="M172 148 L248 148 M166 162 L254 162 M176 176 L244 176" opacity=".6"/>
+    <path d="M74 190 L74 214 M346 190 L346 214" opacity=".8"/>
+    <path d="M74 202 L346 202" opacity=".5"/>
+    <path d="M40 236 L380 236" opacity=".45"/>
+    <path d="M96 250 L200 250 M240 250 L330 250" opacity=".25"/>
+  </g>
+</svg>
+          <img src="https://images.unsplash.com/photo-1740485863195-af1796f9e615?auto=format&fit=crop&w=1000&q=78" srcset="https://images.unsplash.com/photo-1740485863195-af1796f9e615?auto=format&fit=crop&w=500&q=78 500w, https://images.unsplash.com/photo-1740485863195-af1796f9e615?auto=format&fit=crop&w=1000&q=78 1000w, https://images.unsplash.com/photo-1740485863195-af1796f9e615?auto=format&fit=crop&w=2000&q=78 2000w" sizes="(max-width:899px) 100vw, 30vw" alt="Autista in giacca accanto alla vettura" data-photo-slot="autista" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        </div>
+        <figcaption class="ph-cap fade" style="--d:.1s"><b>Tav.&nbsp;III</b> — L’autista, in attesa</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="flotta" aria-labelledby="flotta-h">
+    <div class="sec-head">
+      <div data-r>
+        <span class="lbl lbl-acc num">IV</span>
+        <h2 class="sec-h" id="flotta-h" style="margin-top:16px">
+          <span class="mask"><span>Le <em>vetture</em></span></span>
+        </h2>
+      </div>
+      <p class="sec-lead fade" data-r>Categorie, non promesse: ci dite quante persone siete e quanti bagagli avete, e vi indichiamo la classe di vettura giusta con la disponibilità effettiva per la vostra data.</p>
+    </div>
+    <div class="rail">
+      <article class="car" data-r style="--d:0s">
+        <div class="car-art ph ph-45 fade">
+          <svg class="engr" data-draw viewBox="0 0 420 260" fill="none" aria-hidden="true" focusable="false">
+  <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke">
+    <path d="M74 190 C66 160 70 128 86 116 L120 62 C130 44 152 36 210 36 C268 36 290 44 300 62 L334 116 C350 128 354 160 346 190"/>
+    <path d="M86 116 L334 116" opacity=".7"/>
+    <path d="M124 68 C144 56 276 56 296 68" opacity=".6"/>
+    <path d="M92 140 C110 132 140 130 158 134" opacity=".85"/>
+    <path d="M328 140 C310 132 280 130 262 134" opacity=".85"/>
+    <path d="M172 148 L248 148 M166 162 L254 162 M176 176 L244 176" opacity=".6"/>
+    <path d="M74 190 L74 214 M346 190 L346 214" opacity=".8"/>
+    <path d="M74 202 L346 202" opacity=".5"/>
+    <path d="M40 236 L380 236" opacity=".45"/>
+    <path d="M96 250 L200 250 M240 250 L330 250" opacity=".25"/>
+  </g>
+</svg>
+          <img src="https://images.unsplash.com/photo-1764605206511-7a649d9df63b?auto=format&fit=crop&w=900&q=78" srcset="https://images.unsplash.com/photo-1764605206511-7a649d9df63b?auto=format&fit=crop&w=450&q=78 450w, https://images.unsplash.com/photo-1764605206511-7a649d9df63b?auto=format&fit=crop&w=900&q=78 900w, https://images.unsplash.com/photo-1764605206511-7a649d9df63b?auto=format&fit=crop&w=1800&q=78 1800w" sizes="(max-width:899px) 80vw, 30vw" alt="Berlina executive di colore scuro" data-photo-slot="flotta-1" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+          <span class="car-num">01</span>
+        </div>
+        <div class="car-meta">
+          <h3 class="car-t"><span class="mask"><span>Berlina executive</span></span></h3>
+          <p class="lbl car-s">1–3 passeggeri</p>
+          <p class="car-d fade">Classe E, Serie 5 o equivalente. La scelta standard per il business.</p>
+        </div>
+      </article>
+      <article class="car" data-r style="--d:0.09s">
+        <div class="car-art ph ph-45 fade">
+          <svg class="engr" data-draw viewBox="0 0 420 260" fill="none" aria-hidden="true" focusable="false">
+  <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke">
+    <path d="M44 194 C38 150 42 96 56 76 C70 56 108 42 168 40 L286 42 C314 44 336 62 356 96 L374 128 C384 146 384 174 378 194"/>
+    <path d="M378 194 C374 164 356 148 334 148 C312 148 294 164 290 194"/>
+    <path d="M290 194 L166 194"/>
+    <path d="M166 194 C162 164 144 148 122 148 C100 148 82 164 78 194"/>
+    <path d="M78 194 L44 194"/>
+    <path d="M66 78 L294 74 C314 82 330 100 344 122 L66 126 Z" opacity=".8"/>
+    <path d="M150 76 L150 126 M232 75 L232 125" opacity=".6"/>
+    <path d="M60 140 L360 136" opacity=".45"/>
+    <circle cx="122" cy="170" r="30"/><circle cx="122" cy="170" r="13" opacity=".8"/>
+    <circle cx="334" cy="170" r="30"/><circle cx="334" cy="170" r="13" opacity=".8"/>
+    <path d="M24 216 L400 216" opacity=".45"/>
+    <path d="M70 232 L230 232 M270 232 L360 232" opacity=".25"/>
+  </g>
+</svg>
+          <img src="https://images.unsplash.com/photo-1775047315770-5a7d1c3f3827?auto=format&fit=crop&w=900&q=78" srcset="https://images.unsplash.com/photo-1775047315770-5a7d1c3f3827?auto=format&fit=crop&w=450&q=78 450w, https://images.unsplash.com/photo-1775047315770-5a7d1c3f3827?auto=format&fit=crop&w=900&q=78 900w, https://images.unsplash.com/photo-1775047315770-5a7d1c3f3827?auto=format&fit=crop&w=1800&q=78 1800w" sizes="(max-width:899px) 80vw, 30vw" alt="Van premium per trasferimenti di gruppo" data-photo-slot="flotta-2" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+          <span class="car-num">02</span>
+        </div>
+        <div class="car-meta">
+          <h3 class="car-t"><span class="mask"><span>Van premium</span></span></h3>
+          <p class="lbl car-s">1–7 passeggeri</p>
+          <p class="car-d fade">Classe V o equivalente. Spazio per bagagli veri, non da cabina.</p>
+        </div>
+      </article>
+      <article class="car" data-r style="--d:0.18s">
+        <div class="car-art ph ph-45 fade">
+          <svg class="engr" data-draw viewBox="0 0 420 260" fill="none" aria-hidden="true" focusable="false">
+  <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke">
+    <circle cx="210" cy="126" r="94"/><circle cx="210" cy="126" r="78" opacity=".8"/>
+    <circle cx="210" cy="126" r="34" opacity=".9"/><circle cx="210" cy="126" r="13" opacity=".7"/>
+    <path d="M210 48 L210 92 M210 160 L210 204 M132 126 L176 126 M244 126 L288 126" opacity=".75"/>
+    <path d="M155 71 L186 102 M234 150 L265 181 M265 71 L234 102 M186 150 L155 181" opacity=".55"/>
+    <path d="M118 126 A92 92 0 0 1 210 34" opacity=".35"/>
+    <path d="M302 126 A92 92 0 0 1 210 218" opacity=".35"/>
+    <path d="M40 240 L380 240" opacity=".4"/>
+    <path d="M96 252 L200 252 M240 252 L332 252" opacity=".22"/>
+  </g>
+</svg>
+          <img src="https://images.unsplash.com/photo-1624343747608-85a728776125?auto=format&fit=crop&w=900&q=78" srcset="https://images.unsplash.com/photo-1624343747608-85a728776125?auto=format&fit=crop&w=450&q=78 450w, https://images.unsplash.com/photo-1624343747608-85a728776125?auto=format&fit=crop&w=900&q=78 900w, https://images.unsplash.com/photo-1624343747608-85a728776125?auto=format&fit=crop&w=1800&q=78 1800w" sizes="(max-width:899px) 80vw, 30vw" alt="Berlina executive di colore scuro" data-photo-slot="flotta-3" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+          <span class="car-num">03</span>
+        </div>
+        <div class="car-meta">
+          <h3 class="car-t"><span class="mask"><span>Ammiraglia</span></span></h3>
+          <p class="lbl car-s">1–3 passeggeri</p>
+          <p class="car-d fade">Classe S o equivalente. Quando l’auto fa parte dell’accoglienza.</p>
+        </div>
+      </article></div>
+  </section>
+
+  <section class="sec wrap" id="metodo" aria-labelledby="metodo-h">
+    <div class="sec-head">
+      <div data-r>
+        <span class="lbl lbl-acc num">V</span>
+        <h2 class="sec-h" id="metodo-h" style="margin-top:16px">
+          <span class="mask"><span>Come si</span></span>
+          <span class="mask"><span style="--d:.08s"><em>prenota</em></span></span>
+        </h2>
+      </div>
+      <p class="sec-lead fade" data-r>Tre passaggi, nessun modulo da compilare, nessun centralino da attraversare. Chi vi risponde è chi guida.</p>
+    </div>
+    <ol class="steps">
+      <li class="step" data-r style="--d:0s">
+        <span class="step-n">I</span>
+        <h3 class="step-t"><span class="mask"><span>Si scrive</span></span></h3>
+        <p class="step-d fade">Un messaggio su WhatsApp con data, orario, luogo di partenza e destinazione: sono le uniche quattro cose che ci servono per cominciare.</p>
+      </li>
+      <li class="step" data-r style="--d:0.1s">
+        <span class="step-n">II</span>
+        <h3 class="step-t"><span class="mask"><span>Si riceve il preventivo</span></span></h3>
+        <p class="step-d fade">Rispondiamo con la vettura adatta e una cifra concordata, che resta quella fino alla fine del servizio.</p>
+      </li>
+      <li class="step" data-r style="--d:0.2s">
+        <span class="step-n">III</span>
+        <h3 class="step-t"><span class="mask"><span>Si viaggia</span></span></h3>
+        <p class="step-d fade">All’ora stabilita l’auto è già lì. Da quel momento in poi non dovete più occuparvi di nulla.</p>
+      </li></ol>
+  </section>
+
+  <section class="spread" aria-labelledby="spread-h">
+    <figure class="spread-fig" data-r>
+      <div class="ph ph-spread">
+        <svg class="engr" data-draw viewBox="0 0 960 420" fill="none" aria-hidden="true" focusable="false">
+  <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke">
+    <path d="M60 238 L900 238" opacity=".5"/>
+    <path d="M40 412 L468 242"/>
+    <path d="M920 412 L492 242"/>
+    <path d="M480 412 L480 374 M480 356 L480 328 M480 314 L480 294 M480 284 L480 270 M480 264 L480 254" opacity=".7"/>
+    <path d="M150 372 L214 348 M746 372 L682 348 M262 316 L306 300 M634 316 L590 300" opacity=".4"/>
+    <circle cx="748" cy="150" r="42" opacity=".45"/>
+    <circle cx="748" cy="150" r="27" opacity=".2"/>
+    <path d="M120 194 L840 194" opacity=".2"/>
+    <path d="M196 166 L780 166" opacity=".15"/>
+    <path d="M262 138 L620 138" opacity=".12"/>
+    <path d="M60 262 L900 262" opacity=".18"/>
+  </g>
+</svg>
+        <img src="https://images.unsplash.com/photo-1598816530287-60981e23a0c1?auto=format&fit=crop&w=2000&q=74" srcset="https://images.unsplash.com/photo-1598816530287-60981e23a0c1?auto=format&fit=crop&w=1000&q=74 1000w, https://images.unsplash.com/photo-1598816530287-60981e23a0c1?auto=format&fit=crop&w=2000&q=74 2000w, https://images.unsplash.com/photo-1598816530287-60981e23a0c1?auto=format&fit=crop&w=2400&q=74 2400w" sizes="100vw" alt="Strada panoramica del Nord Italia" data-photo-slot="strada" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+      </div>
+      <div class="wrap spread-in" data-r>
+        <span class="lbl lbl-acc">Tavola fuori testo</span>
+        <h2 class="spread-h serif-xl" id="spread-h">
+          <span class="mask"><span>Il Nord si attraversa</span></span>
+          <span class="mask"><span style="--d:.08s"><em>senza rumore</em></span></span>
+        </h2>
+        <p class="spread-p fade" style="--d:.16s">Autostrade, valichi, centri storici chiusi al traffico, strade di lago che si stringono d’estate: il percorso si sceglie prima di partire, insieme all’orario di uscita. È la parte del lavoro che non si vede e che decide come andrà la giornata.</p>
+        <figcaption class="ph-cap spread-cap fade" style="--d:.24s"><b>Tav.&nbsp;IV</b> — Strada, Nord Italia</figcaption>
+      </div>
+    </figure>
+  </section>
+
+  <section class="zone" id="zona" aria-labelledby="zona-h">
+    <div class="wrap" style="padding-top:clamp(48px,8vh,104px);padding-bottom:clamp(48px,8vh,104px)">
+      <div class="hero-top">
+        <span class="lbl lbl-acc">VI</span>
+        <span class="line" aria-hidden="true"></span>
+        <span class="lbl">Zona operativa</span>
+      </div>
+      <div data-r>
+        <h2 class="zone-ghost" id="zona-h" style="--zn:3.33"><span class="mask"><span>Belluno</span></span></h2>
+      </div>
+      <div class="zone-body">
+        <p class="zone-p fade" data-r>Lavoriamo a Belluno e da Belluno partiamo: transfer in città, collegamenti con aeroporti e stazioni, trasferimenti verso altre città concordati di volta in volta. Per le destinazioni fuori zona basta chiedere: vi diciamo subito se possiamo coprirle e a quali condizioni.</p>
+        <address class="addr fade" data-r style="--d:.1s;font-style:normal">
+          <span class="lbl">Recapito</span>
+          <span>Via Molaren, 31</span>
+          <span>Belluno</span>
+        </address>
+        <figure class="ph-fig zone-fig" data-r>
+        <div class="ph ph-45 fade">
+          <svg class="engr" data-draw viewBox="0 0 420 300" fill="none" aria-hidden="true" focusable="false">
+  <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke">
+    <path d="M18 268 L402 268" opacity=".5"/>
+    <path d="M40 268 L40 192 L96 192 L96 268"/>
+    <path d="M96 268 L96 148 L152 148 L152 268"/>
+    <path d="M152 268 L152 214 L196 214 L196 268" opacity=".85"/>
+    <path d="M210 268 L210 122 L214 92 L218 122 L218 268"/>
+    <path d="M232 268 L232 178 L288 178 L288 268" opacity=".9"/>
+    <path d="M288 268 L288 208 L338 208 L338 268" opacity=".85"/>
+    <path d="M338 268 L338 162 L384 162 L384 268"/>
+    <path d="M54 210 L82 210 M54 230 L82 230 M110 168 L138 168 M110 190 L138 190 M110 212 L138 212" opacity=".45"/>
+    <path d="M246 198 L274 198 M246 220 L274 220 M352 182 L372 182 M352 204 L372 204" opacity=".45"/>
+    <path d="M60 62 L360 62" opacity=".16"/>
+    <path d="M108 86 L312 86" opacity=".12"/>
+    <path d="M18 284 L402 284" opacity=".22"/>
+  </g>
+</svg>
+          <img src="https://images.unsplash.com/photo-1622884589154-4bf891d0af40?auto=format&fit=crop&w=1000&q=78" srcset="https://images.unsplash.com/photo-1622884589154-4bf891d0af40?auto=format&fit=crop&w=500&q=78 500w, https://images.unsplash.com/photo-1622884589154-4bf891d0af40?auto=format&fit=crop&w=1000&q=78 1000w, https://images.unsplash.com/photo-1622884589154-4bf891d0af40?auto=format&fit=crop&w=2000&q=78 2000w" sizes="(max-width:899px) 100vw, 32vw" alt="Strada cittadina di notte" data-photo-slot="notturno" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        </div>
+        <figcaption class="ph-cap fade" style="--d:.1s"><b>Tav.&nbsp;V</b> — Città, di notte</figcaption>
+      </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="domande" aria-labelledby="domande-h">
+    <div class="sec-head">
+      <div data-r>
+        <span class="lbl lbl-acc num">VII</span>
+        <h2 class="sec-h" id="domande-h" style="margin-top:16px">
+          <span class="mask"><span>Domande</span></span>
+          <span class="mask"><span style="--d:.08s"><em>ricorrenti</em></span></span>
+        </h2>
+      </div>
+      <p class="sec-lead fade" data-r>Le cose che ci vengono chieste più spesso, con la risposta che daremmo al telefono.</p>
+    </div>
+    <div class="faq" id="faq">
+      <div class="qa" data-r>
+        <h3>
+          <button class="qa-q" type="button" aria-expanded="false" aria-controls="qa-p-0" id="qa-b-0">
+            <span class="qa-n">01</span>
+            <span class="qa-txt">Come si prenota?</span>
+            <span class="qa-ico" aria-hidden="true"><i></i><i></i></span>
+          </button>
+        </h3>
+        <div class="qa-p" id="qa-p-0" role="region" aria-labelledby="qa-b-0"><div><p>Il modo più veloce è WhatsApp: scriveteci data, orario, luogo di partenza e destinazione. Vi rispondiamo con il preventivo. Se preferite, potete anche chiamare.</p></div></div>
+      </div>
+      <div class="qa" data-r>
+        <h3>
+          <button class="qa-q" type="button" aria-expanded="false" aria-controls="qa-p-1" id="qa-b-1">
+            <span class="qa-n">02</span>
+            <span class="qa-txt">Il prezzo è fisso?</span>
+            <span class="qa-ico" aria-hidden="true"><i></i><i></i></span>
+          </button>
+        </h3>
+        <div class="qa-p" id="qa-p-1" role="region" aria-labelledby="qa-b-1"><div><p>Sì. Il preventivo viene concordato prima del servizio e non cambia a fine corsa, salvo modifiche richieste da voi durante il viaggio.</p></div></div>
+      </div>
+      <div class="qa" data-r>
+        <h3>
+          <button class="qa-q" type="button" aria-expanded="false" aria-controls="qa-p-2" id="qa-b-2">
+            <span class="qa-n">03</span>
+            <span class="qa-txt">Con quanto anticipo devo prenotare?</span>
+            <span class="qa-ico" aria-hidden="true"><i></i><i></i></span>
+          </button>
+        </h3>
+        <div class="qa-p" id="qa-p-2" role="region" aria-labelledby="qa-b-2"><div><p>Prima si prenota, più è facile garantire la vettura richiesta. Per le richieste last minute conviene scrivere direttamente su WhatsApp: se c’è disponibilità lo sapete subito.</p></div></div>
+      </div>
+      <div class="qa" data-r>
+        <h3>
+          <button class="qa-q" type="button" aria-expanded="false" aria-controls="qa-p-3" id="qa-b-3">
+            <span class="qa-n">04</span>
+            <span class="qa-txt">Si può pagare con carta?</span>
+            <span class="qa-ico" aria-hidden="true"><i></i><i></i></span>
+          </button>
+        </h3>
+        <div class="qa-p" id="qa-p-3" role="region" aria-labelledby="qa-b-3"><div><p>Sì. I metodi di pagamento accettati vengono confermati al momento della prenotazione.</p></div></div>
       </div></div>
-  
-      <div class="blk rate">
-        <div class="stars" aria-hidden="true"><svg class="star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 1.6l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1-6.3-3.5-6.3 3.5 1.3-7.1L1.8 9.1l7.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 1.6l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1-6.3-3.5-6.3 3.5 1.3-7.1L1.8 9.1l7.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 1.6l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1-6.3-3.5-6.3 3.5 1.3-7.1L1.8 9.1l7.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 1.6l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1-6.3-3.5-6.3 3.5 1.3-7.1L1.8 9.1l7.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 1.6l3.1 6.6 7.1.9-5.2 4.9 1.3 7.1-6.3-3.5-6.3 3.5 1.3-7.1L1.8 9.1l7.1-.9z"/></svg></div>
-        <p class="rate-x"><b class="num" data-val="5,0">5,0</b> su Google &middot; <b class="num" data-val="2">2</b> recensioni</p>
+  </section>
+
+  <section class="contact" id="contatti" aria-labelledby="contatti-h">
+    <div class="wrap contact-in">
+      <div data-r>
+        <span class="lbl">VIII — Contatti</span>
+        <h2 class="contact-h serif-xl" id="contatti-h">
+          <span class="mask"><span>Scriveteci</span></span>
+          <span class="mask"><span style="--d:.08s"><em>quando volete</em></span></span>
+        </h2>
       </div>
-  <div class="proof-2">
-    <div class="blk blk-acc blk-h proof-claim">
-      <h2>Preventivo fisso</h2>
-      <p>Nessun costo a sorpresa a fine corsa</p>
-    </div>
-    <div class="ph ph-bw proof-ph"><img src="https://images.unsplash.com/photo-1740485863195-af1796f9e615?auto=format&fit=crop&w=900&q=76" srcset="https://images.unsplash.com/photo-1740485863195-af1796f9e615?auto=format&fit=crop&w=450&q=76 450w, https://images.unsplash.com/photo-1740485863195-af1796f9e615?auto=format&fit=crop&w=900&q=76 900w, https://images.unsplash.com/photo-1740485863195-af1796f9e615?auto=format&fit=crop&w=1800&q=76 1800w" sizes="(max-width:800px) 100vw, 50vw" alt="Autista in giacca accanto alla vettura" data-photo-slot="autista" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="ph-grid" aria-hidden="true"></span><span class="ph-plate ph-plate-acc" aria-hidden="true">Chi guida</span></div>
-  </div>
-</section>
-
-<!-- ============================ SERVIZI ============================= -->
-<section class="sec" aria-labelledby="h-srv">
-  <span class="vtag" aria-hidden="true"><i>Cosa facciamo</i></span>
-  <div class="pad sec-head">
-    <div class="sec-head-t">
-      <span class="eyebrow">Servizi <em>&mdash;</em> Belluno</span>
-      <h2 class="fit sec-h" data-fit="head" id="h-srv" data-words="SI|FA|COSÌ"><span class="ml" style="--fs:10.5">SI FA COSÌ</span></h2>
-    </div>
-    <div class="ph ph-bw sec-head-ph ph-sh"><img src="https://images.unsplash.com/photo-1661336878277-1d0078e7b3e4?auto=format&fit=crop&w=900&q=76" srcset="https://images.unsplash.com/photo-1661336878277-1d0078e7b3e4?auto=format&fit=crop&w=450&q=76 450w, https://images.unsplash.com/photo-1661336878277-1d0078e7b3e4?auto=format&fit=crop&w=900&q=76 900w, https://images.unsplash.com/photo-1661336878277-1d0078e7b3e4?auto=format&fit=crop&w=1800&q=76 1800w" sizes="(max-width:900px) 100vw, 44vw" alt="Interni in pelle di una vettura di rappresentanza" data-photo-slot="interni" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="ph-grid" aria-hidden="true"></span><span class="ph-plate" aria-hidden="true">A bordo</span></div>
-  </div>
-  <div class="grid2">
-      <article class="blk blk-h svc rise">
-        <span class="svc-n">01</span>
-        <h3 class="svc-t">Transfer aeroportuali</h3>
-        <p class="svc-x">Monitoraggio del volo in tempo reale. Se il vostro aereo ritarda, l’auto vi aspetta comunque.</p>
-      </article>
-      <article class="blk blk-h svc rise blk-ink">
-        <span class="svc-n acx">02</span>
-        <h3 class="svc-t">Business travel</h3>
-        <p class="svc-x">Riunioni, fiere, appuntamenti. Un autista che conosce la città e non vi fa mai arrivare tardi.</p>
-      </article>
-      <article class="blk blk-h svc rise">
-        <span class="svc-n">03</span>
-        <h3 class="svc-t">Lunga percorrenza</h3>
-        <p class="svc-x">Trasferimenti fra città e verso l’estero, con preventivo fisso concordato prima della partenza.</p>
-      </article>
-      <article class="blk blk-h svc rise">
-        <span class="svc-n">04</span>
-        <h3 class="svc-t">Servizi su misura</h3>
-        <p class="svc-x">Serate, congressi, disposizione oraria. Ci dite l’esigenza, costruiamo il servizio.</p>
-      </article></div>
-</section>
-
-<!-- ============================= FLOTTA ============================= -->
-<section class="sec" aria-labelledby="h-flt">
-  <span class="vtag vtag-acc" aria-hidden="true"><i>Vetture</i></span>
-  <div class="pad">
-    <span class="eyebrow">Flotta <em>&mdash;</em> su richiesta</span>
-    <h2 class="fit sec-h" data-fit="head" id="h-flt" data-words="SCEGLIETE"><span class="ml" style="--fs:11">SCEGLIETE</span></h2>
-    <p class="rail-hint">Trascinate &rarr;</p>
-  </div>
-  <div class="rail">
-      <article class="car blk blk-h rise">
-        <div class="ph ph-bw car-art"><img src="https://images.unsplash.com/photo-1720812943633-e0e64d4aec55?auto=format&fit=crop&w=760&q=76" srcset="https://images.unsplash.com/photo-1720812943633-e0e64d4aec55?auto=format&fit=crop&w=380&q=76 380w, https://images.unsplash.com/photo-1720812943633-e0e64d4aec55?auto=format&fit=crop&w=760&q=76 760w, https://images.unsplash.com/photo-1720812943633-e0e64d4aec55?auto=format&fit=crop&w=1520&q=76 1520w" sizes="(max-width:900px) 260px, 340px" alt="Berlina executive — berlina executive di colore scuro" data-photo-slot="flotta-1" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="car-grid" aria-hidden="true"></span><svg class="car-svg" viewBox="0 0 480 162" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M4 122C4 110 10 102 22 99L52 91C82 84 118 78 146 72L200 62L232 34C238 29 246 26 254 26L316 26C326 26 334 29 340 34L378 68L444 79C464 83 474 92 476 108L477 122C477 128 474 130 468 130L436 130A28 28 0 0 0 380 130L124 130A28 28 0 0 0 68 130L14 130C8 130 4 127 4 122Z"/><circle cx="408" cy="130" r="25"/><circle cx="96" cy="130" r="25"/></g></svg></div>
-        <div class="car-b">
-          <span class="car-tag">1–3 passeggeri</span>
-          <h3 class="car-t">Berlina executive</h3>
-          <p class="car-x">Classe E, Serie 5 o equivalente. La scelta standard per il business.</p>
+      <div class="contact-grid" data-r>
+        
+        <a class="ct fade" style="--d:.08s" href="tel:+39043964393" aria-label="Telefonare al 0439 64393">
+          <span class="lbl">Telefono</span>
+          <span class="ct-v">0439 64393</span>
+        </a>
+        <div class="ct fade" style="--d:.16s">
+          <span class="lbl">Dove siamo</span>
+          <span class="ct-v">Via Molaren, 31<br>Belluno</span>
         </div>
-      </article>
-      <article class="car blk blk-h rise">
-        <div class="ph ph-bw car-art car-art-acc"><img src="https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=760&q=76" srcset="https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=380&q=76 380w, https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=760&q=76 760w, https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=1520&q=76 1520w" sizes="(max-width:900px) 260px, 340px" alt="Van premium — van premium per trasferimenti di gruppo" data-photo-slot="flotta-2" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="car-grid" aria-hidden="true"></span><svg class="car-svg" viewBox="0 0 480 162" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M6 118C6 100 12 86 26 78L74 50C86 42 100 38 116 38L392 38C424 38 448 48 462 70L474 92C478 100 478 110 478 120C478 126 474 130 468 130L438 130A28 28 0 0 0 382 130L130 130A28 28 0 0 0 74 130L16 130C10 130 6 126 6 118Z"/><circle cx="410" cy="130" r="25"/><circle cx="102" cy="130" r="25"/></g></svg></div>
-        <div class="car-b">
-          <span class="car-tag">1–7 passeggeri</span>
-          <h3 class="car-t">Van premium</h3>
-          <p class="car-x">Classe V o equivalente. Spazio per bagagli veri, non da cabina.</p>
-        </div>
-      </article>
-      <article class="car blk blk-h rise">
-        <div class="ph ph-bw car-art"><img src="https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=760&q=76" srcset="https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=380&q=76 380w, https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=760&q=76 760w, https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=1520&q=76 1520w" sizes="(max-width:900px) 260px, 340px" alt="Ammiraglia — berlina executive di colore scuro" data-photo-slot="flotta-3" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="car-grid" aria-hidden="true"></span><svg class="car-svg" viewBox="0 0 620 162" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="M4 122C4 110 10 102 22 99L52 92C86 84 130 78 168 73L206 40C212 33 222 30 232 30L470 30C480 30 488 33 494 40L520 70L580 80C602 84 612 94 614 110L615 122C615 128 612 130 606 130L574 130A28 28 0 0 0 518 130L124 130A28 28 0 0 0 68 130L14 130C8 130 4 127 4 122Z"/><circle cx="546" cy="130" r="25"/><circle cx="96" cy="130" r="25"/></g></svg></div>
-        <div class="car-b">
-          <span class="car-tag">1–3 passeggeri</span>
-          <h3 class="car-t">Ammiraglia</h3>
-          <p class="car-x">Classe S o equivalente. Quando l’auto fa parte dell’accoglienza.</p>
-        </div>
-      </article></div>
-</section>
-
-<!-- ===================== TICKER FOTOGRAFICO ======================== -->
-
-<div class="mq mq-ph" data-speed="30" aria-hidden="true">
-  <div class="mq-track"><span class="mq-seg"><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1610099610040-ab19f3a5ec35?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1610099610040-ab19f3a5ec35?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1610099610040-ab19f3a5ec35?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1610099610040-ab19f3a5ec35?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Berlina executive di colore scuro" data-photo-slot="hero" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1720812943633-e0e64d4aec55?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1720812943633-e0e64d4aec55?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1720812943633-e0e64d4aec55?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1720812943633-e0e64d4aec55?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Berlina executive di colore scuro" data-photo-slot="flotta-1" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1661336878277-1d0078e7b3e4?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1661336878277-1d0078e7b3e4?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1661336878277-1d0078e7b3e4?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1661336878277-1d0078e7b3e4?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Interni in pelle di una vettura di rappresentanza" data-photo-slot="interni" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1619204715997-1367fe5812f1?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1619204715997-1367fe5812f1?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1619204715997-1367fe5812f1?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1619204715997-1367fe5812f1?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Strada cittadina di notte" data-photo-slot="notturno" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Van premium per trasferimenti di gruppo" data-photo-slot="flotta-2" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1740485863195-af1796f9e615?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1740485863195-af1796f9e615?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1740485863195-af1796f9e615?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1740485863195-af1796f9e615?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Autista in giacca accanto alla vettura" data-photo-slot="autista" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1653582245010-04fc596f8ee2?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1653582245010-04fc596f8ee2?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1653582245010-04fc596f8ee2?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1653582245010-04fc596f8ee2?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Terminal aeroportuale" data-photo-slot="aeroporto" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Berlina executive di colore scuro" data-photo-slot="flotta-3" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1606816493585-22a8486501cb?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1606816493585-22a8486501cb?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1606816493585-22a8486501cb?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1606816493585-22a8486501cb?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Strada panoramica del Nord Italia" data-photo-slot="strada" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1671332752309-259609d9801f?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1671332752309-259609d9801f?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1671332752309-259609d9801f?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1671332752309-259609d9801f?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Berlina executive di colore scuro" data-photo-slot="hero-2" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div></span><span class="mq-seg"><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1610099610040-ab19f3a5ec35?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1610099610040-ab19f3a5ec35?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1610099610040-ab19f3a5ec35?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1610099610040-ab19f3a5ec35?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Berlina executive di colore scuro" data-photo-slot="hero" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1720812943633-e0e64d4aec55?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1720812943633-e0e64d4aec55?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1720812943633-e0e64d4aec55?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1720812943633-e0e64d4aec55?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Berlina executive di colore scuro" data-photo-slot="flotta-1" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1661336878277-1d0078e7b3e4?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1661336878277-1d0078e7b3e4?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1661336878277-1d0078e7b3e4?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1661336878277-1d0078e7b3e4?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Interni in pelle di una vettura di rappresentanza" data-photo-slot="interni" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1619204715997-1367fe5812f1?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1619204715997-1367fe5812f1?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1619204715997-1367fe5812f1?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1619204715997-1367fe5812f1?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Strada cittadina di notte" data-photo-slot="notturno" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Van premium per trasferimenti di gruppo" data-photo-slot="flotta-2" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1740485863195-af1796f9e615?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1740485863195-af1796f9e615?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1740485863195-af1796f9e615?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1740485863195-af1796f9e615?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Autista in giacca accanto alla vettura" data-photo-slot="autista" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1653582245010-04fc596f8ee2?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1653582245010-04fc596f8ee2?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1653582245010-04fc596f8ee2?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1653582245010-04fc596f8ee2?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Terminal aeroportuale" data-photo-slot="aeroporto" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Berlina executive di colore scuro" data-photo-slot="flotta-3" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1606816493585-22a8486501cb?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1606816493585-22a8486501cb?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1606816493585-22a8486501cb?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1606816493585-22a8486501cb?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Strada panoramica del Nord Italia" data-photo-slot="strada" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1671332752309-259609d9801f?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1671332752309-259609d9801f?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1671332752309-259609d9801f?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1671332752309-259609d9801f?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Berlina executive di colore scuro" data-photo-slot="hero-2" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div></span><span class="mq-seg"><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1610099610040-ab19f3a5ec35?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1610099610040-ab19f3a5ec35?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1610099610040-ab19f3a5ec35?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1610099610040-ab19f3a5ec35?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Berlina executive di colore scuro" data-photo-slot="hero" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1720812943633-e0e64d4aec55?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1720812943633-e0e64d4aec55?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1720812943633-e0e64d4aec55?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1720812943633-e0e64d4aec55?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Berlina executive di colore scuro" data-photo-slot="flotta-1" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1661336878277-1d0078e7b3e4?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1661336878277-1d0078e7b3e4?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1661336878277-1d0078e7b3e4?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1661336878277-1d0078e7b3e4?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Interni in pelle di una vettura di rappresentanza" data-photo-slot="interni" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1619204715997-1367fe5812f1?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1619204715997-1367fe5812f1?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1619204715997-1367fe5812f1?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1619204715997-1367fe5812f1?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Strada cittadina di notte" data-photo-slot="notturno" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1565340380388-6ecb7426fc63?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Van premium per trasferimenti di gruppo" data-photo-slot="flotta-2" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1740485863195-af1796f9e615?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1740485863195-af1796f9e615?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1740485863195-af1796f9e615?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1740485863195-af1796f9e615?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Autista in giacca accanto alla vettura" data-photo-slot="autista" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1653582245010-04fc596f8ee2?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1653582245010-04fc596f8ee2?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1653582245010-04fc596f8ee2?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1653582245010-04fc596f8ee2?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Terminal aeroportuale" data-photo-slot="aeroporto" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1756407653081-1b6cfa60b608?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Berlina executive di colore scuro" data-photo-slot="flotta-3" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1606816493585-22a8486501cb?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1606816493585-22a8486501cb?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1606816493585-22a8486501cb?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1606816493585-22a8486501cb?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Strada panoramica del Nord Italia" data-photo-slot="strada" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><div class="ph ph-bw pcell"><img src="https://images.unsplash.com/photo-1671332752309-259609d9801f?auto=format&fit=crop&w=400&q=70" srcset="https://images.unsplash.com/photo-1671332752309-259609d9801f?auto=format&fit=crop&w=200&q=70 200w, https://images.unsplash.com/photo-1671332752309-259609d9801f?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1671332752309-259609d9801f?auto=format&fit=crop&w=800&q=70 800w" sizes="200px" alt="Berlina executive di colore scuro" data-photo-slot="hero-2" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div></span></div>
-</div>
-
-<!-- ================ FOTO GIGANTE + SCRITTA IN DIFFERENCE =========== -->
-<section class="mono" aria-labelledby="h-mono">
-  <div class="ph ph-bw mono-ph"><img src="https://images.unsplash.com/photo-1606816493585-22a8486501cb?auto=format&fit=crop&w=2000&q=74" srcset="https://images.unsplash.com/photo-1606816493585-22a8486501cb?auto=format&fit=crop&w=1000&q=74 1000w, https://images.unsplash.com/photo-1606816493585-22a8486501cb?auto=format&fit=crop&w=2000&q=74 2000w, https://images.unsplash.com/photo-1606816493585-22a8486501cb?auto=format&fit=crop&w=2400&q=74 2400w" sizes="100vw" alt="Strada panoramica del Nord Italia" data-photo-slot="strada" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer"><span class="ph-grid" aria-hidden="true"></span><span class="ph-bars" aria-hidden="true"></span></div>
-  <div class="mono-in">
-    <span class="eyebrow mono-eye">Belluno <em>&mdash;</em> Noleggio con conducente</span>
-    <h2 class="fit mono-t" data-fit="head" id="h-mono" data-words="AUTONOLEGGIO|BERNARDIN|SERVIZI"><span class="ml" style="--fs:8.8">AUTONOLEGGIO</span><span class="ml" style="--fs:6.2">BERNARDIN SERVIZI</span></h2>
-    <p class="mono-x">Si parte quando dite voi. Preventivo prima, nessuna sorpresa dopo.</p>
-  </div>
-</section>
-
-<!-- ========================== COME FUNZIONA ========================= -->
-<section class="sec how" aria-labelledby="h-how">
-  <span class="vtag vtag-dark" aria-hidden="true"><i>Tre passaggi</i></span>
-  <div class="pad">
-    <span class="eyebrow">Come funziona <em>&mdash;</em> senza attese</span>
-    <h2 class="fit sec-h" data-fit="head" id="h-how" data-words="SCRIVI.|RICEVI.|VIAGGI."><span class="ml" style="--fs:7">SCRIVI. RICEVI.</span><span class="ml" style="--fs:11">VIAGGI.</span></h2>
-    <div class="steps">
-      <article class="step rise">
-        <span class="step-n">01</span>
-        <h3 class="step-t">Scrivete</h3>
-        <p class="step-x">Data, ora, partenza, destinazione. Su WhatsApp o al telefono. Bastano trenta secondi.</p>
-      </article>
-      <article class="step rise">
-        <span class="step-n">02</span>
-        <h3 class="step-t">Ricevete il preventivo</h3>
-        <p class="step-x">Prezzo concordato prima della partenza. Se va bene si conferma, altrimenti nessun impegno.</p>
-      </article>
-      <article class="step rise">
-        <span class="step-n">03</span>
-        <h3 class="step-t">Viaggiate</h3>
-        <p class="step-x">L’autista arriva all’orario stabilito. Da lì in poi non dovete pensare a nulla.</p>
-      </article></div>
-  </div>
-</section>
-
-<!-- =========================== ZONA OPERATIVA ====================== -->
-<section class="sec" aria-labelledby="h-zone">
-  <span class="vtag" aria-hidden="true"><i>Dove operiamo</i></span>
-  <div class="zone">
-    <div class="zone-b">
-      <span class="eyebrow">Zona operativa</span>
-      <h2 class="fit" data-fit="mega" id="h-zone" data-words="BELLUNO"><span class="ml" style="--fs:15">BELLUNO</span></h2>
-      <p class="zone-note">Si parte da Belluno e si arriva dove serve: percorso, orari e prezzo si concordano prima, mai dopo. Per le corse fuori zona basta chiedere.</p>
-      <p class="zone-addr">Via Molaren, 31<br>Belluno</p>
+      </div>
+      
     </div>
-    <div class="zone-map">
-      <img src="https://images.unsplash.com/photo-1653582245010-04fc596f8ee2?auto=format&fit=crop&w=1000&q=74" srcset="https://images.unsplash.com/photo-1653582245010-04fc596f8ee2?auto=format&fit=crop&w=500&q=74 500w, https://images.unsplash.com/photo-1653582245010-04fc596f8ee2?auto=format&fit=crop&w=1000&q=74 1000w, https://images.unsplash.com/photo-1653582245010-04fc596f8ee2?auto=format&fit=crop&w=2000&q=74 2000w" sizes="(max-width:900px) 100vw, 40vw" alt="Terminal aeroportuale" data-photo-slot="aeroporto" class="ph-i" loading="lazy" decoding="async" referrerpolicy="no-referrer">
-      <span class="net" aria-hidden="true"></span>
-      <span class="ring r3" aria-hidden="true"></span><span class="ring r2" aria-hidden="true"></span><span class="ring r1" aria-hidden="true"></span>
-      <span class="pin" aria-hidden="true"></span>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============================== FAQ ============================== -->
-<section class="sec" aria-labelledby="h-faq">
-  <span class="vtag vtag-acc" aria-hidden="true"><i>Domande</i></span>
-  <div class="pad">
-    <span class="eyebrow">Domande <em>&mdash;</em> risposte secche</span>
-    <h2 class="fit sec-h" data-fit="head" id="h-faq" data-words="CHIEDETE"><span class="ml" style="--fs:11">CHIEDETE</span></h2>
-  </div>
-  <div class="faqs">
-      <details class="faq">
-        <summary><span class="faq-q">Come si prenota?</span><span class="faq-i" aria-hidden="true"></span></summary>
-        <div class="faq-a"><p>Il modo più veloce è WhatsApp: scriveteci data, orario, luogo di partenza e destinazione. Vi rispondiamo con il preventivo. Se preferite, potete anche chiamare.</p></div>
-      </details>
-      <details class="faq">
-        <summary><span class="faq-q">Il prezzo è fisso?</span><span class="faq-i" aria-hidden="true"></span></summary>
-        <div class="faq-a"><p>Sì. Il preventivo viene concordato prima del servizio e non cambia a fine corsa, salvo modifiche richieste da voi durante il viaggio.</p></div>
-      </details>
-      <details class="faq">
-        <summary><span class="faq-q">Con quanto anticipo devo prenotare?</span><span class="faq-i" aria-hidden="true"></span></summary>
-        <div class="faq-a"><p>Prima si prenota, più è facile garantire la vettura richiesta. Per le richieste last minute conviene scrivere direttamente su WhatsApp: se c’è disponibilità lo sapete subito.</p></div>
-      </details>
-      <details class="faq">
-        <summary><span class="faq-q">Si può pagare con carta?</span><span class="faq-i" aria-hidden="true"></span></summary>
-        <div class="faq-a"><p>Sì. I metodi di pagamento accettati vengono confermati al momento della prenotazione.</p></div>
-      </details></div>
-</section>
-
-<div class="mq" data-speed="48" aria-hidden="true">
-      <div class="mq-track"><span class="mq-seg"><span class="mq-w">Autonoleggio Bernardin Servizi</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Transfer aeroportuali</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Business travel</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Lunga percorrenza</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Servizi su misura</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Noleggio con conducente</span><span class="mq-s" aria-hidden="true">+</span></span><span class="mq-seg"><span class="mq-w">Autonoleggio Bernardin Servizi</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Transfer aeroportuali</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Business travel</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Lunga percorrenza</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Servizi su misura</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Noleggio con conducente</span><span class="mq-s" aria-hidden="true">+</span></span><span class="mq-seg"><span class="mq-w">Autonoleggio Bernardin Servizi</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Transfer aeroportuali</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Business travel</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Lunga percorrenza</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Servizi su misura</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Noleggio con conducente</span><span class="mq-s" aria-hidden="true">+</span></span><span class="mq-seg"><span class="mq-w">Autonoleggio Bernardin Servizi</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Transfer aeroportuali</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Business travel</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Lunga percorrenza</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Servizi su misura</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Noleggio con conducente</span><span class="mq-s" aria-hidden="true">+</span></span><span class="mq-seg"><span class="mq-w">Autonoleggio Bernardin Servizi</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Transfer aeroportuali</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Business travel</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Lunga percorrenza</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Servizi su misura</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Noleggio con conducente</span><span class="mq-s" aria-hidden="true">+</span></span><span class="mq-seg"><span class="mq-w">Autonoleggio Bernardin Servizi</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Transfer aeroportuali</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Business travel</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Lunga percorrenza</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Servizi su misura</span><span class="mq-s" aria-hidden="true">+</span><span class="mq-w">Noleggio con conducente</span><span class="mq-s" aria-hidden="true">+</span></span></div>
+  <footer class="foot wrap">
+    <div class="foot-in">
+      <div>
+        <span class="lbl">Noleggio con conducente</span>
+        <p class="foot-n">Autonoleggio Bernardin Servizi — 5,0 su Google · 2 recensioni</p>
+      </div>
+      <p class="lbl foot-u">Anteprima realizzata da Umbra<br>Fotografie di repertorio</p>
     </div>
-
-<!-- ============================ CONTATTI =========================== -->
-<section class="sec" aria-labelledby="h-ct">
-  <span class="vtag vtag-dark" aria-hidden="true"><i>Contatti</i></span>
-  <div class="pad">
-    <span class="eyebrow">Contatti <em>&mdash;</em> risponde una persona</span>
-    <h2 class="fit sec-h" data-fit="head" id="h-ct" data-words="PARLIAMONE"><span class="ml" style="--fs:10.5">PARLIAMONE</span></h2>
-  </div>
-  <div class="ct">
-    
-    <a class="blk blk-ink blk-h ct-b" href="tel:+39043964393">
-      <span class="ct-l">Telefono</span>
-      <span class="ct-v">0439 64393</span>
-      <span class="ct-x">Chiamata diretta. Nessun centralino, nessuna coda.</span>
-    </a>
-    <div class="blk blk-h ct-b">
-      <span class="ct-l">Indirizzo</span>
-      <span class="ct-v">Via Molaren, 31<br>Belluno</span>
-      <span class="ct-x">Riferimento operativo. I servizi si concordano su appuntamento.</span>
-    </div>
-  </div>
-</section>
+  </footer>
 
 </main>
 
-<footer class="ft">
-  <p class="ft-n">Autonoleggio Bernardin Servizi</p>
-  <div class="ft-r">
-    <span>Noleggio con conducente</span>
-    <span>Agenzia di noleggio auto</span>
-    <span>Belluno</span>
-    <span>0439 64393</span>
-  </div>
-  <div class="ft-cta">
-    <a class="btn btn-acc" href="tel:+39043964393" aria-label="Telefona a Autonoleggio Bernardin Servizi"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 3h3l1.6 4-2 1.4a12 12 0 0 0 5.4 5.4l1.4-2 4 1.6v3c0 .9-.7 1.6-1.6 1.6A15.4 15.4 0 0 1 3 5.6C3 4.7 3.7 4 4.6 4z"/></svg><span>Chiama ora</span></a>
-  </div>
-  <p class="ft-u">Anteprima realizzata da Umbra</p>
-</footer>
-
-<nav class="bar" aria-label="Contatti rapidi">
+<nav class="bar solo" aria-label="Contatti rapidi">
   
-  <a class="b-tel" href="tel:+39043964393" aria-label="Telefona a Autonoleggio Bernardin Servizi"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 3h3l1.6 4-2 1.4a12 12 0 0 0 5.4 5.4l1.4-2 4 1.6v3c0 .9-.7 1.6-1.6 1.6A15.4 15.4 0 0 1 3 5.6C3 4.7 3.7 4 4.6 4z"/></svg><span>Chiama</span></a>
+  <a class="b-tel" href="tel:+39043964393" aria-label="Telefonare al 0439 64393">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 4h3.2l1.6 4-2 1.4a12 12 0 0 0 5.3 5.3l1.4-2 4 1.6v3.2A1.5 1.5 0 0 1 16.4 19 14.4 14.4 0 0 1 4 6.6 1.5 1.5 0 0 1 4.5 4z"/></svg>
+    <span>Telefonare</span>
+  </a>
 </nav>
 
 <script>
 (function(){
-  'use strict';
-  var RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var hasIO = typeof IntersectionObserver === 'function';
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---- titoli su misura ------------------------------------------------
-     Ogni riga viene misurata con il font effettivamente in uso (anche di
-     ripiego) e rimpicciolita finché sta dentro la colonna. Conseguenze:
-     nessuna parola viene mai tranciata a metà e l'ultima riga è sempre
-     intera. Il numero di righe cresce con la lunghezza del nome. */
-  var fits = [].slice.call(document.querySelectorAll('.fit'));
-
-  function fitOne(el){
-    var words = (el.getAttribute('data-words') || '').split('|').filter(Boolean);
-    if (!words.length) return;
-    var avail = el.clientWidth;
-    if (!avail || avail < 60) return;
-    /* Riserva anti-taglio. La misura di una riga non comprende lo sbordo
-       d'inchiostro dell'ultima lettera (il tracking è negativo): senza
-       riserva l'ultimo glifo finisce mezzo fuori dallo schermo. Si toglie
-       una fetta prudente e si aggiunge lo sbordo al modello. */
-    var SAFE = Math.max(5, avail * 0.014);
-    var W = avail - SAFE;
-    var BEAR = 5;                               // sbordo su 100px di corpo
-    var narrow = window.innerWidth < 700;
-    var mega = el.getAttribute('data-fit') === 'mega';
-    var maxFs = Math.min(W * (mega ? 0.44 : 0.32), mega ? (narrow ? 84 : 190) : (narrow ? 52 : 104));
-    var maxLines = mega ? (narrow ? 4 : 3) : (narrow ? 3 : 2);
-    var minFs = mega ? (narrow ? 22 : 38) : (narrow ? 18 : 30);
-
-    var probe = document.createElement('span');
-    probe.className = 'ml';
-    probe.setAttribute('aria-hidden', 'true');
-    probe.style.cssText = 'position:absolute;left:-99999px;top:0;visibility:hidden;' +
-      'white-space:pre;display:inline-block;font-size:100px;background:none;' +
-      'padding:0;margin:0;width:auto;max-width:none';
-    el.appendChild(probe);
-    function size(t){
-      probe.textContent = t;
-      var w = probe.getBoundingClientRect().width || 1;
-      return W / (w + BEAR) * 100;
-    }
-    function layout(floor){
-      var out = [], i = 0, guard = 0;
-      while (i < words.length && guard++ < 80){
-        var cur = words[i], fs = size(cur), j = i + 1;
-        while (j < words.length){
-          var cand = cur + ' ' + words[j], cfs = size(cand);
-          if (cfs < floor) break;
-          cur = cand; fs = cfs; j++;
-        }
-        out.push({ t: cur, fs: Math.min(fs, maxFs) });   // mai forzato in su: sta sempre dentro
-        i = j;
-      }
-      return out;
-    }
-    var floor = maxFs * 0.64;
-    var lines = layout(floor), guard = 0;
-    while (lines.length > maxLines && floor > minFs && guard++ < 12){
-      floor = Math.max(minFs, floor * 0.85);
-      lines = layout(floor);
-    }
-    el.removeChild(probe);
-
-    var acc = el.getAttribute('data-acc') === 'last' ? lines.length - 1 : -1;
-    while (el.firstChild) el.removeChild(el.firstChild);
-    for (var n = 0; n < lines.length; n++){
-      var s = document.createElement('span');
-      s.className = 'ml' + (n === acc ? ' ml-acc' : '');
-      s.style.fontSize = lines[n].fs.toFixed(1) + 'px';
-      s.textContent = lines[n].t;
-      el.appendChild(s);
-    }
-
-    /* Verifica sul rendering vero: nessuna riga può sporgere oltre il
-       bordo della colonna. Si misura l'inchiostro con un Range (la riga
-       accento ha un padding di sfondamento che falserebbe il rettangolo
-       dell'elemento) e si stringe finché rientra. Conseguenza: il taglio
-       non cade mai dentro una parola e l'ultima riga è sempre intera. */
-    if (document.createRange){
-      var rg = document.createRange();
-      var lim = el.getBoundingClientRect().left + avail - 2;
-      for (var m = 0; m < el.children.length; m++){
-        var sp = el.children[m];
-        var fs = parseFloat(sp.style.fontSize) || 0;
-        var g = 0;
-        rg.selectNodeContents(sp);
-        while (fs > 8 && rg.getBoundingClientRect().right > lim && g++ < 16){
-          fs *= 0.962;
-          sp.style.fontSize = fs.toFixed(1) + 'px';
-          rg.selectNodeContents(sp);
-        }
-      }
-    }
-  }
-
-  /* La riga accento del titolo deve passare DAVANTI alla fascia
-     fotografica dell'hero e tagliarla: la fascia risale sotto il titolo
-     di poco meno di mezza riga, misurata sul corpo reale. */
-  function bandOverlap(){
-    var h1 = document.getElementById('h1');
-    var band = document.querySelector('.hero-band');
-    if (!h1 || !band) return;
-    var acc = h1.querySelector('.ml-acc') || h1.lastElementChild;
-    if (!acc) return;
-    var h = acc.getBoundingClientRect().height || 0;
-    var bh = band.getBoundingClientRect().height || 200;
-    var ov = Math.max(18, Math.min(h * 0.42, bh * 0.36, 108));
-    band.style.marginTop = '-' + Math.round(ov) + 'px';
-  }
-
-  /* Rete di sicurezza sul telefono: il nome del cliente e la fotografia
-     devono stare insieme nella prima schermata. Se il titolo cresce troppo
-     e spinge la fascia sotto la piega, il titolo si stringe: mai il
-     contrario. Il nome resta comunque su più righe intere. */
-  function heroGuard(){
-    var h1 = document.getElementById('h1');
-    var band = document.querySelector('.hero-band');
-    var bar = document.querySelector('.bar');
-    if (!h1 || !band || !bar) return;
-    if (getComputedStyle(bar).display === 'none') return;
-    var limit = window.innerHeight * 0.80;
-    var base = [], i;
-    for (i = 0; i < h1.children.length; i++) base.push(parseFloat(h1.children[i].style.fontSize) || 0);
-    var k = 1, guard = 0;
-    while (band.getBoundingClientRect().top > limit && k > 0.7 && guard++ < 8){
-      k -= 0.05;
-      for (i = 0; i < h1.children.length; i++) h1.children[i].style.fontSize = (base[i] * k).toFixed(1) + 'px';
-      bandOverlap();
-    }
-  }
-
-  function fitAll(){
-    for (var i = 0; i < fits.length; i++) fitOne(fits[i]);
-    bandOverlap();
-    heroGuard();
-  }
-  fitAll();
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitAll).catch(function(){});
-  setTimeout(fitAll, 400);
-  var fitT;
-  addEventListener('resize', function(){
-    clearTimeout(fitT);
-    fitT = setTimeout(fitAll, 140);
-  }, { passive: true });
-
-  /* ---- entrate a scatto ---- */
-  var rises = [].slice.call(document.querySelectorAll('.rise'));
-  if (RM || !hasIO) {
-    rises.forEach(function(el){ el.classList.add('in'); });
+  /* ——— rivelazioni con maschera ——— */
+  var items = [].slice.call(document.querySelectorAll('[data-r]'));
+  if (!('IntersectionObserver' in window) || reduced) {
+    items.forEach(function(el){ el.classList.add('in'); });
   } else {
-    var ioR = new IntersectionObserver(function(entries){
+    var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
-        if (e.isIntersecting){ e.target.classList.add('in'); ioR.unobserve(e.target); }
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
-    rises.forEach(function(el){ ioR.observe(el); });
-    // rete di sicurezza: se lo scroll resta bloccato, mostra comunque il primo schermo
-    setTimeout(function(){
-      rises.forEach(function(el){
-        var r = el.getBoundingClientRect();
-        if (r.top < innerHeight) el.classList.add('in');
-      });
-    }, 1200);
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+    items.forEach(function(el){ io.observe(el); });
   }
 
-  /* ---- contatori che sgranano ---- */
-  var nums = [].slice.call(document.querySelectorAll('.num'));
-  var DIG = '0123456789';
-  function grind(el){
-    var fin = el.getAttribute('data-val') || el.textContent;
-    if (RM){ el.textContent = fin; return; }
-    var t0 = 0, n = fin.length, dur = 620;
-    function step(ts){
-      if (!t0) t0 = ts;
-      var p = Math.min(1, (ts - t0) / dur), out = '';
-      for (var i = 0; i < n; i++){
-        var ch = fin.charAt(i);
-        if (ch >= '0' && ch <= '9'){
-          out += (p * n * 1.5 - i >= 1) ? ch : DIG.charAt((Math.random() * 10) | 0);
-        } else { out += ch; }
-      }
-      el.textContent = out;
-      if (p < 1) requestAnimationFrame(step); else el.textContent = fin;
-    }
-    requestAnimationFrame(step);
-  }
-  if (!hasIO || RM){
-    nums.forEach(function(el){ el.textContent = el.getAttribute('data-val') || el.textContent; });
-  } else {
-    var ioN = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (e.isIntersecting){ ioN.unobserve(e.target); grind(e.target); }
+  /* ——— incisioni: tratto che si disegna ——— */
+  if (!reduced) {
+    [].slice.call(document.querySelectorAll('svg[data-draw]')).forEach(function(svg){
+      [].slice.call(svg.querySelectorAll('path,circle,line')).forEach(function(p, i){
+        var len = 0;
+        try { len = p.getTotalLength(); } catch (err) { len = 0; }
+        if (!len || len > 6000) return;
+        p.style.strokeDasharray = len;
+        p.style.setProperty('--len', len);
+        p.style.transitionDelay = (i * 0.045) + 's';
       });
-    }, { threshold: 0.4 });
-    nums.forEach(function(el){ ioN.observe(el); });
+    });
   }
 
-  /* ---- ticker infinito, inverte direzione allo scroll ---- */
-  var dir = 1, lastY = window.pageYOffset || 0;
-  addEventListener('scroll', function(){
-    var y = window.pageYOffset || 0, d = y - lastY;
-    if (d > 1){ dir = 1; lastY = y; }
-    else if (d < -1){ dir = -1; lastY = y; }
-  }, { passive: true });
-
-  [].slice.call(document.querySelectorAll('.mq')).forEach(function(mq){
-    var track = mq.querySelector('.mq-track');
-    var seg = mq.querySelector('.mq-seg');
-    if (!track || !seg) return;
-    var base = parseFloat(mq.getAttribute('data-speed')) || 60;
-    var x = 0, w = 1, visible = false, running = false, last = 0;
-
-    function measure(){ w = seg.getBoundingClientRect().width || 1; }
-    measure();
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure).catch(function(){});
-    addEventListener('resize', measure, { passive: true });
-
-    if (RM) return;
-
-    function frame(ts){
-      if (!visible){ running = false; return; }
-      var dt = last ? Math.min(64, ts - last) : 16;
-      last = ts;
-      x -= base * dir * dt / 1000;
-      if (x <= -w) x += w; else if (x >= 0) x -= w;
-      track.style.transform = 'translate3d(' + x.toFixed(2) + 'px,0,0)';
-      requestAnimationFrame(frame);
-    }
-    function start(){ if (!running){ running = true; last = 0; requestAnimationFrame(frame); } }
-
-    if (!hasIO){ visible = true; start(); return; }
-    new IntersectionObserver(function(entries){
-      visible = entries[0].isIntersecting;
-      if (visible) start();
-    }, { threshold: 0 }).observe(mq);
+  /* ——— rete di sicurezza sulle fotografie ———
+     se una foto non arriva resta la tavola incisa sul fondo avorio */
+  var shots = [].slice.call(document.querySelectorAll('img[data-photo-slot]'));
+  function drop(im){ im.style.display = 'none'; }
+  function check(im){ if (im.complete && im.naturalWidth === 0) drop(im); }
+  shots.forEach(function(im){
+    im.addEventListener('error', function(){ drop(im); });
+    check(im);
   });
+  window.addEventListener('load', function(){ shots.forEach(check); });
 
-  /* ---- fotografie: se una non arriva, resta il fondo disegnato ----
-     Si toglie l'immagine e si spengono i velari del duotone, altrimenti
-     tingerebbero il fondo di sicurezza. Nessun rettangolo bianco. */
-  function photoFail(im){
-    im.style.display = 'none';
-    var box = im.parentNode;
-    if (box && box.classList) box.classList.add('ph-off');
+  /* ——— accordion ——— */
+  var faq = document.getElementById('faq');
+  if (faq) {
+    faq.addEventListener('click', function(ev){
+      var btn = ev.target.closest ? ev.target.closest('.qa-q') : null;
+      if (!btn) return;
+      var qa = btn.parentNode.parentNode;
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      [].slice.call(faq.querySelectorAll('.qa')).forEach(function(o){
+        o.classList.remove('open');
+        var b = o.querySelector('.qa-q');
+        if (b) b.setAttribute('aria-expanded', 'false');
+      });
+      if (!open) { qa.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+    });
   }
-  [].slice.call(document.querySelectorAll('img[data-photo-slot]')).forEach(function(im){
-    im.addEventListener('error', function(){ photoFail(im); });
-    if (im.complete && im.naturalWidth === 0) photoFail(im);
-  });
 
-  /* ---- FAQ: una alla volta, cambio di stato istantaneo ---- */
-  var faqs = [].slice.call(document.querySelectorAll('.faq'));
-  faqs.forEach(function(d){
-    d.addEventListener('toggle', function(){
-      if (!d.open) return;
-      faqs.forEach(function(o){ if (o !== d) o.open = false; });
+  /* ——— intestazione e filetto di avanzamento ——— */
+  var hdr = document.getElementById('hdr'), prog = document.getElementById('prog'), tick = false;
+  function onScroll(){
+    if (tick) return; tick = true;
+    requestAnimationFrame(function(){
+      var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      hdr.classList.toggle('on', y > 36);
+      prog.style.width = (h > 0 ? Math.min(100, (y / h) * 100) : 0) + '%';
+      tick = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ——— cambio pagina sui link interni ——— */
+  var leaf = document.getElementById('leaf');
+  function goTo(el){
+    var top = el.getBoundingClientRect().top + (window.pageYOffset || 0) - 44;
+    window.scrollTo(0, Math.max(0, top));
+  }
+  [].slice.call(document.querySelectorAll('a[href^="#"]')).forEach(function(a){
+    a.addEventListener('click', function(ev){
+      var id = a.getAttribute('href');
+      if (!id || id.length < 2) return;
+      var target = document.querySelector(id);
+      if (!target) return;
+      ev.preventDefault();
+      if (reduced) { goTo(target); return; }
+      leaf.style.transition = 'none';
+      leaf.style.transformOrigin = 'left';
+      leaf.style.transform = 'scaleX(0)';
+      void leaf.offsetWidth;
+      leaf.style.transition = 'transform .5s cubic-bezier(.76,0,.24,1)';
+      leaf.style.transform = 'scaleX(1)';
+      window.setTimeout(function(){
+        goTo(target);
+        leaf.style.transition = 'none';
+        leaf.style.transformOrigin = 'right';
+        void leaf.offsetWidth;
+        leaf.style.transition = 'transform .62s cubic-bezier(.76,0,.24,1)';
+        leaf.style.transform = 'scaleX(0)';
+      }, 520);
     });
   });
 })();
 </script>
-
-
-<div class="umbra-flag" role="note">
-  <svg width="15" height="15" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="14" stroke="#C3C6D3" stroke-width="2"/><path d="M16 3.5a12.5 12.5 0 0 1 0 25 15.5 15.5 0 0 0 0-25z" fill="#EEF0F6"/></svg>
-  <span><b>Anteprima Umbra</b> realizzata per Autonoleggio Bernardin Servizi &middot; non &egrave; il sito ufficiale dell'azienda</span>
-</div>
-<style>
-.umbra-flag{position:fixed;left:14px;bottom:14px;z-index:8500;display:flex;align-items:center;gap:9px;
-  max-width:min(430px,calc(100vw - 28px));padding:9px 14px;border-radius:999px;
-  background:rgba(8,8,11,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  border:1px solid rgba(238,240,246,.22);box-shadow:0 6px 26px rgba(0,0,0,.4);
-  font:400 11.5px/1.35 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  color:#C8C8D2;letter-spacing:.01em;pointer-events:none}
-.umbra-flag b{color:#F4F2EC;font-weight:600}
-.umbra-flag svg{flex:none}
-@media (max-width:760px){
-  .umbra-flag{left:8px;right:8px;max-width:none;bottom:calc(78px + env(safe-area-inset-bottom,0px));
-    font-size:10.5px;padding:7px 11px;justify-content:center;text-align:center}
-}
-@media print{.umbra-flag{display:none}}
-</style>
 <!-- ===== UMBRA INTRO 3D — configurare solo "name" ===== -->
 <script>window.UMBRA_INTRO = { name: "Autonoleggio Bernardin Servizi" };</script>
 <div id="uPortal">
@@ -1128,7 +1001,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible{
   <div class="u-ui" id="uUi">
     <svg width="34" height="34" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="url(#ug)" stroke-width="1.6"/><path d="M16 3.5a12.5 12.5 0 0 1 0 25 15.5 15.5 0 0 0 0-25z" fill="url(#ug)"/><defs><linearGradient id="ug" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#EEF0F6"/><stop offset="1" stop-color="#C3C6D3"/></linearGradient></defs></svg>
     <div class="u-brand">Umbra</div>
-    <div class="u-by">by Matteo Tagliacollo</div>
     <div class="u-status">Stiamo aprendo l'anteprima riservata a <b class="u-name"></b></div>
     <div class="u-track"><div class="u-fill" id="uFill"></div></div>
     <div class="u-pct" id="uPct">0%</div>
@@ -1138,7 +1010,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible{
     <div class="u-eyebrow">Umbra presenta</div>
     <h1 class="u-h1">Benvenuto,<br><span class="u-shine u-name"></span></h1>
     <p class="u-sub">Il vostro nuovo sito è pronto. Guardatelo.</p>
-    <div class="u-sign">Umbra · by Matteo Tagliacollo</div>
   </div>
 </div>
 <style>
@@ -1148,8 +1019,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible{
 #uPortal canvas{position:absolute;inset:0;width:100%;height:100%}
 #uPortal .u-ui{position:absolute;left:0;right:0;bottom:9vh;display:flex;flex-direction:column;align-items:center;gap:13px;pointer-events:none}
 #uPortal .u-brand{font-family:Georgia,serif;font-size:1.25rem;letter-spacing:.02em}
-#uPortal .u-by{margin-top:-9px;font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;color:#77747f;
-  font-family:'Inter',system-ui,sans-serif}
 #uPortal .u-status{color:#A5A2B0;font-size:.92rem;text-align:center;padding:0 20px}
 #uPortal .u-status b{color:#F4F2EC;font-weight:600}
 #uPortal .u-track{width:min(320px,70vw);height:2px;background:rgba(238,240,246,.12);border-radius:2px;overflow:hidden}
@@ -1166,8 +1035,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible{
   background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:uShine 3.5s ease-in-out infinite}
 @keyframes uShine{0%,100%{background-position:12% 0}50%{background-position:88% 0}}
 #uPortal .u-sub{color:#A5A2B0;font-size:1.05rem;margin-top:16px}
-#uPortal .u-sign{position:absolute;bottom:6vh;left:0;right:0;text-align:center;font-size:.6rem;
-  letter-spacing:.34em;text-transform:uppercase;color:#5f5d68}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
