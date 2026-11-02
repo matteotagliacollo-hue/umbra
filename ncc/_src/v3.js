@@ -59,12 +59,12 @@ transfer: { theme:'#0D141B', fonts:'family=Archivo:wght@400;500;600;700;800&fami
  .bf{padding:14px 8px 2px;color:var(--fg-2);font-size:11px}
  @media (max-width:980px){.hero .hw{grid-template-columns:1fr}.brow{grid-template-columns:52px 1fr}.brow .s{grid-column:2}}`},
 alpino: { theme:'#F5F6F2', fonts:'family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600',
- css:`:root{--bg:#F5F6F2;--bg-2:#E9ECE5;--bg-3:#DCE1D7;--card:#FFFFFF;--fg:#15201A;--fg-2:#57635B;--line:#D7DDD3;--acc:#C3362B;--on-acc:#fff;--acc-2:#C3362B;
+ css:`:root{--bg:#F5F6F2;--bg-2:#E9ECE5;--bg-3:#DCE1D7;--card:#FFFFFF;--fg:#15201A;--fg-2:#57635B;--line:#D7DDD3;--acc:#2E5A44;--on-acc:#fff;--acc-2:#2E5A44;
  --body:'Inter',system-ui,-apple-system,sans-serif;--disp:'Fraunces',Georgia,serif;--r-btn:12px;--r-card:22px;--r-in:10px;
  --brand-font:600 1.2rem/1.1 var(--disp);--h2-font:600 clamp(2.4rem,5.4vw,4.6rem)/1 var(--disp);--h3-font:600 1.7rem/1.1 var(--disp);--num-font:600 1rem/1 var(--disp);
  --bignum-font:600 clamp(3.4rem,7vw,6rem) var(--disp);--faq-font:600 1.2rem/1.35 var(--disp);--final-font:600 clamp(3rem,9vw,7.6rem)/.95 var(--disp);
- --mani-font:500 clamp(2rem,4.6vw,3.8rem)/1.15 var(--disp);--tick-bg:#1C3A2E;--tick-fg:#EEF2EE;--tick-font:600 clamp(1.1rem,2.2vw,1.6rem)/1 var(--disp);
- --hd-fg:#fff;--hd-solid:rgba(245,246,242,.9);--route-bg:#1C3A2E;--route-fg:#EEF2EE;--route-fg-2:#B5C5BB;--route-base:#3d5a4d;--route-line:#2c4a3d;--mbar-bg:#1C3A2E}
+ --mani-font:500 clamp(2rem,4.6vw,3.8rem)/1.15 var(--disp);--tick-bg:#1E2A24;--tick-fg:#EEF2EE;--tick-font:600 clamp(1.1rem,2.2vw,1.6rem)/1 var(--disp);
+ --hd-fg:#fff;--hd-solid:rgba(245,246,242,.9);--route-bg:#1E2A24;--route-fg:#EEF2EE;--route-fg-2:#B5C5BB;--route-base:#3d5a4d;--route-line:#2c4a3d;--mbar-bg:#1C3A2E}
  .hero{min-height:100svh;display:flex;align-items:flex-end;color:#fff}
  .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,24,19,.55),rgba(12,24,19,.05) 38%,rgba(12,24,19,.78))}
  .hero .hw{position:relative;z-index:2;width:100%;padding-block:140px 80px;display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
