@@ -751,7 +751,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0 40px;background:#040
         </div>
         <figcaption class="inset-cap">
           <span class="inset-k">A bordo</span>
-          <p>Musica, silenzio o due chiamate di lavoro. Decidete voi.</p>
+          <p>Durante il viaggio potete lavorare, telefonare o riposare.</p>
         </figcaption>
       </figure>` : ''}
     </div>
@@ -784,8 +784,8 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0 40px;background:#040
     </div>
     <span class="band-line" aria-hidden="true"></span>
     <div class="wrap band-in">
-      <p class="eyebrow">Fuori orario</p>
-      <p class="band-t chrome">Nero su nero.<br>Il resto è strada.</p>
+      <p class="eyebrow">Anche di notte</p>
+      <p class="band-t chrome">Partenze all’alba,<br>rientri a tarda sera.</p>
       <p class="band-p">Data e orario li scegliete voi. Il prezzo lo sapete prima di salire.</p>
       <div class="band-meta" aria-hidden="true">
         <span>${t(city)}</span><span>${t(c.kicker)}</span><span>Su prenotazione</span>
@@ -845,7 +845,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0 40px;background:#040
   <section class="sec" id="domande">
     <div class="wrap">
       <p class="eyebrow">05 &mdash; Domande</p>
-      <h2 class="sec-h split">Risposte secche</h2>
+      <h2 class="sec-h split">Domande frequenti</h2>
       <div class="faq-list">${faq}</div>
     </div>
   </section>

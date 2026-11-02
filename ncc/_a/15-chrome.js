@@ -1039,7 +1039,7 @@ ${photoTicker}
   <span class="vtag vtag-dark" aria-hidden="true"><i>Tre passaggi</i></span>
   <div class="pad">
     <span class="eyebrow">Come funziona <em>&mdash;</em> senza attese</span>
-    ${fitTitle('Scrivi. Ricevi. Viaggi.', { kind: 'head', cls: 'sec-h', id: 'h-how' })}
+    ${fitTitle('Come si prenota', { kind: 'head', cls: 'sec-h', id: 'h-how' })}
     <div class="steps">${steps}</div>
   </div>
 </section>
@@ -1069,7 +1069,7 @@ ${photoTicker}
 <section class="sec" aria-labelledby="h-faq">
   <span class="vtag vtag-acc" aria-hidden="true"><i>Domande</i></span>
   <div class="pad">
-    <span class="eyebrow">Domande <em>&mdash;</em> risposte secche</span>
+    <span class="eyebrow">Domande <em>&mdash;</em> frequenti</span>
     ${fitTitle('Chiedete', { kind: 'head', cls: 'sec-h', id: 'h-faq' })}
   </div>
   <div class="faqs">${faq}</div>
