@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="it" class="executive">
+<head>
+<meta charset="utf-8">
+<!-- UMBRA INTRO v2 (head) -->
+<script>(function(d){d.documentElement.className+=' u-lock';setTimeout(function(){d.documentElement.classList.remove('u-lock')},12000)})(document)</script>
+<link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin>
+<style>
+html.u-lock,html.u-lock body{background:#050508!important;overflow:hidden!important}
+html.u-lock body>*:not(#uPortal){visibility:hidden!important}
+html:not(.u-lock) #uPortal{display:none}
+#uPortal{position:fixed;inset:0;z-index:2147483000;background:#050508;transition:opacity .9s ease;cursor:pointer;
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;color:#F4F2EC;-webkit-font-smoothing:antialiased}
+#uPortal.u-out{opacity:0;pointer-events:none}
+#uPortal canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .6s ease}
+#uPortal canvas.u-on{opacity:1}
+#uPortal .u-ui{position:absolute;left:0;right:0;bottom:9vh;display:flex;flex-direction:column;align-items:center;gap:13px;pointer-events:none;animation:uIn .5s ease both}
+@keyframes uIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+#uPortal .u-brand{font-family:Georgia,serif;font-size:1.25rem;letter-spacing:.02em}
+#uPortal .u-by{margin-top:-9px;font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;color:#77747f}
+#uPortal .u-status{color:#A5A2B0;font-size:.92rem;text-align:center;padding:0 20px}
+#uPortal .u-status b{color:#F4F2EC;font-weight:600}
+#uPortal .u-track{width:min(320px,70vw);height:2px;background:rgba(238,240,246,.12);border-radius:2px;overflow:hidden}
+#uPortal .u-fill{height:100%;width:0%;background:linear-gradient(90deg,#8f93a5,#EEF0F6)}
+#uPortal .u-pct{font-family:Georgia,serif;font-size:1.05rem;color:#EEF0F6;font-variant-numeric:tabular-nums}
+#uPortal .u-skip{position:absolute;top:22px;right:24px;color:#77747f;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
+#uPortal .u-flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+#uPortal .u-welcome{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  opacity:0;transform:scale(.96);transition:opacity .8s ease,transform .8s ease;pointer-events:none;text-align:center;padding:0 20px}
+#uPortal .u-welcome.u-on{opacity:1;transform:none}
+#uPortal .u-eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#A5A2B0;margin-bottom:20px}
+#uPortal .u-h1{font-family:Georgia,serif;font-weight:500;font-size:clamp(2.2rem,7vw,4.6rem);line-height:1.1;letter-spacing:-.02em;margin:0}
+#uPortal .u-shine{background:linear-gradient(115deg,#8b8fa0 0%,#EEF0F6 30%,#fff 50%,#EEF0F6 62%,#8b8fa0 100%);
+  background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:uShine 3.5s ease-in-out infinite}
+@keyframes uShine{0%,100%{background-position:12% 0}50%{background-position:88% 0}}
+#uPortal .u-sub{color:#A5A2B0;font-size:1.05rem;margin-top:16px}
+#uPortal .u-sign{position:absolute;bottom:6vh;left:0;right:0;text-align:center;font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;color:#5f5d68}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Ncc Trento — Noleggio con conducente a Trento</title>
+<meta name="description" content="Aeroporti, stazioni, appuntamenti di lavoro. Il prezzo è concordato prima della partenza e non cambia.">
+<meta name="theme-color" content="#0E1012">
+<meta property="og:title" content="Ncc Trento — Noleggio con conducente a Trento">
+<meta property="og:description" content="Aeroporti, stazioni, appuntamenti di lavoro. Il prezzo è concordato prima della partenza e non cambia.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1624921245403-41a2201a3052?auto=format&fit=crop&w=1200&h=630&q=72">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16.5px/1.65 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}img{display:block;max-width:100%}
+.w{max-width:1260px;margin:0 auto;padding-left:max(22px,env(safe-area-inset-left,0px));padding-right:max(22px,env(safe-area-inset-right,0px))}
+.w8{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}.w8>span{display:inline-block}
+.prog{position:fixed;left:0;right:0;top:0;height:3px;z-index:60;pointer-events:none}.prog i{display:block;height:100%;background:var(--acc);transform-origin:0 50%;transform:scaleX(0)}
+.hd{position:fixed;left:0;right:0;top:0;z-index:50;transition:background .35s,box-shadow .35s,color .35s;color:var(--hd-fg,var(--fg))}
+.hd .w{display:flex;align-items:center;justify-content:space-between;gap:14px;height:72px}
+.hd.solid{background:var(--hd-solid);color:var(--fg);box-shadow:0 1px 0 var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.hd .nav{display:flex;gap:26px;font-size:14px}.hd .nav a{text-decoration:none;opacity:.8}.hd .nav a:hover{opacity:1}
+.hd .r{display:flex;gap:10px;align-items:center}
+.brand{text-decoration:none;display:flex;align-items:center;gap:10px;font:var(--brand-font);letter-spacing:var(--brand-ls,0);min-width:0}
+.brand .bn{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:38vw}
+.pill{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 18px;border-radius:var(--r-btn);font:600 14px/1 var(--body);text-decoration:none;white-space:nowrap}
+.pill.a{background:var(--acc);color:var(--on-acc)}.pill.o{border:1px solid currentColor}
+section{position:relative}
+.sec{padding-block:clamp(84px,11vw,150px)}
+.eye{font:600 12px/1 var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--acc-2,var(--acc));margin:0 0 20px;display:flex;align-items:center;gap:12px}
+.eye::before{content:'';width:28px;height:2px;background:currentColor}
+.h2{font:var(--h2-font);letter-spacing:var(--h2-ls,-.02em);margin:0 0 20px;text-wrap:balance;max-width:18ch}
+.lead{color:var(--fg-2);max-width:56ch;margin:0;font-size:1.08rem}
+.hero{position:relative;overflow:hidden}
+.hmedia{position:absolute;inset:0;will-change:transform}.hmedia img,.hmedia .phx{width:100%;height:100%;object-fit:cover}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:58px;padding:0 26px;border-radius:var(--r-btn);font:700 15.5px/1 var(--body);text-decoration:none;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}.btn.a{background:var(--acc);color:var(--on-acc)}.btn.g{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.4);backdrop-filter:blur(8px)}.btn.d{background:var(--fg);color:var(--bg)}
+.stars{display:inline-flex;gap:2px;color:var(--star,#E4A400)}
+.tick{overflow:hidden;white-space:nowrap;padding-block:22px;background:var(--tick-bg);color:var(--tick-fg);font:var(--tick-font)}
+.tk{display:inline-flex;gap:44px;padding-left:44px}.tk span{display:inline-flex;align-items:center;gap:44px}.tk span::after{content:'';width:10px;height:10px;border-radius:var(--tick-dot-r,50%);background:var(--acc)}
+.mani{font:var(--mani-font);letter-spacing:-.015em;margin:0;max-width:24ch;text-wrap:balance}
+.mani .mw{transition:none}
+.stack{display:grid;gap:22px;margin-top:56px}
+.sc{position:sticky;top:110px;display:grid;grid-template-columns:1.1fr 1fr;min-height:380px;border-radius:var(--r-card);overflow:hidden;background:var(--card);border:1px solid var(--line);transform-origin:50% 0;box-shadow:0 -20px 50px -30px rgba(0,0,0,.35)}
+.sc:nth-child(2){top:126px}.sc:nth-child(3){top:142px}.sc:nth-child(4){top:158px}
+.sc .tx{padding:44px;display:flex;flex-direction:column;justify-content:space-between;gap:30px}
+.sc .n{font:var(--num-font);color:var(--acc)}.sc h3{font:var(--h3-font);margin:0 0 10px}.sc p{margin:0;color:var(--fg-2)}
+.sc .ph{position:relative;min-height:260px}.sc .ph img,.sc .ph .phx{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sc a.more{font:600 14px/1 var(--body);text-decoration:none;color:var(--acc-2,var(--acc));display:inline-flex;gap:8px;align-items:center}
+.route{min-height:100svh;display:flex;align-items:center;background:var(--route-bg);color:var(--route-fg);overflow:hidden}
+.route .w{display:grid;grid-template-columns:.8fr 1.6fr;gap:40px;align-items:center;width:100%;padding-block:90px}
+.route .h2{color:inherit}.route .lead{color:var(--route-fg-2)}
+.route svg{width:100%;height:auto;overflow:visible}
+.rbase{fill:none;stroke:var(--route-base);stroke-width:2;stroke-dasharray:3 9;stroke-linecap:round}
+.rpath{fill:none;stroke:var(--acc);stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+.rdot{fill:var(--route-bg);stroke:var(--acc);stroke-width:4}
+.rlab{font:600 15px var(--body);fill:var(--route-fg);paint-order:stroke;stroke:var(--route-bg);stroke-width:6px;stroke-linejoin:round}
+.rlist{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:8px}
+.rlist li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--route-line);font-weight:600}
+.rlist a{font:600 12.5px/1 var(--body);text-decoration:none;color:var(--acc);white-space:nowrap}
+.hgal{overflow:hidden;background:var(--bg-2)}
+.hgal .head{padding-block:110px 40px}
+.htrack{display:flex;gap:28px;padding-left:max(22px,calc((100vw - 1260px)/2 + 22px));padding-right:22px;padding-bottom:110px;width:max-content}
+.hit{flex:none;width:min(520px,72vw);margin:0}
+.hit .im{position:relative;aspect-ratio:4/5;border-radius:var(--r-card);overflow:hidden;background:var(--bg-3)}.hit:nth-child(even) .im{aspect-ratio:4/3;margin-top:80px}
+.hit img,.hit .phx{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hit figcaption{display:flex;justify-content:space-between;gap:10px;margin-top:14px;font-size:14px;color:var(--fg-2)}.hit figcaption b{color:var(--fg);font-weight:600}
+.fleet{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.fc{border-radius:var(--r-card);overflow:hidden;background:var(--card);border:1px solid var(--line)}
+.fc .im{position:relative;aspect-ratio:16/11;overflow:hidden;background:var(--bg-3)}.fc .im img,.fc .im .phx{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fc .tx{padding:24px 24px 28px}.fc small{display:block;font:600 11px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--acc-2,var(--acc));margin-bottom:12px}
+.fc h3{font:var(--h3-font);margin:0 0 6px}.fc p{margin:0;color:var(--fg-2);font-size:15px}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:20px}
+.nums div{padding:44px 24px 40px 0}.nums div+div{padding-left:32px;border-left:1px solid var(--line)}
+.nums b{display:block;font:var(--bignum-font);letter-spacing:-.04em;line-height:.9}.nums span{display:block;margin-top:12px;color:var(--fg-2);font-size:15px}
+.steps{position:relative;display:grid;gap:0;margin-top:50px;padding-left:44px}
+.steps::before,.sfill{content:'';position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.sfill{background:var(--acc);transform-origin:50% 0}
+.st{position:relative;padding:0 0 46px}.st::before{content:'';position:absolute;left:-44px;top:4px;width:24px;height:24px;border-radius:50%;background:var(--bg);border:2px solid var(--acc)}
+.st h3{font:var(--h3-font);margin:0 0 6px}.st p{margin:0;color:var(--fg-2);max-width:48ch}
+.two{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:start}
+.proof{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center}
+.proof .big{font:var(--bignum-font);font-size:clamp(5rem,12vw,10rem);line-height:.85;letter-spacing:-.05em}
+.faq details{border-bottom:1px solid var(--line)}.faq{border-top:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:24px 0;font:var(--faq-font)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{flex:none;width:18px;height:18px;position:relative;margin-top:6px}
+.faq summary i::before,.faq summary i::after{content:'';position:absolute;left:0;right:0;top:8px;height:2px;background:var(--acc)}
+.faq summary i::after{transform:rotate(90deg);transition:transform .25s}.faq details[open] summary i::after{transform:none}
+.faq p{margin:0 0 24px;color:var(--fg-2);max-width:62ch}
+.bk{display:grid;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-card);padding:30px}
+.bk label{display:grid;gap:6px}.bk label span{font:600 11px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--fg-2)}
+.bk input,.bk select{width:100%;height:52px;border-radius:var(--r-in);border:1px solid var(--line);background:var(--bg);color:var(--fg);padding:0 14px;font:500 16px/1 var(--body)}
+.bk input:focus,.bk select:focus{outline:none;border-color:var(--acc)}
+.bk-row{display:grid;grid-template-columns:1fr 120px;gap:12px}
+.bk-go{display:flex;align-items:center;justify-content:center;gap:10px;height:58px;border:0;border-radius:var(--r-btn);background:var(--acc);color:var(--on-acc);font:700 15.5px/1 var(--body);cursor:pointer}
+.bk-note{margin:0;font-size:12.5px;color:var(--fg-2)}
+.final{padding-block:clamp(110px,14vw,190px);text-align:center;overflow:hidden}
+.final .big{font:var(--final-font);letter-spacing:-.03em;margin:0 auto 34px;max-width:14ch;text-wrap:balance}
+.final .acts{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.foot{border-top:1px solid var(--line);padding-block:56px 40px;font-size:14px;color:var(--fg-2)}
+.foot .w{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:30px}.foot h4{font:600 11px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;margin:0 0 14px;color:var(--fg)}
+.foot p{margin:0 0 6px}.foot a{text-decoration:none}
+.legal{margin-top:36px;font-size:12px;color:var(--fg-2)}
+.phx{background:linear-gradient(160deg,#59626d,#272c33)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+@media (max-width:980px){.hd .nav{display:none}.sc{grid-template-columns:1fr;min-height:0}.sc .ph{min-height:220px;order:-1}.sc .tx{padding:28px}.route .w{grid-template-columns:1fr;gap:10px;padding-block:70px}.fleet{grid-template-columns:1fr 1fr}.two,.proof{grid-template-columns:1fr;gap:28px}.foot .w{grid-template-columns:1fr}}
+@media (max-width:760px){.sec{padding-block:86px}.sc{top:80px}.sc:nth-child(2){top:92px}.sc:nth-child(3){top:104px}.sc:nth-child(4){top:116px}
+ .hgal .head{padding-block:86px 30px}.htrack{width:auto;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:86px;-webkit-overflow-scrolling:touch;scrollbar-width:none}.htrack::-webkit-scrollbar{display:none}.hit{width:78vw;scroll-snap-align:center}.hit:nth-child(even) .im{margin-top:0;aspect-ratio:4/5}
+ .fleet{grid-template-columns:1fr}.nums{grid-template-columns:1fr}.nums div,.nums div+div{padding:28px 0;border-left:0;border-top:1px solid var(--line)}.nums div:first-child{border-top:0}
+ .bk{padding:20px}.btn{flex:1}.brand .bn{max-width:46vw}.pill .pt{display:none}.pill{padding:0 14px}.rlab{font-size:22px}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+:root{--bg:#0E1012;--bg-2:#14171A;--bg-3:#1C2024;--card:#15181B;--fg:#EDEAE3;--fg-2:#A29E95;--line:rgba(237,234,227,.12);--acc:#C6A56B;--on-acc:#14110B;
+ --body:'Manrope',system-ui,-apple-system,sans-serif;--disp:'Instrument Serif',Georgia,serif;--r-btn:999px;--r-card:16px;--r-in:10px;
+ --brand-font:400 1.5rem/1 var(--disp);--h2-font:400 clamp(2.8rem,6vw,5.2rem)/.95 var(--disp);--h2-ls:-.015em;--h3-font:400 2rem/1.05 var(--disp);--num-font:400 1.2rem/1 var(--disp);
+ --bignum-font:400 clamp(3.8rem,8vw,7rem) var(--disp);--faq-font:400 1.5rem/1.25 var(--disp);--final-font:400 clamp(3.4rem,10vw,9rem)/.9 var(--disp);
+ --mani-font:400 clamp(2.2rem,5vw,4.4rem)/1.08 var(--disp);--tick-bg:#C6A56B;--tick-fg:#14110B;--tick-font:400 clamp(1.4rem,2.6vw,2.1rem)/1 var(--disp);
+ --hd-fg:#EDEAE3;--hd-solid:rgba(14,16,18,.86);--route-bg:#0A0B0D;--route-fg:#EDEAE3;--route-fg-2:#A29E95;--route-base:#2b2e33;--route-line:#22252a;--mbar-bg:#0E1012;--star:#C6A56B}
+ .hero{min-height:100svh;display:flex;align-items:flex-end;color:#EDEAE3}
+ .hero .hmedia img,.hero .hmedia .phx{filter:brightness(.55) saturate(.7)}
+ .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,16,18,.92),rgba(14,16,18,.45) 55%,rgba(14,16,18,.15)),linear-gradient(0deg,#0E1012,transparent 40%)}
+ .hero .hw{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:end;width:100%;padding-block:140px 80px}
+ .hero h1{font:400 clamp(3.4rem,8.4vw,7.6rem)/.9 var(--disp);letter-spacing:-.02em;margin:0 0 26px}.hero h1 em{color:var(--acc)}
+ .hero .lede{font-size:1.12rem;color:#CFCBC2;max-width:42ch;margin:0 0 30px}
+ .hero .bk{background:rgba(21,24,27,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+ .hero .bkh{font:400 1.8rem/1.1 var(--disp);margin:0 0 6px}
+ @media (max-width:980px){.hero .hw{grid-template-columns:1fr;padding-block:120px 50px}}
+
+.mbar{display:none}@media (max-width:760px){.mbar{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:8000;padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px));gap:8px;background:var(--mbar-bg,#111);border-top:1px solid rgba(255,255,255,.08)}
+.mbar a{display:flex;align-items:center;justify-content:center;gap:8px;height:48px;border-radius:12px;font:600 15px/1 var(--sans);text-decoration:none;color:var(--mbar-fg,#fff);background:var(--mbar-b1,rgba(255,255,255,.08))}
+.mbar .mbar-wa{background:#1FAF55;color:#fff}body{padding-bottom:72px}}
+</style>
+</head>
+<body>
+<!-- UMBRA INTRO v2 (body) -->
+<div id="uPortal" aria-hidden="true">
+  <div class="u-flash" id="uFlash"></div>
+  <div class="u-ui" id="uUi">
+    <svg width="34" height="34" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="url(#ug)" stroke-width="1.6"/><path d="M16 3.5a12.5 12.5 0 0 1 0 25 15.5 15.5 0 0 0 0-25z" fill="url(#ug)"/><defs><linearGradient id="ug" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#EEF0F6"/><stop offset="1" stop-color="#C3C6D3"/></linearGradient></defs></svg>
+    <div class="u-brand">Umbra</div>
+    <div class="u-by">by Matteo Tagliacollo</div>
+    <div class="u-status">Stiamo aprendo l'anteprima riservata a <b>Ncc Trento</b></div>
+    <div class="u-track"><div class="u-fill" id="uFill"></div></div>
+    <div class="u-pct" id="uPct">0%</div>
+  </div>
+  <div class="u-skip">Tocca per saltare</div>
+  <div class="u-welcome" id="uWelcome">
+    <div class="u-eyebrow">Umbra presenta</div>
+    <h1 class="u-h1">Benvenuto,<br><span class="u-shine">Ncc Trento.</span></h1>
+    <p class="u-sub">Il vostro nuovo sito è pronto. Guardatelo.</p>
+    <div class="u-sign">Umbra · by Matteo Tagliacollo</div>
+  </div>
+</div>
+<script>
+(function(){
+  var H=document.documentElement;
+  if(!/\bu-lock\b/.test(H.className))return;
+  var portal=document.getElementById('uPortal'),fill=document.getElementById('uFill'),pct=document.getElementById('uPct'),
+      ui=document.getElementById('uUi'),welcome=document.getElementById('uWelcome'),flash=document.getElementById('uFlash'),
+      done=false,t0=performance.now(),CONV=2600,THRU=1100,three=null,welcomed=false;
+  function finish(){if(done)return;done=true;
+    portal.classList.add('u-out');setTimeout(function(){H.classList.remove('u-lock');window.dispatchEvent(new Event('umbra:intro-done'));window.dispatchEvent(new Event('resize'))},450);
+    setTimeout(function(){portal.style.display='none'},1000)}
+  function showWelcome(){if(welcomed)return;welcomed=true;ui.style.display='none';welcome.classList.add('u-on');setTimeout(finish,2100)}
+  portal.addEventListener('click',finish);
+  var ease=function(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2};
+  var reduced=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // barra: parte al primo frame, indipendente da three.js
+  (function bar(){if(done||welcomed)return;var t=performance.now()-t0,p=Math.min(1,t/CONV),s=Math.round(ease(p)*100);
+    fill.style.width=s+'%';pct.textContent=s+'%';
+    if(!three&&t>=CONV){showWelcome();return}
+    requestAnimationFrame(bar)})();
+  if(reduced)return;
+  function start(){if(done||welcomed||typeof THREE==='undefined')return;
+    var el=performance.now()-t0;if(el>CONV*0.75)return; // troppo tardi: resta la versione senza 3D
+    try{
+    var scene=new THREE.Scene();scene.fog=new THREE.FogExp2(0x050508,.045);
+    var camera=new THREE.PerspectiveCamera(60,innerWidth/innerHeight,.1,100);camera.position.set(0,0,8.5);
+    var renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});renderer.setSize(innerWidth,innerHeight);
+    renderer.setPixelRatio(Math.min(devicePixelRatio,2));portal.insertBefore(renderer.domElement,portal.firstChild);
+    }catch(e){return}
+    three=true;requestAnimationFrame(function(){renderer.domElement.classList.add('u-on')});
+    var N=innerWidth<700?3200:5200,R=2.35,tube=.1,st=new Float32Array(N*3),tg=new Float32Array(N*3),pos=new Float32Array(N*3);
+    function r(){return Math.random()*2-1}
+    for(var i=0;i<N;i++){var v=new THREE.Vector3(r(),r(),r()).normalize().multiplyScalar(6+Math.random()*9);
+      st[i*3]=v.x;st[i*3+1]=v.y;st[i*3+2]=v.z;var a=Math.random()*Math.PI*2,b=Math.random()*Math.PI*2,tr=tube*Math.sqrt(Math.random());
+      tg[i*3]=(R+tr*Math.cos(b))*Math.cos(a);tg[i*3+1]=(R+tr*Math.cos(b))*Math.sin(a);tg[i*3+2]=tr*Math.sin(b)}
+    pos.set(st);var geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+    var mat=new THREE.PointsMaterial({color:0xdfe2ec,size:.035,transparent:true,opacity:.95,blending:THREE.AdditiveBlending,depthWrite:false});
+    var ring=new THREE.Points(geo,mat);ring.rotation.x=.32;scene.add(ring);
+    var M=900,dp=new Float32Array(M*3);for(var j=0;j<M;j++){dp[j*3]=r()*18;dp[j*3+1]=r()*18;dp[j*3+2]=-6-Math.random()*24}
+    var dg=new THREE.BufferGeometry();dg.setAttribute('position',new THREE.BufferAttribute(dp,3));
+    scene.add(new THREE.Points(dg,new THREE.PointsMaterial({color:0x8f93a5,size:.02,transparent:true,opacity:.5,depthWrite:false})));
+    (function frame(){
+      if(done){renderer.dispose();return}
+      var t=performance.now()-t0,p=Math.min(1,t/CONV),e=ease(p);
+      for(var i=0;i<N*3;i++)pos[i]=st[i]+(tg[i]-st[i])*e;
+      geo.attributes.position.needsUpdate=true;ring.rotation.z+=.0016+.004*(1-p);
+      if(t<CONV){camera.position.z=8.5-1.3*e}
+      else if(t<CONV+THRU){var q=ease((t-CONV)/THRU);camera.position.z=7.2-9.2*q;camera.rotation.z=.10*q;mat.opacity=.95*(1-q*.55);if(q>.72)flash.style.opacity=(q-.72)/.28}
+      else{flash.style.transition='opacity .5s ease';flash.style.opacity=0;showWelcome();renderer.render(scene,camera);return}
+      renderer.render(scene,camera);requestAnimationFrame(frame)})();
+    addEventListener('resize',function(){camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)});
+  }
+  if(typeof THREE!=='undefined')start();
+  else{var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';s.crossOrigin='anonymous';s.async=true;s.onload=start;document.head.appendChild(s)}
+})();
+</script>
+<!-- /UMBRA INTRO v2 -->
+<div class="prog" aria-hidden="true"><i></i></div>
+<header class="hd"><div class="w"><a class="brand" href="#"><span class="bn">Ncc Trento</span></a>
+ <nav class="nav"><a href="#servizi">Servizi</a><a href="#tratte">Tratte</a><a href="#auto">Auto</a><a href="#prenota">Prenota</a></nav>
+ <div class="r"><a class="pill a" href="tel:+39335211994"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span class="pt">+39 335211994</span></a></div></div></header>
+<main>
+<section class="hero"><div class="hmedia"><img src="https://images.unsplash.com/photo-1624921245403-41a2201a3052?auto=format&fit=crop&w=2000&q=72" srcset="https://images.unsplash.com/photo-1624921245403-41a2201a3052?auto=format&fit=crop&w=1000&q=72 1000w, https://images.unsplash.com/photo-1624921245403-41a2201a3052?auto=format&fit=crop&w=2000&q=72 2000w" sizes="100vw" alt="Auto con autista in città di sera" loading="eager" fetchpriority="high" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"></div><div class="w hw">
+   <div><p class="eye" data-in>Noleggio con conducente · Trento</p><h1><span class="w8"><span>Autista</span></span> <span class="w8"><span>privato,</span></span> <em><span class="w8"><span>a</span></span> <span class="w8"><span>Trento.</span></span></em></h1><p class="lede" data-in>Aeroporti, stazioni, appuntamenti di lavoro. Il prezzo è concordato prima della partenza e non cambia.</p>
+   </div>
+   <div data-in><div class="bk" style="padding:28px"><p class="bkh">Preventivo in un messaggio</p><form class="bkin" style="display:grid;gap:12px" data-wa="https://wa.me/39335211994" onsubmit="return umbraBook(this)"><label><span>Da</span><input name="from" placeholder="Es. Trento" autocomplete="off"></label><label><span>A</span><input name="to" list="dl-h" placeholder="Es. aeroporto, stazione, hotel" autocomplete="off"><datalist id="dl-h"><option>Aeroporto di Verona Villafranca</option><option>Aeroporto di Bolzano</option><option>Aeroporto di Bergamo Orio al Serio</option><option>Lago di Garda</option><option>Madonna di Campiglio</option></datalist></label><div class="bk-row"><label><span>Quando</span><input name="when" placeholder="Es. ven 14, ore 6:30" autocomplete="off"></label><label class="bk-pax"><span>Passeggeri</span><select name="pax"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label></div><button type="submit" class="bk-go"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.9-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg><span>Invia su WhatsApp</span></button><p class="bk-note">Vi risponde direttamente Ncc Trento.</p></form></div></div>
+ </div></section>
+
+<div class="tick" aria-hidden="true"><div class="tk"><span>Aeroporti</span><span>Stazioni AV</span><span>Fiere e congressi</span><span>Ospiti e delegazioni</span><span>Lunghe tratte</span><span>Preventivo fisso</span><span>Aeroporti</span><span>Stazioni AV</span><span>Fiere e congressi</span><span>Ospiti e delegazioni</span><span>Lunghe tratte</span><span>Preventivo fisso</span></div></div>
+
+<section class="sec"><div class="w two">
+ <div><p class="eye">Ncc Trento</p></div>
+ <p class="mani"><span class="mw">Arrivare</span> <span class="mw">prima</span> <span class="mw">di</span> <span class="mw">voi.</span> <span class="mw">Fare</span> <span class="mw">la</span> <span class="mw">strada</span> <span class="mw">giusta.</span> <span class="mw">Lasciarvi</span> <span class="mw">lavorare,</span> <span class="mw">telefonare</span> <span class="mw">o</span> <span class="mw">riposare.</span> <span class="mw">Il</span> <span class="mw">resto</span> <span class="mw">è</span> <span class="mw">silenzio.</span></p>
+</div></section>
+
+<section class="sec" id="servizi" style="padding-top:0"><div class="w">
+ <p class="eye">Servizi</p><h2 class="h2" data-split><span class="w8"><span>Puntuali,</span></span> <span class="w8"><span>discreti,</span></span> <span class="w8"><span>chiari</span></span> <span class="w8"><span>sul</span></span> <span class="w8"><span>prezzo.</span></span></h2>
+ <div class="stack"><article class="sc"><div class="tx"><span class="n">01 / 04</span><div><h3>Aeroporti</h3><p>Andata e ritorno da Trento. Vi aspettiamo agli arrivi con il vostro nome.</p></div><a class="more" href="https://wa.me/39335211994?text=Buongiorno%2C%20vorrei%20informazioni%20per%3A%20Aeroporti">Chiedi il prezzo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><div class="ph"><img src="https://images.unsplash.com/photo-1653582245010-04fc596f8ee2?auto=format&fit=crop&w=1100&q=72" srcset="https://images.unsplash.com/photo-1653582245010-04fc596f8ee2?auto=format&fit=crop&w=550&q=72 550w, https://images.unsplash.com/photo-1653582245010-04fc596f8ee2?auto=format&fit=crop&w=1100&q=72 1100w" sizes="(max-width:760px) 100vw, 50vw" alt="Aeroporti" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"></div></article><article class="sc"><div class="tx"><span class="n">02 / 04</span><div><h3>Stazioni AV</h3><p>Coincidenze strette, valigie pesanti: ci pensiamo noi.</p></div><a class="more" href="https://wa.me/39335211994?text=Buongiorno%2C%20vorrei%20informazioni%20per%3A%20Stazioni%20AV">Chiedi il prezzo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><div class="ph"><img src="https://images.unsplash.com/photo-1645211710746-9629755e6814?auto=format&fit=crop&w=1100&q=72" srcset="https://images.unsplash.com/photo-1645211710746-9629755e6814?auto=format&fit=crop&w=550&q=72 550w, https://images.unsplash.com/photo-1645211710746-9629755e6814?auto=format&fit=crop&w=1100&q=72 1100w" sizes="(max-width:760px) 100vw, 50vw" alt="Stazioni AV" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"></div></article><article class="sc"><div class="tx"><span class="n">03 / 04</span><div><h3>Appuntamenti di lavoro</h3><p>Riunioni, fiere, visite in azienda. Autista a disposizione per la giornata.</p></div><a class="more" href="https://wa.me/39335211994?text=Buongiorno%2C%20vorrei%20informazioni%20per%3A%20Appuntamenti%20di%20lavoro">Chiedi il prezzo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><div class="ph"><img src="https://images.unsplash.com/photo-1781281209767-d5bcca177f79?auto=format&fit=crop&w=1100&q=72" srcset="https://images.unsplash.com/photo-1781281209767-d5bcca177f79?auto=format&fit=crop&w=550&q=72 550w, https://images.unsplash.com/photo-1781281209767-d5bcca177f79?auto=format&fit=crop&w=1100&q=72 1100w" sizes="(max-width:760px) 100vw, 50vw" alt="Appuntamenti di lavoro" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"></div></article><article class="sc"><div class="tx"><span class="n">04 / 04</span><div><h3>Lunghe tratte</h3><p>Città, montagna, estero. Preventivo fisso concordato prima.</p></div><a class="more" href="https://wa.me/39335211994?text=Buongiorno%2C%20vorrei%20informazioni%20per%3A%20Lunghe%20tratte">Chiedi il prezzo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><div class="ph"><img src="https://images.unsplash.com/photo-1606816493585-22a8486501cb?auto=format&fit=crop&w=1100&q=72" srcset="https://images.unsplash.com/photo-1606816493585-22a8486501cb?auto=format&fit=crop&w=550&q=72 550w, https://images.unsplash.com/photo-1606816493585-22a8486501cb?auto=format&fit=crop&w=1100&q=72 1100w" sizes="(max-width:760px) 100vw, 50vw" alt="Lunghe tratte" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"></div></article></div>
+</div></section>
+
+<section class="route" id="tratte"><div class="w">
+ <div><p class="eye" style="color:var(--acc)">Tratte</p><h2 class="h2">Da Trento, le tratte più richieste.</h2><p class="lead">Il percorso si disegna mentre scorrete. Per ogni tratta, un preventivo fisso.</p>
+ <ul class="rlist"><li><span>Aeroporto di Verona Villafranca</span><a href="https://wa.me/39335211994?text=Buongiorno%2C%20quanto%20costa%20da%20Trento%20a%20Aeroporto%20di%20Verona%20Villafranca%3F">Prezzo →</a></li><li><span>Aeroporto di Bolzano</span><a href="https://wa.me/39335211994?text=Buongiorno%2C%20quanto%20costa%20da%20Trento%20a%20Aeroporto%20di%20Bolzano%3F">Prezzo →</a></li><li><span>Aeroporto di Bergamo Orio al Serio</span><a href="https://wa.me/39335211994?text=Buongiorno%2C%20quanto%20costa%20da%20Trento%20a%20Aeroporto%20di%20Bergamo%20Orio%20al%20Serio%3F">Prezzo →</a></li><li><span>Lago di Garda</span><a href="https://wa.me/39335211994?text=Buongiorno%2C%20quanto%20costa%20da%20Trento%20a%20Lago%20di%20Garda%3F">Prezzo →</a></li><li><span>Madonna di Campiglio</span><a href="https://wa.me/39335211994?text=Buongiorno%2C%20quanto%20costa%20da%20Trento%20a%20Madonna%20di%20Campiglio%3F">Prezzo →</a></li></ul></div>
+ <svg viewBox="0 0 1000 500" role="img" aria-label="Percorso da Trento"><path class="rbase" d="M30 380 C 250 380, 260 140, 470 150 S 700 380, 970 120"/><path class="rpath" d="M30 380 C 250 380, 260 140, 470 150 S 700 380, 970 120"/><g class="rstop" data-at="0.000"><circle class="rdot" r="9"/><text class="rlab" x="0" y="-22" text-anchor="middle">Trento</text></g><g class="rstop" data-at="0.200"><circle class="rdot" r="9"/><text class="rlab" x="0" y="-22" text-anchor="middle">✈ Verona Villafranca</text></g><g class="rstop" data-at="0.400"><circle class="rdot" r="9"/><text class="rlab" x="0" y="-22" text-anchor="middle">✈ Bolzano</text></g><g class="rstop" data-at="0.600"><circle class="rdot" r="9"/><text class="rlab" x="0" y="-22" text-anchor="middle">✈ Bergamo Orio al Serio</text></g><g class="rstop" data-at="0.800"><circle class="rdot" r="9"/><text class="rlab" x="0" y="-22" text-anchor="middle">Lago di Garda</text></g><g class="rstop" data-at="1.000"><circle class="rdot" r="9"/><text class="rlab" x="0" y="-22" text-anchor="middle">Madonna di Campiglio</text></g><g class="veh" data-rot><rect x="-22" y="-11" width="44" height="22" rx="8" fill="var(--acc)"/><rect x="-6" y="-8" width="14" height="16" rx="4" fill="rgba(0,0,0,.35)"/><circle cx="20" cy="-6" r="2.4" fill="#fff"/><circle cx="20" cy="6" r="2.4" fill="#fff"/></g></svg>
+</div></section>
+
+<section class="hgal" aria-label="Galleria"><div class="w head"><p class="eye">Galleria</p><h2 class="h2" data-split><span class="w8"><span>Il</span></span> <span class="w8"><span>viaggio,</span></span> <span class="w8"><span>visto</span></span> <span class="w8"><span>da</span></span> <span class="w8"><span>dentro.</span></span></h2></div>
+ <div class="htrack"><figure class="hit"><div class="im"><img src="https://images.unsplash.com/photo-1775848366227-63ba09dddebb?auto=format&fit=crop&w=900&q=72" srcset="https://images.unsplash.com/photo-1775848366227-63ba09dddebb?auto=format&fit=crop&w=450&q=72 450w, https://images.unsplash.com/photo-1775848366227-63ba09dddebb?auto=format&fit=crop&w=900&q=72 900w" sizes="(max-width:760px) 100vw, 50vw" alt="A bordo" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"></div><figcaption><b>A bordo</b><span>01</span></figcaption></figure><figure class="hit"><div class="im"><img src="https://images.unsplash.com/photo-1706117759117-11c1ac198190?auto=format&fit=crop&w=900&q=72" srcset="https://images.unsplash.com/photo-1706117759117-11c1ac198190?auto=format&fit=crop&w=450&q=72 450w, https://images.unsplash.com/photo-1706117759117-11c1ac198190?auto=format&fit=crop&w=900&q=72 900w" sizes="(max-width:760px) 100vw, 50vw" alt="In arrivo" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"></div><figcaption><b>In arrivo</b><span>02</span></figcaption></figure><figure class="hit"><div class="im"><img src="https://images.unsplash.com/photo-1740485863195-af1796f9e615?auto=format&fit=crop&w=900&q=72" srcset="https://images.unsplash.com/photo-1740485863195-af1796f9e615?auto=format&fit=crop&w=450&q=72 450w, https://images.unsplash.com/photo-1740485863195-af1796f9e615?auto=format&fit=crop&w=900&q=72 900w" sizes="(max-width:760px) 100vw, 50vw" alt="Alla portiera" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"></div><figcaption><b>Alla portiera</b><span>03</span></figcaption></figure><figure class="hit"><div class="im"><img src="https://images.unsplash.com/photo-1624921245403-41a2201a3052?auto=format&fit=crop&w=900&q=72" srcset="https://images.unsplash.com/photo-1624921245403-41a2201a3052?auto=format&fit=crop&w=450&q=72 450w, https://images.unsplash.com/photo-1624921245403-41a2201a3052?auto=format&fit=crop&w=900&q=72 900w" sizes="(max-width:760px) 100vw, 50vw" alt="Di sera" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"></div><figcaption><b>Di sera</b><span>04</span></figcaption></figure><figure class="hit"><div class="im"><img src="https://images.unsplash.com/photo-1602668409075-13fddc1f2dab?auto=format&fit=crop&w=900&q=72" srcset="https://images.unsplash.com/photo-1602668409075-13fddc1f2dab?auto=format&fit=crop&w=450&q=72 450w, https://images.unsplash.com/photo-1602668409075-13fddc1f2dab?auto=format&fit=crop&w=900&q=72 900w" sizes="(max-width:760px) 100vw, 50vw" alt="In autostrada" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"></div><figcaption><b>In autostrada</b><span>05</span></figcaption></figure><figure class="hit"><div class="im"><img src="https://images.unsplash.com/photo-1663271784319-ecc97ce8d4aa?auto=format&fit=crop&w=900&q=72" srcset="https://images.unsplash.com/photo-1663271784319-ecc97ce8d4aa?auto=format&fit=crop&w=450&q=72 450w, https://images.unsplash.com/photo-1663271784319-ecc97ce8d4aa?auto=format&fit=crop&w=900&q=72 900w" sizes="(max-width:760px) 100vw, 50vw" alt="Al terminal" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"></div><figcaption><b>Al terminal</b><span>06</span></figcaption></figure></div>
+</section>
+
+<section class="sec" id="auto"><div class="w">
+ <p class="eye">La flotta</p><h2 class="h2" data-split><span class="w8"><span>L’auto</span></span> <span class="w8"><span>giusta</span></span> <span class="w8"><span>per</span></span> <span class="w8"><span>il</span></span> <span class="w8"><span>viaggio.</span></span></h2>
+ <div class="fleet"><article class="fc"><div class="im" data-clip><img src="https://images.unsplash.com/photo-1661589997089-405a6076fc18?auto=format&fit=crop&w=900&q=72" srcset="https://images.unsplash.com/photo-1661589997089-405a6076fc18?auto=format&fit=crop&w=450&q=72 450w, https://images.unsplash.com/photo-1661589997089-405a6076fc18?auto=format&fit=crop&w=900&q=72 900w" sizes="(max-width:760px) 100vw, 50vw" alt="Berlina" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"></div><div class="tx"><small>1–3 passeggeri</small><h3>Berlina</h3><p>Il lavoro e gli aeroporti.</p></div></article><article class="fc"><div class="im" data-clip><img src="https://images.unsplash.com/photo-1605437241278-c1806d14a4d9?auto=format&fit=crop&w=900&q=72" srcset="https://images.unsplash.com/photo-1605437241278-c1806d14a4d9?auto=format&fit=crop&w=450&q=72 450w, https://images.unsplash.com/photo-1605437241278-c1806d14a4d9?auto=format&fit=crop&w=900&q=72 900w" sizes="(max-width:760px) 100vw, 50vw" alt="Berlina di fascia alta" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"></div><div class="tx"><small>1–3 passeggeri</small><h3>Berlina di fascia alta</h3><p>Quando l’auto fa parte dell’accoglienza.</p></div></article><article class="fc"><div class="im" data-clip><img src="https://images.unsplash.com/photo-1775637483812-25ce67beeb3d?auto=format&fit=crop&w=900&q=72" srcset="https://images.unsplash.com/photo-1775637483812-25ce67beeb3d?auto=format&fit=crop&w=450&q=72 450w, https://images.unsplash.com/photo-1775637483812-25ce67beeb3d?auto=format&fit=crop&w=900&q=72 900w" sizes="(max-width:760px) 100vw, 50vw" alt="Van" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"></div><div class="tx"><small>fino a 7 passeggeri</small><h3>Van</h3><p>Gruppi e bagagli voluminosi.</p></div></article></div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="w"><div class="nums" data-up><div><b data-count="5">5</b><span>tratte frequenti da Trento</span></div><div><b>€</b><span>preventivo fisso prima di partire</span></div></div></div></section>
+
+<section class="sec" style="padding-top:0"><div class="w two">
+ <div><p class="eye">Come funziona</p><h2 class="h2" data-split><span class="w8"><span>Come</span></span> <span class="w8"><span>lavoriamo.</span></span></h2><div class="ph" data-clip style="position:relative;aspect-ratio:4/3;border-radius:var(--r-card);overflow:hidden;margin-top:30px"><img src="https://images.unsplash.com/photo-1740485863233-032dff964d0d?auto=format&fit=crop&w=1000&q=72" srcset="https://images.unsplash.com/photo-1740485863233-032dff964d0d?auto=format&fit=crop&w=500&q=72 500w, https://images.unsplash.com/photo-1740485863233-032dff964d0d?auto=format&fit=crop&w=1000&q=72 1000w" sizes="(max-width:760px) 100vw, 50vw" alt="Foto di repertorio" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"></div></div>
+ <div class="steps"><i class="sfill" aria-hidden="true"></i><div class="st"><h3>Scrivete la tratta</h3><p>Da dove, per dove, giorno, ora, passeggeri.</p></div><div class="st"><h3>Ricevete il preventivo</h3><p>Fisso, scritto, prima del servizio.</p></div><div class="st"><h3>L’auto è lì prima di voi</h3><p>All’orario concordato, con il nome dell’ospite se serve.</p></div></div>
+</div></section>
+
+
+
+<section class="sec"><div class="w two">
+ <div><p class="eye">Domande</p><h2 class="h2" data-split><span class="w8"><span>Quello</span></span> <span class="w8"><span>che</span></span> <span class="w8"><span>ci</span></span> <span class="w8"><span>chiedono.</span></span></h2></div>
+ <div class="faq"><details><summary>Il prezzo può cambiare durante il viaggio?<i aria-hidden="true"></i></summary><p>No. Il preventivo è concordato prima della partenza.</p></details><details><summary>Cosa succede se il volo è in ritardo?<i aria-hidden="true"></i></summary><p>Comunicateci il numero del volo: l’orario si regola sull’arrivo reale.</p></details><details><summary>Emettete fattura?<i aria-hidden="true"></i></summary><p>Chiedetelo al momento della prenotazione insieme ai dati dell’azienda.</p></details><details><summary>Con quanto anticipo prenotare?<i aria-hidden="true"></i></summary><p>Per aeroporti e lunghe tratte meglio il giorno prima.</p></details></div>
+</div></section>
+
+<section class="sec" id="prenota" style="padding-top:0"><div class="w two">
+ <div><p class="eye">Prenota</p><h2 class="h2" data-split><span class="w8"><span>Il</span></span> <span class="w8"><span>preventivo</span></span> <span class="w8"><span>in</span></span> <span class="w8"><span>un</span></span> <span class="w8"><span>messaggio.</span></span></h2><p class="lead">Compilate i campi: si apre WhatsApp con il testo già scritto. Vi risponde direttamente Ncc Trento.</p></div>
+ <div data-up><form class="bk" data-wa="https://wa.me/39335211994" onsubmit="return umbraBook(this)"><label><span>Partenza</span><input name="from" placeholder="Es. Trento" autocomplete="off"></label><label><span>Destinazione</span><input name="to" list="dl-b" placeholder="Es. aeroporto, stazione, hotel" autocomplete="off"><datalist id="dl-b"><option>Aeroporto di Verona Villafranca</option><option>Aeroporto di Bolzano</option><option>Aeroporto di Bergamo Orio al Serio</option><option>Lago di Garda</option><option>Madonna di Campiglio</option></datalist></label><div class="bk-row"><label><span>Giorno e ora</span><input name="when" placeholder="Es. ven 14, ore 6:30" autocomplete="off"></label><label class="bk-pax"><span>Persone</span><select name="pax"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label></div><button type="submit" class="bk-go"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.9-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg><span>Chiedi il preventivo su WhatsApp</span></button><p class="bk-note">Si apre WhatsApp con il messaggio già scritto. Vi risponde direttamente Ncc Trento.</p></form></div>
+</div></section>
+
+<section class="final"><div class="w"><p class="big">Diteci dove. Al resto pensiamo noi.</p><div class="acts"><a class="btn a" href="https://wa.me/39335211994?text=Buongiorno%2C%20vorrei%20un%20preventivo."><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.9-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>WhatsApp</a><a class="btn" style="border:1px solid var(--line)" href="tel:+39335211994"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>+39 335211994</a></div></div></section>
+</main>
+<footer class="foot"><div class="w">
+ <div><a class="brand" href="#"><span class="bn">Ncc Trento</span></a><p style="margin-top:14px">Noleggio con conducente · Trento</p></div>
+ <div><h4>Contatti</h4><p><a href="tel:+39335211994">+39 335211994</a></p><p><a href="https://wa.me/39335211994?text=Buongiorno">WhatsApp</a></p></div>
+ <div><h4>Dove siamo</h4><p>Trento</p><p><a href="https://www.google.com/maps/search/?api=1&query=Ncc%20Trento%20Trento" target="_blank" rel="noopener">Google Maps ↗</a></p></div>
+</div><div class="w legal">Ncc Trento · Foto di repertorio · Anteprima realizzata da Umbra</div></footer>
+<nav class="mbar " aria-label="Contatti rapidi"><a href="tel:+39335211994"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span>Chiama</span></a><a href="https://wa.me/39335211994?text=Buongiorno%2C%20vorrei%20un%20preventivo." class="mbar-wa"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.9-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg><span>WhatsApp</span></a></nav>
+<div class="umbra-flag" role="note"><svg width="14" height="14" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="14" stroke="#C3C6D3" stroke-width="2"/><path d="M16 3.5a12.5 12.5 0 0 1 0 25 15.5 15.5 0 0 0 0-25z" fill="#EEF0F6"/></svg><span><b>Anteprima Umbra</b> per Ncc Trento · non è il sito ufficiale</span></div><style>.umbra-flag{position:fixed;left:14px;bottom:14px;z-index:8500;display:flex;align-items:center;gap:8px;max-width:min(420px,calc(100vw - 28px));padding:8px 13px;border-radius:999px;background:rgba(8,8,11,.84);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(238,240,246,.2);font:400 11px/1.35 system-ui,-apple-system,"Segoe UI",sans-serif;color:#C8C8D2;pointer-events:none}.umbra-flag b{color:#F4F2EC;font-weight:600}@media (max-width:760px){.umbra-flag{left:8px;right:8px;max-width:none;bottom:calc(74px + env(safe-area-inset-bottom,0px));justify-content:center;font-size:10.5px}}</style>
+<script>function umbraBook(f){var g=function(n){return (f.elements[n]&&f.elements[n].value||'').trim()};
+var m='Buongiorno, vorrei un preventivo.'+(g('from')?'\nPartenza: '+g('from'):'')+(g('to')?'\nDestinazione: '+g('to'):'')+(g('when')?'\nQuando: '+g('when'):'')+'\nPersone: '+g('pax');
+window.open(f.getAttribute('data-wa')+'?text='+encodeURIComponent(m),'_blank','noopener');return false}</script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js" defer></script>
+<script>
+(function(){
+function boot(){
+  var H=document.documentElement, q=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+  // header che diventa pieno
+  var hd=document.querySelector('.hd');
+  function onS(){ if(hd) hd.classList.toggle('solid', scrollY>40); var p=document.querySelector('.prog i'); if(p){var m=document.documentElement.scrollHeight-innerHeight; p.style.transform='scaleX('+(m>0?scrollY/m:0)+')'} }
+  addEventListener('scroll',onS,{passive:true}); onS();
+  if(typeof gsap==='undefined'||!window.ScrollTrigger) return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  gsap.registerPlugin(ScrollTrigger); if(window.MotionPathPlugin) gsap.registerPlugin(MotionPathPlugin);
+  H.classList.add('anim');
+  var mob=matchMedia('(max-width:760px)').matches;
+
+  // HERO: parole che salgono, foto che si stringe. Parte quando l'intro è finita.
+  var heroTl=gsap.timeline({paused:true});
+  heroTl.from('.hero .w8 > span',{yPercent:115,duration:1.05,ease:'expo.out',stagger:.06})
+        .from('.hero [data-in]',{y:26,opacity:0,duration:.9,ease:'power3.out',stagger:.08},'-=.75')
+        .from('.hero .hmedia',{scale:1.18,duration:2.2,ease:'expo.out'},0);
+  function playHero(){heroTl.play()}
+  if(/\bu-lock\b/.test(H.className)) addEventListener('umbra:intro-done',playHero,{once:true}); else playHero();
+  q('.hero .hmedia').forEach(function(m){gsap.to(m,{yPercent:14,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}})});
+
+  // titoli di sezione: parole che salgono
+  q('[data-split]').forEach(function(el){gsap.from(el.querySelectorAll('.w8 > span'),{yPercent:110,duration:.9,ease:'expo.out',stagger:.045,scrollTrigger:{trigger:el,start:'top 86%'}})});
+  // blocchi che entrano
+  q('[data-up]').forEach(function(el){gsap.from(el,{y:50,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 90%'}})});
+  // manifesto: le parole si accendono mentre scorri
+  q('.mani').forEach(function(m){gsap.fromTo(m.querySelectorAll('.mw'),{opacity:.14},{opacity:1,ease:'none',stagger:.08,scrollTrigger:{trigger:m,start:'top 78%',end:'bottom 45%',scrub:true}})});
+  // foto che si aprono
+  q('[data-clip]').forEach(function(el){var img=el.querySelector('img,.phx');
+    gsap.fromTo(el,{clipPath:'inset(18% 12% 18% 12% round 24px)'},{clipPath:'inset(0% 0% 0% 0% round 0px)',ease:'none',scrollTrigger:{trigger:el,start:'top 92%',end:'top 35%',scrub:true}});
+    if(img) gsap.fromTo(img,{scale:1.25},{scale:1,ease:'none',scrollTrigger:{trigger:el,start:'top bottom',end:'bottom top',scrub:true}})});
+  // parallax
+  q('[data-par]').forEach(function(el){gsap.fromTo(el,{yPercent:-10},{yPercent:10,ease:'none',scrollTrigger:{trigger:el.parentNode,start:'top bottom',end:'bottom top',scrub:true}})});
+  // card impilate: quelle sotto si rimpiccioliscono quando arriva la successiva
+  var cards=q('.stack .sc');
+  cards.forEach(function(c,i){ if(i===cards.length-1) return;
+    gsap.to(c,{scale:.9,opacity:.55,ease:'none',scrollTrigger:{trigger:cards[i+1],start:'top bottom',end:'top '+(mob?'90px':'120px'),scrub:true}})});
+  // contatori
+  q('[data-count]').forEach(function(el){var t=parseFloat(el.getAttribute('data-count')),d=(el.getAttribute('data-count').split(/[.,]/)[1]||'').length,o={v:0};
+    gsap.to(o,{v:t,duration:2,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 88%'},onUpdate:function(){el.textContent=o.v.toFixed(d).replace('.',',')}})});
+  // passi: la linea si riempie
+  q('.steps').forEach(function(s){var f=s.querySelector('.sfill'); if(f) gsap.fromTo(f,{scaleY:0},{scaleY:1,ease:'none',scrollTrigger:{trigger:s,start:'top 70%',end:'bottom 60%',scrub:true}});
+    q('.st',s).forEach(function(x){gsap.from(x,{x:-30,opacity:0,duration:.8,ease:'power3.out',scrollTrigger:{trigger:x,start:'top 82%'}})})});
+  // ticker che accelera con la velocità di scroll
+  q('.tick .tk').forEach(function(t){var tw=gsap.to(t,{xPercent:-50,repeat:-1,duration:28,ease:'none'});
+    ScrollTrigger.create({onUpdate:function(self){var v=Math.min(4,1+Math.abs(self.getVelocity())/600);gsap.to(tw,{timeScale:v*(self.direction),duration:.3,overwrite:true})}})});
+
+  // PERCORSO: si disegna con lo scroll, il mezzo lo segue, le tappe si accendono
+  q('.route').forEach(function(r){var p=r.querySelector('.rpath'),veh=r.querySelector('.veh'),len=p.getTotalLength();
+    var base=r.querySelector('.rbase'); var svg=r.querySelector('svg');
+    q('.rstop',r).forEach(function(s){var at=parseFloat(s.getAttribute('data-at')),pt=p.getPointAtLength(len*at);s.setAttribute('transform','translate('+pt.x+','+pt.y+')')});
+    gsap.set(p,{strokeDasharray:len,strokeDashoffset:len});
+    var tl=gsap.timeline({scrollTrigger:{trigger:r,start:mob?'top 15%':'top top',end:mob?'+=140%':'+=170%',scrub:.6,pin:true,anticipatePin:1}});
+    tl.to(p,{strokeDashoffset:0,ease:'none',duration:1},0);
+    if(veh&&window.MotionPathPlugin) tl.to(veh,{motionPath:{path:p,align:p,alignOrigin:[.5,.5],autoRotate:veh.hasAttribute('data-rot')},ease:'none',duration:1},0);
+    q('.rstop',r).forEach(function(s){var at=parseFloat(s.getAttribute('data-at'));tl.fromTo(s.querySelector('.rlab'),{opacity:0,y:10},{opacity:1,y:0,duration:.06},Math.max(0,at-.03));tl.fromTo(s.querySelector('.rdot'),{scale:0},{scale:1,duration:.05,transformOrigin:'50% 50%'},Math.max(0,at-.04))});
+    q('.rlist li',r).forEach(function(li,i,a){tl.fromTo(li,{opacity:.25},{opacity:1,duration:.05},(i+1)/(a.length+1))});
+  });
+
+  // galleria orizzontale (desktop: fissata; telefono: swipe nativo + foto che entrano)
+  q('.hgal').forEach(function(g){var tr=g.querySelector('.htrack');
+    if(!mob){var d=function(){return tr.scrollWidth-innerWidth+64};
+      gsap.to(tr,{x:function(){return -d()},ease:'none',scrollTrigger:{trigger:g,start:'top top',end:function(){return '+='+d()},scrub:.5,pin:true,invalidateOnRefresh:true,anticipatePin:1}});
+      q('.hit',tr).forEach(function(it,i){gsap.from(it,{y:i%2?60:-30,ease:'none',scrollTrigger:{trigger:g,start:'top bottom',end:'bottom top',scrub:true}})});
+    } else { q('.hit',tr).forEach(function(it){gsap.from(it,{opacity:0,scale:.9,duration:.8,ease:'power3.out',scrollTrigger:{trigger:it,start:'top 92%',scroller:undefined}})}) }
+  });
+  // flotta: le card salgono sfalsate
+  q('.fleet').forEach(function(f){gsap.from(f.children,{y:80,opacity:0,duration:1,ease:'power3.out',stagger:.12,scrollTrigger:{trigger:f,start:'top 85%'}})});
+  // CTA finale: il testo cresce
+  q('.final .big').forEach(function(b){gsap.fromTo(b,{scale:.82,opacity:.3},{scale:1,opacity:1,ease:'none',scrollTrigger:{trigger:b,start:'top 95%',end:'top 40%',scrub:true}})});
+  // tabellone partenze: lettere che girano
+  q('[data-flap]').forEach(function(el,i){var fin=el.textContent,ch='ABCDEFGHILMNOPRSTUVZ0123456789',n=0;
+    ScrollTrigger.create({trigger:el,start:'top 92%',once:true,onEnter:function(){var iv=setInterval(function(){n++;el.textContent=fin.split('').map(function(c,k){return (c===' '||k<n*1.6)?c:ch[Math.floor(Math.random()*ch.length)]}).join('');if(n*1.6>=fin.length){clearInterval(iv);el.textContent=fin}},45+i*4)}})});
+
+  addEventListener('umbra:intro-done',function(){ScrollTrigger.refresh()});
+  addEventListener('load',function(){ScrollTrigger.refresh()});
+}
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot); else boot();
+})();
+</script>
+</body></html>

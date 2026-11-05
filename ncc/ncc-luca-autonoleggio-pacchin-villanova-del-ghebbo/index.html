@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<!-- UMBRA INTRO v2 (head) -->
+<script>(function(d){d.documentElement.className+=' u-lock';setTimeout(function(){d.documentElement.classList.remove('u-lock')},12000)})(document)</script>
+<link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin>
+<style>
+html.u-lock,html.u-lock body{background:#050508!important;overflow:hidden!important}
+html.u-lock body>*:not(#uPortal){visibility:hidden!important}
+html:not(.u-lock) #uPortal{display:none}
+#uPortal{position:fixed;inset:0;z-index:2147483000;background:#050508;transition:opacity .9s ease;cursor:pointer;
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;color:#F4F2EC;-webkit-font-smoothing:antialiased}
+#uPortal.u-out{opacity:0;pointer-events:none}
+#uPortal canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .6s ease}
+#uPortal canvas.u-on{opacity:1}
+#uPortal .u-ui{position:absolute;left:0;right:0;bottom:9vh;display:flex;flex-direction:column;align-items:center;gap:13px;pointer-events:none;animation:uIn .5s ease both}
+@keyframes uIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+#uPortal .u-brand{font-family:Georgia,serif;font-size:1.25rem;letter-spacing:.02em}
+#uPortal .u-by{margin-top:-9px;font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;color:#77747f}
+#uPortal .u-status{color:#A5A2B0;font-size:.92rem;text-align:center;padding:0 20px}
+#uPortal .u-status b{color:#F4F2EC;font-weight:600}
+#uPortal .u-track{width:min(320px,70vw);height:2px;background:rgba(238,240,246,.12);border-radius:2px;overflow:hidden}
+#uPortal .u-fill{height:100%;width:0%;background:linear-gradient(90deg,#8f93a5,#EEF0F6)}
+#uPortal .u-pct{font-family:Georgia,serif;font-size:1.05rem;color:#EEF0F6;font-variant-numeric:tabular-nums}
+#uPortal .u-skip{position:absolute;top:22px;right:24px;color:#77747f;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
+#uPortal .u-flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+#uPortal .u-welcome{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  opacity:0;transform:scale(.96);transition:opacity .8s ease,transform .8s ease;pointer-events:none;text-align:center;padding:0 20px}
+#uPortal .u-welcome.u-on{opacity:1;transform:none}
+#uPortal .u-eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#A5A2B0;margin-bottom:20px}
+#uPortal .u-h1{font-family:Georgia,serif;font-weight:500;font-size:clamp(2.2rem,7vw,4.6rem);line-height:1.1;letter-spacing:-.02em;margin:0}
+#uPortal .u-shine{background:linear-gradient(115deg,#8b8fa0 0%,#EEF0F6 30%,#fff 50%,#EEF0F6 62%,#8b8fa0 100%);
+  background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:uShine 3.5s ease-in-out infinite}
+@keyframes uShine{0%,100%{background-position:12% 0}50%{background-position:88% 0}}
+#uPortal .u-sub{color:#A5A2B0;font-size:1.05rem;margin-top:16px}
+#uPortal .u-sign{position:absolute;bottom:6vh;left:0;right:0;text-align:center;font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;color:#5f5d68}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<title>NCC Luca (Autonoleggio Pacchin) — Taxi a Villanova del Ghebbo · +39 335 7067113</title>
+<meta name="description" content="Taxi e noleggio con conducente a Villanova del Ghebbo. Aeroporti, stazioni, visite e serate. Prezzo detto prima di partire.">
+<meta name="theme-color" content="#F6F4EF">
+<meta property="og:title" content="NCC Luca (Autonoleggio Pacchin) — Taxi a Villanova del Ghebbo · +39 335 7067113">
+<meta property="og:description" content="Taxi e noleggio con conducente a Villanova del Ghebbo. Aeroporti, stazioni, visite e serate. Prezzo detto prima di partire.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1624343747608-85a728776125?auto=format&fit=crop&w=1200&h=630&q=72">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F4EF;--bg-2:#ECE8DF;--paper:#FFFFFF;--ink:#14161A;--ink-2:#5C5F66;--line:#DCD7CC;--sig:#F5B700;--green:#1F7A4D;--road:#22252B;
+--disp:'Syne',system-ui,sans-serif;--body:'Outfit',system-ui,-apple-system,sans-serif;--gut:clamp(64px,8vw,120px);--mbar-bg:#14161A}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}img{display:block;max-width:100%}
+.w{max-width:1320px;margin:0 auto 0 0;padding-left:max(var(--gut),env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+/* la strada */
+.road{position:fixed;left:clamp(18px,3vw,40px);top:0;bottom:0;width:22px;z-index:40;pointer-events:none}
+.road::before{content:'';position:absolute;inset:0;background:var(--road);border-radius:3px}
+.road .lane{position:absolute;left:10px;top:0;bottom:0;width:2px;background:repeating-linear-gradient(to bottom,rgba(255,255,255,.55) 0 14px,transparent 14px 30px)}
+.road .done{position:absolute;left:0;right:0;top:0;height:100%;background:var(--sig);transform-origin:50% 0;transform:scaleY(0);opacity:.9;border-radius:3px}
+.road .car{position:absolute;left:-5px;top:0;width:32px;height:52px;will-change:transform}
+.stop{position:absolute;left:calc(clamp(18px,3vw,40px) - 9px);top:6px;width:40px;height:40px;border-radius:50%;background:var(--bg);border:3px solid var(--road);display:grid;place-items:center;font:800 13px/1 var(--disp);z-index:41;transition:background .4s,color .4s,border-color .4s}
+.stop.on{background:var(--sig);border-color:var(--sig)}
+/* header */
+.hd{position:fixed;left:0;right:0;top:0;z-index:50;transition:background .3s,box-shadow .3s}
+.hd.solid{background:rgba(246,244,239,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+.hd .w{display:flex;justify-content:space-between;align-items:center;height:70px;gap:12px}
+.brand{font:800 17px/1 var(--disp);text-decoration:none;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.call{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;font:600 15px/1 var(--body);white-space:nowrap}
+/* hero */
+.hero{min-height:100svh;display:flex;align-items:center;padding-block:110px 60px}
+.hero .w{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:center;width:100%}
+.tag{display:inline-flex;align-items:center;gap:10px;font:600 13px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin-bottom:26px}
+.tag i{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(31,122,77,.5);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(31,122,77,0)}100%{box-shadow:0 0 0 0 rgba(31,122,77,0)}}
+h1{font:800 min(5.6rem,calc(36vw / var(--L,8)))/.92 var(--disp);letter-spacing:-.04em;margin:0 0 28px;text-transform:uppercase}
+h1 .ln{display:block;overflow:hidden}h1 .ln>span{display:inline-block}
+h1 .hl{color:var(--bg);-webkit-text-stroke:2px var(--ink);text-stroke:2px var(--ink)}
+.lede{font-size:1.15rem;color:var(--ink-2);max-width:40ch;margin:0 0 30px}
+.acts{display:flex;gap:12px;flex-wrap:wrap}
+.b{display:inline-flex;align-items:center;gap:10px;height:58px;padding:0 26px;border-radius:16px;text-decoration:none;font:700 16px/1 var(--body);transition:transform .2s}
+.b:hover{transform:translateY(-3px)}.b.y{background:var(--sig);color:var(--ink)}.b.dk{background:var(--ink);color:#fff}.b.wa{background:#1FAF55;color:#fff}
+.stage{position:relative;height:min(640px,78svh);min-width:320px}
+.stage .ph{position:absolute;right:0;top:4%;width:78%;height:80%;border-radius:28px;overflow:hidden;transform:rotate(3deg);box-shadow:0 40px 80px -40px rgba(20,22,26,.6)}
+.stage .ph img,.stage .ph .phx{width:100%;height:100%;object-fit:cover}
+.phone{position:absolute;left:0;bottom:0;width:min(300px,70%);aspect-ratio:9/18.5;background:#0E1013;border-radius:42px;padding:12px;box-shadow:0 50px 90px -30px rgba(20,22,26,.7),inset 0 0 0 2px #2a2d33}
+.scr{height:100%;border-radius:32px;overflow:hidden;background:#ECE5DD;display:flex;flex-direction:column}
+.scr .top{background:#075E54;color:#fff;padding:26px 14px 12px;display:flex;align-items:center;gap:10px;font:600 13px/1.2 var(--body)}
+.scr .top b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#25D366;font-size:12px}
+.scr .top small{display:block;font-weight:400;opacity:.8;font-size:11px}
+.msgs{flex:1;padding:14px 10px;display:flex;flex-direction:column;gap:8px;justify-content:flex-end;font:400 12.5px/1.4 var(--body)}
+.m{max-width:84%;padding:8px 10px;border-radius:10px;box-shadow:0 1px 1px rgba(0,0,0,.1);color:#111}
+.m.o{align-self:flex-end;background:#DCF8C6;border-top-right-radius:2px}.m.i{align-self:flex-start;background:#fff;border-top-left-radius:2px}
+.m.typing{display:flex;gap:4px;padding:12px 12px}.m.typing i{width:6px;height:6px;border-radius:50%;background:#999;animation:dot 1.2s infinite}.m.typing i:nth-child(2){animation-delay:.15s}.m.typing i:nth-child(3){animation-delay:.3s}
+@keyframes dot{30%{transform:translateY(-4px);opacity:1}0%,60%,100%{opacity:.4}}
+.ex{position:absolute;left:0;bottom:-30px;font:500 11px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+/* sezioni */
+.sec{position:relative;padding-block:clamp(90px,12vw,160px)}
+.k{font:600 13px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);margin:0 0 18px}
+.h2{font:800 clamp(2.4rem,5.6vw,4.8rem)/.95 var(--disp);letter-spacing:-.035em;margin:0 0 22px;text-transform:uppercase;max-width:16ch}
+.sub{color:var(--ink-2);max-width:54ch;margin:0;font-size:1.08rem}
+/* fermata 1: chi siamo */
+.about{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center}
+.big{font:700 clamp(1.8rem,3.6vw,3rem)/1.18 var(--disp);letter-spacing:-.02em;margin:0}
+.big em{font-style:normal;background:linear-gradient(transparent 60%,var(--sig) 60%)}
+.ring{position:relative;width:min(300px,70vw);aspect-ratio:1;margin-inline:auto}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring .tr{fill:none;stroke:var(--bg-2);stroke-width:14}.ring .fl{fill:none;stroke:var(--sig);stroke-width:14;stroke-linecap:round}
+.ring .c{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+.ring .c b{display:block;font:800 clamp(3.6rem,8vw,5rem)/1 var(--disp);letter-spacing:-.04em}.ring .c span{font-size:14px;color:var(--ink-2)}
+.ring .stars{color:#E2A400;display:inline-flex;gap:2px;margin-top:6px}
+/* fermata 2: mattonelle */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(220px,auto);gap:16px;margin-top:54px;perspective:1200px}
+.tile{position:relative;border-radius:24px;padding:26px;background:var(--paper);border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;transform-style:preserve-3d;transition:translate .35s cubic-bezier(.2,.7,.2,1)}
+.tile:hover{translate:0 -6px}
+.tile.ph1{grid-column:span 2;grid-row:span 2;color:#fff}.tile.ph2{grid-column:span 2;color:#fff}
+.tile .im{position:absolute;inset:0}.tile .im img,.tile .im .phx{width:100%;height:100%;object-fit:cover}
+.tile .im::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(20,22,26,.85))}
+.tile h3{position:relative;font:800 1.45rem/1.05 var(--disp);letter-spacing:-.02em;margin:0 0 8px;text-transform:uppercase}
+.tile p{position:relative;margin:0;font-size:15px;color:inherit;opacity:.82}
+.tile .ic{position:absolute;top:22px;left:24px;width:44px;height:44px;border-radius:12px;background:var(--sig);display:grid;place-items:center;font:800 16px/1 var(--disp);color:var(--ink)}
+.tile.dk{background:var(--ink);color:#fff;border-color:var(--ink)}
+/* fermata 3: la città che si rimpicciolisce */
+.dest{min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--ink);color:#fff}
+.dest .w{width:100%;position:relative}
+.cityw{font:800 clamp(4rem,19vw,17rem)/.82 var(--disp);letter-spacing:-.06em;text-transform:uppercase;margin:0;white-space:nowrap;color:var(--sig);transform-origin:0 50%}
+.dl{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:0;max-width:820px;margin-left:auto}
+.dl li{display:grid;grid-template-columns:44px 1fr auto;gap:16px;align-items:center;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.14);font:700 clamp(1.1rem,2vw,1.5rem)/1.2 var(--disp)}
+.dl li span{font:600 13px/1 var(--body);color:rgba(255,255,255,.55)}
+.dl li a{font:600 14px/1 var(--body);text-decoration:none;background:rgba(255,255,255,.1);padding:10px 14px;border-radius:999px;white-space:nowrap}
+.dl li a:hover{background:var(--sig);color:var(--ink)}
+/* fermata 4: mosaico */
+.mos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:54px;align-items:start}
+.col{display:grid;gap:16px}
+.col figure{margin:0;position:relative;border-radius:22px;overflow:hidden;background:var(--bg-2)}
+.col figure img,.col figure .phx{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.col figure.t{aspect-ratio:3/4}.col figure.s{aspect-ratio:1}.col figure.l{aspect-ratio:4/3}
+.col figcaption{position:absolute;left:14px;bottom:12px;z-index:2;color:#fff;font:600 13px/1 var(--body);text-shadow:0 1px 8px rgba(0,0,0,.5)}
+/* fermata 5: prenotare */
+.book{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+.book .phone{position:relative;left:auto;bottom:auto;width:min(320px,80vw);margin-inline:auto}
+.bk{display:grid;gap:12px;background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:30px;margin-top:30px}
+.bk label{display:grid;gap:6px}.bk label span{font:600 12px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+.bk input,.bk select{width:100%;height:54px;border-radius:14px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);padding:0 16px;font:500 16px/1 var(--body)}
+.bk input:focus,.bk select:focus{outline:none;border-color:var(--ink)}
+.bk-row{display:grid;grid-template-columns:1fr 120px;gap:12px}
+.bk-go{display:flex;align-items:center;justify-content:center;gap:10px;height:60px;border:0;border-radius:16px;background:#1FAF55;color:#fff;font:700 16px/1 var(--body);cursor:pointer}
+.bk-note{margin:0;font-size:13px;color:var(--ink-2)}
+.faq{border-top:3px solid var(--ink)}.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:26px 0;font:700 1.2rem/1.3 var(--disp)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{flex:none;width:30px;height:30px;border-radius:50%;background:var(--sig);position:relative}
+.faq summary i::before,.faq summary i::after{content:'';position:absolute;left:9px;right:9px;top:14px;height:2px;background:var(--ink)}
+.faq summary i::after{transform:rotate(90deg);transition:transform .25s}.faq details[open] summary i::after{transform:none}
+.faq p{margin:0 0 26px;color:var(--ink-2);max-width:62ch}
+/* finale */
+.fin{background:var(--sig);padding-block:clamp(100px,13vw,170px);overflow:hidden}
+.fin .k{color:#5a4a00}
+.odo{display:flex;flex-wrap:wrap;font:800 clamp(2.8rem,10vw,9rem)/1 var(--disp);letter-spacing:-.04em;margin:0 0 34px;text-decoration:none}
+.odo .d{display:inline-block;height:1em;overflow:hidden;vertical-align:top}.odo .d>span{display:block;transform:translateY(-90%)}
+.odo .sp{display:inline-block;width:.3em}
+.foot{background:var(--ink);color:#BFC2C8;padding-block:60px 44px;font-size:15px}
+.foot .w{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:30px}.foot h4{font:700 12px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:#fff;margin:0 0 14px}
+.foot p{margin:0 0 6px}.foot a{text-decoration:none;color:#fff}.foot .legal{grid-column:1/-1;font-size:12px;margin-top:20px}
+.phx{background:linear-gradient(160deg,#59626d,#272c33)}
+:focus-visible{outline:3px solid var(--sig);outline-offset:3px}
+@media (max-width:980px){h1{font-size:min(4.2rem,calc(70vw / var(--L,8)))}.hero .w,.about,.book{grid-template-columns:1fr}.stage{height:520px;margin-top:20px;min-width:0}.bento{grid-template-columns:1fr 1fr}.tile.ph1{grid-column:span 2;grid-row:span 1;min-height:320px}.foot .w{grid-template-columns:1fr}}
+@media (max-width:640px){:root{--gut:46px}.road{left:12px;width:12px}.road .lane{left:5px}.road .car{left:-7px;width:26px;height:42px}.stop{width:30px;height:30px;font-size:11px;left:3px}
+ .bento{grid-template-columns:1fr}.tile.ph1,.tile.ph2{grid-column:auto}.mos{grid-template-columns:1fr 1fr}.mos .col:nth-child(3){display:none}.b{flex:1;justify-content:center}.call span{display:none}.call{padding:0 14px}.bk{padding:20px}.dl li{grid-template-columns:30px 1fr;}.dl li a{grid-column:2;justify-self:start}.stage{height:460px}}
+
+
+.mbar{display:none}@media (max-width:760px){.mbar{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:8000;padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px));gap:8px;background:var(--mbar-bg,#111);border-top:1px solid rgba(255,255,255,.08)}
+.mbar a{display:flex;align-items:center;justify-content:center;gap:8px;height:48px;border-radius:12px;font:600 15px/1 var(--sans);text-decoration:none;color:var(--mbar-fg,#fff);background:var(--mbar-b1,rgba(255,255,255,.08))}
+.mbar .mbar-wa{background:#1FAF55;color:#fff}body{padding-bottom:72px}}
+</style>
+</head>
+<body>
+<!-- UMBRA INTRO v2 (body) -->
+<div id="uPortal" aria-hidden="true">
+  <div class="u-flash" id="uFlash"></div>
+  <div class="u-ui" id="uUi">
+    <svg width="34" height="34" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="url(#ug)" stroke-width="1.6"/><path d="M16 3.5a12.5 12.5 0 0 1 0 25 15.5 15.5 0 0 0 0-25z" fill="url(#ug)"/><defs><linearGradient id="ug" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#EEF0F6"/><stop offset="1" stop-color="#C3C6D3"/></linearGradient></defs></svg>
+    <div class="u-brand">Umbra</div>
+    <div class="u-by">by Matteo Tagliacollo</div>
+    <div class="u-status">Stiamo aprendo l'anteprima riservata a <b>NCC Luca (Autonoleggio Pacchin)</b></div>
+    <div class="u-track"><div class="u-fill" id="uFill"></div></div>
+    <div class="u-pct" id="uPct">0%</div>
+  </div>
+  <div class="u-skip">Tocca per saltare</div>
+  <div class="u-welcome" id="uWelcome">
+    <div class="u-eyebrow">Umbra presenta</div>
+    <h1 class="u-h1">Benvenuto,<br><span class="u-shine">NCC Luca (Autonoleggio Pacchin).</span></h1>
+    <p class="u-sub">Il vostro nuovo sito è pronto. Guardatelo.</p>
+    <div class="u-sign">Umbra · by Matteo Tagliacollo</div>
+  </div>
+</div>
+<script>
+(function(){
+  var H=document.documentElement;
+  if(!/\bu-lock\b/.test(H.className))return;
+  var portal=document.getElementById('uPortal'),fill=document.getElementById('uFill'),pct=document.getElementById('uPct'),
+      ui=document.getElementById('uUi'),welcome=document.getElementById('uWelcome'),flash=document.getElementById('uFlash'),
+      done=false,t0=performance.now(),CONV=2600,THRU=1100,three=null,welcomed=false;
+  function finish(){if(done)return;done=true;
+    portal.classList.add('u-out');setTimeout(function(){H.classList.remove('u-lock');window.dispatchEvent(new Event('umbra:intro-done'));window.dispatchEvent(new Event('resize'))},450);
+    setTimeout(function(){portal.style.display='none'},1000)}
+  function showWelcome(){if(welcomed)return;welcomed=true;ui.style.display='none';welcome.classList.add('u-on');setTimeout(finish,2100)}
+  portal.addEventListener('click',finish);
+  var ease=function(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2};
+  var reduced=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // barra: parte al primo frame, indipendente da three.js
+  (function bar(){if(done||welcomed)return;var t=performance.now()-t0,p=Math.min(1,t/CONV),s=Math.round(ease(p)*100);
+    fill.style.width=s+'%';pct.textContent=s+'%';
+    if(!three&&t>=CONV){showWelcome();return}
+    requestAnimationFrame(bar)})();
+  if(reduced)return;
+  function start(){if(done||welcomed||typeof THREE==='undefined')return;
+    var el=performance.now()-t0;if(el>CONV*0.75)return; // troppo tardi: resta la versione senza 3D
+    try{
+    var scene=new THREE.Scene();scene.fog=new THREE.FogExp2(0x050508,.045);
+    var camera=new THREE.PerspectiveCamera(60,innerWidth/innerHeight,.1,100);camera.position.set(0,0,8.5);
+    var renderer=new THREE.WebGLRenderer({antialias:true,powerPreference:'high-performance'});renderer.setSize(innerWidth,innerHeight);
+    renderer.setPixelRatio(Math.min(devicePixelRatio,2));portal.insertBefore(renderer.domElement,portal.firstChild);
+    }catch(e){return}
+    three=true;requestAnimationFrame(function(){renderer.domElement.classList.add('u-on')});
+    var N=innerWidth<700?3200:5200,R=2.35,tube=.1,st=new Float32Array(N*3),tg=new Float32Array(N*3),pos=new Float32Array(N*3);
+    function r(){return Math.random()*2-1}
+    for(var i=0;i<N;i++){var v=new THREE.Vector3(r(),r(),r()).normalize().multiplyScalar(6+Math.random()*9);
+      st[i*3]=v.x;st[i*3+1]=v.y;st[i*3+2]=v.z;var a=Math.random()*Math.PI*2,b=Math.random()*Math.PI*2,tr=tube*Math.sqrt(Math.random());
+      tg[i*3]=(R+tr*Math.cos(b))*Math.cos(a);tg[i*3+1]=(R+tr*Math.cos(b))*Math.sin(a);tg[i*3+2]=tr*Math.sin(b)}
+    pos.set(st);var geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+    var mat=new THREE.PointsMaterial({color:0xdfe2ec,size:.035,transparent:true,opacity:.95,blending:THREE.AdditiveBlending,depthWrite:false});
+    var ring=new THREE.Points(geo,mat);ring.rotation.x=.32;scene.add(ring);
+    var M=900,dp=new Float32Array(M*3);for(var j=0;j<M;j++){dp[j*3]=r()*18;dp[j*3+1]=r()*18;dp[j*3+2]=-6-Math.random()*24}
+    var dg=new THREE.BufferGeometry();dg.setAttribute('position',new THREE.BufferAttribute(dp,3));
+    scene.add(new THREE.Points(dg,new THREE.PointsMaterial({color:0x8f93a5,size:.02,transparent:true,opacity:.5,depthWrite:false})));
+    (function frame(){
+      if(done){renderer.dispose();return}
+      var t=performance.now()-t0,p=Math.min(1,t/CONV),e=ease(p);
+      for(var i=0;i<N*3;i++)pos[i]=st[i]+(tg[i]-st[i])*e;
+      geo.attributes.position.needsUpdate=true;ring.rotation.z+=.0016+.004*(1-p);
+      if(t<CONV){camera.position.z=8.5-1.3*e}
+      else if(t<CONV+THRU){var q=ease((t-CONV)/THRU);camera.position.z=7.2-9.2*q;camera.rotation.z=.10*q;mat.opacity=.95*(1-q*.55);if(q>.72)flash.style.opacity=(q-.72)/.28}
+      else{flash.style.transition='opacity .5s ease';flash.style.opacity=0;showWelcome();renderer.render(scene,camera);return}
+      renderer.render(scene,camera);requestAnimationFrame(frame)})();
+    addEventListener('resize',function(){camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)});
+  }
+  if(typeof THREE!=='undefined')start();
+  else{var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';s.crossOrigin='anonymous';s.async=true;s.onload=start;document.head.appendChild(s)}
+})();
+</script>
+<!-- /UMBRA INTRO v2 -->
+<div class="road" aria-hidden="true"><i class="lane"></i><i class="done"></i><svg class="car" viewBox="0 0 32 52" aria-hidden="true"><rect x="3" y="2" width="26" height="48" rx="9" fill="#F5B700"/><rect x="6" y="13" width="20" height="11" rx="3" fill="#14161A"/><rect x="6" y="33" width="20" height="8" rx="3" fill="#14161A" opacity=".85"/><rect x="11" y="26" width="10" height="5" rx="1.5" fill="#14161A"/><circle cx="8" cy="4" r="2" fill="#fff"/><circle cx="24" cy="4" r="2" fill="#fff"/></svg></div>
+<header class="hd"><div class="w"><a class="brand" href="#">NCC Luca (Autonoleggio Pacchin)</a><a class="call" href="tel:+393357067113"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span>+39 335 7067113</span></a></div></header>
+<main>
+<section class="hero"><div class="w">
+ <div>
+  <p class="tag" data-in><i></i>Taxi e NCC · Villanova del Ghebbo</p>
+  <h1 style="--L:9"><span class="ln"><span>Da Villanova del Ghebbo</span></span><span class="ln"><span class="hl">ovunque</span></span><span class="ln"><span>vi serva.</span></span></h1>
+  <p class="lede" data-in>Aeroporti, stazioni, visite e serate. Ci scrivete su WhatsApp, vi diciamo il prezzo prima di partire, passiamo a prendervi.</p>
+  <div class="acts" data-in><a class="b y" href="tel:+393357067113"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Chiama</a><a class="b wa" href="https://wa.me/393357067113?text=Buongiorno%2C%20vorrei%20prenotare%20una%20corsa."><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.9-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>WhatsApp</a></div>
+ </div>
+ <div class="stage" data-in>
+  <div class="ph"><img src="https://images.unsplash.com/photo-1624343747608-85a728776125?auto=format&fit=crop&w=1100&q=72" srcset="https://images.unsplash.com/photo-1624343747608-85a728776125?auto=format&fit=crop&w=550&q=72 550w, https://images.unsplash.com/photo-1624343747608-85a728776125?auto=format&fit=crop&w=1100&q=72 1100w" sizes="(max-width:980px) 90vw, 36vw" alt="Auto pronta per la corsa" loading="eager" fetchpriority="high" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"></div>
+  <div class="phone"><div class="scr"><div class="top"><b>L(</b><div>NCC Luca (Autonoleggio Pacchin)<small>online</small></div></div><div class="msgs"><div class="m o">Buongiorno, domani mattina da Villanova del Ghebbo a Aeroporto. Siamo in 2 con 2 valigie.</div><div class="m i typing"><i></i><i></i><i></i></div><div class="m i">Buongiorno! A che ora? Vi scrivo subito il prezzo, fisso.</div><div class="m o">Alle 6:30, grazie 🙏</div></div></div></div>
+  <span class="ex">Esempio di conversazione</span>
+ </div>
+</div></section>
+
+<section class="sec"><div class="w" style="position:relative"><span class="stop">01</span>
+ <p class="k">Fermata 1 · Chi siamo</p>
+ <div class="about">
+  <p class="big">A Villanova del Ghebbo siamo quelli che chiamate per <em>l’aeroporto all’alba</em>, la visita in ospedale e il rientro dopo cena. Prezzo detto prima, sempre.</p>
+  
+ </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="w" style="position:relative"><span class="stop">02</span>
+ <p class="k">Fermata 2 · Servizi</p><h2 class="h2">Le corse di tutti i giorni.</h2>
+ <div class="bento"><article class="tile ph1"><div class="im"><img src="https://images.unsplash.com/photo-1687992176093-6417a93fa3d0?auto=format&fit=crop&w=1000&q=72" srcset="https://images.unsplash.com/photo-1687992176093-6417a93fa3d0?auto=format&fit=crop&w=500&q=72 500w, https://images.unsplash.com/photo-1687992176093-6417a93fa3d0?auto=format&fit=crop&w=1000&q=72 1000w" sizes="(max-width:640px) 100vw, 33vw" alt="Aeroporti e stazioni" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"></div><h3>Aeroporti e stazioni</h3><p>Sotto casa all’ora che dite, al terminal con il margine giusto. Al ritorno vi aspettiamo all’uscita.</p></article><article class="tile "><span class="ic">01</span><h3>Visite e ospedali</h3><p>Andata e ritorno per visite, esami e dimissioni.</p></article><article class="tile dk"><span class="ic">02</span><h3>Serate e cene</h3><p>Andate a cena tranquilli: vi riportiamo noi, anche tardi.</p></article><article class="tile ph2"><div class="im"><img src="https://images.unsplash.com/photo-1573914826724-52a752180fde?auto=format&fit=crop&w=1000&q=72" srcset="https://images.unsplash.com/photo-1573914826724-52a752180fde?auto=format&fit=crop&w=500&q=72 500w, https://images.unsplash.com/photo-1573914826724-52a752180fde?auto=format&fit=crop&w=1000&q=72 1000w" sizes="(max-width:640px) 100vw, 33vw" alt="Corse su prenotazione" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"></div><h3>Corse su prenotazione</h3><p>Fissate giorno e ora anche con settimane di anticipo.</p></article><article class="tile "><span class="ic">03</span><h3>Bagagli e passeggini</h3><p>Diteci cosa portate: scegliamo l’auto giusta.</p></article><article class="tile dk"><span class="ic">04</span><h3>Prezzo detto prima</h3><p>Lo sapete prima di salire. Non cambia con il traffico.</p></article></div>
+</div></section>
+
+<section class="dest" id="dove"><div class="w"><span class="stop" style="top:-60px">03</span>
+ <p class="k" style="color:rgba(255,255,255,.6)">Fermata 3 · Dove andiamo</p>
+ <p class="cityw" style="font-size:min(19vw,8vw)">Villanova del Ghebbo</p>
+ <ul class="dl"><li><span>01</span>Stazione ferroviaria<a href="https://wa.me/393357067113?text=Buongiorno%2C%20quanto%20costa%20una%20corsa%20da%20Villanova%20del%20Ghebbo%20a%20Stazione%20ferroviaria%3F">Prezzo →</a></li><li><span>02</span>Aeroporto<a href="https://wa.me/393357067113?text=Buongiorno%2C%20quanto%20costa%20una%20corsa%20da%20Villanova%20del%20Ghebbo%20a%20Aeroporto%3F">Prezzo →</a></li><li><span>03</span>Ospedale<a href="https://wa.me/393357067113?text=Buongiorno%2C%20quanto%20costa%20una%20corsa%20da%20Villanova%20del%20Ghebbo%20a%20Ospedale%3F">Prezzo →</a></li><li><span>04</span>Centro città<a href="https://wa.me/393357067113?text=Buongiorno%2C%20quanto%20costa%20una%20corsa%20da%20Villanova%20del%20Ghebbo%20a%20Centro%20citt%C3%A0%3F">Prezzo →</a></li></ul>
+</div></section>
+
+<section class="sec"><div class="w" style="position:relative"><span class="stop">04</span>
+ <p class="k">Fermata 4 · In giro</p><h2 class="h2">Ogni giorno, sulla strada.</h2>
+ <div class="mos"><div class="col"><figure class="t"><img src="https://images.unsplash.com/photo-1620475655006-0f0c6a10a221?auto=format&fit=crop&w=900&q=72" srcset="https://images.unsplash.com/photo-1620475655006-0f0c6a10a221?auto=format&fit=crop&w=450&q=72 450w, https://images.unsplash.com/photo-1620475655006-0f0c6a10a221?auto=format&fit=crop&w=900&q=72 900w" sizes="(max-width:640px) 100vw, 33vw" alt="In città" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"><figcaption>In città</figcaption></figure><figure class="s"><img src="https://images.unsplash.com/photo-1680451553374-09d8d6a1ca58?auto=format&fit=crop&w=900&q=72" srcset="https://images.unsplash.com/photo-1680451553374-09d8d6a1ca58?auto=format&fit=crop&w=450&q=72 450w, https://images.unsplash.com/photo-1680451553374-09d8d6a1ca58?auto=format&fit=crop&w=900&q=72 900w" sizes="(max-width:640px) 100vw, 33vw" alt="Pronta alla partenza" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"><figcaption>Pronta alla partenza</figcaption></figure><figure class="l"><img src="https://images.unsplash.com/photo-1622884589154-4bf891d0af40?auto=format&fit=crop&w=900&q=72" srcset="https://images.unsplash.com/photo-1622884589154-4bf891d0af40?auto=format&fit=crop&w=450&q=72 450w, https://images.unsplash.com/photo-1622884589154-4bf891d0af40?auto=format&fit=crop&w=900&q=72 900w" sizes="(max-width:640px) 100vw, 33vw" alt="Di sera" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"><figcaption>Di sera</figcaption></figure></div><div class="col"><figure class="s"><img src="https://images.unsplash.com/photo-1603122101829-e56305b0a5f7?auto=format&fit=crop&w=900&q=72" srcset="https://images.unsplash.com/photo-1603122101829-e56305b0a5f7?auto=format&fit=crop&w=450&q=72 450w, https://images.unsplash.com/photo-1603122101829-e56305b0a5f7?auto=format&fit=crop&w=900&q=72 900w" sizes="(max-width:640px) 100vw, 33vw" alt="Alla porta" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"><figcaption>Alla porta</figcaption></figure><figure class="l"><img src="https://images.unsplash.com/photo-1570105283567-7fd3ec4ba6cd?auto=format&fit=crop&w=900&q=72" srcset="https://images.unsplash.com/photo-1570105283567-7fd3ec4ba6cd?auto=format&fit=crop&w=450&q=72 450w, https://images.unsplash.com/photo-1570105283567-7fd3ec4ba6cd?auto=format&fit=crop&w=900&q=72 900w" sizes="(max-width:640px) 100vw, 33vw" alt="Fuori porta" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"><figcaption>Fuori porta</figcaption></figure><figure class="t"><img src="https://images.unsplash.com/photo-1653582245010-04fc596f8ee2?auto=format&fit=crop&w=900&q=72" srcset="https://images.unsplash.com/photo-1653582245010-04fc596f8ee2?auto=format&fit=crop&w=450&q=72 450w, https://images.unsplash.com/photo-1653582245010-04fc596f8ee2?auto=format&fit=crop&w=900&q=72 900w" sizes="(max-width:640px) 100vw, 33vw" alt="Al terminal" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"><figcaption>Al terminal</figcaption></figure></div><div class="col"><figure class="l"><img src="https://images.unsplash.com/photo-1502014335594-c026800f24ee?auto=format&fit=crop&w=900&q=72" srcset="https://images.unsplash.com/photo-1502014335594-c026800f24ee?auto=format&fit=crop&w=450&q=72 450w, https://images.unsplash.com/photo-1502014335594-c026800f24ee?auto=format&fit=crop&w=900&q=72 900w" sizes="(max-width:640px) 100vw, 33vw" alt="A bordo" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"><figcaption>A bordo</figcaption></figure><figure class="t"><img src="https://images.unsplash.com/photo-1765461734605-34657fa04db2?auto=format&fit=crop&w=900&q=72" srcset="https://images.unsplash.com/photo-1765461734605-34657fa04db2?auto=format&fit=crop&w=450&q=72 450w, https://images.unsplash.com/photo-1765461734605-34657fa04db2?auto=format&fit=crop&w=900&q=72 900w" sizes="(max-width:640px) 100vw, 33vw" alt="Per i gruppi" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"><figcaption>Per i gruppi</figcaption></figure><figure class="s"><img src="https://images.unsplash.com/photo-1516707577720-8221c3643fa3?auto=format&fit=crop&w=900&q=72" srcset="https://images.unsplash.com/photo-1516707577720-8221c3643fa3?auto=format&fit=crop&w=450&q=72 450w, https://images.unsplash.com/photo-1516707577720-8221c3643fa3?auto=format&fit=crop&w=900&q=72 900w" sizes="(max-width:640px) 100vw, 33vw" alt="Rientro tardi" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-photo-slot="repertorio"><figcaption>Rientro tardi</figcaption></figure></div></div>
+</div></section>
+
+<section class="sec" id="prenota" style="padding-top:0"><div class="w" style="position:relative"><span class="stop">05</span>
+ <p class="k">Fermata 5 · Prenotare</p>
+ <div class="book">
+  <div class="phone"><div class="scr"><div class="top"><b>L(</b><div>NCC Luca (Autonoleggio Pacchin)<small>online</small></div></div><div class="msgs">
+   <div class="m o">Buongiorno, vorrei prenotare una corsa.</div><div class="m i">Buongiorno! Da dove a dove, e quando?</div>
+   <div class="m o">Da casa a Stazione ferroviaria, venerdì alle 7.</div><div class="m i">Perfetto. Vi scrivo il prezzo: è quello, anche con il traffico.</div><div class="m o">Confermo 👍</div></div></div></div>
+  <div><h2 class="h2">Tre messaggi e siete a posto.</h2><p class="sub">Compilate qui sotto: si apre WhatsApp con il testo già scritto. Vi risponde direttamente NCC Luca (Autonoleggio Pacchin).</p>
+  <form class="bk" data-wa="https://wa.me/393357067113" onsubmit="return umbraBook(this)"><label><span>Partenza</span><input name="from" placeholder="Es. Villanova del Ghebbo" autocomplete="off"></label><label><span>Destinazione</span><input name="to" list="dl-f" placeholder="Es. aeroporto, stazione, hotel" autocomplete="off"><datalist id="dl-f"></datalist></label><div class="bk-row"><label><span>Giorno e ora</span><input name="when" placeholder="Es. ven 14, ore 6:30" autocomplete="off"></label><label class="bk-pax"><span>Persone</span><select name="pax"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label></div><button type="submit" class="bk-go"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.9-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg><span>Chiedi il preventivo su WhatsApp</span></button><p class="bk-note">Si apre WhatsApp con il messaggio già scritto. Vi risponde direttamente NCC Luca (Autonoleggio Pacchin).</p></form></div>
+ </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="w" style="position:relative"><span class="stop">06</span>
+ <p class="k">Fermata 6 · Domande</p>
+ <div class="faq"><details><summary>Il prezzo è fisso?<i aria-hidden="true"></i></summary><p>Sì. Ve lo diciamo prima della partenza e resta quello, anche con il traffico.</p></details><details><summary>Con quanto anticipo prenoto?<i aria-hidden="true"></i></summary><p>Per gli aeroporti meglio il giorno prima. In città spesso basta una chiamata.</p></details><details><summary>Posso pagare con carta?<i aria-hidden="true"></i></summary><p>Chiedetelo quando prenotate: vi diciamo subito i metodi di pagamento.</p></details><details><summary>Portate bagagli grandi o passeggini?<i aria-hidden="true"></i></summary><p>Sì, diteci cosa portate così scegliamo l’auto giusta.</p></details></div>
+</div></section>
+
+<section class="fin"><div class="w"><p class="k">Capolinea · Salvatevi il numero</p>
+ <a class="odo" href="tel:+393357067113" aria-label="+39 335 7067113"><span>+</span><span class="d"><span><span style="display:block">4</span><span style="display:block">5</span><span style="display:block">6</span><span style="display:block">7</span><span style="display:block">8</span><span style="display:block">9</span><span style="display:block">0</span><span style="display:block">1</span><span style="display:block">2</span><span style="display:block">3</span></span></span><span class="d"><span><span style="display:block">0</span><span style="display:block">1</span><span style="display:block">2</span><span style="display:block">3</span><span style="display:block">4</span><span style="display:block">5</span><span style="display:block">6</span><span style="display:block">7</span><span style="display:block">8</span><span style="display:block">9</span></span></span><span class="sp"></span><span class="d"><span><span style="display:block">4</span><span style="display:block">5</span><span style="display:block">6</span><span style="display:block">7</span><span style="display:block">8</span><span style="display:block">9</span><span style="display:block">0</span><span style="display:block">1</span><span style="display:block">2</span><span style="display:block">3</span></span></span><span class="d"><span><span style="display:block">4</span><span style="display:block">5</span><span style="display:block">6</span><span style="display:block">7</span><span style="display:block">8</span><span style="display:block">9</span><span style="display:block">0</span><span style="display:block">1</span><span style="display:block">2</span><span style="display:block">3</span></span></span><span class="d"><span><span style="display:block">6</span><span style="display:block">7</span><span style="display:block">8</span><span style="display:block">9</span><span style="display:block">0</span><span style="display:block">1</span><span style="display:block">2</span><span style="display:block">3</span><span style="display:block">4</span><span style="display:block">5</span></span></span><span class="sp"></span><span class="d"><span><span style="display:block">8</span><span style="display:block">9</span><span style="display:block">0</span><span style="display:block">1</span><span style="display:block">2</span><span style="display:block">3</span><span style="display:block">4</span><span style="display:block">5</span><span style="display:block">6</span><span style="display:block">7</span></span></span><span class="d"><span><span style="display:block">1</span><span style="display:block">2</span><span style="display:block">3</span><span style="display:block">4</span><span style="display:block">5</span><span style="display:block">6</span><span style="display:block">7</span><span style="display:block">8</span><span style="display:block">9</span><span style="display:block">0</span></span></span><span class="d"><span><span style="display:block">7</span><span style="display:block">8</span><span style="display:block">9</span><span style="display:block">0</span><span style="display:block">1</span><span style="display:block">2</span><span style="display:block">3</span><span style="display:block">4</span><span style="display:block">5</span><span style="display:block">6</span></span></span><span class="d"><span><span style="display:block">8</span><span style="display:block">9</span><span style="display:block">0</span><span style="display:block">1</span><span style="display:block">2</span><span style="display:block">3</span><span style="display:block">4</span><span style="display:block">5</span><span style="display:block">6</span><span style="display:block">7</span></span></span><span class="d"><span><span style="display:block">2</span><span style="display:block">3</span><span style="display:block">4</span><span style="display:block">5</span><span style="display:block">6</span><span style="display:block">7</span><span style="display:block">8</span><span style="display:block">9</span><span style="display:block">0</span><span style="display:block">1</span></span></span><span class="d"><span><span style="display:block">2</span><span style="display:block">3</span><span style="display:block">4</span><span style="display:block">5</span><span style="display:block">6</span><span style="display:block">7</span><span style="display:block">8</span><span style="display:block">9</span><span style="display:block">0</span><span style="display:block">1</span></span></span><span class="d"><span><span style="display:block">4</span><span style="display:block">5</span><span style="display:block">6</span><span style="display:block">7</span><span style="display:block">8</span><span style="display:block">9</span><span style="display:block">0</span><span style="display:block">1</span><span style="display:block">2</span><span style="display:block">3</span></span></span></a>
+ <div class="acts"><a class="b dk" href="tel:+393357067113"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Chiama ora</a><a class="b wa" href="https://wa.me/393357067113?text=Buongiorno%2C%20vorrei%20prenotare%20una%20corsa."><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.9-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>WhatsApp</a></div>
+</div></section>
+</main>
+<footer class="foot"><div class="w">
+ <div><p style="font:800 20px/1.1 var(--disp);color:#fff">NCC Luca (Autonoleggio Pacchin)</p><p>Taxi e noleggio con conducente a Villanova del Ghebbo.</p></div>
+ <div><h4>Contatti</h4><p><a href="tel:+393357067113">+39 335 7067113</a></p><p><a href="https://wa.me/393357067113?text=Buongiorno">WhatsApp</a></p></div>
+ <div><h4>Dove siamo</h4><p>Villanova del Ghebbo</p><p><a href="https://www.google.com/maps/search/?api=1&query=NCC%20Luca%20(Autonoleggio%20Pacchin)%20Villanova%20del%20Ghebbo" target="_blank" rel="noopener">Google Maps ↗</a></p></div>
+ <p class="legal">NCC Luca (Autonoleggio Pacchin) · Foto di repertorio · Anteprima realizzata da Umbra</p>
+</div></footer>
+<nav class="mbar " aria-label="Contatti rapidi"><a href="tel:+393357067113"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span>Chiama</span></a><a href="https://wa.me/393357067113?text=Buongiorno%2C%20vorrei%20un%20preventivo." class="mbar-wa"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.9-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg><span>WhatsApp</span></a></nav>
+<div class="umbra-flag" role="note"><svg width="14" height="14" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="14" stroke="#C3C6D3" stroke-width="2"/><path d="M16 3.5a12.5 12.5 0 0 1 0 25 15.5 15.5 0 0 0 0-25z" fill="#EEF0F6"/></svg><span><b>Anteprima Umbra</b> per NCC Luca (Autonoleggio Pacchin) · non è il sito ufficiale</span></div><style>.umbra-flag{position:fixed;left:14px;bottom:14px;z-index:8500;display:flex;align-items:center;gap:8px;max-width:min(420px,calc(100vw - 28px));padding:8px 13px;border-radius:999px;background:rgba(8,8,11,.84);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(238,240,246,.2);font:400 11px/1.35 system-ui,-apple-system,"Segoe UI",sans-serif;color:#C8C8D2;pointer-events:none}.umbra-flag b{color:#F4F2EC;font-weight:600}@media (max-width:760px){.umbra-flag{left:8px;right:8px;max-width:none;bottom:calc(74px + env(safe-area-inset-bottom,0px));justify-content:center;font-size:10.5px}}</style>
+<script>function umbraBook(f){var g=function(n){return (f.elements[n]&&f.elements[n].value||'').trim()};
+var m='Buongiorno, vorrei un preventivo.'+(g('from')?'\nPartenza: '+g('from'):'')+(g('to')?'\nDestinazione: '+g('to'):'')+(g('when')?'\nQuando: '+g('when'):'')+'\nPersone: '+g('pax');
+window.open(f.getAttribute('data-wa')+'?text='+encodeURIComponent(m),'_blank','noopener');return false}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script>
+(function(){
+function boot(){
+ var H=document.documentElement,q=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+ var hd=document.querySelector('.hd');addEventListener('scroll',function(){hd.classList.toggle('solid',scrollY>30)},{passive:true});
+ // fermate che si accendono (anche senza GSAP)
+ if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('on')})},{rootMargin:'0px 0px -45% 0px'});q('.stop').forEach(function(s){io.observe(s)})}
+ if(typeof gsap==='undefined'||!window.ScrollTrigger||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ gsap.registerPlugin(ScrollTrigger);var mob=matchMedia('(max-width:640px)').matches;
+ // STRADA: l'auto scende con la pagina, l'asfalto percorso si colora
+ var road=document.querySelector('.road'),car=road.querySelector('.car'),done=road.querySelector('.done');
+ ScrollTrigger.create({start:0,end:'max',onUpdate:function(s){var h=road.clientHeight-car.clientHeight;gsap.to(car,{y:s.progress*h,rotation:gsap.utils.clamp(-14,14,s.getVelocity()/220),duration:.5,ease:'power3.out',overwrite:true});gsap.to(done,{scaleY:s.progress,duration:.5,ease:'power3.out',overwrite:true})}});
+ // HERO: righe che entrano da sinistra, foto che ruota, chat che si scrive (dopo l'intro)
+ var tl=gsap.timeline({paused:true});
+ tl.from('h1 .ln>span',{xPercent:-105,duration:1.1,ease:'expo.out',stagger:.09})
+   .from('.hero [data-in]',{y:30,opacity:0,duration:.8,ease:'power3.out',stagger:.08},'-=.7')
+   .from('.stage .ph',{rotation:-8,scale:.85,opacity:0,duration:1.2,ease:'expo.out'},0.1)
+   .from('.stage .phone',{y:120,opacity:0,duration:1.1,ease:'expo.out'},0.3);
+ var chat=q('.hero .msgs .m');gsap.set(chat,{opacity:0,y:14,scale:.96,transformOrigin:'100% 100%'});
+ chat.forEach(function(m,i){tl.to(m,{opacity:1,y:0,scale:1,duration:.4,ease:'back.out(2)'},1.1+i*.75);if(m.classList.contains('typing'))tl.to(m,{opacity:0,height:0,padding:0,margin:0,duration:.2},1.1+i*.75+.65)});
+ if(/\bu-lock\b/.test(H.className))addEventListener('umbra:intro-done',function(){tl.play()},{once:true});else tl.play();
+ // titoli
+ q('.h2').forEach(function(h){gsap.from(h,{yPercent:40,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:h,start:'top 88%'}})});
+ // anello della valutazione
+ q('.ring').forEach(function(r){var f=r.querySelector('.fl'),L=2*Math.PI*90,v=parseFloat(r.getAttribute('data-v'))/5;gsap.set(f,{strokeDasharray:L,strokeDashoffset:L});
+   var o={n:0},b=r.querySelector('b'),fin=b.textContent;
+   gsap.timeline({scrollTrigger:{trigger:r,start:'top 80%'}}).to(f,{strokeDashoffset:L*(1-v),duration:2,ease:'power3.out'},0).to(o,{n:parseFloat(fin.replace(',','.')),duration:2,ease:'power3.out',onUpdate:function(){b.textContent=o.n.toFixed(1).replace('.',',')}},0)});
+ q('.big').forEach(function(b){gsap.from(b,{opacity:0,y:40,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:b,start:'top 85%'}})});
+ // mattonelle che si ribaltano
+ gsap.from('.tile',{rotationX:-75,y:80,opacity:0,transformOrigin:'50% 0%',duration:1.1,ease:'expo.out',stagger:{each:.09,from:'start'},scrollTrigger:{trigger:'.bento',start:'top 82%'}});
+ // la città si rimpicciolisce e lascia entrare le destinazioni
+ var D=document.querySelector('.dest');
+ if(D){var dt=gsap.timeline({scrollTrigger:{trigger:D,start:'top top',end:mob?'+=150%':'+=200%',scrub:.7,pin:true,anticipatePin:1}});
+   dt.fromTo('.cityw',{scale:1.15},{scale:mob?.42:.36,y:mob?-10:-20,duration:1,ease:'power2.inOut'})
+     .from('.dl li',{x:mob?120:260,opacity:0,stagger:.18,duration:.5,ease:'power3.out'},.35)
+     .from('.dest .k',{opacity:0,duration:.2},.3)}
+ // mosaico: colonne a velocità diverse
+ var sp=mob?[-30,30,0]:[-90,60,-160];q('.mos .col').forEach(function(c,i){gsap.fromTo(c,{y:-sp[i]/2},{y:sp[i],ease:'none',scrollTrigger:{trigger:'.mos',start:'top bottom',end:'bottom top',scrub:true}})});
+ q('.mos figure').forEach(function(f){gsap.from(f,{clipPath:'inset(100% 0 0 0 round 22px)',duration:1.2,ease:'expo.out',scrollTrigger:{trigger:f,start:'top 92%'}})});
+ // chat di prenotazione: i messaggi arrivano mentre scorri
+ var bp=document.querySelector('.book .msgs');
+ if(bp){var bm=q('.m',bp);gsap.set(bm,{opacity:0,y:16});
+   var bt=gsap.timeline({scrollTrigger:{trigger:'.book',start:'top 70%',end:'bottom 70%',scrub:.5}});bm.forEach(function(m,i){bt.to(m,{opacity:1,y:0,duration:.3},i*.4)})}
+ // numero di telefono a contachilometri
+ q('.odo').forEach(function(o){gsap.fromTo(o.querySelectorAll('.d>span'),{y:0,yPercent:function(i){return -((i*3)%5)*10}},{yPercent:-90,duration:1.8,ease:'expo.out',stagger:.05,scrollTrigger:{trigger:o,start:'top 88%'}})});
+ addEventListener('umbra:intro-done',function(){ScrollTrigger.refresh()});addEventListener('load',function(){ScrollTrigger.refresh()});
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+</script>
+</body></html>
